@@ -1,0 +1,39 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Just Another Blog'
+theme = "hugo-geekdoc"
+
+# Required to get well formatted code blocks
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+disablePathToLower = true
+enableGitInfo = false
+
+# Required if you want to render robots.txt template
+enableRobotsTXT = true
+
+[markup]
+  [markup.goldmark.renderer]
+    # Needed for mermaid shortcode
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 9
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  geekdocToC = 3
+  geekdocCollapseAllSections = false
+  geekdocBreadcrumb = true
+  geekdocDarkModeDim = true
+  geekdocTagsToMenu = true
+  geekdocLogo = "bio-photo.jpg"
+
+  # Possible options are 'title', 'linktitle', 'date', 'publishdate', 'expirydate' or 'lastmod'.
+  geekdocFileTreeSortBy = "title"
+
+  custom_css = ["static/custom.css"]
+
+
