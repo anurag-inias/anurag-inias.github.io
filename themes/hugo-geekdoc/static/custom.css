@@ -1,8 +1,8 @@
 /* You can add custom styles here. */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Source+Code+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Source+Code+Pro:wght@400;500;600&display=swap');
 
 body {
-  font-family: Quicksand, sans-serif;
+  font-family: 'Google Sans', sans-serif;
 }
 
 code, :root .chroma code {
