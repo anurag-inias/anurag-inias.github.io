@@ -38,8 +38,9 @@ This extends to a _D-ary heap_ as well:
 ## Implementation
 Here is an implementation of a d-ary heap in Java:
 
-```Java
-
+{{< tabs "d-ary-heap" >}}
+{{< tab "Implementation" >}}
+{{< highlight Java "linenos=table" >}}
 public class MaxHeap {
 
   private static final int DEFAULT_CAPACITY = 32;
@@ -141,11 +142,12 @@ public class MaxHeap {
     items[j] = t;
   }
 
-}
-```
+} 
+{{< /highlight >}}
+{{< /tab >}}
 
-{{< expand "Unit tests" >}}
-```Java
+{{< tab "Unit Test" >}}
+{{< highlight Java "linenos=table" >}}
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.Test;
@@ -221,8 +223,10 @@ class MaxHeapTest {
     assertThrows(IndexOutOfBoundsException.class, heap::pop);
   }
 }
-```
-{{< /expand >}}
+{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
+
 
 ## Running time
 - Both `heapifyUp` and `heapifyDown` have time complexity of {{< katex >}} O(log_D(n)) {{< /katex >}}.
