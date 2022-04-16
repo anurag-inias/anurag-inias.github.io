@@ -1,1 +1,11 @@
 /* You can add custom styles here. */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+body {
+  font-family: Quicksand, sans-serif;
+}
+
+code, :root .chroma code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.8em;
+}

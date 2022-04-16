@@ -13,7 +13,7 @@
       <pubDate>Sat, 16 Apr 2022 13:44:24 +0530</pubDate>
       
       <guid>https://anurag-inias.github.io/Data-Structures/d-way-heap/</guid>
-      <description>Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies a heap property:
+      <description>Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies the heap property:
  In a max-heap, heap property says that  \( parent ≥ child \)  . In a min-heap, heap property says that \( parent ≤ child \)  .  A complete tree is a binary tree where all levels, except possibly the last, are completely filled.</description>
     </item>
     

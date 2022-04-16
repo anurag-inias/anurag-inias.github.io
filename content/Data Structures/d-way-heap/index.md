@@ -12,7 +12,7 @@ resources:
 
 ## Introduction
 
-First some basics. A heap is a complete binary tree, where each node satisfies a ___heap property___:
+First some basics. A heap is a complete binary tree, where each node satisfies the ___heap property___:
 - In a _max-heap_, heap property says that {{< katex >}} parent ≥ child {{< /katex >}}.
 - In a _min-heap_, heap property says that {{< katex >}} parent ≤ child {{< /katex >}}.
 
@@ -30,9 +30,9 @@ Counterintuitively, heaps are best implemented on top of an array, and not as "c
 
 {{< img name="binary-heap" size="tiny" lazy=true >}}
 
-This extends to a _D-ary heap_ as well:
-- Parent node at index {{< katex >}} (i - 1) / D {{< /katex >}}.
-- Child nodes at {{< katex >}} \{ Di+1, Di+2, Di+3, ... Di+D \} {{< /katex >}}.
+This extends to a _d-ary heap_ as well:
+- Parent node at index {{< katex >}} (i - 1) / d {{< /katex >}}.
+- Child nodes at {{< katex >}} \{ di+1, di+2, di+3, ... di+d \} {{< /katex >}}.
 
 
 ## Implementation
@@ -229,13 +229,13 @@ class MaxHeapTest {
 
 
 ## Running time
-- Both `heapifyUp` and `heapifyDown` have time complexity of {{< katex >}} O(log_D(n)) {{< /katex >}}.
-- `heapify` will be called atmost {{< katex >}} n/2 {{< /katex >}} times, taking {{< katex >}} O(log_D(n)) {{< /katex >}} time in each iteration. However, note that sub-heaps are smaller down the tree. The actual complexity comes out to be {{< katex >}} O(n) {{< /katex >}}.
+- Both `heapifyUp` and `heapifyDown` have time complexity of {{< katex >}} O(log_dN) {{< /katex >}}.
+- `heapify` will be called atmost {{< katex >}} N/2 {{< /katex >}} times, taking {{< katex >}} O(log_dN) {{< /katex >}} time in each iteration. However, note that sub-heaps are smaller down the tree. The actual complexity comes out to be {{< katex >}} O(N) {{< /katex >}}.
 
 ## Miscellaneous
 
 Since I keep forgetting it
 
 {{< katex display >}}
-  log_b(a) = \frac{log_c(a)}{log_c(b)}
+  log_ba = \frac{log_ca}{log_cb}
 {{< /katex >}}

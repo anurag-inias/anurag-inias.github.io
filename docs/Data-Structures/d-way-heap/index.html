@@ -9,7 +9,7 @@
 <meta name="generator" content="Hugo 0.97.0" />
 
 
-  <meta name="description" content="Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies a heap property:
+  <meta name="description" content="Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies the heap property:
  In a max-heap, heap property says that  \( parent ≥ child \)  . In a min-heap, heap property says that \( parent ≤ child \)  .  A complete tree is a binary tree where all levels, except possibly the last, are completely filled." />
 
     <title>d-way Heap | Just Another Blog</title>
@@ -36,7 +36,7 @@
     content="d-way Heap"
   />
   <meta property="og:site_name" content="Just Another Blog" />
-  <meta property="og:description" content="Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies a heap property:
+  <meta property="og:description" content="Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies the heap property:
  In a max-heap, heap property says that  \( parent ≥ child \)  . In a min-heap, heap property says that \( parent ≤ child \)  .  A complete tree is a binary tree where all levels, except possibly the last, are completely filled." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anurag-inias.github.io/Data-Structures/d-way-heap/" />
@@ -54,7 +54,7 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="d-way Heap" />
-  <meta name="twitter:description" content="Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies a heap property:
+  <meta name="twitter:description" content="Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies the heap property:
  In a max-heap, heap property says that  \( parent ≥ child \)  . In a min-heap, heap property says that \( parent ≤ child \)  .  A complete tree is a binary tree where all levels, except possibly the last, are completely filled." />
 
 
@@ -66,7 +66,7 @@
       "name": "d-way Heap",
       "url" : "https://anurag-inias.github.io/Data-Structures/d-way-heap/",
       "headline": "d-way Heap",
-      "description": "Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies a heap property:\n In a max-heap, heap property says that  \\( parent ≥ child \\)  . In a min-heap, heap property says that \\( parent ≤ child \\)  .  A complete tree is a binary tree where all levels, except possibly the last, are completely filled.",
+      "description": "Introduction Implementation Running time Miscellaneous      Introduction     First some basics. A heap is a complete binary tree, where each node satisfies the heap property:\n In a max-heap, heap property says that  \\( parent ≥ child \\)  . In a min-heap, heap property says that \\( parent ≤ child \\)  .  A complete tree is a binary tree where all levels, except possibly the last, are completely filled.",
       "wordCount" : "1010",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -599,7 +599,7 @@
         </a>
     </h2>
 </div>
-<p>First some basics. A heap is a complete binary tree, where each node satisfies a <em><strong>heap property</strong></em>:</p>
+<p>First some basics. A heap is a complete binary tree, where each node satisfies the <em><strong>heap property</strong></em>:</p>
 <ul>
 <li>In a <em>max-heap</em>, heap property says that 
 
@@ -707,14 +707,14 @@
   </div>
 
 
-<p>This extends to a <em>D-ary heap</em> as well:</p>
+<p>This extends to a <em>d-ary heap</em> as well:</p>
 <ul>
 <li>Parent node at index 
 
 
 
 <span class="gdoc-katex ">
-  \( (i - 1) / D \)
+  \( (i - 1) / d \)
 </span>
 .</li>
 <li>Child nodes at 
@@ -722,7 +722,7 @@
 
 
 <span class="gdoc-katex ">
-  \( \{ Di&#43;1, Di&#43;2, Di&#43;3, ... Di&#43;D \} \)
+  \( \{ di&#43;1, di&#43;2, di&#43;3, ... di&#43;d \} \)
 </span>
 .</li>
 </ul>
@@ -1152,7 +1152,7 @@
 
 
 <span class="gdoc-katex ">
-  \( O(log_D(n)) \)
+  \( O(log_dN) \)
 </span>
 .</li>
 <li><code>heapify</code> will be called atmost 
@@ -1160,21 +1160,21 @@
 
 
 <span class="gdoc-katex ">
-  \( n/2 \)
+  \( N/2 \)
 </span>
  times, taking 
 
 
 
 <span class="gdoc-katex ">
-  \( O(log_D(n)) \)
+  \( O(log_dN) \)
 </span>
  time in each iteration. However, note that sub-heaps are smaller down the tree. The actual complexity comes out to be 
 
 
 
 <span class="gdoc-katex ">
-  \( O(n) \)
+  \( O(N) \)
 </span>
 .</li>
 </ul>
@@ -1192,7 +1192,7 @@
 
 
 <span class="gdoc-katex ">
-  \[  log_b(a) = \frac{log_c(a)}{log_c(b)}\]
+  \[  log_ba = \frac{log_ca}{log_cb}\]
 </span>
 
 
