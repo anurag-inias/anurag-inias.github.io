@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://anurag-inias.github.io'
 languageCode = 'en-us'
 title = 'Just Another Blog'
 theme = "hugo-geekdoc"
