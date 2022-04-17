@@ -282,6 +282,7 @@ Here I'm running `push` method on heaps of different arity for same set of input
   }
 {{< /highlight >}}
 {{< /tab >}}
+{{< /tabs >}}
 
 ## Miscellaneous
 
