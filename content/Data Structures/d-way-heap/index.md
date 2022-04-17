@@ -239,3 +239,54 @@ Since I keep forgetting it
 {{< katex display >}}
   log_ba = \frac{log_ca}{log_cb}
 {{< /katex >}}
+
+## Benchmark
+
+Now we compare the relative time complexity of heaps with different arity. For reference I'm using _Ryzen 5900HX_ and 16 GiB of RAM. What I see here is diminishing returns after 5-arity.
+
+{{< heap-benchmark >}}
+
+{{< tabs "benchmark" >}}
+{{< tab "Code change" >}}
+
+I'll not measure the actual time for operations, but instead use a `counter` to track the number of primitive operations. Just updating the following two methods is enough:
+
+{{< highlight Java "linenos=table" >}}
+  private void swap(int i, int j) {
+    counter++;
+    // -- snip --
+  }
+
+  private void resize() {
+    counter += items.length;
+    // -- snip --
+  }
+{{< /highlight >}}
+{{< /tab >}}
+{{< tab "Benchmark" >}}
+
+Here I'm running `push` method on heaps of different arity for same set of inputs. The resultant count of `operations` is exported to be shown on this page. 
+
+{{< highlight Java "linenos=table" >}}
+  public void benchmarkPush() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("['Size'");
+    for (int arity = 2; arity <= 8; arity++)
+      sb.append(String.format(",'%d-way'", arity));
+    sb.append(']');
+
+    for (int size: Arrays.asList(10, 100, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 50000, 100000)) {
+      sb.append(String.format(",\n[%d", size));
+      List<Integer> nums = ThreadLocalRandom.current().ints(size, 0, size/2).boxed().toList();
+
+      for (int arity = 2; arity <= 8; arity++) {
+        MaxHeap heap = new MaxHeap(1, arity);
+        nums.forEach(heap::push);
+        sb.append(',').append(heap.getCounter());
+      }
+      sb.append(']');
+    }
+    System.out.println(sb);
+  }
+{{< /highlight >}}
+{{< /tab >}}

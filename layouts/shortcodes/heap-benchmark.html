@@ -1,0 +1,53 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  var options = {
+      title: 'Time Complexity - Push',
+      curveType: 'function',
+      height: 600,
+      legend: { position: 'right' },
+      vAxis: { title: 'Steps' },
+      hAxis: { title: 'Heap Size' }
+    };
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','2-way','3-way','4-way','5-way','6-way','7-way','8-way'],
+      [10,32,31,30,30,30,29,29],
+      [100,349,298,284,279,269,264,266],
+      [1000,3267,2747,2550,2457,2399,2357,2314],
+      [2000,6518,5484,5153,4925,4798,4682,4647],
+      [3000,10879,9250,8762,8396,8193,8063,7998],
+      [4000,13105,10930,10257,9835,9574,9390,9278],
+      [5000,19644,16871,15941,15434,15072,14865,14696],
+      [6000,21903,18760,17462,16850,16502,16182,16013],
+      [7000,24003,20208,18926,18252,17813,17511,17216],
+      [8000,26559,22214,20676,19788,19233,18884,18626],
+      [9000,36898,32102,30305,29388,28794,28365,28058],
+      [10000,39265,33794,31812,30828,30161,29735,29409],
+      [50000,179652,152341,142875,137859,134399,132007,130345],
+      [100000,359291,304949,285630,275336,268875,264384,260709]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+    chart.draw(data, options);
+  }
+
+  function toggleLogScale() {
+    const btn = document.getElementById('chartScaleButton');
+    if (options.hAxis.scaleType == 'log') {
+      delete options.hAxis['scaleType'];
+      btn.innerText = 'Switch to linear scale';
+    } else {
+      options.hAxis.scaleType = 'log';
+      btn.innerText = 'Switch to log scale';
+    }
+    drawChart();
+  }
+</script>
+
+<button onclick="toggleLogScale();" id="chartScaleButton">Switch to log scale</button>
+<div id="curve_chart"></div>
