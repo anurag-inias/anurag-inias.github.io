@@ -201,16 +201,16 @@ public void trackDepth() {
 
 {{< merge-sort-plot >}}
 
-These turn out to be as expected if we look at the merge-sort visualization.
+Let's keep the merge-sort visualization from wikipedia in mind.
 
 {{< img name="merge-sort-diagram" size="tiny" lazy=true >}}
 
-There are no _intermediate_ steps in the first-half of the recusion tree where any meaningful work can happen. Merge-sort repeatedly calls itself on smaller and smaller chunks of array and dips all the way to {{< katex >}} \lceil O(log_2(1000)) \rceil = 10 {{< /katex >}} depth. That's where leaf nodes (i.e. base case) of our recursion tree are.
-
-Next look at the graph of extra space merge-sort is consuming in its execution. Look at extra memory allocated at each depth:
-- depth 1: `N`
-- depth 2: `N/2`
-- depth 3: `N/4`
+First note that the merge-sort begins with a successive recursive calls, each one on a smaller chunk of the subarray:
+- depth 1: Copies both halves of the array, thus taking up `N` space.
+- depth 2: Copies both halves of the left subarray, taking up `N/2` space.
+- depth 3: `N/4` space.
 - and so on.
 
-That't the convergent geometric series {{< katex >}} 1 + \frac{1}{2} + \frac{1}{4} + ... = 2 {{< /katex >}}. We see minor dips once the smallest copies (of size `1` and `2`) are merged, however the extra `2xN` space will continue to be occupied throughout the algorithm's run.
+Recall that it's the convergent geometric series {{< katex >}} 1 + \frac{1}{2} + \frac{1}{4} + ... = 2 {{< /katex >}}. Makes sense that our memory graph jump straight to {{< katex >}} 2 \times N {{< /katex >}} range. Note the large drop in memory to just {{< katex >}} N {{< /katex >}} extra space halfway through the execution. That's the left subarray sorted with no smaller subarray copies in memory yet.
+
+Next look at the graph of recursion depth. We jump straight to  {{< katex >}} \lceil O(log_2(1000)) \rceil = 10 {{< /katex >}} depth. Once the leaf nodes (i.e. base case) of recursion tree is reached, that's when we see first drops in depth. Similar to memory graph, there's a large drop to depth `2` halfway through. That's when left subarray is sorted and right subarray is next in line. 

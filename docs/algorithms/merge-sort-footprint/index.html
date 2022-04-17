@@ -67,7 +67,7 @@ So I first write my own merge-sort, and hook up some counters and gauges for tra
       "url" : "https://anurag-inias.github.io/algorithms/merge-sort-footprint/",
       "headline": "Merge-sort Memory Footprint",
       "description": "Background Implementation Memory Footprint      Background     Every book on algorithms and data-structures covers merge-sort algorithms. It has an  \\( O(logN) \\)  time complexity and \\( O(N) \\)  space complexity. But there are two interesting properties I want to explore which I haven’t seen covered: recursion depth and memory footprint.\nSo I first write my own merge-sort, and hook up some counters and gauges for tracking:",
-      "wordCount" : "4061",
+      "wordCount" : "4104",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -4234,7 +4234,7 @@ So I first write my own merge-sort, and hook up some counters and gauges for tra
 
 <div id="memory_chart"></div>
 <div id="recursion_chart"></div>
-<p>These turn out to be as expected if we look at the merge-sort visualization.</p>
+<p>Let&rsquo;s keep the merge-sort visualization from wikipedia in mind.</p>
 
 
 
@@ -4276,29 +4276,43 @@ So I first write my own merge-sort, and hook up some counters and gauges for tra
   </div>
 
 
-<p>There are no <em>intermediate</em> steps in the first-half of the recusion tree where any meaningful work can happen. Merge-sort repeatedly calls itself on smaller and smaller chunks of array and dips all the way to 
-
-
-
-<span class="gdoc-katex ">
-  \( \lceil O(log_2(1000)) \rceil = 10 \)
-</span>
- depth. That&rsquo;s where leaf nodes (i.e. base case) of our recursion tree are.</p>
-<p>Next look at the graph of extra space merge-sort is consuming in its execution. Look at extra memory allocated at each depth:</p>
+<p>First note that the merge-sort begins with a successive recursive calls, each one on a smaller chunk of the subarray:</p>
 <ul>
-<li>depth 1: <code>N</code></li>
-<li>depth 2: <code>N/2</code></li>
-<li>depth 3: <code>N/4</code></li>
+<li>depth 1: Copies both halves of the array, thus taking up <code>N</code> space.</li>
+<li>depth 2: Copies both halves of the left subarray, taking up <code>N/2</code> space.</li>
+<li>depth 3: <code>N/4</code> space.</li>
 <li>and so on.</li>
 </ul>
-<p>That&rsquo;t the convergent geometric series 
+<p>Recall that it&rsquo;s the convergent geometric series 
 
 
 
 <span class="gdoc-katex ">
   \( 1 &#43; \frac{1}{2} &#43; \frac{1}{4} &#43; ... = 2 \)
 </span>
-. We see minor dips once the smallest copies (of size <code>1</code> and <code>2</code>) are merged, however the extra <code>2xN</code> space will continue to be occupied throughout the algorithm&rsquo;s run.</p>
+. Makes sense that our memory graph jump straight to 
+
+
+
+<span class="gdoc-katex ">
+  \( 2 \times N \)
+</span>
+ range. Note the large drop in memory to just 
+
+
+
+<span class="gdoc-katex ">
+  \( N \)
+</span>
+ extra space halfway through the execution. That&rsquo;s the left subarray sorted with no smaller subarray copies in memory yet.</p>
+<p>Next look at the graph of recursion depth. We jump straight to  
+
+
+
+<span class="gdoc-katex ">
+  \( \lceil O(log_2(1000)) \rceil = 10 \)
+</span>
+ depth. Once the leaf nodes (i.e. base case) of recursion tree is reached, that&rsquo;s when we see first drops in depth. Similar to memory graph, there&rsquo;s a large drop to depth <code>2</code> halfway through. That&rsquo;s when left subarray is sorted and right subarray is next in line.</p>
 
   </article>
 
