@@ -40,10 +40,10 @@
     const btn = document.getElementById('chartScaleButton');
     if (options.hAxis.scaleType == 'log') {
       delete options.hAxis['scaleType'];
-      btn.innerText = 'Switch to linear scale';
+      btn.innerText = 'Switch to log scale';
     } else {
       options.hAxis.scaleType = 'log';
-      btn.innerText = 'Switch to log scale';
+      btn.innerText = 'Switch to linear scale';
     }
     drawChart();
   }
