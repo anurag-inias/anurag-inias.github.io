@@ -232,14 +232,6 @@ class MaxHeapTest {
 - Both `heapifyUp` and `heapifyDown` have time complexity of {{< katex >}} O(log_dN) {{< /katex >}}.
 - `heapify` will be called atmost {{< katex >}} N/2 {{< /katex >}} times, taking {{< katex >}} O(log_dN) {{< /katex >}} time in each iteration. However, note that sub-heaps are smaller down the tree. The actual complexity comes out to be {{< katex >}} O(N) {{< /katex >}}.
 
-## Miscellaneous
-
-Since I keep forgetting it
-
-{{< katex display >}}
-  log_ba = \frac{log_ca}{log_cb}
-{{< /katex >}}
-
 ## Benchmark
 
 Now we compare the relative time complexity of heaps with different arity. For reference I'm using _Ryzen 5900HX_ and 16 GiB of RAM. What I see here is diminishing returns after 5-arity.
@@ -290,3 +282,11 @@ Here I'm running `push` method on heaps of different arity for same set of input
   }
 {{< /highlight >}}
 {{< /tab >}}
+
+## Miscellaneous
+
+Since I keep forgetting it
+
+{{< katex display >}}
+  log_ba = \frac{log_ca}{log_cb}
+{{< /katex >}}
