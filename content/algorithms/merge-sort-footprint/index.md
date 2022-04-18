@@ -1,5 +1,5 @@
 ---
-title: "Merge-sort Memory Footprint"
+title: "Merge-sort footprint"
 date: 2022-04-17T17:24:41+05:30
 
 resources:
