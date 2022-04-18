@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Just Another Blog</title>
+    <title>Raspberry Pi on Just Another Blog</title>
     <link>https://anurag-inias.github.io/raspberry-pi/</link>
-    <description>Recent content on Just Another Blog</description>
+    <description>Recent content in Raspberry Pi on Just Another Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Oct 2021 13:44:24 +0530</lastBuildDate><atom:link href="https://anurag-inias.github.io/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />

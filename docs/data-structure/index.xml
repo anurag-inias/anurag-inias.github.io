@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Just Another Blog</title>
+    <title>Data Structures on Just Another Blog</title>
     <link>https://anurag-inias.github.io/data-structure/</link>
-    <description>Recent content on Just Another Blog</description>
+    <description>Recent content in Data Structures on Just Another Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 16 Apr 2022 13:44:24 +0530</lastBuildDate><atom:link href="https://anurag-inias.github.io/data-structure/index.xml" rel="self" type="application/rss+xml" />

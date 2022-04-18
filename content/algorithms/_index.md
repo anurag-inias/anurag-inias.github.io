@@ -1,3 +1,4 @@
 ---
+title: "Algorithms"
 ---
 {{< toc-tree >}}
