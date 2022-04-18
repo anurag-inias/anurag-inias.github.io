@@ -6,7 +6,17 @@
     <description>Recent content on Just Another Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Apr 2022 17:24:41 +0530</lastBuildDate><atom:link href="https://anurag-inias.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Apr 2022 22:51:44 +0530</lastBuildDate><atom:link href="https://anurag-inias.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tree Printing</title>
+      <link>https://anurag-inias.github.io/snippets/tree-printing/</link>
+      <pubDate>Mon, 18 Apr 2022 22:51:44 +0530</pubDate>
+      
+      <guid>https://anurag-inias.github.io/snippets/tree-printing/</guid>
+      <description>Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
+Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb.append(value).append(&amp;#39;\n&amp;#39;); boolean hasLeft = left != null; boolean hasRight = right != null; if (hasLeft) { if (hasRight) sb.</description>
+    </item>
+    
     <item>
       <title>Merge-sort footprint</title>
       <link>https://anurag-inias.github.io/algorithms/merge-sort-footprint/</link>

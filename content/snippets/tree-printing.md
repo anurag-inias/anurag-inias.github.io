@@ -1,7 +1,6 @@
 ---
 title: "Tree Printing"
 date: 2022-04-18T22:51:44+05:30
-draft: true
 ---
 
 Often I need help visualizing a tree-like structure while debugging. Here is simple override to `toString` for pretty-printing:
