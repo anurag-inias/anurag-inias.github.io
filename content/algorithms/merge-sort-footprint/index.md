@@ -12,7 +12,7 @@ resources:
 
 ## Background
 
-Every book on algorithms and data-structures covers merge-sort algorithms. It has an {{< katex >}} O(logN) {{< /katex >}} time complexity and {{< katex >}} O(N) {{< /katex >}} space complexity. But there are two interesting properties I want to explore which I haven't seen covered: _recursion depth_ and _memory footprint_. 
+Every book on algorithms and data-structures covers merge-sort algorithms. It has an {{< katex >}} O(N\times logN) {{< /katex >}} time complexity and {{< katex >}} O(N) {{< /katex >}} space complexity. But there are two interesting properties I want to explore which I haven't seen covered: _recursion depth_ and _memory footprint_. 
 
 So I first write my own merge-sort, and hook up some counters and gauges for tracking:
 - the ticks/progress of the algorithm
