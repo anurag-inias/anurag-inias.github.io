@@ -9,8 +9,8 @@
 <meta name="generator" content="Hugo 0.97.0" />
 
 
-  <meta name="description" content="Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
-Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb." />
+  <meta name="description" content="Left-to-right print Top-to-bottom print  Tree Printer        Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
+Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String." />
 
     <title>Tree Printing | Just Another Blog</title>
 
@@ -36,8 +36,8 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
     content="Tree Printing"
   />
   <meta property="og:site_name" content="Just Another Blog" />
-  <meta property="og:description" content="Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
-Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb." />
+  <meta property="og:description" content="Left-to-right print Top-to-bottom print  Tree Printer        Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
+Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anurag-inias.github.io/snippets/tree-printing/" />
 
@@ -54,8 +54,8 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Tree Printing" />
-  <meta name="twitter:description" content="Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
-Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb." />
+  <meta name="twitter:description" content="Left-to-right print Top-to-bottom print  Tree Printer        Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
+Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String." />
 
 
   <script type="application/ld+json">
@@ -66,8 +66,8 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
       "name": "Tree Printing",
       "url" : "https://anurag-inias.github.io/snippets/tree-printing/",
       "headline": "Tree Printing",
-      "description": "Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:\nLeft-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb.",
-      "wordCount" : "1596",
+      "description": "Left-to-right print Top-to-bottom print  Tree Printer        Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:\nLeft-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.",
+      "wordCount" : "2221",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -757,7 +757,11 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
   <div class="gdoc-toc gdoc-toc__level--3">
     <nav id="TableOfContents"><ul>
         <li><a href="#left-to-right-print">Left-to-right print</a></li>
-        <li><a href="#top-to-bottom-print">Top-to-bottom print</a></li>
+        <li><a href="#top-to-bottom-print">Top-to-bottom print</a>
+          <ul>
+            <li><a href="#tree-printer">Tree Printer</a></li>
+          </ul>
+        </li>
       </ul></nav>
     <hr />
   </div>
@@ -1665,6 +1669,326 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
     5            13─┐                                                             
                     16                                                            
 </pre>
+
+    </div>
+  
+</div>
+
+<div class="gdoc-page__anchorwrap">
+    <h3 id="tree-printer">
+        Tree Printer
+        <a data-clipboard-text="https://anurag-inias.github.io/snippets/tree-printing/#tree-printer" class="gdoc-page__anchor gdoc-page__anchor--right clip" title="Anchor to: Tree Printer" aria-label="Anchor to: Tree Printer" href="#tree-printer">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The logic for printing the tree can be extracted to a helper class. This can be used to print any binary tree-like data structure.</p>
+
+
+
+
+
+<div class="gdoc-tabs">
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-tree-printer-class"
+      id="tabs-tree-printer-class-0"
+      checked="checked"
+    />
+    <label for="tabs-tree-printer-class-0" class="gdoc-tabs__label">
+      Implementation
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.function.Supplier</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryTreePrinter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">BinaryTreePrinterBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">self</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">self</span> <span class="o">=</span> <span class="n">self</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">left</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">left</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">right</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">build</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">self</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">new</span> <span class="n">BinaryTreePrinter</span><span class="o">&lt;&gt;(</span><span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="nf">BinaryTreePrinter</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">,</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">left</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">self</span> <span class="o">=</span> <span class="n">self</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">BinaryTreePrinterBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">newBuilder</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="n">BinaryTreePrinterBuilder</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">printToString</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">self</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">self</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">left</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">right</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">boolean</span> <span class="n">hasLeft</span> <span class="o">=</span> <span class="o">!</span><span class="n">left</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">boolean</span> <span class="n">hasRight</span> <span class="o">=</span> <span class="o">!</span><span class="n">right</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(!</span><span class="n">hasLeft</span>  <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">hasRight</span><span class="o">)</span> <span class="k">return</span> <span class="n">self</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Build the first row. Here we have the root of this node.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">hasLeft</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">String</span> <span class="n">leftRoot</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">)[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">dashes</span> <span class="o">=</span> <span class="n">findRootOffset</span><span class="o">(</span><span class="n">leftRoot</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">spaces</span> <span class="o">=</span> <span class="n">leftRoot</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">dashes</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">spaces</span><span class="o">)).</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;┌&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;─&#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">dashes</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">self</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">hasRight</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">String</span> <span class="n">rightRoot</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">)[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">dashes</span> <span class="o">=</span> <span class="n">findRootOffset</span><span class="o">(</span><span class="n">rightRoot</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">spaces</span> <span class="o">=</span> <span class="n">rightRoot</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">dashes</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;─&#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">dashes</span><span class="o">)).</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;┐&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">spaces</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Add the following rows which have the left and right subtree in them.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">extra</span> <span class="o">=</span> <span class="o">(</span><span class="n">hasLeft</span> <span class="o">&amp;&amp;</span> <span class="n">hasRight</span><span class="o">)</span> <span class="o">?</span> <span class="n">2</span> <span class="o">:</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mergeSubtreeStrings</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">self</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">extra</span><span class="o">,</span> <span class="n">sb</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isLeaf</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">!</span><span class="n">left</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">right</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isIgnoredChar</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;┌&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;─&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;┐&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findRootOffset</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">fromLeft</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">fromLeft</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">isIgnoredChar</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">offset</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">isIgnoredChar</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span> <span class="n">i</span><span class="o">--)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">offset</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">offset</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSubtreeStrings</span><span class="o">(</span><span class="n">String</span> <span class="n">left</span><span class="o">,</span> <span class="n">String</span> <span class="n">right</span><span class="o">,</span> <span class="kt">int</span> <span class="n">middlePadding</span><span class="o">,</span> <span class="n">StringBuilder</span> <span class="n">sb</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span><span class="o">[]</span> <span class="n">leftLines</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span><span class="o">[]</span> <span class="n">rightLines</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">maxWidth</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">leftLines</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span><span class="o">);</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">leftLines</span><span class="o">.</span><span class="na">length</span> <span class="o">?</span> <span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">:</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span> <span class="o">+=</span> <span class="n">middlePadding</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span> <span class="o">+=</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span> <span class="o">?</span> <span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">:</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">maxWidth</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxWidth</span><span class="o">,</span> <span class="n">width</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">leftLines</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">middlePadding</span> <span class="o">+</span> <span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">].</span><span class="na">length</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;\n&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">++]);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">middlePadding</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">++]);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">maxWidth</span> <span class="o">-</span> <span class="n">width</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">leftLines</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;\n&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">]).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">maxWidth</span> <span class="o">-</span> <span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">++].</span><span class="na">length</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;\n&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">maxWidth</span> <span class="o">-</span> <span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">].</span><span class="na">length</span><span class="o">())).</span><span class="na">append</span><span class="o">(</span><span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">++]);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-tree-printer-class"
+      id="tabs-tree-printer-class-1"
+      
+    />
+    <label for="tabs-tree-printer-class-1" class="gdoc-tabs__label">
+      Usage
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">BinaryTreePrinter</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">self</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">value</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">left</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">left</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">right</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">right</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">build</span><span class="o">().</span><span class="na">printToString</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
 
     </div>
   

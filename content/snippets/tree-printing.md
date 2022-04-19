@@ -443,3 +443,149 @@ class TreeNodeTest {
 </pre>
 {{< /tab >}}
 {{< /tabs >}}
+
+### Tree Printer
+
+The logic for printing the tree can be extracted to a helper class. This can be used to print any binary tree-like data structure.
+
+{{< tabs "tree-printer-class" >}}
+{{< tab "Implementation" >}}
+{{< highlight Java "linenos=table" >}}
+import java.util.function.Supplier;
+
+public class BinaryTreePrinter<T> {
+
+  public static class BinaryTreePrinterBuilder<T> {
+    private Supplier<String> self, left, right;
+
+    public BinaryTreePrinterBuilder<T> self(Supplier<String> self) {
+      this.self = self;
+      return this;
+    }
+
+    public BinaryTreePrinterBuilder<T> left(Supplier<String> left) {
+      this.left = left;
+      return this;
+    }
+
+    public BinaryTreePrinterBuilder<T> right(Supplier<String> right) {
+      this.right = right;
+      return this;
+    }
+
+    public BinaryTreePrinter<T> build() {
+      if (self == null || right == null || left == null) throw new IllegalArgumentException();
+      return new BinaryTreePrinter<>(self, left, right);
+    }
+  }
+
+  private final Supplier<String> self, left, right;
+
+  private BinaryTreePrinter(Supplier<String> self, Supplier<String> left,
+      Supplier<String> right) {
+    this.self = self;
+    this.left = left;
+    this.right = right;
+  }
+
+  public static <T> BinaryTreePrinterBuilder<T> newBuilder() {
+    return new BinaryTreePrinterBuilder<>();
+  }
+
+  public String printToString() {
+    String self = this.self.get();
+    String left = this.left.get();
+    String right = this.right.get();
+
+    boolean hasLeft = !left.isEmpty();
+    boolean hasRight = !right.isEmpty();
+    if (!hasLeft  && !hasRight) return self;
+
+    StringBuilder sb = new StringBuilder();
+    // Build the first row. Here we have the root of this node.
+    if (hasLeft) {
+      String leftRoot = left.split("\\n")[0];
+      int dashes = findRootOffset(leftRoot, false) + 1;
+      int spaces = leftRoot.length() - dashes;
+
+      sb.append(" ".repeat(spaces)).append('┌').append("─".repeat(dashes));
+    }
+    sb.append(self);
+    if (hasRight) {
+      String rightRoot = right.split("\\n")[0];
+      int dashes = findRootOffset(rightRoot, true) + 1;
+      int spaces = rightRoot.length() - dashes;
+
+      sb.append("─".repeat(dashes)).append('┐').append(" ".repeat(spaces));
+    }
+
+    // Add the following rows which have the left and right subtree in them.
+    int extra = (hasLeft && hasRight) ? 2 : 1;
+    mergeSubtreeStrings(left, right, self.length() + extra, sb);
+
+    return sb.toString();
+  }
+
+  private boolean isLeaf() {
+    return !left.get().isEmpty() && !right.get().isEmpty();
+  }
+
+  private static boolean isIgnoredChar(char c) {
+    return c == ' ' || c == '┌' || c == '─' || c == '┐' || c == '-';
+  }
+
+  private static int findRootOffset(String str, boolean fromLeft) {
+    int offset = 0;
+
+    if (fromLeft) {
+      for (int i = 0; i < str.length() && isIgnoredChar(str.charAt(i)); i++)
+        offset++;
+    } else {
+      for (int i = str.length()-1; i >= 0 && isIgnoredChar(str.charAt(i)); i--)
+        offset++;
+    }
+
+    return offset;
+  }
+
+  private static void mergeSubtreeStrings(String left, String right, int middlePadding, StringBuilder sb) {
+    String[] leftLines = left.split("\\n");
+    String[] rightLines = right.split("\\n");
+    int l = 0, r = 0;
+
+    int maxWidth = 0;
+    for (int i = 0; i < Math.max(leftLines.length, rightLines.length); i++) {
+      int width = l < leftLines.length ? leftLines[l].length() : 0;
+      width += middlePadding;
+      width += r < rightLines.length ? rightLines[r].length() : 0;
+      maxWidth = Math.max(maxWidth, width);
+    }
+
+    while (l < leftLines.length && r < rightLines.length) {
+      int width = leftLines[l].length() + middlePadding + rightLines[r].length();
+      sb.append('\n');
+      sb.append(leftLines[l++]);
+      sb.append(" ".repeat(middlePadding));
+      sb.append(rightLines[r++]);
+      sb.append(" ".repeat(maxWidth - width));
+    }
+    while (l < leftLines.length) sb.append('\n').append(leftLines[l]).append(" ".repeat(maxWidth - leftLines[l++].length()));
+    while (r < rightLines.length) sb.append('\n').append(" ".repeat(maxWidth - rightLines[r].length())).append(rightLines[r++]);
+  }
+
+}
+{{< /highlight >}}
+{{< /tab >}}
+{{< tab "Usage" >}}
+{{< highlight Java "linenos=table" >}}
+@Override
+public String toString() {
+  return BinaryTreePrinter.newBuilder()
+      .self(() -> String.valueOf(value))
+      .left(() -> left == null ? "" : left.toString())
+      .right(() -> right == null ? "" : right.toString())
+      .build().printToString();
+}
+{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
