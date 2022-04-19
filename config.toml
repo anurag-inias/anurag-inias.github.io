@@ -7,7 +7,7 @@ publishDir = 'docs'
 # Required to get well formatted code blocks
 pygmentsUseClasses = true
 pygmentsCodeFences = true
-disablePathToLower = true
+disablePathToLower = false
 enableGitInfo = false
 
 # Required if you want to render robots.txt template
