@@ -46,5 +46,15 @@ So I first write my own merge-sort, and hook up some counters and gauges for tra
       <description> Find device UUID.  $ blkid &amp;gt; /dev/sda1: LABEL=&amp;#34;External 2T&amp;#34; UUID=&amp;#34;40A1-F12E&amp;#34; TYPE=&amp;#34;exfat&amp;#34; .... Add an entry in /etc/fstab for mounting this device on boot.  UUID=40A1-F12E /mnt ext4 defaults 0 0 Finally confirm it that the changes are valid.  $ sudo mount -a </description>
     </item>
     
+    <item>
+      <title>Stack</title>
+      <link>https://anurag-inias.github.io/data-structure/stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://anurag-inias.github.io/data-structure/stack/</guid>
+      <description>Implementation Min-Stack      Stack is an abstract data type that serves as a collection of elements. It implements a last-in, first-out (LIFO) policy. Below are the two implementation of it in Java.
+Implementation     Array based  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48  import java.</description>
+    </item>
+    
   </channel>
 </rss>
