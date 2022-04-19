@@ -451,37 +451,34 @@ The logic for printing the tree can be extracted to a helper class. This can be 
 {{< tabs "tree-printer-class" >}}
 {{< tab "Implementation" >}}
 {{< highlight Java "linenos=table" >}}
-import java.util.function.Supplier;
-
 public class BinaryTreePrinter {
 
   public static class BinaryTreePrinterBuilder {
-    private Supplier<String> self, left, right;
+    private String self, left, right;
 
-    public BinaryTreePrinterBuilder self(Supplier<String> self) {
+    public BinaryTreePrinterBuilder self(String self) {
       this.self = self;
       return this;
     }
 
-    public BinaryTreePrinterBuilder left(Supplier<String> left) {
+    public BinaryTreePrinterBuilder left(String left) {
       this.left = left;
       return this;
     }
 
-    public BinaryTreePrinterBuilder right(Supplier<String> right) {
+    public BinaryTreePrinterBuilder right(String right) {
       this.right = right;
       return this;
     }
 
     public BinaryTreePrinter build() {
-      if (self == null || right == null || left == null) throw new IllegalArgumentException();
       return new BinaryTreePrinter(self, left, right);
     }
   }
 
-  private final Supplier<String> self, left, right;
+  private final String self, left, right;
 
-  private BinaryTreePrinter(Supplier<String> self, Supplier<String> left, Supplier<String> right) {
+  private BinaryTreePrinter(String self, String left, String right) {
     this.self = self;
     this.left = left;
     this.right = right;
@@ -492,10 +489,6 @@ public class BinaryTreePrinter {
   }
 
   public String printToString() {
-    String self = this.self.get();
-    String left = this.left.get();
-    String right = this.right.get();
-
     boolean hasLeft = !left.isEmpty();
     boolean hasRight = !right.isEmpty();
     if (!hasLeft && !hasRight) return self;
@@ -523,10 +516,6 @@ public class BinaryTreePrinter {
     mergeSubtreeStrings(left, right, self.length() + extra, sb);
 
     return sb.toString();
-  }
-
-  private boolean isLeaf() {
-    return !left.get().isEmpty() && !right.get().isEmpty();
   }
 
   private static boolean isIgnoredChar(char c) {

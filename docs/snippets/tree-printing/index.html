@@ -67,7 +67,7 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
       "url" : "https://anurag-inias.github.io/snippets/tree-printing/",
       "headline": "Tree Printing",
       "description": "Left-to-right print Top-to-bottom print  Tree Printer        Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:\nLeft-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.",
-      "wordCount" : "2223",
+      "wordCount" : "2174",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1815,50 +1815,36 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
 </span><span class="lnt">110
 </span><span class="lnt">111
 </span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.function.Supplier</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryTreePrinter</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryTreePrinter</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">BinaryTreePrinterBuilder</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span> <span class="nf">self</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span> <span class="nf">self</span><span class="o">(</span><span class="n">String</span> <span class="n">self</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">self</span> <span class="o">=</span> <span class="n">self</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span> <span class="nf">left</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">left</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span> <span class="nf">left</span><span class="o">(</span><span class="n">String</span> <span class="n">left</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span> <span class="nf">right</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinterBuilder</span> <span class="nf">right</span><span class="o">(</span><span class="n">String</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">BinaryTreePrinter</span> <span class="nf">build</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">self</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">new</span> <span class="n">BinaryTreePrinter</span><span class="o">(</span><span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">self</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="nf">BinaryTreePrinter</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">self</span><span class="o">,</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">left</span><span class="o">,</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="nf">BinaryTreePrinter</span><span class="o">(</span><span class="n">String</span> <span class="n">self</span><span class="o">,</span> <span class="n">String</span> <span class="n">left</span><span class="o">,</span> <span class="n">String</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">self</span> <span class="o">=</span> <span class="n">self</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
@@ -1869,10 +1855,6 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">printToString</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">self</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">self</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">left</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">right</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kt">boolean</span> <span class="n">hasLeft</span> <span class="o">=</span> <span class="o">!</span><span class="n">left</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">boolean</span> <span class="n">hasRight</span> <span class="o">=</span> <span class="o">!</span><span class="n">right</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(!</span><span class="n">hasLeft</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">hasRight</span><span class="o">)</span> <span class="k">return</span> <span class="n">self</span><span class="o">;</span>
@@ -1900,10 +1882,6 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
 </span></span><span class="line"><span class="cl">    <span class="n">mergeSubtreeStrings</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">self</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">extra</span><span class="o">,</span> <span class="n">sb</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isLeaf</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">!</span><span class="n">left</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">right</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isIgnoredChar</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
