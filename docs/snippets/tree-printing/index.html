@@ -9,8 +9,8 @@
 <meta name="generator" content="Hugo 0.97.0" />
 
 
-  <meta name="description" content="Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
-Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb.append(value).append(&#39;\n&#39;); boolean hasLeft = left != null; boolean hasRight = right != null; if (hasLeft) { if (hasRight) sb." />
+  <meta name="description" content="Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
+Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb." />
 
     <title>Tree Printing | Just Another Blog</title>
 
@@ -36,8 +36,8 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
     content="Tree Printing"
   />
   <meta property="og:site_name" content="Just Another Blog" />
-  <meta property="og:description" content="Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
-Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb.append(value).append(&#39;\n&#39;); boolean hasLeft = left != null; boolean hasRight = right != null; if (hasLeft) { if (hasRight) sb." />
+  <meta property="og:description" content="Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
+Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anurag-inias.github.io/snippets/tree-printing/" />
 
@@ -54,8 +54,8 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Tree Printing" />
-  <meta name="twitter:description" content="Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
-Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb.append(value).append(&#39;\n&#39;); boolean hasLeft = left != null; boolean hasRight = right != null; if (hasLeft) { if (hasRight) sb." />
+  <meta name="twitter:description" content="Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:
+Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb." />
 
 
   <script type="application/ld+json">
@@ -66,8 +66,8 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
       "name": "Tree Printing",
       "url" : "https://anurag-inias.github.io/snippets/tree-printing/",
       "headline": "Tree Printing",
-      "description": "Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:\nImplementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb.append(value).append(\u0027\\n\u0027); boolean hasLeft = left != null; boolean hasRight = right != null; if (hasLeft) { if (hasRight) sb.",
-      "wordCount" : "582",
+      "description": "Left-to-right print Top-to-bottom print      Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:\nLeft-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.valueOf(value); StringBuilder sb = new StringBuilder(); sb.",
+      "wordCount" : "1596",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -496,13 +496,10 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
             <input
               type="checkbox"
               
-                class="gdoc-nav__toggle" id="navtree-688c2363"
-                
+                class="hidden"
               
             />
             <label
-              
-                for="navtree-688c2363" class="flex justify-between"
               
             >
               
@@ -515,13 +512,6 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
                   </a>
                 </span>
               
-              
-                <svg class="icon toggle gdoc_keyboard_arrow_left">
-                  <use xlink:href="#gdoc_keyboard_arrow_left"></use>
-                </svg>
-                <svg class="icon toggle gdoc_keyboard_arrow_down">
-                  <use xlink:href="#gdoc_keyboard_arrow_down"></use>
-                </svg>
               
             </label>
 
@@ -566,7 +556,7 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
                     href="/raspberry-pi/mount-exfat-on-boot/"
                     class="gdoc-nav__entry"
                   >
-                    Mount exFAT external drive on boot
+                    Mount exFAT on boot
                   </a>
                 </span>
               
@@ -761,7 +751,27 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <h1>Tree Printing</h1>
-    <p>Often I need help visualizing a tree-like structure while debugging. Here is simple override to <code>toString</code> for pretty-printing:</p>
+    
+
+
+  <div class="gdoc-toc gdoc-toc__level--3">
+    <nav id="TableOfContents"><ul>
+        <li><a href="#left-to-right-print">Left-to-right print</a></li>
+        <li><a href="#top-to-bottom-print">Top-to-bottom print</a></li>
+      </ul></nav>
+    <hr />
+  </div>
+
+
+<p>Often I need help visualizing a tree-like structure while debugging. Here is simple override to <code>toString</code> for pretty-printing:</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="left-to-right-print">
+        Left-to-right print
+        <a data-clipboard-text="https://anurag-inias.github.io/snippets/tree-printing/#left-to-right-print" class="gdoc-page__anchor gdoc-page__anchor--right clip" title="Anchor to: Left-to-right print" aria-label="Anchor to: Left-to-right print" href="#left-to-right-print">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
 
 
 
@@ -772,11 +782,11 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
     <input
       type="radio"
       class="gdoc-tabs__control hidden"
-      name="tabs-pretty-print-tree"
-      id="tabs-pretty-print-tree-0"
+      name="tabs-tree-print-l-2-r"
+      id="tabs-tree-print-l-2-r-0"
       checked="checked"
     />
-    <label for="tabs-pretty-print-tree-0" class="gdoc-tabs__label">
+    <label for="tabs-tree-print-l-2-r-0" class="gdoc-tabs__label">
       Implementation
     </label>
     <div class="gdoc-markdown--nested gdoc-tabs__content">
@@ -834,11 +844,11 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
     <input
       type="radio"
       class="gdoc-tabs__control hidden"
-      name="tabs-pretty-print-tree"
-      id="tabs-pretty-print-tree-1"
+      name="tabs-tree-print-l-2-r"
+      id="tabs-tree-print-l-2-r-1"
       
     />
-    <label for="tabs-pretty-print-tree-1" class="gdoc-tabs__label">
+    <label for="tabs-tree-print-l-2-r-1" class="gdoc-tabs__label">
       Unit test
     </label>
     <div class="gdoc-markdown--nested gdoc-tabs__content">
@@ -1132,6 +1142,529 @@ Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override
 </span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
+
+    </div>
+  
+</div>
+
+<div class="gdoc-page__anchorwrap">
+    <h2 id="top-to-bottom-print">
+        Top-to-bottom print
+        <a data-clipboard-text="https://anurag-inias.github.io/snippets/tree-printing/#top-to-bottom-print" class="gdoc-page__anchor gdoc-page__anchor--right clip" title="Anchor to: Top-to-bottom print" aria-label="Anchor to: Top-to-bottom print" href="#top-to-bottom-print">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Previous version is just a handful of lines of codes but the printed tree is confusing to look at. Next version is for a more natural top-to-bottom tree:</p>
+
+
+
+
+
+<div class="gdoc-tabs">
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-tree-print-t-2-b"
+      id="tabs-tree-print-t-2-b-0"
+      checked="checked"
+    />
+    <label for="tabs-tree-print-t-2-b-0" class="gdoc-tabs__label">
+      Implementation
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isIgnoredChar</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;┌&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;─&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;┐&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findRootOffset</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">fromLeft</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">fromLeft</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">isIgnoredChar</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">offset</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">isIgnoredChar</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span> <span class="n">i</span><span class="o">--)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">offset</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">offset</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSubtreeStrings</span><span class="o">(</span><span class="n">String</span> <span class="n">left</span><span class="o">,</span> <span class="n">String</span> <span class="n">right</span><span class="o">,</span> <span class="kt">int</span> <span class="n">middlePadding</span><span class="o">,</span> <span class="n">StringBuilder</span> <span class="n">sb</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">String</span><span class="o">[]</span> <span class="n">leftLines</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">String</span><span class="o">[]</span> <span class="n">rightLines</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">maxWidth</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">leftLines</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span><span class="o">);</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">leftLines</span><span class="o">.</span><span class="na">length</span> <span class="o">?</span> <span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">:</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">width</span> <span class="o">+=</span> <span class="n">middlePadding</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">width</span> <span class="o">+=</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span> <span class="o">?</span> <span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">:</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">maxWidth</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxWidth</span><span class="o">,</span> <span class="n">width</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="o">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">leftLines</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">middlePadding</span> <span class="o">+</span> <span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">].</span><span class="na">length</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;\n&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">++]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">middlePadding</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">++]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">maxWidth</span> <span class="o">-</span> <span class="n">width</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="o">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">leftLines</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;\n&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">]).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">maxWidth</span> <span class="o">-</span> <span class="n">leftLines</span><span class="o">[</span><span class="n">l</span><span class="o">++].</span><span class="na">length</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="o">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">rightLines</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;\n&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">maxWidth</span> <span class="o">-</span> <span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">].</span><span class="na">length</span><span class="o">())).</span><span class="na">append</span><span class="o">(</span><span class="n">rightLines</span><span class="o">[</span><span class="n">r</span><span class="o">++]);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">isLeaf</span><span class="o">())</span> <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">String</span> <span class="n">self</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">String</span> <span class="n">left</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="k">this</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">String</span> <span class="n">right</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="k">this</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">boolean</span> <span class="n">hasLeft</span> <span class="o">=</span> <span class="o">!</span><span class="n">left</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">boolean</span> <span class="n">hasRight</span> <span class="o">=</span> <span class="o">!</span><span class="n">right</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Build the first row. Here we have the root of this node.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="o">(</span><span class="n">hasLeft</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">leftRoot</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">)[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">dashes</span> <span class="o">=</span> <span class="n">findRootOffset</span><span class="o">(</span><span class="n">leftRoot</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">spaces</span> <span class="o">=</span> <span class="n">leftRoot</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">dashes</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">spaces</span><span class="o">)).</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;┌&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;─&#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">dashes</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">self</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">hasRight</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">rightRoot</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\n&#34;</span><span class="o">)[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">dashes</span> <span class="o">=</span> <span class="n">findRootOffset</span><span class="o">(</span><span class="n">rightRoot</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">spaces</span> <span class="o">=</span> <span class="n">rightRoot</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">dashes</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;─&#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">dashes</span><span class="o">)).</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;┐&#39;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">spaces</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Add the following rows which have the left and right subtree in them.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">extra</span> <span class="o">=</span> <span class="o">(</span><span class="n">hasLeft</span> <span class="o">&amp;&amp;</span> <span class="n">hasRight</span><span class="o">)</span> <span class="o">?</span> <span class="n">2</span> <span class="o">:</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mergeSubtreeStrings</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">self</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">extra</span><span class="o">,</span> <span class="n">sb</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-tree-print-t-2-b"
+      id="tabs-tree-print-t-2-b-1"
+      
+    />
+    <label for="tabs-tree-print-t-2-b-1" class="gdoc-tabs__label">
+      Unit test
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">dev.justanotherblog.avl</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">TreeNodeTest</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testLeaf</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="s">&#34;10&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">10</span><span class="o">).</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testJustLeftChild</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">        ┌─10
+</span></span></span><span class="line"><span class="cl"><span class="s">      ┌─9  \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      8    \s&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">10</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">9</span><span class="o">),</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">root</span><span class="o">.</span><span class="na">getLeft</span><span class="o">().</span><span class="na">setLeft</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">8</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testJustRightChild</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">      10─┐\s
+</span></span></span><span class="line"><span class="cl"><span class="s">         19&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">10</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">19</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testBothChild</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">        ┌─10─┐\s
+</span></span></span><span class="line"><span class="cl"><span class="s">      123    45&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">10</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">123</span><span class="o">),</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">45</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testLeftChain</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">            ┌─5
+</span></span></span><span class="line"><span class="cl"><span class="s">          ┌─4 \s
+</span></span></span><span class="line"><span class="cl"><span class="s">        ┌─3   \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      ┌─2     \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      1       \s&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">5</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">2</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">1</span><span class="o">),</span> <span class="kc">null</span><span class="o">),</span> <span class="kc">null</span><span class="o">),</span> <span class="kc">null</span><span class="o">),</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testRightChain</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">      1─┐     \s
+</span></span></span><span class="line"><span class="cl"><span class="s">        2─┐   \s
+</span></span></span><span class="line"><span class="cl"><span class="s">          3─┐ \s
+</span></span></span><span class="line"><span class="cl"><span class="s">            4─┐
+</span></span></span><span class="line"><span class="cl"><span class="s">              5&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">1</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">2</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">5</span><span class="o">)))));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testBothChildWithLeftChain</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">            ┌─5─┐\s
+</span></span></span><span class="line"><span class="cl"><span class="s">          ┌─4   10
+</span></span></span><span class="line"><span class="cl"><span class="s">        ┌─3      \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      ┌─2        \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      1          \s&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">5</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">2</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">1</span><span class="o">),</span> <span class="kc">null</span><span class="o">),</span> <span class="kc">null</span><span class="o">),</span> <span class="kc">null</span><span class="o">),</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">10</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testBothChildWithRightChain</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">      ┌─1─┐     \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      0   2─┐   \s
+</span></span></span><span class="line"><span class="cl"><span class="s">            3─┐ \s
+</span></span></span><span class="line"><span class="cl"><span class="s">              4─┐
+</span></span></span><span class="line"><span class="cl"><span class="s">                5&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">1</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">2</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">5</span><span class="o">)))));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testPerfectTree</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">        ┌───4────┐  \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      ┌─2─┐    ┌─61─┐
+</span></span></span><span class="line"><span class="cl"><span class="s">      1   3   56    7&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">2</span><span class="o">),</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">61</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">root</span><span class="o">.</span><span class="na">getLeft</span><span class="o">().</span><span class="na">setLeft</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">1</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">root</span><span class="o">.</span><span class="na">getLeft</span><span class="o">().</span><span class="na">setRight</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">3</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">root</span><span class="o">.</span><span class="na">getRight</span><span class="o">().</span><span class="na">setLeft</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">56</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">root</span><span class="o">.</span><span class="na">getRight</span><span class="o">().</span><span class="na">setRight</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">7</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDoublePerfectTree</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">            ┌───────8─────────┐         \s
+</span></span></span><span class="line"><span class="cl"><span class="s">        ┌───4───┐        ┌────12────┐   \s
+</span></span></span><span class="line"><span class="cl"><span class="s">      ┌─2─┐   ┌─6─┐   ┌─10─┐      ┌─14─┐\s
+</span></span></span><span class="line"><span class="cl"><span class="s">      1   3   5   7   9    11    13    15&#34;&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">leftRoot</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">2</span><span class="o">),</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">6</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">leftRoot</span><span class="o">.</span><span class="na">getLeft</span><span class="o">().</span><span class="na">setLeft</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">1</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">leftRoot</span><span class="o">.</span><span class="na">getLeft</span><span class="o">().</span><span class="na">setRight</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">3</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">leftRoot</span><span class="o">.</span><span class="na">getRight</span><span class="o">().</span><span class="na">setLeft</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">5</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">leftRoot</span><span class="o">.</span><span class="na">getRight</span><span class="o">().</span><span class="na">setRight</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">7</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">rightRoot</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">12</span><span class="o">,</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">10</span><span class="o">),</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">14</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rightRoot</span><span class="o">.</span><span class="na">getLeft</span><span class="o">().</span><span class="na">setLeft</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">9</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rightRoot</span><span class="o">.</span><span class="na">getLeft</span><span class="o">().</span><span class="na">setRight</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">11</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rightRoot</span><span class="o">.</span><span class="na">getRight</span><span class="o">().</span><span class="na">setLeft</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">13</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rightRoot</span><span class="o">.</span><span class="na">getRight</span><span class="o">().</span><span class="na">setRight</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">15</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="n">8</span><span class="o">,</span> <span class="n">leftRoot</span><span class="o">,</span> <span class="n">rightRoot</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-tree-print-t-2-b"
+      id="tabs-tree-print-t-2-b-2"
+      
+    />
+    <label for="tabs-tree-print-t-2-b-2" class="gdoc-tabs__label">
+      Example trees
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <pre>
+    ┌─────────────8
+┌───1───────┐      
+0─┐   ┌─────7─┐    
+  0   2─┐     7─┐  
+        4─┐     7  
+          4        
+
+
+        ┌───────────────────14───────┐          
+    ┌───5───┐                   ┌────16─┐       
+┌───4─┐   ┌─6────────────┐     15─┐     16─┐    
+2─┐   4   5            ┌─12       15       19─┐ 
+  2             ┌─────10                      19
+              ┌─8─┐                             
+              6   8─┐                           
+                    9    
+
+                               ┌──────────────────────────────────────15─┐ 
+                  ┌───────────-2─────────────────────────────┐           18
+          ┌─────-13──────┐                        ┌──────────12────┐       
+      ┌─-16──┐        ┌─-9──┐              ┌─────10────┐         ┌─14      
+  ┌─-18     -15     -13    -5     ┌────────3───┐     ┌─11─┐     13         
+-19                              -1────┐     ┌─7    10    11               
+                                     ┌─1─┐   5                             
+                                    -1   1     
+
+                                             ┌───────────────────35──────────┐    
+                              ┌─────────────27───────┐               ┌───────37─┐ 
+        ┌────────────────────20────┐            ┌────29───────┐     35─┐        37
+┌───────8──────────────┐         ┌─26─┐        27─┐      ┌────33       35─┐       
+3─────┐     ┌──────────17─┐     24    26─┐        27    31─┐              35      
+  ┌───6   ┌─9─┐           19             26                32                     
+  4─┐     8   13─┐                                                                
+    5            13─┐                                                             
+                    16                                                            
+</pre>
 
     </div>
   

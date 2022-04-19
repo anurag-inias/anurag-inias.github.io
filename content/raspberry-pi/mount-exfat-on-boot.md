@@ -1,5 +1,5 @@
 ---
-title: "Mount exFAT external drive on boot"
+title: "Mount exFAT on boot"
 date: 2021-10-06T13:44:24+05:30
 ---
 
