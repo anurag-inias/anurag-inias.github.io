@@ -570,9 +570,9 @@ public class BinaryTreePrinter {
 @Override
 public String toString() {
   return BinaryTreePrinter.newBuilder()
-      .self(() -> String.valueOf(value))
-      .left(() -> left == null ? "" : left.toString())
-      .right(() -> right == null ? "" : right.toString())
+      .self(String.valueOf(value))
+      .left(left == null ? "" : left.toString())
+      .right(right == null ? "" : right.toString())
       .build().printToString();
 }
 {{< /highlight >}}

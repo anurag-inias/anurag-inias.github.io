@@ -67,7 +67,7 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
       "url" : "https://anurag-inias.github.io/snippets/tree-printing/",
       "headline": "Tree Printing",
       "description": "Left-to-right print Top-to-bottom print  Tree Printer        Often I need help visualizing a tree-like structure while debugging. Here is simple override to toString for pretty-printing:\nLeft-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  @Override public String toString() { if (isLeaf()) return String.",
-      "wordCount" : "2174",
+      "wordCount" : "2168",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1960,9 +1960,9 @@ Left-to-right print     Implementation  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1
 <pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">BinaryTreePrinter</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
-</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">self</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">value</span><span class="o">))</span>
-</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">left</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">left</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
-</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">right</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">right</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">self</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">value</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">left</span><span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">left</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">right</span><span class="o">(</span><span class="n">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">right</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
 </span></span><span class="line"><span class="cl">      <span class="o">.</span><span class="na">build</span><span class="o">().</span><span class="na">printToString</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
 </div>
