@@ -453,43 +453,42 @@ The logic for printing the tree can be extracted to a helper class. This can be 
 {{< highlight Java "linenos=table" >}}
 import java.util.function.Supplier;
 
-public class BinaryTreePrinter<T> {
+public class BinaryTreePrinter {
 
-  public static class BinaryTreePrinterBuilder<T> {
+  public static class BinaryTreePrinterBuilder {
     private Supplier<String> self, left, right;
 
-    public BinaryTreePrinterBuilder<T> self(Supplier<String> self) {
+    public BinaryTreePrinterBuilder self(Supplier<String> self) {
       this.self = self;
       return this;
     }
 
-    public BinaryTreePrinterBuilder<T> left(Supplier<String> left) {
+    public BinaryTreePrinterBuilder left(Supplier<String> left) {
       this.left = left;
       return this;
     }
 
-    public BinaryTreePrinterBuilder<T> right(Supplier<String> right) {
+    public BinaryTreePrinterBuilder right(Supplier<String> right) {
       this.right = right;
       return this;
     }
 
-    public BinaryTreePrinter<T> build() {
+    public BinaryTreePrinter build() {
       if (self == null || right == null || left == null) throw new IllegalArgumentException();
-      return new BinaryTreePrinter<>(self, left, right);
+      return new BinaryTreePrinter(self, left, right);
     }
   }
 
   private final Supplier<String> self, left, right;
 
-  private BinaryTreePrinter(Supplier<String> self, Supplier<String> left,
-      Supplier<String> right) {
+  private BinaryTreePrinter(Supplier<String> self, Supplier<String> left, Supplier<String> right) {
     this.self = self;
     this.left = left;
     this.right = right;
   }
 
-  public static <T> BinaryTreePrinterBuilder<T> newBuilder() {
-    return new BinaryTreePrinterBuilder<>();
+  public static BinaryTreePrinterBuilder newBuilder() {
+    return new BinaryTreePrinterBuilder();
   }
 
   public String printToString() {
@@ -499,7 +498,7 @@ public class BinaryTreePrinter<T> {
 
     boolean hasLeft = !left.isEmpty();
     boolean hasRight = !right.isEmpty();
-    if (!hasLeft  && !hasRight) return self;
+    if (!hasLeft && !hasRight) return self;
 
     StringBuilder sb = new StringBuilder();
     // Build the first row. Here we have the root of this node.
@@ -538,17 +537,16 @@ public class BinaryTreePrinter<T> {
     int offset = 0;
 
     if (fromLeft) {
-      for (int i = 0; i < str.length() && isIgnoredChar(str.charAt(i)); i++)
-        offset++;
+      for (int i = 0; i < str.length() && isIgnoredChar(str.charAt(i)); i++) offset++;
     } else {
-      for (int i = str.length()-1; i >= 0 && isIgnoredChar(str.charAt(i)); i--)
-        offset++;
+      for (int i = str.length() - 1; i >= 0 && isIgnoredChar(str.charAt(i)); i--) offset++;
     }
 
     return offset;
   }
 
-  private static void mergeSubtreeStrings(String left, String right, int middlePadding, StringBuilder sb) {
+  private static void mergeSubtreeStrings(
+      String left, String right, int middlePadding, StringBuilder sb) {
     String[] leftLines = left.split("\\n");
     String[] rightLines = right.split("\\n");
     int l = 0, r = 0;
@@ -569,8 +567,10 @@ public class BinaryTreePrinter<T> {
       sb.append(rightLines[r++]);
       sb.append(" ".repeat(maxWidth - width));
     }
-    while (l < leftLines.length) sb.append('\n').append(leftLines[l]).append(" ".repeat(maxWidth - leftLines[l++].length()));
-    while (r < rightLines.length) sb.append('\n').append(" ".repeat(maxWidth - rightLines[r].length())).append(rightLines[r++]);
+    while (l < leftLines.length)
+      sb.append('\n').append(leftLines[l]).append(" ".repeat(maxWidth - leftLines[l++].length()));
+    while (r < rightLines.length)
+      sb.append('\n').append(" ".repeat(maxWidth - rightLines[r].length())).append(rightLines[r++]);
   }
 
 }
