@@ -1,0 +1,89 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  google.charts.setOnLoadCallback(drawSelectChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','Bubble','Insertion','Heap','Merge','Quick'],
+      [10,13700,7300,16600,19000,724900],
+      [50,134800,44300,52000,43600,45400],
+      [100,290600,153800,122200,87900,115700],
+      [500,4577900,333100,621700,689800,832300],
+      [1000,1829900,1558000,339500,183500,266100],
+      [2000,9649700,907400,1070200,560400,781200],
+      [3000,6894600,1403600,743600,602100,435500],
+      [4000,11685200,2442200,1002200,803500,532100],
+      [5000,17737400,3752600,1244400,844700,596200],
+      [6000,30255300,5535200,1528500,1139500,713900],
+      [7000,35944900,7098500,1668000,1197900,792100],
+      [8000,43458500,12192800,2006700,1506100,971300],
+      [9000,60040200,18140700,3172000,2042300,1474900],
+      [10000,87326600,15659700,2917900,2492400,1676200],
+      [20000,514986500,73109600,5838800,10094300,3254400],
+      [30000,1480467900,123892600,5813800,5476800,3954600],
+      [40000,3008489700,220379100,7457700,7609800,5610700],
+      [50000,4838777800,370597700,8218500,9507200,7074100],
+      [60000,7209561000,498802600,10091700,11172000,8508900],
+      [70000,9929056000,693620500,12004200,13150400,10535000],
+      [80000,13453278200,921951800,14312400,15710900,12212900],
+      [90000,17209516800,1272089200,15856700,21489700,15610700],
+      [100000,21748311300,1500686300,18440200,22634000,15235900]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'Comparing all sorting algorithms',
+      curveType: 'function',
+      height: 400,
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Input Size' }
+    };
+    var chart = new google.visualization.LineChart(document.getElementById('full_chart'));
+    chart.draw(data, options);
+  }
+
+  function drawSelectChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','Heap','Merge','Quick'],
+      [10,22400,20600,841400],
+      [50,114300,58900,54000],
+      [100,130900,87800,170300],
+      [500,459400,476700,812300],
+      [1000,378400,204900,458000],
+      [2000,1072600,599800,732900],
+      [3000,1116600,762900,1125800],
+      [4000,1341600,1215400,1008300],
+      [5000,1517300,1010800,686500],
+      [6000,1471200,1276600,925500],
+      [7000,1894600,1622700,930700],
+      [8000,1997200,2278700,1244600],
+      [9000,2159000,2984300,1250200],
+      [10000,2394500,1938000,1192600],
+      [20000,4679500,3751400,2558100],
+      [30000,5954200,11850900,5293200],
+      [40000,7594200,7549500,5994500],
+      [50000,8554200,9715000,7043400],
+      [60000,11070700,14616200,9218100],
+      [70000,14290900,15223100,10153200],
+      [80000,16714500,15994200,13589500],
+      [90000,17478000,18199400,14876400],
+      [100000,17865700,25508700,15766100]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'Comparing - HeapSort, MergeSort and QuickSort',
+      curveType: 'function',
+      height: 400,
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Input Size' }
+    };
+    var chart = new google.visualization.LineChart(document.getElementById('select_chart'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="full_chart"></div>
+<div id="select_chart"></div>

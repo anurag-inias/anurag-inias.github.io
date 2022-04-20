@@ -47,6 +47,16 @@ So I first write my own merge-sort, and hook up some counters and gauges for tra
     </item>
     
     <item>
+      <title>Comparison Sorting</title>
+      <link>https://anurag-inias.github.io/algorithms/comparison-sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://anurag-inias.github.io/algorithms/comparison-sort/</guid>
+      <description>Benchmark Implementation      I wanted to compare just how fast or slow an  \( O(N^2) \)  sorting algorithm is compared to a \( O(N \times logN) \)  one. So here are the results that I found.
+Benchmark     BubbleSort is ridiculously slow, so much infact that in our first graph it&amp;rsquo;s hard to distinguish rest of the algorithms.</description>
+    </item>
+    
+    <item>
       <title>Hash Map</title>
       <link>https://anurag-inias.github.io/data-structure/map/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
