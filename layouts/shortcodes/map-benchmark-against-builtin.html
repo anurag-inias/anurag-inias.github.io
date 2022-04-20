@@ -1,0 +1,61 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawPutChart);
+  google.charts.setOnLoadCallback(drawGetChart);
+
+  function drawPutChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'Built-in', 'Custom'],
+      [10,343700,2876100],
+      [100,355900,890200],
+      [500,665300,1887300],
+      [1000,485700,2147200],
+      [2000,1207700,3427700],
+      [3000,962300,3964900],
+      [4000,1647200,11839900],
+      [5000,1493300,7500000],
+      [10000,2569500,9768500]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'put operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('put_against_builtin'));
+    chart.draw(data, options);
+  }
+
+  function drawGetChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'Built-in', 'Custom'],
+      [10,346300,306100],
+      [100,133500,162800],
+      [500,185400,360500],
+      [1000,197000,298400],
+      [2000,561400,738900],
+      [3000,737300,736600],
+      [4000,1201200,1025700],
+      [5000,769100,1184300],
+      [10000,2421000,2065200]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'get operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('get_against_builtin'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="put_against_builtin"></div>
+<div id="get_against_builtin"></div>

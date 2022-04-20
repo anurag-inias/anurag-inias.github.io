@@ -1,0 +1,61 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawPutArrayVsLLChart);
+  google.charts.setOnLoadCallback(drawGetArrayVsLLChart);
+
+  function drawPutArrayVsLLChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','Array','Linked List'],
+      [100,19326000,28888200],
+      [500,10084500,9152800],
+      [1000,9482900,6644800],
+      [2000,4509900,4787500],
+      [3000,6086500,11267300],
+      [4000,5435000,4053500],
+      [5000,3815600,3499400],
+      [10000,4906600,3357200],
+      [100000,4832500,3143100]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'put operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys', scaleType: 'log' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('put_array_vs_ll'));
+    chart.draw(data, options);
+  }
+
+  function drawGetArrayVsLLChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','Array','Linked List'],
+      [100,3792600,3119500],
+      [500,1041600,1049800],
+      [1000,1134300,1031200],
+      [2000,911600,222400],
+      [3000,262600,210500],
+      [4000,500900,968100],
+      [5000,472400,407100],
+      [10000,578600,433000],
+      [100000,464800,431900]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'get operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys', scaleType: 'log' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('get_array_vs_ll'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="put_array_vs_ll"></div>
+<div id="get_array_vs_ll"></div>

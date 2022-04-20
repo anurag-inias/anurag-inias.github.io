@@ -1,0 +1,32 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawLoadFactorChart);
+
+  function drawLoadFactorChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Size', '10%', '50%', '75%', '100%', '150%', '200%'],
+[1000,30701901,23736100,9497699,7135299,6131700,5219100],
+[2000,5057000,4846299,4177001,3469601,9531200,2912701],
+[3000,4375600,2174000,1889701,1692700,2133400,1816600],
+[4000,2639099,2385699,2661000,4079200,3488900,2817301],
+[5000,4568599,4010400,3322800,2721400,3288601,2734500],
+[10000,4651100,3861000,3212399,2895100,3468500,2841801],
+[100000,5073900,3956600,3184300,4051000,3607900,2976900]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'Load Factor',
+      curveType: 'function',
+      height: 600,
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys', scaleType: 'log' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('load_factor_chart'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="load_factor_chart"></div>

@@ -18,6 +18,16 @@
     </item>
     
     <item>
+      <title>Hash Map</title>
+      <link>https://anurag-inias.github.io/data-structure/map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://anurag-inias.github.io/data-structure/map/</guid>
+      <description>Introduction Implementation Benchmark      Introduction     First some definitions &amp;ndash; A map, symbol table, associative array or dictionary is an abstract data type that stores a collection of  \( (key, value) \)  pairs. Each \(key\)  appears atmost once. They are implemented mainly as either:
+ Hash table (also known as hash map) Self-balancing BST  A hash map uses a hash function to compute an index into an array of bucket/slots to either insert/lookup desired value.</description>
+    </item>
+    
+    <item>
       <title>Stack</title>
       <link>https://anurag-inias.github.io/data-structure/stack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
