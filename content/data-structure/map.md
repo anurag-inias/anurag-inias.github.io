@@ -313,7 +313,7 @@ public void benchmarkBuiltInGet() {
 public void benchmarkLoadFactor(){
   System.out.print("['Size', '10%', '50%', '75%', '100%', '150%', '200%']");
   for (int size : List.of(1000, 2000, 3000, 4000, 5000, 10000, 100000)) {
-    List<Integer> items = ThreadLocalRandom.current().ints(10000).boxed().toList();
+    List<Integer> items = ThreadLocalRandom.current().ints(size).boxed().toList();
     System.out.printf(",\n[%d", size);
 
     for (float factor: List.of(0.1f, 0.5f, 0.75f, 1.0f, 1.5f, 2.0f)) {
@@ -336,7 +336,7 @@ I first compare how this custom `HashMap` performs against the Java collection's
 
 {{< map-benchmark-against-builtin >}}
 
-Next I look what affect `loadFactor` has on map operations. The `200%` load factor gives the best performance, but not by a lot.
+Next I look what affect `loadFactor` has on map operations. The default `75%` load factor gives the best performance.
 
 {{< map-benchmark-load-factor >}}
 

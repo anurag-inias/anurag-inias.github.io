@@ -59,7 +59,7 @@
       "url" : "https://anurag-inias.github.io/data-structure/map/",
       "headline": "Hash Map",
       "description": "Introduction Implementation Benchmark      Introduction     First some definitions – A map, symbol table, associative array or dictionary is an abstract data type that stores a collection of  \\( (key, value) \\)  pairs. Each \\(key\\)  appears atmost once. They are implemented mainly as either:\n Hash table (also known as hash map) Self-balancing BST  A hash map uses a hash function to compute an index into an array of bucket\/slots to either insert\/lookup desired value.",
-      "wordCount" : "1966",
+      "wordCount" : "1960",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1543,7 +1543,7 @@
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">benchmarkLoadFactor</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&#34;[&#39;Size&#39;, &#39;10%&#39;, &#39;50%&#39;, &#39;75%&#39;, &#39;100%&#39;, &#39;150%&#39;, &#39;200%&#39;]&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">size</span> <span class="o">:</span> <span class="n">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">1000</span><span class="o">,</span> <span class="n">2000</span><span class="o">,</span> <span class="n">3000</span><span class="o">,</span> <span class="n">4000</span><span class="o">,</span> <span class="n">5000</span><span class="o">,</span> <span class="n">10000</span><span class="o">,</span> <span class="n">100000</span><span class="o">))</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="n">ThreadLocalRandom</span><span class="o">.</span><span class="na">current</span><span class="o">().</span><span class="na">ints</span><span class="o">(</span><span class="n">10000</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toList</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="n">ThreadLocalRandom</span><span class="o">.</span><span class="na">current</span><span class="o">().</span><span class="na">ints</span><span class="o">(</span><span class="n">size</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toList</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&#34;,\n[%d&#34;</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="kt">float</span> <span class="n">factor</span><span class="o">:</span> <span class="n">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">1f</span><span class="o">,</span> <span class="n">0</span><span class="o">.</span><span class="na">5f</span><span class="o">,</span> <span class="n">0</span><span class="o">.</span><span class="na">75f</span><span class="o">,</span> <span class="n">1</span><span class="o">.</span><span class="na">0f</span><span class="o">,</span> <span class="n">1</span><span class="o">.</span><span class="na">5f</span><span class="o">,</span> <span class="n">2</span><span class="o">.</span><span class="na">0f</span><span class="o">))</span> <span class="o">{</span>
@@ -1627,7 +1627,7 @@
 
 <div id="put_against_builtin"></div>
 <div id="get_against_builtin"></div>
-<p>Next I look what affect <code>loadFactor</code> has on map operations. The <code>200%</code> load factor gives the best performance, but not by a lot.</p>
+<p>Next I look what affect <code>loadFactor</code> has on map operations. The default <code>75%</code> load factor gives the best performance.</p>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
@@ -1635,14 +1635,14 @@
 
   function drawLoadFactorChart() {
     var data = google.visualization.arrayToDataTable([
-    ['Size', '10%', '50%', '75%', '100%', '150%', '200%'],
-[1000,30701901,23736100,9497699,7135299,6131700,5219100],
-[2000,5057000,4846299,4177001,3469601,9531200,2912701],
-[3000,4375600,2174000,1889701,1692700,2133400,1816600],
-[4000,2639099,2385699,2661000,4079200,3488900,2817301],
-[5000,4568599,4010400,3322800,2721400,3288601,2734500],
-[10000,4651100,3861000,3212399,2895100,3468500,2841801],
-[100000,5073900,3956600,3184300,4051000,3607900,2976900]
+      ['Size', '10%', '50%', '75%', '100%', '150%', '200%'],
+      [1000,7715200,1750600,1646200,1233200,986700,1126200],
+      [2000,3987000,2405900,4794900,2700500,8754500,3121600],
+      [3000,2730400,2309800,1617900,2186500,1612900,1770900],
+      [4000,3776600,2025900,4201100,2148800,2403500,2336200],
+      [5000,3244400,2551800,2557500,2593000,3391500,2940300],
+      [10000,7055100,12331700,3818200,3141900,3938600,3614100],
+      [100000,43936600,49827500,43819600,47715100,194787300,88591200]
     ]);
     data.addColumn({type: 'string', role: 'tooltip'});
     var options = {
@@ -1651,7 +1651,7 @@
       height: 600,
       legend: { position: 'right' },
       vAxis: { title: 'Nanoseconds' },
-      hAxis: { title: 'Number of keys', scaleType: 'log' }
+      hAxis: { title: 'Number of keys' }
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('load_factor_chart'));
@@ -1828,15 +1828,15 @@
   function drawPutArrayVsLLChart() {
     var data = google.visualization.arrayToDataTable([
       ['Size','Array','Linked List'],
-      [100,19326000,28888200],
-      [500,10084500,9152800],
-      [1000,9482900,6644800],
-      [2000,4509900,4787500],
-      [3000,6086500,11267300],
-      [4000,5435000,4053500],
-      [5000,3815600,3499400],
-      [10000,4906600,3357200],
-      [100000,4832500,3143100]
+      [100,2798400,2118200],
+      [500,3174800,1861500],
+      [1000,2642000,1453600],
+      [2000,3071200,2809400],
+      [3000,4800600,2422000],
+      [4000,11261500,4854000],
+      [5000,4339000,4893500],
+      [10000,6728300,5756600],
+      [100000,81459700,36208400]
     ]);
     data.addColumn({type: 'string', role: 'tooltip'});
     var options = {
@@ -1854,15 +1854,15 @@
   function drawGetArrayVsLLChart() {
     var data = google.visualization.arrayToDataTable([
       ['Size','Array','Linked List'],
-      [100,3792600,3119500],
-      [500,1041600,1049800],
-      [1000,1134300,1031200],
-      [2000,911600,222400],
-      [3000,262600,210500],
-      [4000,500900,968100],
-      [5000,472400,407100],
-      [10000,578600,433000],
-      [100000,464800,431900]
+      [100,427600,420600],
+      [500,647000,268800],
+      [1000,229200,202800],
+      [2000,295400,474600],
+      [3000,533700,532900],
+      [4000,458500,513500],
+      [5000,752900,529500],
+      [10000,1026900,1031100],
+      [100000,3366800,2295500]
     ]);
     data.addColumn({type: 'string', role: 'tooltip'});
     var options = {
