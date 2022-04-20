@@ -59,7 +59,7 @@
       "url" : "https://anurag-inias.github.io/data-structure/map/",
       "headline": "Hash Map",
       "description": "Introduction Implementation Benchmark      Introduction     First some definitions – A map, symbol table, associative array or dictionary is an abstract data type that stores a collection of  \\( (key, value) \\)  pairs. Each \\(key\\)  appears atmost once. They are implemented mainly as either:\n Hash table (also known as hash map) Self-balancing BST  A hash map uses a hash function to compute an index into an array of bucket\/slots to either insert\/lookup desired value.",
-      "wordCount" : "1960",
+      "wordCount" : "1959",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1091,6 +1091,166 @@
       
     />
     <label for="tabs-map-implementation-2" class="gdoc-tabs__label">
+      LinkedListSlot
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">dev.justanotherblog.map</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedListSlot</span> <span class="kd">implements</span> <span class="n">Slot</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">key</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">,</span> <span class="n">Node</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="n">Node</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">LinkedListSlot</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">head</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">head</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">key</span> <span class="o">==</span> <span class="n">key</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">,</span> <span class="n">prev</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">key</span> <span class="o">==</span> <span class="n">key</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">prev</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">prev</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="nf">entries</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="n">entries</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">entries</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Entry</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">key</span><span class="o">,</span> <span class="n">node</span><span class="o">.</span><span class="na">value</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">      <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">entries</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-map-implementation"
+      id="tabs-map-implementation-3"
+      
+    />
+    <label for="tabs-map-implementation-3" class="gdoc-tabs__label">
       Custom HashMap
     </label>
     <div class="gdoc-markdown--nested gdoc-tabs__content">
@@ -1250,10 +1410,10 @@
       type="radio"
       class="gdoc-tabs__control hidden"
       name="tabs-map-implementation"
-      id="tabs-map-implementation-3"
+      id="tabs-map-implementation-4"
       
     />
-    <label for="tabs-map-implementation-3" class="gdoc-tabs__label">
+    <label for="tabs-map-implementation-4" class="gdoc-tabs__label">
       Unit Test
     </label>
     <div class="gdoc-markdown--nested gdoc-tabs__content">
@@ -1388,6 +1548,163 @@
         </a>
     </h2>
 </div>
+<p>I first compare how this custom <code>HashMap</code> performs against the Java collection&rsquo;s <code>HashMap</code>. For <code>put</code> operation, the built-in <code>HashMap</code> is clearly superior; for <code>get</code> operation it&rsquo;s harder to pick a winner.</p>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawPutChart);
+  google.charts.setOnLoadCallback(drawGetChart);
+
+  function drawPutChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'Built-in', 'Custom'],
+      [10,343700,2876100],
+      [100,355900,890200],
+      [500,665300,1887300],
+      [1000,485700,2147200],
+      [2000,1207700,3427700],
+      [3000,962300,3964900],
+      [4000,1647200,11839900],
+      [5000,1493300,7500000],
+      [10000,2569500,9768500]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'put operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('put_against_builtin'));
+    chart.draw(data, options);
+  }
+
+  function drawGetChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'Built-in', 'Custom'],
+      [10,346300,306100],
+      [100,133500,162800],
+      [500,185400,360500],
+      [1000,197000,298400],
+      [2000,561400,738900],
+      [3000,737300,736600],
+      [4000,1201200,1025700],
+      [5000,769100,1184300],
+      [10000,2421000,2065200]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'get operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('get_against_builtin'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="put_against_builtin"></div>
+<div id="get_against_builtin"></div>
+<p>Next I look what affect <code>loadFactor</code> has on map operations. The default <code>75%</code> load factor gives the best performance.</p>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawLoadFactorChart);
+
+  function drawLoadFactorChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', '10%', '50%', '75%', '100%', '150%', '200%'],
+      [1000,7715200,1750600,1646200,1233200,986700,1126200],
+      [2000,3987000,2405900,4794900,2700500,8754500,3121600],
+      [3000,2730400,2309800,1617900,2186500,1612900,1770900],
+      [4000,3776600,2025900,4201100,2148800,2403500,2336200],
+      [5000,3244400,2551800,2557500,2593000,3391500,2940300],
+      [10000,7055100,12331700,3818200,3141900,3938600,3614100],
+      [100000,43936600,49827500,43819600,47715100,194787300,88591200]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'Load Factor',
+      curveType: 'function',
+      height: 600,
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('load_factor_chart'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="load_factor_chart"></div>
+<p>Finally, comparing dynamic array based slots against linked list based slots. It appears that maintaining a sorted bucket and <em>binary search</em> are both wasted efforts. There&rsquo;s just not that many collisions to see any gains.</p>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawPutArrayVsLLChart);
+  google.charts.setOnLoadCallback(drawGetArrayVsLLChart);
+
+  function drawPutArrayVsLLChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','Array','Linked List'],
+      [100,2798400,2118200],
+      [500,3174800,1861500],
+      [1000,2642000,1453600],
+      [2000,3071200,2809400],
+      [3000,4800600,2422000],
+      [4000,11261500,4854000],
+      [5000,4339000,4893500],
+      [10000,6728300,5756600],
+      [100000,81459700,36208400]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'put operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys', scaleType: 'log' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('put_array_vs_ll'));
+    chart.draw(data, options);
+  }
+
+  function drawGetArrayVsLLChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','Array','Linked List'],
+      [100,427600,420600],
+      [500,647000,268800],
+      [1000,229200,202800],
+      [2000,295400,474600],
+      [3000,533700,532900],
+      [4000,458500,513500],
+      [5000,752900,529500],
+      [10000,1026900,1031100],
+      [100000,3366800,2295500]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+      title: 'get operation',
+      curveType: 'function',
+      legend: { position: 'right' },
+      vAxis: { title: 'Nanoseconds' },
+      hAxis: { title: 'Number of keys', scaleType: 'log' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('get_array_vs_ll'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="put_array_vs_ll"></div>
+<div id="get_array_vs_ll"></div>
 
 
 
@@ -1565,321 +1882,6 @@
   
 </div>
 
-<p>I first compare how this custom <code>HashMap</code> performs against the Java collection&rsquo;s <code>HashMap</code>. For <code>put</code> operation, the built-in <code>HashMap</code> is clearly superior; for <code>get</code> operation it&rsquo;s harder to pick a winner.</p>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawPutChart);
-  google.charts.setOnLoadCallback(drawGetChart);
-
-  function drawPutChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Size', 'Built-in', 'Custom'],
-      [10,343700,2876100],
-      [100,355900,890200],
-      [500,665300,1887300],
-      [1000,485700,2147200],
-      [2000,1207700,3427700],
-      [3000,962300,3964900],
-      [4000,1647200,11839900],
-      [5000,1493300,7500000],
-      [10000,2569500,9768500]
-    ]);
-    data.addColumn({type: 'string', role: 'tooltip'});
-    var options = {
-      title: 'put operation',
-      curveType: 'function',
-      legend: { position: 'right' },
-      vAxis: { title: 'Nanoseconds' },
-      hAxis: { title: 'Number of keys' }
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('put_against_builtin'));
-    chart.draw(data, options);
-  }
-
-  function drawGetChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Size', 'Built-in', 'Custom'],
-      [10,346300,306100],
-      [100,133500,162800],
-      [500,185400,360500],
-      [1000,197000,298400],
-      [2000,561400,738900],
-      [3000,737300,736600],
-      [4000,1201200,1025700],
-      [5000,769100,1184300],
-      [10000,2421000,2065200]
-    ]);
-    data.addColumn({type: 'string', role: 'tooltip'});
-    var options = {
-      title: 'get operation',
-      curveType: 'function',
-      legend: { position: 'right' },
-      vAxis: { title: 'Nanoseconds' },
-      hAxis: { title: 'Number of keys' }
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('get_against_builtin'));
-    chart.draw(data, options);
-  }
-</script>
-
-<div id="put_against_builtin"></div>
-<div id="get_against_builtin"></div>
-<p>Next I look what affect <code>loadFactor</code> has on map operations. The default <code>75%</code> load factor gives the best performance.</p>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawLoadFactorChart);
-
-  function drawLoadFactorChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Size', '10%', '50%', '75%', '100%', '150%', '200%'],
-      [1000,7715200,1750600,1646200,1233200,986700,1126200],
-      [2000,3987000,2405900,4794900,2700500,8754500,3121600],
-      [3000,2730400,2309800,1617900,2186500,1612900,1770900],
-      [4000,3776600,2025900,4201100,2148800,2403500,2336200],
-      [5000,3244400,2551800,2557500,2593000,3391500,2940300],
-      [10000,7055100,12331700,3818200,3141900,3938600,3614100],
-      [100000,43936600,49827500,43819600,47715100,194787300,88591200]
-    ]);
-    data.addColumn({type: 'string', role: 'tooltip'});
-    var options = {
-      title: 'Load Factor',
-      curveType: 'function',
-      height: 600,
-      legend: { position: 'right' },
-      vAxis: { title: 'Nanoseconds' },
-      hAxis: { title: 'Number of keys' }
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('load_factor_chart'));
-    chart.draw(data, options);
-  }
-</script>
-
-<div id="load_factor_chart"></div>
-<p>Finally, comparing dynamic array based slots against linked list based slots. It appears that maintaining a sorted bucket and <em>binary search</em> are both wasted efforts. There&rsquo;s just not that many collisions to see any gains.</p>
-
-<div class="gdoc-expand">
-  <label class="gdoc-expand__head flex justify-between" for="d48722b3-7">
-    <span>Expand</span>
-    <span>↕</span>
-  </label>
-  <input id="d48722b3-7" type="checkbox" class="gdoc-expand__control hidden" />
-  <div class="gdoc-markdown--nested gdoc-expand__content">
-    <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">dev.justanotherblog.map</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedListSlot</span> <span class="kd">implements</span> <span class="n">Slot</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">key</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">value</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">,</span> <span class="n">Node</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="n">Node</span> <span class="n">head</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">LinkedListSlot</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">head</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">head</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">key</span> <span class="o">==</span> <span class="n">key</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">,</span> <span class="n">prev</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">key</span> <span class="o">==</span> <span class="n">key</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">prev</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">prev</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="nf">entries</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="n">entries</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">entries</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Entry</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">key</span><span class="o">,</span> <span class="n">node</span><span class="o">.</span><span class="na">value</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">      <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">entries</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
-
-  </div>
-</div>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawPutArrayVsLLChart);
-  google.charts.setOnLoadCallback(drawGetArrayVsLLChart);
-
-  function drawPutArrayVsLLChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Size','Array','Linked List'],
-      [100,2798400,2118200],
-      [500,3174800,1861500],
-      [1000,2642000,1453600],
-      [2000,3071200,2809400],
-      [3000,4800600,2422000],
-      [4000,11261500,4854000],
-      [5000,4339000,4893500],
-      [10000,6728300,5756600],
-      [100000,81459700,36208400]
-    ]);
-    data.addColumn({type: 'string', role: 'tooltip'});
-    var options = {
-      title: 'put operation',
-      curveType: 'function',
-      legend: { position: 'right' },
-      vAxis: { title: 'Nanoseconds' },
-      hAxis: { title: 'Number of keys', scaleType: 'log' }
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('put_array_vs_ll'));
-    chart.draw(data, options);
-  }
-
-  function drawGetArrayVsLLChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Size','Array','Linked List'],
-      [100,427600,420600],
-      [500,647000,268800],
-      [1000,229200,202800],
-      [2000,295400,474600],
-      [3000,533700,532900],
-      [4000,458500,513500],
-      [5000,752900,529500],
-      [10000,1026900,1031100],
-      [100000,3366800,2295500]
-    ]);
-    data.addColumn({type: 'string', role: 'tooltip'});
-    var options = {
-      title: 'get operation',
-      curveType: 'function',
-      legend: { position: 'right' },
-      vAxis: { title: 'Nanoseconds' },
-      hAxis: { title: 'Number of keys', scaleType: 'log' }
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('get_array_vs_ll'));
-    chart.draw(data, options);
-  }
-</script>
-
-<div id="put_array_vs_ll"></div>
-<div id="get_array_vs_ll"></div>
 
   </article>
 

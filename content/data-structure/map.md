@@ -113,6 +113,81 @@ public class ArraySlot implements Slot {
 {{< /highlight >}}
 {{< /tab >}}
 
+{{< tab "LinkedListSlot" >}}
+{{< highlight Java "linenos=table" >}}
+package dev.justanotherblog.map;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LinkedListSlot implements Slot {
+
+  private static class Node {
+    int key;
+    String value;
+    Node next;
+
+    Node(int key, String value, Node next) {
+      this.key = key;
+      this.value = value;
+      this.next = next;
+    }
+  }
+
+  private Node head;
+
+  public LinkedListSlot() {
+    head = null;
+  }
+
+  @Override
+  public void add(int key, String value) {
+    head = new Node(key, value, head);
+  }
+
+  @Override
+  public String get(int key) {
+    Node node = head;
+    while (node != null) {
+      if (node.key == key)
+        return node.value;
+      node = node.next;
+    }
+    return null;
+  }
+
+  @Override
+  public void remove(int key) {
+    Node node = head, prev = null;
+    while (node != null) {
+      prev = node;
+      if (node.key == key)
+        break;
+      node = node.next;
+    }
+    if (prev == null) head = null;
+    else if (node != null) prev.next = node.next;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return head == null;
+  }
+
+  @Override
+  public List<Entry> entries() {
+    Node node = head;
+    List<Entry> entries = new ArrayList<>();
+    while (node != null) {
+      entries.add(new Entry(node.key, node.value));
+      node = node.next;
+    }
+    return entries;
+  }
+}
+{{< /highlight >}}
+{{< /tab >}}
+
 {{< tab "Custom HashMap" >}}
 Next is my custom `HashMap` which uses a dynamic array of `Slots`. Take note of the `resize` operation. It does not resize when too many entries are added to the map, but instead when too many of the slots are used. 
 
@@ -256,6 +331,18 @@ class HashMapTest {
 
 ## Benchmark
 
+I first compare how this custom `HashMap` performs against the Java collection's `HashMap`. For `put` operation, the built-in `HashMap` is clearly superior; for `get` operation it's harder to pick a winner.
+
+{{< map-benchmark-against-builtin >}}
+
+Next I look what affect `loadFactor` has on map operations. The default `75%` load factor gives the best performance.
+
+{{< map-benchmark-load-factor >}}
+
+Finally, comparing dynamic array based slots against linked list based slots. It appears that maintaining a sorted bucket and _binary search_ are both wasted efforts. There's just not that many collisions to see any gains.
+
+{{< map-benchmark-array-vs-linkedlist >}}
+
 {{< tabs "benchmark" >}}
 {{< tab "Against built-in HashMap" >}}
 {{< highlight Java "linenos=table" >}}
@@ -331,90 +418,3 @@ public void benchmarkLoadFactor(){
 {{< /highlight >}}
 {{< /tab >}}
 {{< /tabs  >}}
-
-I first compare how this custom `HashMap` performs against the Java collection's `HashMap`. For `put` operation, the built-in `HashMap` is clearly superior; for `get` operation it's harder to pick a winner.
-
-{{< map-benchmark-against-builtin >}}
-
-Next I look what affect `loadFactor` has on map operations. The default `75%` load factor gives the best performance.
-
-{{< map-benchmark-load-factor >}}
-
-Finally, comparing dynamic array based slots against linked list based slots. It appears that maintaining a sorted bucket and _binary search_ are both wasted efforts. There's just not that many collisions to see any gains.
-
-{{< expand >}}
-{{< highlight Java "linenos=table" >}}
-package dev.justanotherblog.map;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class LinkedListSlot implements Slot {
-
-  private static class Node {
-    int key;
-    String value;
-    Node next;
-
-    Node(int key, String value, Node next) {
-      this.key = key;
-      this.value = value;
-      this.next = next;
-    }
-  }
-
-  private Node head;
-
-  public LinkedListSlot() {
-    head = null;
-  }
-
-  @Override
-  public void add(int key, String value) {
-    head = new Node(key, value, head);
-  }
-
-  @Override
-  public String get(int key) {
-    Node node = head;
-    while (node != null) {
-      if (node.key == key)
-        return node.value;
-      node = node.next;
-    }
-    return null;
-  }
-
-  @Override
-  public void remove(int key) {
-    Node node = head, prev = null;
-    while (node != null) {
-      prev = node;
-      if (node.key == key)
-        break;
-      node = node.next;
-    }
-    if (prev == null) head = null;
-    else if (node != null) prev.next = node.next;
-  }
-
-  @Override
-  public boolean isEmpty() {
-    return head == null;
-  }
-
-  @Override
-  public List<Entry> entries() {
-    Node node = head;
-    List<Entry> entries = new ArrayList<>();
-    while (node != null) {
-      entries.add(new Entry(node.key, node.value));
-      node = node.next;
-    }
-    return entries;
-  }
-}
-{{< /highlight >}}
-{{< /expand >}}
-
-{{< map-benchmark-array-vs-linkedlist >}}
