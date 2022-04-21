@@ -9,8 +9,8 @@
 <meta name="generator" content="Hugo 0.97.0" />
 
 
-  <meta name="description" content="Counting Sort      Counting Sort     The idea behind Counting Sort is simple &ndash; count all distinct elements in the array, and then refill the array.
-With array  We iterate over the array once to find the range of elements [min, max]. Then create an array with size of this range, to keep count of all elements. This will of course:" />
+  <meta name="description" content="Counting Sort Bucket Sort  Analysis:        Counting Sort     The idea behind Counting Sort is simple &ndash; count all distinct elements in the array, and then go over the counts to refill the array. It gives  \( O(n&#43;k) \)  worst case complexity.
+With array  We iterate over the array once to find the range of elements [min, max]." />
 
     <title>Distribution Sorting | Just Another Blog</title>
 
@@ -36,8 +36,8 @@ With array  We iterate over the array once to find the range of elements [min, m
     content="Distribution Sorting"
   />
   <meta property="og:site_name" content="Just Another Blog" />
-  <meta property="og:description" content="Counting Sort      Counting Sort     The idea behind Counting Sort is simple – count all distinct elements in the array, and then refill the array.
-With array  We iterate over the array once to find the range of elements [min, max]. Then create an array with size of this range, to keep count of all elements. This will of course:" />
+  <meta property="og:description" content="Counting Sort Bucket Sort  Analysis:        Counting Sort     The idea behind Counting Sort is simple – count all distinct elements in the array, and then go over the counts to refill the array. It gives  \( O(n&#43;k) \)  worst case complexity.
+With array  We iterate over the array once to find the range of elements [min, max]." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anurag-inias.github.io/algorithms/distribution-sort/" />
 
@@ -46,8 +46,8 @@ With array  We iterate over the array once to find the range of elements [min, m
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Distribution Sorting" />
-  <meta name="twitter:description" content="Counting Sort      Counting Sort     The idea behind Counting Sort is simple – count all distinct elements in the array, and then refill the array.
-With array  We iterate over the array once to find the range of elements [min, max]. Then create an array with size of this range, to keep count of all elements. This will of course:" />
+  <meta name="twitter:description" content="Counting Sort Bucket Sort  Analysis:        Counting Sort     The idea behind Counting Sort is simple – count all distinct elements in the array, and then go over the counts to refill the array. It gives  \( O(n&#43;k) \)  worst case complexity.
+With array  We iterate over the array once to find the range of elements [min, max]." />
 
 
   <script type="application/ld+json">
@@ -58,8 +58,8 @@ With array  We iterate over the array once to find the range of elements [min, m
       "name": "Distribution Sorting",
       "url" : "https://anurag-inias.github.io/algorithms/distribution-sort/",
       "headline": "Distribution Sorting",
-      "description": "Counting Sort      Counting Sort     The idea behind Counting Sort is simple – count all distinct elements in the array, and then refill the array.\nWith array  We iterate over the array once to find the range of elements [min, max]. Then create an array with size of this range, to keep count of all elements. This will of course:",
-      "wordCount" : "691",
+      "description": "Counting Sort Bucket Sort  Analysis:        Counting Sort     The idea behind Counting Sort is simple – count all distinct elements in the array, and then go over the counts to refill the array. It gives  \\( O(n\u002bk) \\)  worst case complexity.\nWith array  We iterate over the array once to find the range of elements [min, max].",
+      "wordCount" : "1311",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -897,6 +897,11 @@ With array  We iterate over the array once to find the range of elements [min, m
   <div class="gdoc-toc gdoc-toc__level--3">
     <nav id="TableOfContents"><ul>
         <li><a href="#counting-sort">Counting Sort</a></li>
+        <li><a href="#bucket-sort">Bucket Sort</a>
+          <ul>
+            <li><a href="#analysis">Analysis:</a></li>
+          </ul>
+        </li>
       </ul></nav>
     <hr />
   </div>
@@ -910,7 +915,22 @@ With array  We iterate over the array once to find the range of elements [min, m
         </a>
     </h2>
 </div>
-<p>The idea behind <em>Counting Sort</em> is simple &ndash; count all distinct elements in the array, and then refill the array.</p>
+<p>The idea behind <em>Counting Sort</em> is simple &ndash; count all distinct elements in the array, and then go over the counts to refill the array. It gives 
+
+  
+  <link
+    rel="stylesheet"
+    href="/katex-e264b2b5.min.css"
+  />
+  <script defer src="/js/katex-2d722665.bundle.min.js"></script>
+  
+
+
+
+<span class="gdoc-katex ">
+  \( O(n&#43;k) \)
+</span>
+ worst case complexity.</p>
 
 
 
@@ -1240,6 +1260,335 @@ With array  We iterate over the array once to find the range of elements [min, m
 <div id="counting_sort_vs_quick_sort"></div>
 
 <p><em>Note</em>: I had to limit the range of elements here. Otherwise both versions of counting sort would fail with memory shortage.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="bucket-sort">
+        Bucket Sort
+        <a data-clipboard-text="https://anurag-inias.github.io/algorithms/distribution-sort/#bucket-sort" class="gdoc-page__anchor gdoc-page__anchor--right clip" title="Anchor to: Bucket Sort" aria-label="Anchor to: Bucket Sort" href="#bucket-sort">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>It&rsquo;s a generalization of counting sort. Turn each bucket to size <code>1</code> and we&rsquo;ll get the counting sort. It works as follows:</p>
+<ul>
+<li>Create <code>k</code> buckets.</li>
+<li>Scatter: Iterate over input and scatter them over buckets.</li>
+<li>Sort all non-empty bucket.</li>
+<li>Gather: Iterate over buckets and put elements back in input array.</li>
+</ul>
+
+
+
+
+
+<div class="gdoc-tabs">
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-sort-implementation"
+      id="tabs-sort-implementation-0"
+      checked="checked"
+    />
+    <label for="tabs-sort-implementation-0" class="gdoc-tabs__label">
+      Bucket
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Bucket</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_BUCKETS_SIZE</span> <span class="o">=</span> <span class="n">32</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">items</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">Bucket</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">items</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">DEFAULT_BUCKETS_SIZE</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">size</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">size</span> <span class="o">==</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">resize</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">items</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">raw</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">items</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">items</span><span class="o">,</span> <span class="n">0</span> <span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">size</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">resize</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">[]</span> <span class="n">newItems</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">items</span><span class="o">.</span><span class="na">length</span> <span class="o">*</span> <span class="n">2</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">items</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">newItems</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">items</span> <span class="o">=</span> <span class="n">newItems</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-sort-implementation"
+      id="tabs-sort-implementation-1"
+      
+    />
+    <label for="tabs-sort-implementation-1" class="gdoc-tabs__label">
+      BucketSort
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BucketSort</span> <span class="kd">implements</span> <span class="n">Sort</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_BUCKETS_COUNT</span> <span class="o">=</span> <span class="n">32</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">int</span> <span class="n">numsBucket</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">BucketSort</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">(</span><span class="n">DEFAULT_BUCKETS_COUNT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">BucketSort</span><span class="o">(</span><span class="kt">int</span> <span class="n">numsBucket</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">numsBucket</span> <span class="o">=</span> <span class="n">numsBucket</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">endExclusive</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="n">endExclusive</span> <span class="o">||</span> <span class="n">endExclusive</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="k">new</span> <span class="n">IndexOutOfBoundsException</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Bucket</span><span class="o">[]</span> <span class="n">buckets</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bucket</span><span class="o">[</span><span class="n">numsBucket</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fillBuckets</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">endExclusive</span><span class="o">,</span> <span class="n">buckets</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="n">Bucket</span> <span class="n">bucket</span><span class="o">:</span> <span class="n">buckets</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">bucket</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">bucket</span><span class="o">.</span><span class="na">sort</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">      <span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">bucket</span><span class="o">.</span><span class="na">raw</span><span class="o">(),</span> <span class="n">0</span><span class="o">,</span> <span class="n">nums</span><span class="o">,</span> <span class="n">cursor</span><span class="o">,</span> <span class="n">bucket</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cursor</span> <span class="o">+=</span> <span class="n">bucket</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">fillBuckets</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">endExclusive</span><span class="o">,</span> <span class="n">Bucket</span><span class="o">[]</span> <span class="n">buckets</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">endExclusive</span> <span class="o">-</span> <span class="n">start</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">[]</span> <span class="n">r</span> <span class="o">=</span> <span class="n">findRange</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">endExclusive</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">endExclusive</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">findIndex</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">r</span><span class="o">[</span><span class="n">0</span><span class="o">],</span> <span class="n">r</span><span class="o">[</span><span class="n">1</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">(</span><span class="n">buckets</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="n">buckets</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bucket</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">      <span class="n">buckets</span><span class="o">[</span><span class="n">idx</span><span class="o">].</span><span class="na">add</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findRange</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">endExclusive</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">endExclusive</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">min</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">min</span><span class="o">,</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">max</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">min</span><span class="o">,</span> <span class="n">max</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kt">int</span> <span class="nf">findIndex</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span> <span class="n">min</span><span class="o">,</span> <span class="kt">int</span> <span class="n">max</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// num / max turn the number into a fraction.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// numsBucket * (num / max) tells us which bucket to insert this number in.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// -min is need to handle the case when there are negative numbers in the array.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// It also creates risk of overflow when numbers in the array have large absolute values.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="o">(</span><span class="n">numsBucket</span> <span class="o">*</span> <span class="o">(</span><span class="n">num</span> <span class="o">-</span> <span class="n">min</span><span class="o">))</span> <span class="o">/</span> <span class="o">(</span><span class="n">max</span> <span class="o">-</span> <span class="n">min</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+</div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawBucketSortVsQuickSortChart);
+
+  function drawBucketSortVsQuickSortChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Size','CountSort', 'BucketSort', 'QuickSort'],
+    [10,344400,566500,330600],
+    [50,10300,21000,14500],
+    [100,17900,40300,56900],
+    [500,98500,158100,218700],
+    [1000,118400,314600,115000],
+    [2000,233400,684900,200000],
+    [3000,409100,1307400,407200],
+    [4000,413600,585700,221900],
+    [5000,471000,782800,289000],
+    [6000,558200,1039100,516300],
+    [7000,757900,1205500,384300],
+    [8000,906300,1304700,528200],
+    [9000,1000400,1149300,435800],
+    [10000,960100,1608500,499400],
+    [20000,1312800,2425000,1801400],
+    [30000,865200,1805000,1648600],
+    [40000,690300,2824400,2235100],
+    [50000,3497300,3534400,2728000],
+    [60000,439300,3047600,3518300],
+    [70000,562100,3370600,4018800],
+    [80000,581200,3946000,4600600],
+    [90000,656600,4334100,5266000],
+    [100000,732200,5111400,5885000]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+        title: 'Counting Sort vs Quick Sort',
+        curveType: 'function',
+        height: 500,
+        legend: { position: 'right' },
+        vAxis: { title: 'Nanoseconds' },
+        hAxis: { title: 'Input Size' }
+      };
+    var chart = new google.visualization.LineChart(document.getElementById('bucket_sort_vs_quick_sort'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="bucket_sort_vs_quick_sort"></div>
+
+<div class="gdoc-page__anchorwrap">
+    <h3 id="analysis">
+        Analysis:
+        <a data-clipboard-text="https://anurag-inias.github.io/algorithms/distribution-sort/#analysis" class="gdoc-page__anchor gdoc-page__anchor--right clip" title="Anchor to: Analysis:" aria-label="Anchor to: Analysis:" href="#analysis">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ul>
+<li>Worst case: all elements in same bucket. Complexity would be same as algo that sort each bucket, 
+
+
+
+<span class="gdoc-katex ">
+  \( O(n^2) \)
+</span>
+.</li>
+<li>Avg case: 
+
+
+
+<span class="gdoc-katex ">
+  \( O(n &#43; \frac{n^2}{k} &#43; k) \)
+</span>
+</li>
+</ul>
 
   </article>
 

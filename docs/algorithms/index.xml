@@ -33,8 +33,8 @@ Benchmark     BubbleSort is ridiculously slow, so much infact that in our first 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://anurag-inias.github.io/algorithms/distribution-sort/</guid>
-      <description>Counting Sort      Counting Sort     The idea behind Counting Sort is simple &amp;ndash; count all distinct elements in the array, and then refill the array.
-With array  We iterate over the array once to find the range of elements [min, max]. Then create an array with size of this range, to keep count of all elements. This will of course:</description>
+      <description>Counting Sort Bucket Sort  Analysis:        Counting Sort     The idea behind Counting Sort is simple &amp;ndash; count all distinct elements in the array, and then go over the counts to refill the array. It gives  \( O(n&amp;#43;k) \)  worst case complexity.
+With array  We iterate over the array once to find the range of elements [min, max].</description>
     </item>
     
   </channel>

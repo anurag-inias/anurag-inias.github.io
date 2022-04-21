@@ -5,7 +5,7 @@ title: 'Distribution Sorting'
 
 ## Counting Sort
 
-The idea behind _Counting Sort_ is simple -- count all distinct elements in the array, and then refill the array.
+The idea behind _Counting Sort_ is simple -- count all distinct elements in the array, and then go over the counts to refill the array. It gives {{< katex >}} O(n+k) {{< /katex >}} worst case complexity.
 
 {{< tabs "counting-sort-implementation" >}}
 
@@ -186,3 +186,174 @@ public void benchkmark() {
 {{< /countsortchart.inline >}}
 
 _Note_: I had to limit the range of elements here. Otherwise both versions of counting sort would fail with memory shortage.
+
+## Bucket Sort
+
+It's a generalization of counting sort. Turn each bucket to size `1` and we'll get the counting sort. It works as follows:
+- Create `k` buckets.
+- Scatter: Iterate over input and scatter them over buckets.
+- Sort all non-empty bucket.
+- Gather: Iterate over buckets and put elements back in input array.
+
+{{< tabs "sort-implementation" >}}
+
+{{< tab "Bucket" >}}
+{{< highlight Java "linenos=table" >}}
+class Bucket {
+  private static final int DEFAULT_BUCKETS_SIZE = 32;
+
+  private int[] items;
+  private int size;
+
+  public Bucket() {
+    this.items = new int[DEFAULT_BUCKETS_SIZE];
+    this.size = 0;
+  }
+
+  public void add(int value) {
+    if (size == items.length) resize();
+    items[size++] = value;
+  }
+
+  public int[] raw() {
+    return items;
+  }
+
+  public void sort() {
+    Arrays.sort(items, 0 , size);
+  }
+
+  public int size() {
+    return size;
+  }
+
+  private void resize() {
+    int[] newItems = new int[items.length * 2];
+    System.arraycopy(items, 0, newItems, 0, items.length);
+    items = newItems;
+  }
+}
+{{< /highlight >}}
+{{< /tab >}}
+
+{{< tab "BucketSort" >}}
+{{< highlight Java "linenos=table" >}}
+public class BucketSort implements Sort {
+
+  private static final int DEFAULT_BUCKETS_COUNT = 32;
+  private int numsBucket;
+
+  public BucketSort() {
+    this(DEFAULT_BUCKETS_COUNT);
+  }
+
+  public BucketSort(int numsBucket) {
+    this.numsBucket = numsBucket;
+  }
+
+  @Override
+  public void sort(int[] nums, int start, int endExclusive) {
+    if (start < 0 || start >= endExclusive || endExclusive > nums.length)
+      throw new IndexOutOfBoundsException();
+
+    Bucket[] buckets = new Bucket[numsBucket];
+    fillBuckets(nums, start, endExclusive, buckets);
+
+    int cursor = start;
+    for (Bucket bucket: buckets) {
+      if (bucket == null) continue;
+      bucket.sort();
+      System.arraycopy(bucket.raw(), 0, nums, cursor, bucket.size());
+      cursor += bucket.size();
+    }
+  }
+
+  private void fillBuckets(int[] nums, int start, int endExclusive, Bucket[] buckets) {
+    int length = endExclusive - start;
+    int[] r = findRange(nums, start, endExclusive);
+
+    for(int i = start; i < endExclusive; i++) {
+      int idx = findIndex(nums[i], r[0], r[1]);
+
+      if (buckets[idx] == null) buckets[idx] = new Bucket();
+      buckets[idx].add(nums[i]);
+    }
+  }
+
+  private int[] findRange(int[] nums, int start, int endExclusive) {
+    int min = nums[start];
+    int max = nums[start];
+    for (int i = start + 1; i < endExclusive; i++) {
+      min = Math.min(min, nums[i]);
+      max = Math.max(max, nums[i]);
+    }
+    return new int[]{min, max};
+  }
+
+  private int findIndex(int num, int min, int max) {
+    // num / max turn the number into a fraction.
+    // numsBucket * (num / max) tells us which bucket to insert this number in.
+    // -min is need to handle the case when there are negative numbers in the array.
+
+    // It also creates risk of overflow when numbers in the array have large absolute values.
+    return (numsBucket * (num - min)) / (max - min + 1);
+  }
+}
+{{< /highlight >}}
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< countsortchart.inline >}}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawBucketSortVsQuickSortChart);
+
+  function drawBucketSortVsQuickSortChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Size','CountSort', 'BucketSort', 'QuickSort'],
+    [10,344400,566500,330600],
+    [50,10300,21000,14500],
+    [100,17900,40300,56900],
+    [500,98500,158100,218700],
+    [1000,118400,314600,115000],
+    [2000,233400,684900,200000],
+    [3000,409100,1307400,407200],
+    [4000,413600,585700,221900],
+    [5000,471000,782800,289000],
+    [6000,558200,1039100,516300],
+    [7000,757900,1205500,384300],
+    [8000,906300,1304700,528200],
+    [9000,1000400,1149300,435800],
+    [10000,960100,1608500,499400],
+    [20000,1312800,2425000,1801400],
+    [30000,865200,1805000,1648600],
+    [40000,690300,2824400,2235100],
+    [50000,3497300,3534400,2728000],
+    [60000,439300,3047600,3518300],
+    [70000,562100,3370600,4018800],
+    [80000,581200,3946000,4600600],
+    [90000,656600,4334100,5266000],
+    [100000,732200,5111400,5885000]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+        title: 'Counting Sort vs Quick Sort',
+        curveType: 'function',
+        height: 500,
+        legend: { position: 'right' },
+        vAxis: { title: 'Nanoseconds' },
+        hAxis: { title: 'Input Size' }
+      };
+    var chart = new google.visualization.LineChart(document.getElementById('bucket_sort_vs_quick_sort'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="bucket_sort_vs_quick_sort"></div>
+{{< /countsortchart.inline >}}
+
+### Analysis:
+- Worst case: all elements in same bucket. Complexity would be same as algo that sort each bucket, {{< katex >}} O(n^2) {{< /katex >}}. 
+- Avg case: {{< katex >}} O(n + \frac{n^2}{k} + k) {{< /katex >}}
