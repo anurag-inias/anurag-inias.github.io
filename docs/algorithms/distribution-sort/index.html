@@ -59,7 +59,7 @@ With array  We iterate over the array once to find the range of elements [min, m
       "url" : "https://anurag-inias.github.io/algorithms/distribution-sort/",
       "headline": "Distribution Sorting",
       "description": "Counting Sort Bucket Sort  Analysis:        Counting Sort     The idea behind Counting Sort is simple – count all distinct elements in the array, and then go over the counts to refill the array. It gives  \\( O(n\u002bk) \\)  worst case complexity.\nWith array  We iterate over the array once to find the range of elements [min, max].",
-      "wordCount" : "1311",
+      "wordCount" : "1317",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1218,7 +1218,7 @@ With array  We iterate over the array once to find the range of elements [min, m
 
   function drawCountingSortVsQuickSortChart() {
     var data = google.visualization.arrayToDataTable([
-      ['Size','CountSort', 'TreeMap CountingSort', 'QuickSort'],
+      ['Size','Counting Sort', 'TreeMap Counting Sort', 'Quick Sort'],
       [10,897900,236500,872400],
       [50,23600,353200,42400],
       [100,41900,424300,128500],
@@ -1522,7 +1522,7 @@ With array  We iterate over the array once to find the range of elements [min, m
 
   function drawBucketSortVsQuickSortChart() {
     var data = google.visualization.arrayToDataTable([
-    ['Size','CountSort', 'BucketSort', 'QuickSort'],
+    ['Size','Counting Sort', 'Bucket Sort', 'Quic kSort'],
     [10,344400,566500,330600],
     [50,10300,21000,14500],
     [100,17900,40300,56900],
@@ -1549,7 +1549,7 @@ With array  We iterate over the array once to find the range of elements [min, m
     ]);
     data.addColumn({type: 'string', role: 'tooltip'});
     var options = {
-        title: 'Counting Sort vs Quick Sort',
+        title: 'Bucket Sort vs Quick Sort',
         curveType: 'function',
         height: 500,
         legend: { position: 'right' },
@@ -1572,7 +1572,7 @@ With array  We iterate over the array once to find the range of elements [min, m
     </h3>
 </div>
 <ul>
-<li>Worst case: all elements in same bucket. Complexity would be same as algo that sort each bucket, 
+<li>Worst case: all elements in same bucket. Complexity would be same as algo that sorts each bucket, 
 
 
 

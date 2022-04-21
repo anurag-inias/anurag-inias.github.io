@@ -143,7 +143,7 @@ public void benchkmark() {
 
   function drawCountingSortVsQuickSortChart() {
     var data = google.visualization.arrayToDataTable([
-      ['Size','CountSort', 'TreeMap CountingSort', 'QuickSort'],
+      ['Size','Counting Sort', 'TreeMap Counting Sort', 'Quick Sort'],
       [10,897900,236500,872400],
       [50,23600,353200,42400],
       [100,41900,424300,128500],
@@ -312,7 +312,7 @@ public class BucketSort implements Sort {
 
   function drawBucketSortVsQuickSortChart() {
     var data = google.visualization.arrayToDataTable([
-    ['Size','CountSort', 'BucketSort', 'QuickSort'],
+    ['Size','Counting Sort', 'Bucket Sort', 'Quic kSort'],
     [10,344400,566500,330600],
     [50,10300,21000,14500],
     [100,17900,40300,56900],
@@ -339,7 +339,7 @@ public class BucketSort implements Sort {
     ]);
     data.addColumn({type: 'string', role: 'tooltip'});
     var options = {
-        title: 'Counting Sort vs Quick Sort',
+        title: 'Bucket Sort vs Quick Sort',
         curveType: 'function',
         height: 500,
         legend: { position: 'right' },
@@ -355,5 +355,5 @@ public class BucketSort implements Sort {
 {{< /countsortchart.inline >}}
 
 ### Analysis:
-- Worst case: all elements in same bucket. Complexity would be same as algo that sort each bucket, {{< katex >}} O(n^2) {{< /katex >}}. 
+- Worst case: all elements in same bucket. Complexity would be same as algo that sorts each bucket, {{< katex >}} O(n^2) {{< /katex >}}. 
 - Avg case: {{< katex >}} O(n + \frac{n^2}{k} + k) {{< /katex >}}
