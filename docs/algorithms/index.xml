@@ -27,5 +27,15 @@ So I first write my own merge-sort, and hook up some counters and gauges for tra
 Benchmark     BubbleSort is ridiculously slow, so much infact that in our first graph it&amp;rsquo;s hard to distinguish rest of the algorithms.</description>
     </item>
     
+    <item>
+      <title>Distribution Sorting</title>
+      <link>https://anurag-inias.github.io/algorithms/distribution-sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://anurag-inias.github.io/algorithms/distribution-sort/</guid>
+      <description>Counting Sort      Counting Sort     The idea behind Counting Sort is simple &amp;ndash; count all distinct elements in the array, and then refill the array.
+With array  We iterate over the array once to find the range of elements [min, max]. Then create an array with size of this range, to keep count of all elements. This will of course:</description>
+    </item>
+    
   </channel>
 </rss>

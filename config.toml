@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = 'Just Another Blog'
 theme = "hugo-geekdoc"
 publishDir = 'docs'
+enableInlineShortcodes = true
 
 # Required to get well formatted code blocks
 pygmentsUseClasses = true
