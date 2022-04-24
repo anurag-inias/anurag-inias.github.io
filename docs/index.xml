@@ -86,5 +86,15 @@ With array  We iterate over the array once to find the range of elements [min, m
 Implementation     Array based  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48  import java.</description>
     </item>
     
+    <item>
+      <title>Tree Traversals</title>
+      <link>https://anurag-inias.github.io/data-structure/binary-tree/traversals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://anurag-inias.github.io/data-structure/binary-tree/traversals/</guid>
+      <description>Depth-First Search  a. Pre-order traversal        Traversing a tree involves iterating over its node in some order. I&amp;rsquo;m covering the DFS and BFS traversals.
+Depth-First Search     a. Pre-order traversal     ┌────61────┐ ┌─31─┐ ┌─8027 51 68 61, 31, 27, 51, 80, 68 Visit the current node Recursively visit the left node.</description>
+    </item>
+    
   </channel>
 </rss>

@@ -9,9 +9,10 @@
 <meta name="generator" content="Hugo 0.97.0" />
 
 
-  <meta name="description" content=" Find device UUID.  $ blkid &gt; /dev/sda1: LABEL=&#34;External 2T&#34; UUID=&#34;40A1-F12E&#34; TYPE=&#34;exfat&#34; .... Add an entry in /etc/fstab for mounting this device on boot.  UUID=40A1-F12E /mnt ext4 defaults 0 0 Finally confirm it that the changes are valid.  $ sudo mount -a " />
+  <meta name="description" content="Depth-First Search  a. Pre-order traversal        Traversing a tree involves iterating over its node in some order. I&rsquo;m covering the DFS and BFS traversals.
+Depth-First Search     a. Pre-order traversal     ┌────61────┐ ┌─31─┐ ┌─8027 51 68 61, 31, 27, 51, 80, 68 Visit the current node Recursively visit the left node." />
 
-    <title>Mount exFAT on boot | Just Another Blog</title>
+    <title>Tree Traversals | Just Another Blog</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
 <link
@@ -32,50 +33,44 @@
     
   <meta
     property="og:title"
-    content="Mount exFAT on boot"
+    content="Tree Traversals"
   />
   <meta property="og:site_name" content="Just Another Blog" />
-  <meta property="og:description" content=" Find device UUID.  $ blkid &gt; /dev/sda1: LABEL=&#34;External 2T&#34; UUID=&#34;40A1-F12E&#34; TYPE=&#34;exfat&#34; .... Add an entry in /etc/fstab for mounting this device on boot.  UUID=40A1-F12E /mnt ext4 defaults 0 0 Finally confirm it that the changes are valid.  $ sudo mount -a " />
+  <meta property="og:description" content="Depth-First Search  a. Pre-order traversal        Traversing a tree involves iterating over its node in some order. I’m covering the DFS and BFS traversals.
+Depth-First Search     a. Pre-order traversal     ┌────61────┐ ┌─31─┐ ┌─8027 51 68 61, 31, 27, 51, 80, 68 Visit the current node Recursively visit the left node." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anurag-inias.github.io/raspberry-pi/mount-exfat-on-boot/" />
+<meta property="og:url" content="https://anurag-inias.github.io/data-structure/binary-tree/traversals/" />
 
-<meta property="article:section" content="Raspberry Pi" />
-    <meta
-      property="article:published_time"
-      content="2021-10-06T13:44:24+05:30"
-    />
-    <meta
-      property="article:modified_time"
-      content="2021-10-06T13:44:24+05:30"
-    />
+<meta property="article:section" content="Data Structure" />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Mount exFAT on boot" />
-  <meta name="twitter:description" content=" Find device UUID.  $ blkid &gt; /dev/sda1: LABEL=&#34;External 2T&#34; UUID=&#34;40A1-F12E&#34; TYPE=&#34;exfat&#34; .... Add an entry in /etc/fstab for mounting this device on boot.  UUID=40A1-F12E /mnt ext4 defaults 0 0 Finally confirm it that the changes are valid.  $ sudo mount -a " />
+<meta name="twitter:title" content="Tree Traversals" />
+  <meta name="twitter:description" content="Depth-First Search  a. Pre-order traversal        Traversing a tree involves iterating over its node in some order. I’m covering the DFS and BFS traversals.
+Depth-First Search     a. Pre-order traversal     ┌────61────┐ ┌─31─┐ ┌─8027 51 68 61, 31, 27, 51, 80, 68 Visit the current node Recursively visit the left node." />
 
 
   <script type="application/ld+json">
   {
       "@context": "http://schema.org",
       "@type": "TechArticle",
-      "articleSection": "Raspberry Pi",
-      "name": "Mount exFAT on boot",
-      "url" : "https://anurag-inias.github.io/raspberry-pi/mount-exfat-on-boot/",
-      "headline": "Mount exFAT on boot",
-      "description": " Find device UUID.  $ blkid \u003e \/dev\/sda1: LABEL=\u0022External 2T\u0022 UUID=\u002240A1-F12E\u0022 TYPE=\u0022exfat\u0022 .... Add an entry in \/etc\/fstab for mounting this device on boot.  UUID=40A1-F12E \/mnt ext4 defaults 0 0 Finally confirm it that the changes are valid.  $ sudo mount -a ",
-      "wordCount" : "41",
+      "articleSection": "Data Structure",
+      "name": "Tree Traversals",
+      "url" : "https://anurag-inias.github.io/data-structure/binary-tree/traversals/",
+      "headline": "Tree Traversals",
+      "description": "Depth-First Search  a. Pre-order traversal        Traversing a tree involves iterating over its node in some order. I’m covering the DFS and BFS traversals.\nDepth-First Search     a. Pre-order traversal     \r┌────61────┐ ┌─31─┐ ┌─80\r27 51 68 61, 31, 27, 51, 80, 68\r\r Visit the current node Recursively visit the left node.",
+      "wordCount" : "150",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://anurag-inias.github.io/raspberry-pi/mount-exfat-on-boot/"
+          "@id": "https://anurag-inias.github.io/data-structure/binary-tree/traversals/"
       },
       "copyrightHolder" : "Just Another Blog",
-      "copyrightYear" : "2021",
-      "dateCreated": "2021-10-06T13:44:24.00Z",
-      "datePublished": "2021-10-06T13:44:24.00Z",
-      "dateModified": "2021-10-06T13:44:24.00Z",
+      "copyrightYear" : "0001",
+      "dateCreated": "0001-01-01T00:00:00.00Z",
+      "datePublished": "0001-01-01T00:00:00.00Z",
+      "dateModified": "0001-01-01T00:00:00.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "Just Another Blog",
@@ -151,7 +146,7 @@
   href="/custom.css"
   media="all"
 />
-  <link href="https://anurag-inias.github.io/raspberry-pi/mount-exfat-on-boot/" rel="canonical" type="text/html" />
+  <link href="https://anurag-inias.github.io/data-structure/binary-tree/traversals/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
@@ -581,7 +576,7 @@
                 <span class="flex">
                   <a
                     href="/data-structure/binary-tree/traversals/"
-                    class="gdoc-nav__entry"
+                    class="gdoc-nav__entry is-active"
                   >
                     Tree Traversals
                   </a>
@@ -791,7 +786,7 @@
                 <span class="flex">
                   <a
                     href="/raspberry-pi/mount-exfat-on-boot/"
-                    class="gdoc-nav__entry is-active"
+                    class="gdoc-nav__entry"
                   >
                     Mount exFAT on boot
                   </a>
@@ -969,7 +964,15 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'></span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/raspberry-pi/' href='/raspberry-pi/'><span itemprop='name'>Raspberry Pi</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Mount exFAT on boot</span><meta itemprop='position' content='3' /></li>
+    
+    
+    
+    
+  
+  
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'></span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/data-structure/' href='/data-structure/'><span itemprop='name'>Data Structures</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/data-structure/binary-tree/' href='/data-structure/binary-tree/'><span itemprop='name'>Binary Tree</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Tree Traversals</span><meta itemprop='position' content='4' /></li>
+  
+
   
 
   
@@ -987,21 +990,155 @@
   <article
     class="gdoc-markdown gdoc-markdown__align--left"
   >
-    <h1>Mount exFAT on boot</h1>
-    <ol>
-<li>Find device <code>UUID</code>.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ blkid
-</span></span><span class="line"><span class="cl">&gt; /dev/sda1: <span class="nv">LABEL</span><span class="o">=</span><span class="s2">&#34;External 2T&#34;</span> <span class="nv">UUID</span><span class="o">=</span><span class="s2">&#34;40A1-F12E&#34;</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">&#34;exfat&#34;</span> ....
-</span></span></code></pre></div><ol start="2">
-<li>Add an entry in <code>/etc/fstab</code> for mounting this device on boot.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>40A1-F12E /mnt ext4 defaults <span class="m">0</span> <span class="m">0</span>
-</span></span></code></pre></div><ol start="3">
-<li>Finally confirm it that the changes are valid.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo mount -a
-</span></span></code></pre></div>
+    <h1>Tree Traversals</h1>
+    
+
+
+  <div class="gdoc-toc gdoc-toc__level--3">
+    <nav id="TableOfContents"><ul>
+        <li><a href="#depth-first-search">Depth-First Search</a>
+          <ul>
+            <li><a href="#a-pre-order-traversal">a. Pre-order traversal</a></li>
+          </ul>
+        </li>
+      </ul></nav>
+    <hr />
+  </div>
+
+
+<p>Traversing a tree involves iterating over its node in some order. I&rsquo;m covering the DFS and BFS traversals.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="depth-first-search">
+        Depth-First Search
+        <a data-clipboard-text="https://anurag-inias.github.io/data-structure/binary-tree/traversals/#depth-first-search" class="gdoc-page__anchor gdoc-page__anchor--right clip" title="Anchor to: Depth-First Search" aria-label="Anchor to: Depth-First Search" href="#depth-first-search">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="a-pre-order-traversal">
+        a. Pre-order traversal
+        <a data-clipboard-text="https://anurag-inias.github.io/data-structure/binary-tree/traversals/#a-pre-order-traversal" class="gdoc-page__anchor gdoc-page__anchor--right clip" title="Anchor to: a. Pre-order traversal" aria-label="Anchor to: a. Pre-order traversal" href="#a-pre-order-traversal">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<pre>
+        ┌────61────┐ 
+     ┌─31─┐      ┌─80
+   27    51     68   
+
+61, 31, 27, 51, 80, 68
+</pre>
+<ul>
+<li>Visit the current node</li>
+<li>Recursively visit the left node.</li>
+<li>Recursively visit the right node.</li>
+</ul>
+
+
+
+
+
+<div class="gdoc-tabs">
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-preorder"
+      id="tabs-preorder-0"
+      checked="checked"
+    />
+    <label for="tabs-preorder-0" class="gdoc-tabs__label">
+      Recursive
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">traverse</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">traverse</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">out</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">out</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">traverse</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">out</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">out</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="n">traverse</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getLeft</span><span class="o">(),</span> <span class="n">out</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">traverse</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getRight</span><span class="o">(),</span> <span class="n">out</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+    <input
+      type="radio"
+      class="gdoc-tabs__control hidden"
+      name="tabs-preorder"
+      id="tabs-preorder-1"
+      
+    />
+    <label for="tabs-preorder-1" class="gdoc-tabs__label">
+      Iterative
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">iterative</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">Deque</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayDeque</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span> <span class="n">node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">out</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">hasRight</span><span class="o">())</span> <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getRight</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">hasLeft</span><span class="o">())</span> <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getLeft</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">out</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+  
+</div>
+
+
   </article>
 
 
