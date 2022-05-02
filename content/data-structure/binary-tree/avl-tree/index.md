@@ -326,3 +326,107 @@ class TreeNodeTest {
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## Benchmark
+
+tl;dr It pays off being tidy.
+
+{{< countsortchart.inline >}}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart1);
+
+  function drawChart1() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size','Unbalanced','Balanced'],
+      [100,2391300,522600],
+      [500,470100,451600],
+      [1000,514400,544400],
+      [2000,950000,1231200],
+      [3000,1980100,2588200],
+      [4000,2380100,1635600],
+      [5000,2867100,2297200],
+      [6000,2112500,1715300],
+      [7000,1630600,2384700],
+      [8000,2871600,2093900],
+      [9000,1776100,2659400],
+      [10000,2614300,3874900],
+      [20000,7160700,5612400],
+      [30000,11090400,17787700],
+      [40000,13162300,13216100],
+      [50000,16950100,20176200],
+      [60000,20069300,24943900],
+      [70000,27317300,27328900],
+      [80000,30123400,36462100],
+      [90000,39822100,40642300],
+      [100000,45643100,45038000]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+        title: 'Insertion - Unbalanced vs AVL tree',
+        curveType: 'function',
+        height: 500,
+        legend: { position: 'right' },
+        vAxis: { title: 'Nanoseconds' },
+        hAxis: { title: 'Input Size' }
+      };
+    var chart = new google.visualization.LineChart(document.getElementById('diagram_1'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="diagram_1"></div>
+{{< /countsortchart.inline >}}
+
+{{< countsortchart.inline >}}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart2);
+
+    function drawChart2() {
+      var data = google.visualization.arrayToDataTable([
+        ['Size','Unbalanced','Balanced'],
+        [100,9500,1300],
+        [500,3700,1800],
+        [1000,3100,1600],
+        [2000,2400,1000],
+        [3000,3100,1500],
+        [4000,5300,2500],
+        [5000,3300,1400],
+        [6000,3500,1400],
+        [7000,5500,22500],
+        [8000,4500,11900],
+        [9000,3800,1300],
+        [10000,6300,1500],
+        [20000,7300,1200],
+        [30000,7700,1600],
+        [40000,9500,2600],
+        [50000,10600,1800],
+        [60000,8800,1700],
+        [70000,8900,1400],
+        [80000,7700,1600],
+        [90000,8500,1400],
+        [100000,7400,1900]
+    ]);
+    data.addColumn({type: 'string', role: 'tooltip'});
+    var options = {
+        title: 'Search - Unbalanced vs AVL tree',
+        curveType: 'function',
+        height: 500,
+        legend: { position: 'right' },
+        vAxis: { title: 'Nanoseconds' },
+        hAxis: { title: 'Input Size' }
+      };
+    var chart = new google.visualization.LineChart(document.getElementById('diagram_2'));
+    chart.draw(data, options);
+  }
+</script>
+
+<div id="diagram_2"></div>
+{{< /countsortchart.inline >}}
+
+Note:
+- For input of size {{< katex >}} S {{< /katex >}}, the values are in range {{< katex >}} [0, S) {{< /katex >}}.
+- I altered the implementation to cache `height` of nodes, and recalulate it on `rebalance` calls, that saves insane amount of cycles.
