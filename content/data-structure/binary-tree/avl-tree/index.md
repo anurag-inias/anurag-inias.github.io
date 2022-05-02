@@ -71,12 +71,17 @@ Rotation is in fact nothing more that changing parent of a node.
 See the above example. The anti-clockwise rotation is just these two operations in sequence:
 1. Set `1` as parent of `2`'s left child (in this case `null`).
 2. Set `2` as parent of `1`.
+3. Not shown here: set the new root `2` as the left/right child of `1`'s original parent.
 
-Don't forget the node not shown in this diagram, the parent of `1` or as we'll refer it: `ancestor`.
+Breakding down rotations in terms of _changing parent_ operations helps keep the mental strain low.
 
 ## Implementation
 
-{{< tabs "sort-implementation" >}}
+`insertion` is our key operation. It involves a straightforward BST-insertion, followed by rebalancing of the nodes. Note two things here:
+- We only rebalance the subtree affectect by the insertion, not the whole tree.
+- Rebalance is called from bottom-to-top on all ancestors of the inserted node.
+
+{{< tabs "avl-implementation" >}}
 
 {{< tab "Implementation" >}}
 {{< highlight Java "linenos=table,hl_lines=46 76 88 101 107 112" >}}

@@ -56,7 +56,7 @@
       "url" : "https://anurag-inias.github.io/data-structure/binary-tree/avl-tree/",
       "headline": "AVL Tree",
       "description": "Introduction Rotations Changing parent Implementation      Introduction     AVL tree (Adelson-Velsky and Landis) is a self-balancing tree. It maintains the property that for any given node, the height difference between its left and right subtrees is no more than  \\( 1 \\)  . This has the advantage of keeping lookup, insertion and deletion under \\( O(log(n)) \\)  .",
-      "wordCount" : "1133",
+      "wordCount" : "1190",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1231,8 +1231,9 @@
 <ol>
 <li>Set <code>1</code> as parent of <code>2</code>&rsquo;s left child (in this case <code>null</code>).</li>
 <li>Set <code>2</code> as parent of <code>1</code>.</li>
+<li>Not shown here: set the new root <code>2</code> as the left/right child of <code>1</code>&rsquo;s original parent.</li>
 </ol>
-<p>Don&rsquo;t forget the node not shown in this diagram, the parent of <code>1</code> or as we&rsquo;ll refer it: <code>ancestor</code>.</p>
+<p>Breakding down rotations in terms of <em>changing parent</em> operations helps keep the mental strain low.</p>
 <div class="gdoc-page__anchorwrap">
     <h2 id="implementation">
         Implementation
@@ -1241,6 +1242,11 @@
         </a>
     </h2>
 </div>
+<p><code>insertion</code> is our key operation. It involves a straightforward BST-insertion, followed by rebalancing of the nodes. Note two things here:</p>
+<ul>
+<li>We only rebalance the subtree affectect by the insertion, not the whole tree.</li>
+<li>Rebalance is called from bottom-to-top on all ancestors of the inserted node.</li>
+</ul>
 
 
 
@@ -1251,11 +1257,11 @@
     <input
       type="radio"
       class="gdoc-tabs__control hidden"
-      name="tabs-sort-implementation"
-      id="tabs-sort-implementation-0"
+      name="tabs-avl-implementation"
+      id="tabs-avl-implementation-0"
       checked="checked"
     />
-    <label for="tabs-sort-implementation-0" class="gdoc-tabs__label">
+    <label for="tabs-avl-implementation-0" class="gdoc-tabs__label">
       Implementation
     </label>
     <div class="gdoc-markdown--nested gdoc-tabs__content">
@@ -1613,11 +1619,11 @@
     <input
       type="radio"
       class="gdoc-tabs__control hidden"
-      name="tabs-sort-implementation"
-      id="tabs-sort-implementation-1"
+      name="tabs-avl-implementation"
+      id="tabs-avl-implementation-1"
       
     />
-    <label for="tabs-sort-implementation-1" class="gdoc-tabs__label">
+    <label for="tabs-avl-implementation-1" class="gdoc-tabs__label">
       Unit Test
     </label>
     <div class="gdoc-markdown--nested gdoc-tabs__content">
