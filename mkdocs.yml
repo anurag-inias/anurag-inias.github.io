@@ -79,5 +79,7 @@ nav:
     - 'algorithms/partitioning.md'
   - 'Projects':
     - 'projects/tree-printing.md'
+  - 'Languages':
+    - 'languages/go.md'
   - 'Guides':
     - 'guides/ntfs.md'

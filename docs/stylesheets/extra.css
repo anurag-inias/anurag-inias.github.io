@@ -58,6 +58,12 @@ p {
   white-space: nowrap;
 }
 
+/* Tables waste too much space. */
+.md-typeset table:not([class]) td, .md-typeset table:not([class]) th {
+  padding: .9375em 1.25em;
+  padding: .2em 1.25em;
+}
+
 /* Sidebar text too small. */
 .md-nav {
   font-size: 0.8rem;
