@@ -27,7 +27,7 @@
 
 /* Change font size of code blocks and their line numbers. */
 .md-typeset code, .highlighttable .linenos {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
 }
 
 /* Save space, remove excessive paddings and margins between lines. */
