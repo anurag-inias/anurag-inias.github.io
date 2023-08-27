@@ -1,0 +1,64 @@
+/* Font used in excalidraw svgs. */
+@font-face {
+  font-family: "Virgil";
+  src: url("https://excalidraw.com/Virgil.woff2");
+}
+
+/* Font used in code blocks. */
+@font-face {
+  font-family: 'Cascadia Code';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Cascadia Code'),
+       url('fonts/CascadiaCode-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cascadia Code';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Cascadia Code Italic'),
+       url('fonts/CascadiaCode-Italic.woff2') format('woff2');
+}
+
+:root {
+  --md-code-font: "Cascadia Code", serif;
+}
+
+/* Change font size of code blocks and their line numbers. */
+.md-typeset code, .highlighttable .linenos {
+  font-size: 0.75em;
+}
+
+/* Save space, remove excessive paddings and margins between lines. */
+.md-typeset ol, .md-typeset ul {
+  margin-top: 0;
+}
+
+.md-typeset ol li, .md-typeset ul li {
+  margin-bottom: 0;
+}
+
+p {
+  margin-block-end: 0;
+}
+
+/* Tab titles too small. */
+.md-typeset .tabbed-labels>label {
+  font-size: 0.85rem;
+}
+
+/* Table text too small. */
+.md-typeset table:not([class]) {
+  font-size: 0.8rem;
+}
+
+/* Table text should not wrap. */
+.md-typeset table:not([class]) td:not([align]), .md-typeset table:not([class]) {
+  white-space: nowrap;
+}
+
+/* Sidebar text too small. */
+.md-nav {
+  font-size: 0.8rem;
+}
