@@ -1,3 +1,10 @@
+---
+tags:
+  - algorithms
+  - paritioning
+  - dutch national flag problem
+---
+
 # Partitioning
 
 ## Partition in two chunks

@@ -1,3 +1,9 @@
+---
+tags:
+  - guides
+  - ntfs
+---
+
 # NTFS
 
 ## 1. List partition table

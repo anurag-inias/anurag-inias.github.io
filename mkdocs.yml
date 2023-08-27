@@ -10,6 +10,7 @@ theme:
     - navigation.path
     - content.code.copy
     - content.code.annotate
+    - navigation.top
   font:
     text: Crimson Pro
   palette:
@@ -67,7 +68,8 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
-  - tags
+  - tags:
+      tags_file: tags.md
   - search
 
 nav:

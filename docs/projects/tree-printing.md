@@ -1,3 +1,9 @@
+---
+tags:
+  - projects
+  - binary tree
+---
+
 # Tree Printing
 
 ## Motivation

@@ -1,3 +1,9 @@
+---
+tags:
+  - algorithms
+  - sorting
+---
+
 # Sorting
 
 ## tl;dr

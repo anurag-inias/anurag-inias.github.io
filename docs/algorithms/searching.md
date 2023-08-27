@@ -1,3 +1,9 @@
+---
+tags:
+  - algorithms
+  - binary search
+---
+
 # Searching
 
 ## Binary Search
