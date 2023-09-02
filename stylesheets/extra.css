@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
+
 /* Font used in excalidraw svgs. */
 @font-face {
   font-family: "Virgil";
@@ -71,4 +73,8 @@ p {
 
 .md-typeset .admonition, .md-typeset details {
   font-size: 0.8rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Contrail One', cursive;
 }
