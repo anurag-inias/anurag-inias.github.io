@@ -14,7 +14,6 @@ theme:
   font:
     text: Crimson Pro
   palette:
-
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
@@ -73,6 +72,8 @@ plugins:
   - search
 
 nav:
+  - 'Data Structures':
+    - 'data-structures/numbers.md'
   - 'Algorithms':
     - 'algorithms/searching.md'
     - 'algorithms/sorting.md'
@@ -81,5 +82,6 @@ nav:
     - 'projects/tree-printing.md'
   - 'Languages':
     - 'languages/go.md'
+    - 'languages/javascript.md'
   - 'Guides':
     - 'guides/ntfs.md'

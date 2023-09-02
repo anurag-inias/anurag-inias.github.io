@@ -1,4 +1,4 @@
-# Go one-pager
+# Go
 
 Source [The Go Programming Language, Alan A. A. Donovan · Brian W. Kernighan](https://www.gopl.io)
 
