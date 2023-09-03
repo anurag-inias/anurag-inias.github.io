@@ -82,6 +82,7 @@ nav:
     - 'projects/tree-printing.md'
   - 'Languages':
     - 'languages/go.md'
-    - 'languages/javascript.md'
+    - 'Javascript':
+      - 'languages/javascript/types.md'
   - 'Guides':
     - 'guides/ntfs.md'
