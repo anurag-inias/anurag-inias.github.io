@@ -9,7 +9,7 @@ string   | `typeof("hello") = 'string'` | null | `typeof(null) = 'object'`
 undefined   | `typeof(undefined) = 'undefined'` <br/> `let foo; typeof(foo) = 'undefined'` | symbol[^symbol] | `typeof(Symbol('raven')) = 'symbol'`
 bigint[^bigint]   | `typeof(17n) = 'bigint'` | object | `typeof({foo: 'bar'}) = 'object'` <br> `typeof([1, 2, 3]) = 'object'` <br> `typeof(function(){ console.log('hi'); }) = 'function'`
 
-- `null` is its own type, yet mistakenly reported an `object`. that's a known bug in `typeof` implementation. 
+- `null` is its own type, yet mistakenly reported an `object`. that's a known bug in `typeof` implementation.
 - `null` represents a program-level / normal / expected absence of value.
 - `undefined` represents a system-level / error-like / unexpected absence of value.
 

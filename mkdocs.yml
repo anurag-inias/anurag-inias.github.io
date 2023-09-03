@@ -84,5 +84,7 @@ nav:
     - 'languages/go.md'
     - 'Javascript':
       - 'languages/javascript/types.md'
+      - 'languages/javascript/scope.md'
+      - 'languages/javascript/objects.md'
   - 'Guides':
     - 'guides/ntfs.md'
