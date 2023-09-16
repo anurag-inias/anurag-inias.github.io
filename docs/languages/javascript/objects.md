@@ -58,7 +58,7 @@ var person = new Person("bob");
     }
 
     var a = foo();     // 2
-    var b = new foo(); // {}
+    var b = new foo(); // {}. Actually it'll print foo {}. Read on to understand this.
     ```
 
 **3/ with `Object.create`
