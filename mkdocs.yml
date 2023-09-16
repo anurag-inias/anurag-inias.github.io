@@ -84,5 +84,6 @@ nav:
     - 'Javascript Quirks':
       - 'languages/javascript/scope.md'
       - 'languages/javascript/objects.md'
+      - 'languages/javascript/this.md'
   - 'Guides':
     - 'guides/ntfs.md'
