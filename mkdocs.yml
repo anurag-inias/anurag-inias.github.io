@@ -81,9 +81,7 @@ nav:
   - 'Projects':
     - 'projects/tree-printing.md'
   - 'Languages':
-    - 'languages/go.md'
-    - 'Javascript':
-      - 'languages/javascript/types.md'
+    - 'Javascript Quirks':
       - 'languages/javascript/scope.md'
       - 'languages/javascript/objects.md'
   - 'Guides':
