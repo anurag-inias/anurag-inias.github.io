@@ -2,7 +2,7 @@
 
 The _scope_ of a variable is the region of the program source in which it is defined. 
 
-##What is familiar
+## What is familiar
 
 In modern JS (ES6+), variables are declared with `let` keyword and constants are declared with `const`. Both are _block scoped_. Those outside of any code blocks are _global_ variables / constants.
 
@@ -48,3 +48,19 @@ function foo() {                   foo = function() {
 ```
 
 Who knows why would you even do that in the first place.
+
+## Polyfilling block scope
+
+One exception (heh) to `var` function scope is _try-catch_ block, where the `catch` has a block scope. We can exploit this to mimic block scope in older browsers
+
+```javascript
+try {
+  throw 2;
+} catch (a) {
+  console.log(a);    // 2
+}
+
+console.log(a);      // ReferenceError;
+```
+
+Why not just use IIFE? because function wrapping arbitrary code changes its meaning.
