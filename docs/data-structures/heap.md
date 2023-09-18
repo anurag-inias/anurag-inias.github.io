@@ -38,8 +38,6 @@
   }
 </style>
 
-## Demo
-
 === "Heapify"
 
     Takes an array <input type="text" id="heapify-input" value="15 14 13 12 11"/> of length $N$ and calls `sink` on indices $\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]$ in order. Has the amortized time complexity of $O(n)$.
