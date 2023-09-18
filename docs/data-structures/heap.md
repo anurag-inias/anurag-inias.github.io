@@ -1,6 +1,8 @@
 # Heap
 
-## Demo heapify
+## Demo
+
+### Heapify
 
 <style>
   input {
@@ -40,22 +42,21 @@
   }
 </style>
 
-Start with an array of length $N$. We _heapify_ this by repeatedly calling `sink` on indices $\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]$:
-<input type="text" id="heapify-input" value="15 14 13 12 11"/>
+Takes an array <input type="text" id="heapify-input" value="15 14 13 12 11"/> of length $N$ and calls `sink` on indices $\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]$ in order. Has the amortized time complexity of $O(n)$.
 
 <div id="heapify-stages" class="stages">
 </div>
 
-## Demo swim
+### Push
 
-Take the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and place <input type="number" id="append-input" value="8"/> at the end of our heap and apply min-heap property.
+Takes the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and pushes the element <input type="number" id="append-input" value="8"/> at the end of it. This is followed by `swim` operation on newly added element to bubble it up to its right place. Has the time complexity of $O(log \ n)$.
 
 <div id="swim-stages" class="stages">
 </div>
 
-## Demo sink
+### Pop
 
-Take the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and pop the root of the heap by pressing the button <button id="pop-input">Pop</button>. The root gets swapped with the last element of the heap, and the heapify property is re-applied after shrinking the heap array.
+Takes the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and <button id="pop-input">pops</button> its root. The root gets replaced with the last element of the heap, followed by `sink` operation on the new root to restore the min-heap property. Has the time complexity of $O(log \ n)$.
 
 <div id="sink-stages" class="stages">
 </div>
