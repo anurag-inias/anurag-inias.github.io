@@ -1,9 +1,11 @@
 # Numbers
 
 <style>
-  input[type=number] {
-    font-family: var(--md-text-font-family);
+  input {
     padding: 0.5rem;
+    border: 1px solid var(--md-typeset-color);
+    border-radius: 2px;
+    font-size: 0.8rem;
   }
 </style>
 
@@ -62,6 +64,7 @@ i.e. complement the remaining bit and add one (ignore overflow) to get the magni
   }
   showBinary();
   document.addEventListener("change", showBinary);
+  document.addEventListener("keyup", showBinary);
 </script>
 
 decimal | 8-bit signed binary | decimal | 8-bit signed binary
