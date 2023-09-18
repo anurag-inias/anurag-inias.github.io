@@ -24,7 +24,7 @@
 }
 
 :root {
-  --md-code-font: "Cascadia Code", serif;
+  --md-code-font: "Cascadia Code", monospace;
 }
 
 /* Change font size of code blocks and their line numbers. */
@@ -76,7 +76,7 @@ p {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Contrail One', cursive;
+  font-family: 'Contrail One', sans-serif;
 }
 
 /* correction in placement of copy icon in code blocks. */
