@@ -1,9 +1,5 @@
 # Heap
 
-## Demo
-
-### Heapify
-
 <style>
   input {
     padding: 0.5rem;
@@ -22,7 +18,7 @@
   }
   .stages {
     display: flex !important;
-    flex-wrap: wrap;
+    overflow: auto;
     margin-top: 0.4rem;
   }
   .stage {
@@ -42,24 +38,28 @@
   }
 </style>
 
-Takes an array <input type="text" id="heapify-input" value="15 14 13 12 11"/> of length $N$ and calls `sink` on indices $\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]$ in order. Has the amortized time complexity of $O(n)$.
+## Demo
 
-<div id="heapify-stages" class="stages">
-</div>
+=== "Heapify"
 
-### Push
+    Takes an array <input type="text" id="heapify-input" value="15 14 13 12 11"/> of length $N$ and calls `sink` on indices $\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]$ in order. Has the amortized time complexity of $O(n)$.
 
-Takes the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and pushes the element <input type="number" id="append-input" value="8"/> at the end of it. This is followed by `swim` operation on newly added element to bubble it up to its right place. Has the time complexity of $O(log \ n)$.
+    <div id="heapify-stages" class="stages">
+    </div>
 
-<div id="swim-stages" class="stages">
-</div>
+=== "Push"
 
-### Pop
+    Takes the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and pushes the element <input type="number" id="append-input" value="8"/> at the end of it. This is followed by `swim` operation on newly added element to bubble it up to its right place. Has the time complexity of $O(log \ n)$.
 
-Takes the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and <button id="pop-input">pops</button> its root. The root gets replaced with the last element of the heap, followed by `sink` operation on the new root to restore the min-heap property. Has the time complexity of $O(log \ n)$.
+    <div id="swim-stages" class="stages">
+    </div>
 
-<div id="sink-stages" class="stages">
-</div>
+=== "Pop"
+
+    Takes the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and <button id="pop-input">pops</button> its root. The root gets replaced with the last element of the heap, followed by `sink` operation on the new root to restore the min-heap property. Has the time complexity of $O(log \ n)$.
+
+    <div id="sink-stages" class="stages">
+    </div>
 
 <script>
 class BinaryTreeNode {
@@ -367,10 +367,12 @@ function processSinkInput() {
   let startValue = document.getElementById('sink-input').value;
   let items = startValue.split(/\s+/).map(x => x.trim()).filter(x => x.length > 0).map(x => Number(x));
   let heap = new MinHeap(items, false);
+  showSinkStage(heap.toString());
+
   document.getElementById('pop-input').onclick = (event) => popHeap(heap);
 }
 
-addEventListener("DOMContentLoaded", (eventDOMContentLoaded) => {
+document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById('heapify-input').onkeyup = processHeapifyInput;
 
   document.getElementById('append-input').onchange = processSwimInput;

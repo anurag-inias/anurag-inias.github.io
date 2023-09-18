@@ -338,23 +338,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#demo-heapify" class="md-nav__link">
-    Demo heapify
+  <a href="#demo" class="md-nav__link">
+    Demo
+  </a>
+  
+    <nav class="md-nav" aria-label="Demo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heapify" class="md-nav__link">
+    Heapify
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#demo-swim" class="md-nav__link">
-    Demo swim
+        
+          <li class="md-nav__item">
+  <a href="#push" class="md-nav__link">
+    Push
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#demo-sink" class="md-nav__link">
-    Demo sink
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    Pop
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -767,23 +780,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#demo-heapify" class="md-nav__link">
-    Demo heapify
+  <a href="#demo" class="md-nav__link">
+    Demo
+  </a>
+  
+    <nav class="md-nav" aria-label="Demo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heapify" class="md-nav__link">
+    Heapify
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#demo-swim" class="md-nav__link">
-    Demo swim
+        
+          <li class="md-nav__item">
+  <a href="#push" class="md-nav__link">
+    Push
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#demo-sink" class="md-nav__link">
-    Demo sink
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    Pop
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -803,7 +829,8 @@
 
 
 <h1 id="heap">Heap</h1>
-<h2 id="demo-heapify">Demo heapify</h2>
+<h2 id="demo">Demo</h2>
+<h3 id="heapify">Heapify</h3>
 <style>
   input {
     padding: 0.5rem;
@@ -842,18 +869,17 @@
   }
 </style>
 
-<p>Start with an array of length <span class="arithmatex">\(N\)</span>. We <em>heapify</em> this by repeatedly calling <code>sink</code> on indices <span class="arithmatex">\(\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]\)</span>:
-<input type="text" id="heapify-input" value="15 14 13 12 11"/></p>
+<p>Takes an array <input type="text" id="heapify-input" value="15 14 13 12 11"/> of length <span class="arithmatex">\(N\)</span> and calls <code>sink</code> on indices <span class="arithmatex">\(\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]\)</span> in order. Has the amortized time complexity of <span class="arithmatex">\(O(n)\)</span>.</p>
 <div id="heapify-stages" class="stages">
 </div>
 
-<h2 id="demo-swim">Demo swim</h2>
-<p>Take the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and place <input type="number" id="append-input" value="8"/> at the end of our heap and apply min-heap property.</p>
+<h3 id="push">Push</h3>
+<p>Takes the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and pushes the element <input type="number" id="append-input" value="8"/> at the end of it. This is followed by <code>swim</code> operation on newly added element to bubble it up to its right place. Has the time complexity of <span class="arithmatex">\(O(log \ n)\)</span>.</p>
 <div id="swim-stages" class="stages">
 </div>
 
-<h2 id="demo-sink">Demo sink</h2>
-<p>Take the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and pop the root of the heap by pressing the button <button id="pop-input">Pop</button>. The root gets swapped with the last element of the heap, and the heapify property is re-applied after shrinking the heap array.</p>
+<h3 id="pop">Pop</h3>
+<p>Takes the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and <button id="pop-input">pops</button> its root. The root gets replaced with the last element of the heap, followed by <code>sink</code> operation on the new root to restore the min-heap property. Has the time complexity of <span class="arithmatex">\(O(log \ n)\)</span>.</p>
 <div id="sink-stages" class="stages">
 </div>
 
