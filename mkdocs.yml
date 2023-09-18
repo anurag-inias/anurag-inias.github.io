@@ -74,6 +74,7 @@ plugins:
 nav:
   - 'Data Structures':
     - 'data-structures/numbers.md'
+    - 'data-structures/heap.md'
   - 'Algorithms':
     - 'algorithms/searching.md'
     - 'algorithms/sorting.md'
