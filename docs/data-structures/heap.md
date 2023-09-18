@@ -47,6 +47,15 @@
     <div id="heapify-stages" class="stages">
     </div>
 
+    ```javascript
+    function heapify() {
+      const times = Math.floor((items.length - 1) / 2);
+      for (let i = times; i >= 0; i--) {
+        sink(i);
+      }
+    }
+    ```
+
 === "Push"
 
     Takes the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and pushes the element <input type="number" id="append-input" value="8"/> at the end of it. This is followed by `swim` operation on newly added element to bubble it up to its right place. Has the time complexity of $O(log \ n)$.
@@ -54,12 +63,58 @@
     <div id="swim-stages" class="stages">
     </div>
 
+    ```javascript
+    function push(item) {
+      items.push(item);
+      swim(items.length - 1);
+    }
+
+    function swim(index) {
+      while(index > 0) {
+        let parent = Math.floor((index - 1) / 2);
+        if (items[index] >= items[parent]) return;
+
+        [items[parent], items[index]] = [items[index], items[parent]];
+        index = parent;
+      }
+    }
+    ```
+
 === "Pop"
 
     Takes the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and <button id="pop-input">pops</button> its root. The root gets replaced with the last element of the heap, followed by `sink` operation on the new root to restore the min-heap property. Has the time complexity of $O(log \ n)$.
 
     <div id="sink-stages" class="stages">
     </div>
+
+    ```javascript
+    function pop() {
+      let last = items.length-1;
+      [items[0], item[last]] = [items[last], items[0]]; // swap the root with last element
+      let top = items.pop();                            // pop the last element (old root)
+      sink(0);
+      return top;
+    }
+
+    function sink(index) {
+      while(index < items.length) {
+        let left = 2 * index + 1;
+        let right = 2 * index + 2;
+        let min = index;
+
+        if (left < items.length && items[left] < items[index]) 
+          min = left;
+        if (right < items.length && items[right] < items[min]) // pay attention
+          min = right;
+
+        if(min === index) 
+          return;
+
+        [items[min], items[index]] = [items[index], items[min]];
+        index = min;
+      }
+    }
+    ```
 
 <script>
 class BinaryTreeNode {
