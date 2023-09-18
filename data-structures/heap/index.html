@@ -342,33 +342,6 @@
     Demo
   </a>
   
-    <nav class="md-nav" aria-label="Demo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#heapify" class="md-nav__link">
-    Heapify
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#push" class="md-nav__link">
-    Push
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop" class="md-nav__link">
-    Pop
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -784,33 +757,6 @@
     Demo
   </a>
   
-    <nav class="md-nav" aria-label="Demo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#heapify" class="md-nav__link">
-    Heapify
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#push" class="md-nav__link">
-    Push
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop" class="md-nav__link">
-    Pop
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -829,8 +775,6 @@
 
 
 <h1 id="heap">Heap</h1>
-<h2 id="demo">Demo</h2>
-<h3 id="heapify">Heapify</h3>
 <style>
   input {
     padding: 0.5rem;
@@ -849,7 +793,7 @@
   }
   .stages {
     display: flex !important;
-    flex-wrap: wrap;
+    overflow: auto;
     margin-top: 0.4rem;
   }
   .stage {
@@ -869,20 +813,26 @@
   }
 </style>
 
+<h2 id="demo">Demo</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Heapify</label><label for="__tabbed_1_2">Push</label><label for="__tabbed_1_3">Pop</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Takes an array <input type="text" id="heapify-input" value="15 14 13 12 11"/> of length <span class="arithmatex">\(N\)</span> and calls <code>sink</code> on indices <span class="arithmatex">\(\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]\)</span> in order. Has the amortized time complexity of <span class="arithmatex">\(O(n)\)</span>.</p>
-<div id="heapify-stages" class="stages">
+<p><div id="heapify-stages" class="stages">
+</div></p>
 </div>
-
-<h3 id="push">Push</h3>
+<div class="tabbed-block">
 <p>Takes the heap <input type="text" id="swim-input" value="11 12 13 15 14"/> and pushes the element <input type="number" id="append-input" value="8"/> at the end of it. This is followed by <code>swim</code> operation on newly added element to bubble it up to its right place. Has the time complexity of <span class="arithmatex">\(O(log \ n)\)</span>.</p>
-<div id="swim-stages" class="stages">
+<p><div id="swim-stages" class="stages">
+</div></p>
 </div>
-
-<h3 id="pop">Pop</h3>
+<div class="tabbed-block">
 <p>Takes the heap <input type="text" id="sink-input" value="11 12 13 15 14"/> and <button id="pop-input">pops</button> its root. The root gets replaced with the last element of the heap, followed by <code>sink</code> operation on the new root to restore the min-heap property. Has the time complexity of <span class="arithmatex">\(O(log \ n)\)</span>.</p>
-<div id="sink-stages" class="stages">
+<p><div id="sink-stages" class="stages">
+</div></p>
 </div>
-
+</div>
+</div>
 <script>
 class BinaryTreeNode {
   #value;
@@ -1189,10 +1139,12 @@ function processSinkInput() {
   let startValue = document.getElementById('sink-input').value;
   let items = startValue.split(/\s+/).map(x => x.trim()).filter(x => x.length > 0).map(x => Number(x));
   let heap = new MinHeap(items, false);
+  showSinkStage(heap.toString());
+
   document.getElementById('pop-input').onclick = (event) => popHeap(heap);
 }
 
-addEventListener("DOMContentLoaded", (eventDOMContentLoaded) => {
+document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById('heapify-input').onkeyup = processHeapifyInput;
 
   document.getElementById('append-input').onchange = processSwimInput;
