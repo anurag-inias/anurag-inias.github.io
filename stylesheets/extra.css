@@ -25,6 +25,7 @@
 
 :root {
   --md-code-font: "Cascadia Code", monospace;
+  font-size: 22px;
 }
 
 /* Change font size of code blocks and their line numbers. */
