@@ -371,6 +371,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    Benchmark
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -833,6 +840,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    Benchmark
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1004,6 +1018,200 @@
 </div>
 </div>
 </div>
+<h2 id="benchmark">Benchmark</h2>
+<p>The idea is to start with a very large Disjoint-set of size <span class="arithmatex">\(N\)</span> and then repeated call <code>union</code> on random pairs of nodes until everything collapses to a single connect component. We then find the average time it takes to call <code>union</code> by dividing by <span class="arithmatex">\(N\)</span>.</p>
+<p>As we can see, <strong><code>union</code> calls maintain almost constant runtime</strong>, regardless of the set size.</p>
+<div id="avg-union-line-chart" style="width: 100%"></div>
+
+<div id="single-chart" style="width: 100%"></div>
+
+<details class="note">
+<summary>Benchmark setup</summary>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span><span class="nd">@Test</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;[&#39;Size&#39;, &#39;avg union (ns)&#39;],&quot;</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="n">idx</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100_000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="n">DisjointSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DisjointSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">makeSet</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="n">unionAll</span><span class="p">(</span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="n">Duration</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Duration</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">NANOS</span><span class="p">);</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[%d, %d],\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">.</span><span class="na">dividedBy</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="na">getNano</span><span class="p">());</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">unionAll</span><span class="p">(</span><span class="n">DisjointSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">      </span><span class="n">set</span><span class="p">.</span><span class="na">union</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">  </span><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawLineChart);
+  google.charts.setOnLoadCallback(drawSingleChart);
+
+  function drawLineChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'avg union (ns)'],
+      [100000, 4199],
+      [200000, 4152],
+      [300000, 2703],
+      [400000, 5369],
+      [500000, 4888],
+      [600000, 5383],
+      [700000, 4646],
+      [800000, 5370],
+      [900000, 5200],
+      [1000000, 7332],
+      [1100000, 6393],
+      [1200000, 6578],
+      [1300000, 6584],
+      [1400000, 6998],
+      [1500000, 7097],
+      [1600000, 6889],
+      [1700000, 7623],
+      [1800000, 7315],
+      [1900000, 5443],
+      [2000000, 6906],
+    ]);
+
+    var options = {
+      title: 'Average union time',
+      curveType: 'function',
+      hAxis: { title: 'set size', gridlines: { count: 5 } },
+      vAxis: { title: 'union time (ns)' },
+      legend: 'none'
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('avg-union-line-chart'));
+
+    chart.draw(data, options);
+  }
+
+  function drawSingleChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'avg union (ns)'],
+      [10, 1700],
+      [20, 3800],
+      [30, 2600],
+      [40, 1800],
+      [50, 1700],
+      [60, 3600],
+      [70, 2500],
+      [80, 1500],
+      [90, 1600],
+      [100, 1400],
+      [110, 46000],
+      [120, 2800],
+      [130, 2400],
+      [140, 1900],
+      [150, 2200],
+      [160, 2000],
+      [170, 1900],
+      [180, 1300],
+      [190, 1200],
+      [200, 1300],
+      [210, 1500],
+      [220, 2000],
+      [230, 2300],
+      [240, 9600],
+      [250, 2100],
+      [260, 2000],
+      [270, 1900],
+      [280, 1800],
+      [290, 1600],
+      [300, 1300],
+      [310, 2300],
+      [320, 2100],
+      [330, 1400],
+      [340, 1400],
+      [350, 1300],
+      [360, 1300],
+      [370, 1400],
+      [380, 2000],
+      [390, 1200],
+      [400, 1800],
+      [410, 1700],
+      [420, 1800],
+      [430, 4100],
+      [440, 2100],
+      [450, 1900],
+      [460, 1900],
+      [470, 1500],
+      [480, 1300],
+      [490, 1600],
+      [500, 2100],
+      [510, 1500],
+      [520, 2200],
+      [530, 2300],
+      [540, 1800],
+      [550, 2200],
+      [560, 1700],
+      [570, 1500],
+      [580, 1000],
+      [590, 2100],
+      [600, 1300],
+      [610, 2000],
+      [620, 1200],
+      [630, 1600],
+      [640, 1700],
+      [650, 1700],
+      [660, 1800],
+      [670, 1000],
+      [680, 1300],
+      [690, 2000],
+      [700, 2000],
+      [710, 1800],
+      [720, 1200],
+      [730, 1900],
+      [740, 1800],
+      [750, 700],
+      [760, 1600],
+      [770, 1700],
+      [780, 1600],
+      [790, 1600],
+      [800, 1400],
+      [810, 900],
+      [820, 700],
+      [830, 1300],
+      [840, 1400],
+      [850, 1700],
+      [860, 1700],
+      [870, 2000],
+      [880, 600],
+      [890, 1800],
+      [900, 800],
+      [910, 1300],
+      [920, 700],
+      [930, 1400],
+      [940, 700],
+      [950, 1100],
+      [960, 1700],
+      [970, 1300],
+      [980, 1600],
+      [990, 1700],
+    ]);
+
+    var options = {
+      title: 'raw data for union calls',
+      hAxis: {title: 'count'},
+      vAxis: {title: 'time (ns)'},
+      legend: 'none'
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('single-chart'));
+
+    chart.draw(data, options);
+  }
+</script>
 
 
 

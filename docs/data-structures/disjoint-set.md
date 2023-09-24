@@ -240,7 +240,7 @@ As we can see, **`union` calls maintain almost constant runtime**, regardless of
 
   function drawSingleChart() {
     var data = google.visualization.arrayToDataTable([
-      ['Size', 'avg union (ns)'],
+      ['Size', 'time (ns)'],
       [10, 1700],
       [20, 3800],
       [30, 2600],
