@@ -1,0 +1,1063 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../heap/">
+      
+      
+        <link rel="next" href="../binary-tree/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.4">
+    
+    
+      
+        <title>Disjoint-set - Just Another Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Pro:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Crimson Pro";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#disjoint-set" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Just Another Blog" class="md-header__button md-logo" aria-label="Just Another Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Just Another Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Disjoint-set
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Just Another Blog" class="md-nav__button md-logo" aria-label="Just Another Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Just Another Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numbers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Disjoint-set
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Disjoint-set
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#perspective" class="md-nav__link">
+    Perspective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimizations" class="md-nav__link">
+    Optimizations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-search-tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/searching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Searching
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/sorting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/partitioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/tree-printing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tree Printing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Languages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript Quirks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript Quirks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/scope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scope
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objects 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/javascript/this/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    this?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/ntfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NTFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#perspective" class="md-nav__link">
+    Perspective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimizations" class="md-nav__link">
+    Optimizations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="disjoint-set">Disjoint-set</h1>
+<p>Store a collection of disjoint (non-overlapping) sets.</p>
+<h2 id="perspective">Perspective</h2>
+<p>Think of Disjoint-set as a tree of arbitrary arity. Unlike a traditional binary tree, where nodes maintain links to their children, nodes in disjoint-set instead maintain link to their parents. </p>
+<h2 id="optimizations">Optimizations</h2>
+<p>With the help of two key optimizations, all operations on it end up with near constant <span class="arithmatex">\(O(1)\)</span> time complexity.</p>
+<ol>
+<li>
+<p>Compression: we don't care for <em>"is parent of"</em> relation. Only the representative node (aka <em>root</em>) is what interests us.
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640.1785888671875 323.92857360839844" width="640.1785888671875" height="323.92857360839844">
+  <g stroke-linecap="round" transform="translate(106.07147216796875 67.85722351074219) rotate(0 24.5 24.5)"><path d="M19.59 0.13 C24.23 -1.38, 30.6 -0.64, 35.24 1.86 C39.87 4.36, 45.26 10, 47.41 15.12 C49.56 20.24, 49.64 27.55, 48.13 32.6 C46.63 37.65, 42.79 42.8, 38.38 45.42 C33.98 48.05, 26.86 49.21, 21.72 48.35 C16.57 47.49, 10.99 43.89, 7.5 40.27 C4.01 36.65, 1.29 31.8, 0.78 26.63 C0.28 21.46, 0.73 13.69, 4.45 9.26 C8.16 4.83, 19.28 1.64, 23.08 0.05 C26.89 -1.54, 27.24 -0.55, 27.29 -0.27 M33.43 2.85 C38.49 4.23, 44.74 7.58, 47.1 11.96 C49.46 16.35, 48.59 23.76, 47.59 29.15 C46.6 34.54, 44.82 41.07, 41.14 44.3 C37.45 47.53, 30.95 48.84, 25.49 48.54 C20.02 48.24, 12.55 45.97, 8.35 42.51 C4.16 39.05, 0.92 33.09, 0.29 27.76 C-0.33 22.44, 1.67 15.05, 4.61 10.58 C7.55 6.1, 13.16 2.35, 17.93 0.92 C22.7 -0.52, 30.85 1.71, 33.23 1.98 C35.61 2.25, 32.2 2.28, 32.22 2.53" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(125.81736335311709 80.03310737167175) rotate(0 4.92999267578125 12.5)"><text x="4.92999267578125" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">p</text></g><g stroke-linecap="round" transform="translate(10 176.3571014404297) rotate(0 24.5 24.5)"><path d="M25.88 0.43 C30.76 0.29, 36.17 3.51, 39.99 6.77 C43.82 10.02, 47.76 14.97, 48.82 19.96 C49.87 24.94, 49.06 32.03, 46.33 36.65 C43.59 41.27, 37.53 45.91, 32.39 47.66 C27.25 49.4, 20.34 49.01, 15.47 47.12 C10.59 45.22, 5.74 40.97, 3.16 36.31 C0.59 31.65, -1.15 24.33, 0.02 19.17 C1.19 14.02, 5.69 8.48, 10.19 5.38 C14.7 2.27, 23.64 1.33, 27.05 0.52 C30.47 -0.29, 30.47 0.17, 30.67 0.51 M17.14 2.37 C21.58 0.33, 28 -0.09, 32.98 1.53 C37.96 3.15, 44.19 7.36, 47.01 12.1 C49.84 16.85, 51.27 24.76, 49.91 30.01 C48.56 35.25, 43.26 40.53, 38.89 43.57 C34.52 46.61, 28.66 48.35, 23.7 48.25 C18.73 48.16, 13.08 46.44, 9.09 43 C5.1 39.57, 0.91 32.68, -0.24 27.66 C-1.38 22.63, -0.54 17.3, 2.22 12.84 C4.97 8.39, 14.07 2.57, 16.3 0.95 C18.52 -0.67, 15.66 2.56, 15.55 3.13" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(28.005885691984272 188.53298530135925) rotate(0 6.6699981689453125 12.5)"><text x="6.6699981689453125" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">a</text></g><g stroke-linecap="round" transform="translate(105.571533203125 174.6428680419922) rotate(0 24.5 24.5)"><path d="M16.23 0.88 C21.03 -0.93, 29.01 -0.1, 34.07 1.91 C39.14 3.93, 44.31 8.6, 46.6 12.98 C48.89 17.36, 48.89 23.14, 47.83 28.18 C46.77 33.22, 44.06 39.84, 40.23 43.21 C36.4 46.59, 30.05 48.4, 24.86 48.43 C19.67 48.46, 13.11 46.87, 9.06 43.4 C5.01 39.92, 1.47 32.74, 0.56 27.59 C-0.36 22.43, 0.6 16.87, 3.57 12.48 C6.53 8.09, 15.67 3.23, 18.32 1.26 C20.98 -0.7, 19.44 0.41, 19.51 0.66 M17.76 -0.33 C22.28 -2.1, 30.03 -1.43, 35.05 1.11 C40.08 3.65, 45.77 9.98, 47.93 14.9 C50.09 19.82, 49.48 25.75, 48.02 30.63 C46.56 35.51, 43.53 41.16, 39.19 44.18 C34.84 47.2, 27.57 49.42, 21.95 48.75 C16.33 48.08, 9.1 43.94, 5.45 40.15 C1.8 36.35, 0.25 30.78, 0.04 26 C-0.18 21.22, 0.83 15.59, 4.15 11.47 C7.48 7.34, 17.5 3.16, 20 1.24 C22.51 -0.68, 19.53 -0.14, 19.2 -0.04" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(125.16742286239443 186.81875190292175) rotate(0 5.079994201660156 12.5)"><text x="5.079994201660156" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">b</text></g><g stroke-linecap="round" transform="translate(111.28573608398438 264.92857360839844) rotate(0 24.5 24.5)"><path d="M27.53 -0.57 C32.4 -0.27, 38.32 4.1, 41.91 7.81 C45.5 11.52, 48.76 16.65, 49.07 21.71 C49.38 26.77, 46.64 33.86, 43.76 38.17 C40.87 42.48, 36.65 46.14, 31.75 47.58 C26.86 49.02, 19.19 48.93, 14.4 46.8 C9.6 44.68, 5.29 39.62, 2.98 34.83 C0.68 30.03, -0.74 22.97, 0.56 18.01 C1.86 13.05, 5.82 7.83, 10.79 5.07 C15.75 2.32, 26.64 1.95, 30.36 1.5 C34.07 1.05, 33.35 2.21, 33.06 2.37 M13.81 2.86 C18.45 0.77, 25.52 0.99, 30.87 2.12 C36.23 3.26, 42.88 5.83, 45.93 9.68 C48.98 13.53, 49.94 19.83, 49.17 25.22 C48.4 30.61, 44.85 37.94, 41.33 42.03 C37.81 46.11, 32.99 49.11, 28.05 49.74 C23.12 50.37, 16.48 49.05, 11.71 45.79 C6.95 42.54, 1.08 35.21, -0.56 30.2 C-2.2 25.18, -0.28 20.24, 1.89 15.73 C4.07 11.22, 10.38 5.31, 12.5 3.14 C14.61 0.96, 14.13 2.25, 14.6 2.68" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(130.94162330184756 277.104457469328) rotate(0 5.019996643066406 12.5)"><text x="5.019996643066406" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">c</text></g><g stroke-linecap="round"><g transform="translate(135.07150268554688 265.42860412597656) rotate(0 -1.9323695070529396 -19.70988608506974)"><path d="M-0.81 -0.7 C-1.44 -7.65, -4.1 -34.32, -4.83 -40.97 M0.96 1.55 C0.8 -5.25, -1.9 -31.98, -2.55 -39.34" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(135.07150268554688 265.42860412597656) rotate(0 -1.9323695070529396 -19.70988608506974)"><path d="M5.14 -22.04 C4.58 -26.68, 3.31 -29.96, -0.64 -39.57 M5.97 -20.56 C3.94 -26.65, -0.85 -34.93, -1.77 -39.2" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(135.07150268554688 265.42860412597656) rotate(0 -1.9323695070529396 -19.70988608506974)"><path d="M-8.94 -20.72 C-6.5 -25.55, -4.76 -29.11, -0.64 -39.57 M-8.11 -19.24 C-5.02 -25.85, -4.69 -34.61, -1.77 -39.2" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(131.07150268554688 172.85716247558594) rotate(0 -0.11512628611642839 -27.30731224641204)"><path d="M0.68 -0.37 C0.42 -9.26, -0.27 -45.37, -0.56 -54.25 M-0.43 -1.61 C-0.83 -10.26, -0.72 -44.55, -0.91 -52.99" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(131.07150268554688 172.85716247558594) rotate(0 -0.11512628611642839 -27.30731224641204)"><path d="M7.88 -25.9 C4.2 -36.36, 1.67 -48.4, 0.09 -52.11 M8.32 -28.57 C6.57 -35.03, 4.34 -39.67, -0.91 -52.91" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(131.07150268554688 172.85716247558594) rotate(0 -0.11512628611642839 -27.30731224641204)"><path d="M-10.5 -25.74 C-7.15 -36.37, -2.65 -48.47, 0.09 -52.11 M-10.06 -28.42 C-7.18 -35.09, -4.78 -39.77, -0.91 -52.91" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(48.21435546875 180.28578186035156) rotate(0 31.914860696396794 -33.41991992963011)"><path d="M0.86 0.84 C11.46 -10.05, 53.63 -54.77, 63.97 -65.81 M-0.14 0.24 C10.31 -10.98, 52.97 -56.43, 63.31 -67.68" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(48.21435546875 180.28578186035156) rotate(0 31.914860696396794 -33.41991992963011)"><path d="M53.02 -39.15 C56.41 -50.17, 61.03 -57.27, 63.97 -67.38 M51.65 -40.24 C54.22 -46.94, 56.78 -55.52, 63.83 -68.01" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(48.21435546875 180.28578186035156) rotate(0 31.914860696396794 -33.41991992963011)"><path d="M38 -53.13 C46.35 -59.59, 55.98 -62.03, 63.97 -67.38 M36.62 -54.22 C43.17 -57.33, 49.67 -62.24, 63.83 -68.01" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round" transform="translate(439.03578186035156 58.10719299316406) rotate(0 24.5 24.5)"><path d="M27.35 0.69 C32.51 1.1, 38.79 4.21, 42.27 7.95 C45.75 11.69, 47.95 17.97, 48.24 23.14 C48.54 28.3, 46.96 34.86, 44.03 38.94 C41.1 43.01, 35.66 46.43, 30.68 47.6 C25.7 48.76, 18.95 48.06, 14.14 45.92 C9.33 43.79, 4.1 39.4, 1.82 34.79 C-0.47 30.17, -1.1 23.31, 0.45 18.25 C2 13.18, 6.36 7.19, 11.12 4.38 C15.87 1.58, 25.48 2.04, 28.98 1.43 C32.48 0.82, 32.08 0.34, 32.13 0.72 M30.24 0.68 C35.2 1.64, 40.21 6.54, 43.58 10.87 C46.95 15.21, 50.59 21.85, 50.45 26.71 C50.3 31.57, 46.51 36.12, 42.72 40.03 C38.93 43.94, 33.01 49.22, 27.7 50.16 C22.39 51.09, 15.36 48.62, 10.86 45.63 C6.36 42.64, 2.29 37.07, 0.72 32.22 C-0.85 27.37, -0.57 21.5, 1.44 16.51 C3.44 11.52, 8.11 4.83, 12.74 2.29 C17.38 -0.26, 26.22 1.61, 29.24 1.24 C32.26 0.86, 31.06 -0.31, 30.86 0.04" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(458.7816730454999 70.28307685409368) rotate(0 4.92999267578125 12.5)"><text x="4.92999267578125" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">p</text></g><g stroke-linecap="round" transform="translate(317.24998474121094 163.7499237060547) rotate(0 24.5 24.5)"><path d="M31 1.76 C35.71 2.85, 41.6 7.28, 44.56 11.47 C47.52 15.66, 49.29 21.87, 48.74 26.9 C48.19 31.94, 45.18 38, 41.28 41.68 C37.38 45.36, 30.66 48.55, 25.34 48.98 C20.01 49.4, 13.36 47.4, 9.34 44.24 C5.32 41.08, 2.37 34.99, 1.23 30.01 C0.08 25.03, 0.06 19.16, 2.44 14.35 C4.83 9.53, 10.1 3.02, 15.56 1.14 C21.02 -0.75, 31.52 2.6, 35.2 3.04 C38.87 3.48, 37.85 3.48, 37.61 3.75 M26.74 1.11 C31.83 0.57, 37.34 1.64, 41.01 5.18 C44.69 8.72, 48.15 16.91, 48.8 22.36 C49.44 27.82, 47.72 33.59, 44.88 37.89 C42.04 42.19, 36.74 46.37, 31.75 48.17 C26.76 49.96, 19.85 50.77, 14.96 48.67 C10.07 46.58, 4.93 40.37, 2.43 35.62 C-0.08 30.86, -1.42 25.37, -0.08 20.14 C1.26 14.91, 6.45 7.51, 10.47 4.22 C14.49 0.92, 21.78 0.88, 24.02 0.38 C26.26 -0.13, 23.6 0.82, 23.91 1.18" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(335.2558704331952 175.92580756698425) rotate(0 6.6699981689453125 12.5)"><text x="6.6699981689453125" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">a</text></g><g stroke-linecap="round" transform="translate(403.6786651611328 163.74998474121094) rotate(0 24.5 24.5)"><path d="M32.65 0.83 C37.55 2.04, 43.12 6.74, 45.71 11.37 C48.31 16, 49.17 23.28, 48.21 28.61 C47.26 33.94, 43.79 39.94, 39.96 43.34 C36.14 46.74, 30.48 48.84, 25.26 49 C20.04 49.17, 12.69 47.83, 8.65 44.34 C4.61 40.86, 1.84 33.29, 1.03 28.1 C0.21 22.92, 1.2 17.72, 3.76 13.24 C6.33 8.75, 11.25 2.98, 16.41 1.18 C21.57 -0.62, 31.41 2.09, 34.7 2.43 C38 2.78, 36.24 2.75, 36.19 3.24 M33.32 2.99 C37.99 4.74, 43.01 8.67, 45.49 13.1 C47.96 17.53, 49.15 24.25, 48.15 29.56 C47.15 34.87, 43.57 41.8, 39.48 44.96 C35.39 48.12, 28.87 48.76, 23.59 48.54 C18.32 48.32, 11.53 47.18, 7.83 43.64 C4.14 40.1, 2.36 32.54, 1.43 27.31 C0.5 22.08, -0.04 16.47, 2.25 12.25 C4.54 8.04, 9.89 3.77, 15.18 2.02 C20.46 0.27, 30.92 1.81, 33.96 1.74 C36.99 1.66, 33.69 1.27, 33.38 1.59" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(423.2745548204022 175.9258686021405) rotate(0 5.079994201660156 12.5)"><text x="5.079994201660156" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">b</text></g><g stroke-linecap="round" transform="translate(491.10728454589844 158.60707092285156) rotate(0 24.5 24.5)"><path d="M16.95 1.06 C21.56 -0.53, 28.72 0.08, 33.72 2.15 C38.72 4.21, 44.55 8.62, 46.96 13.44 C49.36 18.25, 49.32 26.07, 48.13 31.04 C46.94 36.02, 43.89 40.17, 39.82 43.29 C35.75 46.42, 28.99 50.02, 23.72 49.81 C18.45 49.6, 12.09 45.71, 8.19 42.02 C4.28 38.34, 0.99 32.88, 0.3 27.69 C-0.39 22.49, 0.48 15.26, 4.05 10.85 C7.62 6.44, 18.21 2.95, 21.74 1.25 C25.26 -0.46, 25.41 0.37, 25.21 0.61 M34.83 2.87 C39.45 4.93, 44.31 11.3, 46.43 15.95 C48.56 20.61, 49.04 25.87, 47.57 30.78 C46.1 35.7, 41.69 42.61, 37.61 45.46 C33.53 48.3, 28.4 48.43, 23.07 47.84 C17.74 47.24, 9.69 45.38, 5.63 41.89 C1.58 38.4, -1.23 32.18, -1.28 26.9 C-1.33 21.62, 2 14.66, 5.36 10.22 C8.71 5.77, 13.92 1.57, 18.85 0.24 C23.78 -1.09, 32.05 1.6, 34.92 2.23 C37.8 2.86, 36.27 3.69, 36.1 4.01" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(510.76317176376165 170.78295478378112) rotate(0 5.019996643066406 12.5)"><text x="5.019996643066406" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">c</text></g><g stroke-linecap="round"><g transform="translate(437.3497584456563 163.59579028963446) rotate(0 7.684799724382543 -28.73363054936422)"><path d="M0.01 -0.49 C2.96 -9.61, 14.04 -45.94, 16.81 -55.23 M-1.44 -1.8 C1.45 -11.21, 13.09 -48.1, 15.97 -56.98" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(437.3497584456563 163.59579028963446) rotate(0 7.684799724382543 -28.73363054936422)"><path d="M16.32 -27.47 C18.2 -34.39, 16.28 -39.03, 17.22 -58.6 M16.79 -27.7 C16.74 -38.14, 15.8 -47.75, 16.95 -56.24" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(437.3497584456563 163.59579028963446) rotate(0 7.684799724382543 -28.73363054936422)"><path d="M-2.69 -33.54 C3.45 -39.09, 5.82 -42.36, 17.22 -58.6 M-2.22 -33.76 C4.55 -42.13, 10.39 -49.58, 16.95 -56.24" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(358.59372040238736 169.1047266849631) rotate(0 41.13870441458943 -33.497256791050745)"><path d="M0.21 0.72 C14.11 -10.49, 69.36 -56.48, 83.42 -67.71 M-1.14 0.05 C12.6 -10.93, 68.21 -54.87, 82.47 -66.32" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(358.59372040238736 169.1047266849631) rotate(0 41.13870441458943 -33.497256791050745)"><path d="M68 -40.73 C71.17 -46.52, 77.6 -57.79, 83.6 -64.63 M67.07 -40.67 C72.03 -48.72, 78.65 -57.62, 82.6 -67.02" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(358.59372040238736 169.1047266849631) rotate(0 41.13870441458943 -33.497256791050745)"><path d="M55.22 -56.79 C62.18 -57.77, 72.45 -64.2, 83.6 -64.63 M54.29 -56.73 C63.59 -59.27, 74.61 -62.65, 82.6 -67.02" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(507.6011186264194 158.49851587832592) rotate(0 -15.692003645765482 -25.50512246247885)"><path d="M1.02 0.36 C-4.31 -7.93, -27.12 -41.08, -32.41 -49.62 M0.1 -0.49 C-4.82 -9.14, -24.93 -43.15, -30.1 -51.37" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(507.6011186264194 158.49851587832592) rotate(0 -15.692003645765482 -25.50512246247885)"><path d="M-6.33 -34.07 C-11.97 -35.95, -20.22 -44.48, -29 -52.17 M-6.46 -33.68 C-11.03 -37.17, -16.05 -40.13, -29.82 -50.97" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(507.6011186264194 158.49851587832592) rotate(0 -15.692003645765482 -25.50512246247885)"><path d="M-23.7 -23.53 C-24.72 -28.37, -28.34 -39.71, -29 -52.17 M-23.84 -23.14 C-24.59 -29, -25.86 -34.25, -29.82 -50.97" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round" transform="translate(208.89291381835938 264.78578186035156) rotate(0 24.5 24.5)"><path d="M31.77 0.86 C36.59 2.42, 42.06 8.17, 44.97 12.82 C47.87 17.47, 49.89 23.67, 49.2 28.75 C48.52 33.82, 44.97 39.9, 40.83 43.27 C36.7 46.64, 29.8 49.01, 24.39 48.96 C18.97 48.91, 12.2 46.17, 8.34 42.98 C4.48 39.79, 1.99 35.07, 1.24 29.82 C0.48 24.58, 1.24 16.17, 3.8 11.51 C6.37 6.85, 11.69 3.65, 16.62 1.87 C21.56 0.09, 30.38 0.8, 33.43 0.82 C36.48 0.83, 35.15 1.38, 34.91 1.95 M29.33 1.54 C34.57 2.74, 42.19 6.55, 45.5 10.65 C48.8 14.75, 49.78 21.06, 49.16 26.14 C48.54 31.21, 45.51 37.11, 41.8 41.11 C38.09 45.12, 32.09 49.35, 26.91 50.17 C21.72 50.99, 15.02 48.96, 10.7 46.04 C6.37 43.12, 2.3 37.9, 0.96 32.65 C-0.37 27.4, 0.35 19.6, 2.68 14.55 C5.01 9.51, 10.34 4.9, 14.96 2.39 C19.58 -0.11, 28.13 -0.41, 30.42 -0.46 C32.72 -0.52, 28.7 1.42, 28.74 2.06" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(227.87880286727724 276.9616657212811) rotate(0 5.689994812011719 12.5)"><text x="5.689994812011719" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">d</text></g><g stroke-linecap="round"><g transform="translate(221.82150268554688 263.71437072753906) rotate(0 -34.08813530579209 -23.66368732079863)"><path d="M1.17 0.93 C-10.29 -7.21, -57.74 -40.32, -69.35 -48.26 M0.33 0.37 C-10.7 -7.69, -55.46 -38.99, -67.05 -47.15" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(221.82150268554688 263.71437072753906) rotate(0 -34.08813530579209 -23.66368732079863)"><path d="M-36.53 -40.65 C-46.85 -40.9, -51.57 -41.47, -65.88 -45.71 M-37.83 -39.78 C-47.06 -41.79, -54.78 -43.25, -67.5 -46.48" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(221.82150268554688 263.71437072753906) rotate(0 -34.08813530579209 -23.66368732079863)"><path d="M-48.32 -23.85 C-55.73 -28.48, -57.45 -33.32, -65.88 -45.71 M-49.63 -22.98 C-55.45 -29.89, -59.72 -36.26, -67.5 -46.48" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round" transform="translate(581.1785888671875 157.21424865722656) rotate(0 24.5 24.5)"><path d="M28.48 0.39 C33.33 1.06, 40.05 5.56, 43.59 9.72 C47.13 13.89, 49.77 20.12, 49.72 25.38 C49.68 30.63, 46.81 37.42, 43.32 41.26 C39.83 45.1, 33.92 47.63, 28.78 48.4 C23.64 49.17, 17.11 48.59, 12.5 45.89 C7.89 43.2, 2.98 37.2, 1.12 32.23 C-0.74 27.27, -0.65 20.96, 1.36 16.11 C3.37 11.25, 8.07 5.73, 13.17 3.09 C18.26 0.45, 28.48 0.3, 31.92 0.24 C35.36 0.19, 33.78 2.19, 33.81 2.75 M22.76 -0.52 C27.87 -1.5, 34.06 0.22, 38.07 3.26 C42.08 6.29, 45.37 12.69, 46.83 17.67 C48.29 22.65, 48.99 28.47, 46.84 33.14 C44.7 37.8, 38.57 43.23, 33.96 45.65 C29.35 48.06, 24.1 48.78, 19.17 47.6 C14.24 46.43, 7.72 42.88, 4.38 38.61 C1.04 34.34, -1.46 27.1, -0.87 21.98 C-0.29 16.86, 4 11.55, 7.87 7.87 C11.74 4.19, 20.13 1.32, 22.34 -0.1 C24.55 -1.52, 21.27 -1.08, 21.16 -0.66" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(600.1644779161054 169.39013251815612) rotate(0 5.689994812011719 12.5)"><text x="5.689994812011719" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">d</text></g><g stroke-linecap="round"><g transform="translate(590.96435546875 156.85716247558594) rotate(0 -49.92935813749676 -30.039892283827072)"><path d="M0.68 1.03 C-16.06 -9.17, -82.79 -50.93, -99.34 -61.11 M-0.42 0.53 C-17.46 -9.57, -84.08 -50.28, -100.54 -60.16" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(590.96435546875 156.85716247558594) rotate(0 -49.92935813749676 -30.039892283827072)"><path d="M-69.39 -55.12 C-84.52 -55.99, -94.3 -58.01, -100.42 -61.79 M-71.86 -54.23 C-82.51 -56.17, -91.87 -59.21, -100.64 -60.57" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g><g transform="translate(590.96435546875 156.85716247558594) rotate(0 -49.92935813749676 -30.039892283827072)"><path d="M-80.03 -37.58 C-91 -45.39, -96.59 -54.3, -100.42 -61.79 M-82.5 -36.68 C-89.44 -45.04, -94.97 -54.4, -100.64 -60.57" stroke="var(--md-typeset-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g transform="translate(196.96432495117188 10) rotate(0 113.639892578125 12.5)"><text x="0" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-typeset-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Example of compression</text></g></svg></p>
+</li>
+<li>
+<p>Union by size: always union smaller set into larger sets. This eases out the future <code>find</code> calls by keep the height of the tree short.</p>
+</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Implementation</label><label for="__tabbed_1_2">Unit tests</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Collection</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Objects</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.Collectors</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.Stream</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DisjointSet</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">connectedComponents</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">DisjointSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">connectedComponents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSet</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// lone node</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="n">parent</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">);</span><span class="w">     </span><span class="c1">// not connected</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="n">size</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">          </span><span class="c1">// to anyone else.</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="n">connectedComponents</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">parent</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">parent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">))</span><span class="w"> </span><span class="c1">// makeSet not called.</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span><span class="w">                                    </span><span class="c1">// or node is root.</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">parent</span><span class="p">);</span><span class="w">                              </span><span class="c1">// compression</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">parent</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">);</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">rootA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">rootB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">rootA</span><span class="p">,</span><span class="w"> </span><span class="n">rootB</span><span class="p">))</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sizeA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">rootA</span><span class="p">),</span><span class="w"> </span><span class="n">sizeB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">rootB</span><span class="p">);</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sizeA</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">sizeB</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                              </span><span class="c1">// &quot;=&quot; so we don&#39;t get</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">      </span><span class="n">parent</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">rootB</span><span class="p">,</span><span class="w"> </span><span class="n">rootA</span><span class="p">);</span><span class="w">                        </span><span class="c1">// stuck in infinite</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">      </span><span class="n">size</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">rootA</span><span class="p">,</span><span class="w"> </span><span class="n">sizeA</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sizeB</span><span class="p">);</span><span class="w">                  </span><span class="c1">// loop.</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">      </span><span class="n">connectedComponents</span><span class="o">--</span><span class="p">;</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">union</span><span class="p">(</span><span class="n">rootB</span><span class="p">,</span><span class="w"> </span><span class="n">rootA</span><span class="p">);</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">countConnectedComponents</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">connectedComponents</span><span class="p">;</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">connectedComponents</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">           </span><span class="c1">// Order doesn&#39;t matter.</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">connectedComponents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="n">parent</span><span class="p">.</span><span class="na">forEach</span><span class="p">((</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">      </span><span class="n">connectedComponents</span><span class="p">.</span><span class="na">putIfAbsent</span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">      </span><span class="n">connectedComponents</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">)).</span><span class="na">add</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">connectedComponents</span><span class="p">.</span><span class="na">values</span><span class="p">());</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import static</span><span class="w"> </span><span class="nn">org.assertj.core.api.Assertions.*</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.BeforeEach</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kd">class</span> <span class="nc">DisjointSetTest</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">DisjointSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="p">;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nd">@BeforeEach</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DisjointSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="n">set</span><span class="p">.</span><span class="na">makeSet</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nd">@Test</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testMakeSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="n">DisjointSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DisjointSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">());</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEmpty</span><span class="p">();</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="n">set</span><span class="p">.</span><span class="na">makeSet</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">)));</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="n">set</span><span class="p">.</span><span class="na">makeSet</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="n">set</span><span class="p">.</span><span class="na">makeSet</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">3</span><span class="p">)));</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">  </span><span class="nd">@Test</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testUnion</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">5</span><span class="p">)));</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">union</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">5</span><span class="p">)));</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">union</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">5</span><span class="p">)));</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">union</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">));</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)));</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">union</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">countConnectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">connectedComponents</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)));</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">    </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">union</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">));</span>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.path", "content.code.copy", "content.code.annotate", "navigation.top"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
