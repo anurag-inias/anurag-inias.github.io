@@ -155,3 +155,203 @@ With the help of two key optimizations, all operations on it end up with near co
 
     }
     ```
+
+## Benchmark
+
+The idea is to start with a very large Disjoint-set of size $N$ and then repeated call `union` on random pairs of nodes until everything collapses to a single connect component. We then find the average time it takes to call `union` by dividing by $N$.
+
+As we can see, **`union` calls maintain almost constant runtime**, regardless of the set size.
+
+<div id="avg-union-line-chart" style="width: 100%"></div>
+
+<div id="single-chart" style="width: 100%"></div>
+
+??? note "Benchmark setup"
+
+    ```java
+      @Test
+      public void benchmark() {
+        System.out.println("['Size', 'avg union (ns)'],");
+        for (int idx = 1; idx <= 20; idx++) {
+          int n = 100_000 * idx;
+          DisjointSet<Integer> set = new DisjointSet<>();
+          for (int i = 0; i < n; i++)
+            set.makeSet(i);
+
+          long start = System.nanoTime();
+          unionAll(set, n);
+          Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
+          System.out.printf("[%d, %d],\n", n, duration.dividedBy(n).getNano());
+        }
+      }
+
+      private void unionAll(DisjointSet<Integer> set, int size) {
+        while (set.countConnectedComponents() > 1) {
+          int a = ThreadLocalRandom.current().nextInt(0, size);
+          int b = ThreadLocalRandom.current().nextInt(0, size);
+          set.union(a, b);
+        }
+      }
+    ```
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawLineChart);
+  google.charts.setOnLoadCallback(drawSingleChart);
+
+  function drawLineChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'avg union (ns)'],
+      [100000, 4199],
+      [200000, 4152],
+      [300000, 2703],
+      [400000, 5369],
+      [500000, 4888],
+      [600000, 5383],
+      [700000, 4646],
+      [800000, 5370],
+      [900000, 5200],
+      [1000000, 7332],
+      [1100000, 6393],
+      [1200000, 6578],
+      [1300000, 6584],
+      [1400000, 6998],
+      [1500000, 7097],
+      [1600000, 6889],
+      [1700000, 7623],
+      [1800000, 7315],
+      [1900000, 5443],
+      [2000000, 6906],
+    ]);
+
+    var options = {
+      title: 'Average union time',
+      curveType: 'function',
+      hAxis: { title: 'set size', gridlines: { count: 5 } },
+      vAxis: { title: 'union time (ns)' },
+      legend: 'none'
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('avg-union-line-chart'));
+
+    chart.draw(data, options);
+  }
+
+  function drawSingleChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Size', 'avg union (ns)'],
+      [10, 1700],
+      [20, 3800],
+      [30, 2600],
+      [40, 1800],
+      [50, 1700],
+      [60, 3600],
+      [70, 2500],
+      [80, 1500],
+      [90, 1600],
+      [100, 1400],
+      [110, 46000],
+      [120, 2800],
+      [130, 2400],
+      [140, 1900],
+      [150, 2200],
+      [160, 2000],
+      [170, 1900],
+      [180, 1300],
+      [190, 1200],
+      [200, 1300],
+      [210, 1500],
+      [220, 2000],
+      [230, 2300],
+      [240, 9600],
+      [250, 2100],
+      [260, 2000],
+      [270, 1900],
+      [280, 1800],
+      [290, 1600],
+      [300, 1300],
+      [310, 2300],
+      [320, 2100],
+      [330, 1400],
+      [340, 1400],
+      [350, 1300],
+      [360, 1300],
+      [370, 1400],
+      [380, 2000],
+      [390, 1200],
+      [400, 1800],
+      [410, 1700],
+      [420, 1800],
+      [430, 4100],
+      [440, 2100],
+      [450, 1900],
+      [460, 1900],
+      [470, 1500],
+      [480, 1300],
+      [490, 1600],
+      [500, 2100],
+      [510, 1500],
+      [520, 2200],
+      [530, 2300],
+      [540, 1800],
+      [550, 2200],
+      [560, 1700],
+      [570, 1500],
+      [580, 1000],
+      [590, 2100],
+      [600, 1300],
+      [610, 2000],
+      [620, 1200],
+      [630, 1600],
+      [640, 1700],
+      [650, 1700],
+      [660, 1800],
+      [670, 1000],
+      [680, 1300],
+      [690, 2000],
+      [700, 2000],
+      [710, 1800],
+      [720, 1200],
+      [730, 1900],
+      [740, 1800],
+      [750, 700],
+      [760, 1600],
+      [770, 1700],
+      [780, 1600],
+      [790, 1600],
+      [800, 1400],
+      [810, 900],
+      [820, 700],
+      [830, 1300],
+      [840, 1400],
+      [850, 1700],
+      [860, 1700],
+      [870, 2000],
+      [880, 600],
+      [890, 1800],
+      [900, 800],
+      [910, 1300],
+      [920, 700],
+      [930, 1400],
+      [940, 700],
+      [950, 1100],
+      [960, 1700],
+      [970, 1300],
+      [980, 1600],
+      [990, 1700],
+    ]);
+
+    var options = {
+      title: 'raw data for union calls',
+      hAxis: {title: 'count'},
+      vAxis: {title: 'time (ns)'},
+      legend: 'none'
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('single-chart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
