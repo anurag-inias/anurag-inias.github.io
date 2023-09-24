@@ -75,6 +75,7 @@ nav:
   - 'Data Structures':
     - 'data-structures/numbers.md'
     - 'data-structures/heap.md'
+    - 'data-structures/disjoint-set.md'
     - 'data-structures/binary-tree.md'
     - 'data-structures/binary-search-tree.md'
   - 'Algorithms':
