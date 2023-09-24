@@ -38,6 +38,20 @@
   }
 </style>
 
+A _heap_ is a complete binary tree [^1] where the following holds true for all nodes:
+
+1. $parent \le child$ if it's a _min heap_.
+2. $parent \ge child$ if it's a _max heap_.
+
+Heap is an implementation of Priority Queue [^2]. What sets _heap_ apart from other Binary Tree implementations, is that it's best implemented as an array.
+
+Given a node at index $i$, we can find its parent and children nodes for arity $D$ as following:
+
+1. parent at index $\frac{i-1}{D}$.
+2. children at indices $[Di + 1, \ Di + 2, ..., \ Di + D]$.
+
+## Implementation
+
 === "Heapify"
 
     Takes an array <input type="text" id="heapify-input" value="15 14 13 12 11"/> of length $N$ and calls `sink` on indices $\Big[\lfloor \frac{N-1}{2} \rfloor, ..., 0\Big]$ in order. Has the amortized time complexity of $O(n)$.
@@ -113,6 +127,342 @@
       }
     }
     ```
+
+## n-ary Heap
+
+=== "Boilerplate"
+
+    Notice that we don't use `Heap<T extends Comparable>`. That'd be too strict of a condition.
+
+    ```java
+    import java.util.ArrayList;
+    import java.util.Collection;
+    import java.util.Collections;
+    import java.util.Comparator;
+    import java.util.Optional;
+    import java.util.stream.IntStream;
+
+    public class Heap<T> {
+      private static final int DEFAULT_ARITY = 2;
+
+      private final int arity;                  // lets us control arity.
+      private final Comparator<T> comparator;   // allows switching between min and max heap variants.
+      private ArrayList<T> items;
+      private int size;
+
+      public Heap(Comparator<T> comparator) {
+        this(DEFAULT_ARITY, comparator);
+      }
+      public Heap(int arity, Comparator<T> comparator) {
+        if (arity < 1)
+          throw new IllegalArgumentException("Arity must be > 0");
+        this.arity = arity;
+        this.comparator = comparator;
+
+        this.items = new ArrayList<>();
+        this.size = 0;
+      }
+
+      public Heap(int arity, Comparator<T> comparator, Collection<T> source) {
+        this(arity, comparator);
+
+        this.items = new ArrayList<>(source);
+        this.size = source.size();
+        heapify();
+      }
+    }
+    ```
+
+=== "Heapify"
+
+    ```java
+    private void heapify() {
+      for (int i = (size - 1) / arity; i >= 0; i--)
+        sink(i);
+    }
+    ```
+
+=== "Push"
+
+    ```java
+    public void offer(T value) {
+      items.add(value);
+      size++;
+      swim(size - 1);
+    }
+
+    private void swim(int index) {
+      while (index > 0) {
+        int parent = (index - 1) / arity;
+
+        // parent <= node
+        if (comparator.compare(items.get(parent), items.get(index)) <= 0)
+          return;
+
+        Collections.swap(items, index, parent);
+        index = parent;
+      }
+    }
+    ```
+
+=== "Pop"
+
+    ```java
+    public Optional<T> peek() {
+      if (size == 0) return Optional.empty();
+      return Optional.of(items.get(0));
+    }
+
+    public Optional<T> poll() {
+      if (size == 0) return Optional.empty();
+
+      T value = items.get(0);
+      Collections.swap(items, 0, --size);
+      sink(0);
+      return Optional.of(value);
+    }
+
+    private void sink(int index) {
+      while (index < size) {
+        int minIndex = IntStream.rangeClosed(arity * index + 1, arity * index + arity)
+            .filter(i -> i < size)
+            .reduce((i, j) -> {
+              int comparison = comparator.compare(items.get(i), items.get(j));
+              return comparison < 0 ? i : j;
+            }).orElse(index);
+
+        if (minIndex == index || comparator.compare(items.get(index), items.get(minIndex)) < 0)
+          return;
+
+        Collections.swap(items, index, minIndex);
+        index = minIndex;
+      }
+    }
+    ```
+
+=== "Unit tests"
+
+    ```java
+    import static org.assertj.core.api.Assertions.assertThat;
+    import static org.junit.jupiter.api.Assertions.*;
+
+    import java.util.ArrayList;
+    import java.util.Arrays;
+    import java.util.Collections;
+    import java.util.Comparator;
+    import java.util.List;
+    import java.util.concurrent.ThreadLocalRandom;
+    import java.util.stream.Collectors;
+    import org.junit.jupiter.api.BeforeEach;
+    import org.junit.jupiter.api.Test;
+
+    class HeapTest {
+
+      @Test
+      public void testEmpty() {
+        Heap<Integer> minHeap = new Heap<>(Integer::compare);
+        assertThat(minHeap.peek()).isEmpty();
+        assertThat(minHeap.poll()).isEmpty();
+
+        minHeap.offer(9);
+        assertThat(minHeap.peek()).contains(9);
+        assertThat(minHeap.poll()).contains(9);
+        assertThat(minHeap.poll()).isEmpty();
+      }
+
+      @Test
+      public void testMinHeap() {
+        Heap<Integer> minHeap = new Heap<>(Integer::compare);
+
+        for (int i = 10; i >= 1; i--)
+          minHeap.offer(i);
+
+        for (int i = 1; i <= 10; i++)
+          assertThat(minHeap.poll()).contains(i);
+        assertThat(minHeap.poll()).isEmpty();
+      }
+
+      @Test
+      public void testMinOctaHeap() {
+        Heap<Integer> minHeap = new Heap<>(8, Integer::compare);
+
+        for (int i = 10; i >= 1; i--)
+          minHeap.offer(i);
+
+        for (int i = 1; i <= 10; i++)
+          assertThat(minHeap.poll()).contains(i);
+        assertThat(minHeap.poll()).isEmpty();
+      }
+
+      @Test
+      public void testMaxHeap() {
+        Heap<Integer> maxHeap = new Heap<>((i, j) -> j - i);
+
+        for (int i = 1; i <= 10; i++)
+          maxHeap.offer(i);
+
+        for (int i = 10; i >= 1; i--)
+          assertThat(maxHeap.poll()).contains(i);
+        assertThat(maxHeap.poll()).isEmpty();
+      }
+
+      @Test
+      public void testMaxOctaHeap() {
+        Heap<Integer> maxHeap = new Heap<>(8, (i, j) -> j - i);
+
+        for (int i = 1; i <= 10; i++)
+          maxHeap.offer(i);
+
+        for (int i = 10; i >= 1; i--)
+          assertThat(maxHeap.poll()).contains(i);
+        assertThat(maxHeap.poll()).isEmpty();
+      }
+
+      @Test
+      public void testFuzzy() {
+        int arity = ThreadLocalRandom.current().nextInt(2, 10);
+        int[] feed = ThreadLocalRandom.current().ints(1000, 0, 800).toArray();
+
+        Heap<Integer> minHeap = new Heap<>(arity, Integer::compare);
+        for (int n: feed)
+          minHeap.offer(n);
+
+        Arrays.sort(feed);
+
+        for (int n: feed)
+          assertThat(minHeap.poll()).contains(n);
+        assertThat(minHeap.poll()).isEmpty();
+      }
+
+      @Test
+      public void testHeapifyFuzzy() {
+        int arity = ThreadLocalRandom.current().nextInt(2, 10);
+        List<Integer> feed = ThreadLocalRandom.current().ints(1000, 0, 800)
+            .boxed().collect(Collectors.toList());
+
+        Heap<Integer> minHeap = new Heap<>(arity, Integer::compare, feed);
+        Collections.sort(feed);
+
+        for (int n: feed)
+          assertThat(minHeap.poll()).contains(n);
+        assertThat(minHeap.poll()).isEmpty();
+      }
+    }
+    ```
+
+## Benchmark
+
+<div id="push_arity_curve" style="width: 100%"></div>
+<div id="pop_arity_curve" style="width: 100%"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawPushChart);
+  google.charts.setOnLoadCallback(drawPopChart);
+
+  function drawPushChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Arity', 'avg push (ns)'],
+      [2, 70],
+      [3, 58],
+      [4, 48],
+      [5, 31],
+      [6, 40],
+      [7, 41],
+      [8, 44],
+      [9, 130],
+      [10, 105],
+      [11, 38],
+      [12, 50],
+      [13, 68],
+      [14, 17],
+      [15, 16],
+      [16, 19],
+      [17, 16],
+      [18, 17],
+      [19, 16],
+      [20, 17],
+      [21, 17],
+      [22, 18],
+      [23, 20],
+      [24, 16],
+      [25, 16],
+      [26, 22],
+      [27, 14],
+      [28, 23],
+      [29, 17],
+      [30, 16],
+      [31, 17],
+      [32, 14],
+    ]);
+
+    var options = {
+      title: 'Average push time (ns)',
+      curveType: 'function',
+      legend: 'none',
+      vAxis: { title: 'average push (ns)' },
+      hAxis: { title: 'arity' }
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('push_arity_curve'));
+
+    chart.draw(data, options);
+  }
+
+  function drawPopChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Arity', 'avg pop (ns)'],
+      [2, 9361],
+      [3, 1650],
+      [4, 1032],
+      [5, 3952],
+      [6, 1847],
+      [7, 1672],
+      [8, 1491],
+      [9, 1520],
+      [10, 1404],
+      [11, 1511],
+      [12, 1342],
+      [13, 1362],
+      [14, 668],
+      [15, 808],
+      [16, 769],
+      [17, 962],
+      [18, 814],
+      [19, 918],
+      [20, 789],
+      [21, 768],
+      [22, 869],
+      [23, 800],
+      [24, 836],
+      [25, 827],
+      [26, 855],
+      [27, 1116],
+      [28, 823],
+      [29, 1072],
+      [30, 879],
+      [31, 929],
+      [32, 1096],
+    ]);
+
+    var options = {
+      title: 'Average pop time (ns)',
+      curveType: 'function',
+      legend: 'none',
+      vAxis: { title: 'average pop (ns)' },
+      hAxis: { title: 'arity' }
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('pop_arity_curve'));
+
+    chart.draw(data, options);
+  }
+</script>
+
+[^1]: A complete binary tree is a binary tree where all layers are full, except maybe the last one. The last level, if not full, has all values to the left.
+
+[^2]: ADT similar to Queue or Stack. In Queue/Stack, the order of serving depends on order of insertion, whereas in PQ, it depends on the given _priority_ of the elements.
 
 <script>
 class BinaryTreeNode {
