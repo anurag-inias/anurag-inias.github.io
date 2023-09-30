@@ -91,3 +91,4 @@ nav:
       - 'languages/javascript/this.md'
   - 'Guides':
     - 'guides/ntfs.md'
+  - 'problems/index.md'
