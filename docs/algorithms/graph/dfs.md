@@ -58,27 +58,6 @@
 === "Recursive"
 
     ```java
-    public static List<Integer> dfs(Graph graph, int source) {
-      Set<Integer> visited = new HashSet<>();
-      List<Integer> traversal = new ArrayList<>();
-      helper(graph, source, traversal, visited);
-      return traversal;
-    }
-
-    private static void helper(Graph graph, int source, List<Integer> traversal, Set<Integer> visited) {
-      visited.add(source);
-      traversal.add(source);
-
-      for (int neighbour: graph.neighbours(source)) {
-        if (!visited.contains(neighbour))
-          helper(graph, neighbour, traversal, visited);
-      }
-    }
-    ```
-
-=== "Recursive Verbose"
-
-    ```java
     public static String dfs(Graph graph, int source) {
       Set<Integer> visited = new HashSet<>();
       StringBuilder traversal = new StringBuilder();
@@ -94,19 +73,82 @@
         int indent,
         Set<Integer> visited) {
       visited.add(source);
-      indent = log(predecessor, source, indent, out);
+      indent = log(source, predecessor, indent, out);
 
       for (int neighbour : graph.neighbours(source))
         if (!visited.contains(neighbour))
           helper(graph, out, source, neighbour, indent, visited);
     }
 
-    private static int log(int predecessor, int source, int indent, StringBuilder out) {
+    private static int log(int source, int predecessor, int indent, StringBuilder out) {
       String text = String.format("%s%d-", " ".repeat(indent), predecessor);
       out.append(text).append(source).append('\n');
       return text.length();
     }
     ```
+
+=== "Iterative"
+
+    ```java
+    public static String dfs(Graph graph, int source) {
+      Deque<Entry> stack = new ArrayDeque<>();
+      Set<Integer> visited = new HashSet<>();
+      stack.push(new Entry(source, source, 0));
+
+      StringBuilder out = new StringBuilder();
+      while (!stack.isEmpty()) {
+        Entry e = stack.pop();
+
+        if (visited.contains(e.node)) continue;
+        visited.add(e.node);
+        int padding = log(e.node, e.parent, e.indent, out);
+
+        graph.neighbours(e.node).stream()
+          .sorted(Collections.reverseOrder()) // can be omitted
+          .forEach(n -> stack.push(new Entry(n, e.node, padding)));
+      }
+      return out.toString();
+    }
+
+    private static int log(int source, int predecessor, int indent, StringBuilder out) {
+      String text = String.format("%s%d-", " ".repeat(indent), predecessor);
+      out.append(text).append(source).append('\n');
+      return text.length();
+    }
+
+    private record Entry(int node, int parent, int indent) {}
+    ```
+
+    Note about the `visited` check: 
+
+    - visit is used in loose terms here, unlike the actual recursive algorithm. Here we have the handle to the node, effectively "visiting" it. But here we consider "processing" a node as "visiting" it.
+    - any given time, stack have have the given node $a$ duplicates. that's okay, we only process a node once.
+
+    !!! tip "Why is `Collections.reverseOrder()` needed?"
+        Simply putting things in a stack is not equivalent to recursive call. 
+
+        ```java
+        void foo(a) {
+          foo(b);
+          foo(c);
+        }
+        ```
+
+        executes `foo` on `a` and then on `b`. But
+
+        ```java
+        void foo() {
+          stack.push(a)
+          while (stack.isNotEmpty()) {
+            stack.push(a);
+            stack.push(b);
+          }
+        }
+        ```
+
+        executes `foo` on `b` first, followed by `a`. That's the same reason why iterative pre-order traversal [^1] requires adding right node to stack ahead of left node.
+
+        Our algorithm will be correct regardless of `Collection.reverseOrder()` sorting, but it's here so our unit tests continue to pass.
 
 === "Unit tests"
 
@@ -211,3 +253,5 @@
     }
     ```
 
+
+[^1]: [See pre-order traversal](/data-structures/binary-tree/#properties)
