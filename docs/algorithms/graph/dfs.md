@@ -82,26 +82,29 @@
     public static String dfs(Graph graph, int source) {
       Set<Integer> visited = new HashSet<>();
       StringBuilder traversal = new StringBuilder();
-      helper(graph, traversal, source, source, 0, visited);
+      helper(graph, traversal, /* predecessor= */ source, /* source= */ source, /* indent= */ 0, visited);
       return traversal.toString();
     }
 
     private static void helper(
         Graph graph,
-        StringBuilder traversal,
+        StringBuilder out,
         int predecessor,
         int source,
         int indent,
         Set<Integer> visited) {
       visited.add(source);
-      String log = String.format("%s%d-%d", " ".repeat(indent), predecessor, source);
-      traversal.append(log).append('\n');
+      indent = log(predecessor, source, indent, out);
 
-      for (int neighbour : graph.neighbours(source)) {
-        if (!visited.contains(neighbour)) {
-          helper(graph, traversal, source, neighbour, log.length(), visited);
-        }
-      }
+      for (int neighbour : graph.neighbours(source))
+        if (!visited.contains(neighbour))
+          helper(graph, out, source, neighbour, indent, visited);
+    }
+
+    private static int log(int predecessor, int source, int indent, StringBuilder out) {
+      String text = String.format("%s%d-", " ".repeat(indent), predecessor);
+      out.append(text).append(source).append('\n');
+      return text.length();
     }
     ```
 
