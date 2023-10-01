@@ -83,6 +83,8 @@ nav:
     - 'algorithms/searching.md'
     - 'algorithms/sorting.md'
     - 'algorithms/partitioning.md'
+    - 'Graph':
+      - 'algorithms/graph/dfs.md'
   - 'Projects':
     - 'projects/tree-printing.md'
   - 'Languages':

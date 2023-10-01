@@ -219,3 +219,7 @@
 
     }
     ```
+
+## Algorithms
+
+1. [Depth-First Search](/algorithms/graph/dfs)
