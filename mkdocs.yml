@@ -78,6 +78,7 @@ nav:
     - 'data-structures/disjoint-set.md'
     - 'data-structures/binary-tree.md'
     - 'data-structures/binary-search-tree.md'
+    - 'data-structures/avl.md'
     - 'data-structures/graph.md'
   - 'Algorithms':
     - 'algorithms/searching.md'
