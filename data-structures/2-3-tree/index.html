@@ -1076,11 +1076,11 @@
 <h1 id="2-3-tree">2-3 Tree</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Maintaining perfect balance is often too expensive. 2-3 Search tree slightly relaxes the perfect balance requirement to provide guranteed logarithmic performance.</p>
-<p>We introduce the idea of <em>multiple keys</em> per node. Specificially, allowing 3 nodes per-node. </p>
+<p>We introduce the idea of <em>multiple keys</em> per node. Specificially, allowing 2 keys per-node (i.e. 3 child nodes). </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>     2                2,4
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   ┌─┴─┐            ┌──┼──┐ 
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   1   3            1  3  5
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>normal 2-node   now allowed 3-node
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>normal 2-node      new 3-node
 </span></code></pre></div>
 <p>In a 3-node, with keys <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span>:</p>
 <ul>
@@ -1089,15 +1089,15 @@
 <li>right node points to subtree with keys <span class="arithmatex">\(\ge q\)</span>.</li>
 </ul>
 <h2 id="search">Search</h2>
-<p>Search is identical to search in BST.</p>
+<p>Identical to search in BST.</p>
 <h2 id="insertion">Insertion</h2>
-<p>Insertion in 2-3 Search tree is pretty interesting: </p>
+<p>Insertion in 2-3 Search tree is where differences emerge: </p>
 <ol>
-<li>It starts out as conventional insertion in a BST where we first do an unsuccessful search for key to be inserted. </li>
-<li>The new key is never added as a child node, instead the would-be parent swallows the new key. Meaning a 2-node is promoted to 3-node, and a 3-node is promoted to 4-node.</li>
-<li>This being a 2-3 Search tree, the resultant 2-node and 3-node are left as is.</li>
+<li>It starts out as conventional insertion in a BST where we first do an unsuccessful search for the key to be inserted. </li>
+<li>The new key is never added as a child node, instead the would-be parent absorbs the new key. A 2-node is promoted to 3-node, and a 3-node promoted to 4-node.</li>
+<li>This being a 2-3 Search tree, the resultant 2-node / 3-node are left as is.</li>
 <li>The 4-nodes, however, are <em>unstable</em> and are "splintered" (not a standard term).</li>
-<li>This splinter then travel upwards towards the root.</li>
+<li>This splinter then traverses upwards to the root.</li>
 </ol>
 <h3 id="examples">Examples</h3>
 <ol>
