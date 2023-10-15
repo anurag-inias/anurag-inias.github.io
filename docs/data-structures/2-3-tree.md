@@ -46,13 +46,13 @@ Insertion in 2-3 Search tree is pretty interesting:
    ```
      2,4                    4   
    ┌──┼──┐ - Insert 5 ->  ┌─┴─┐
-                          2   5
+   Ø  Ø  Ø                2   5
    ```
    Key $4$ here becomes the parent of $2$ and $5$. If they already had a parent, then $4$ will be absorbed into that instead.
    ```
     3                      3                          3,4     
    ─┴─┐                   ─┴─┐                      ┌──┼──┐     
-     2,4   - Insert 5 ->   2,4,5    - splinter ->   2     5
+     2,4   - Insert 5 ->   2,4,5    - splinter ->   2  Ø  5
    ┌──┼──┐               (unstable)  
    ```
    And we can intuit from here that if the parent itself was on verge of splinter (i.e. a 3-node), then it would've splintered itself, creating a chain reaction upstream.
@@ -62,7 +62,7 @@ The source of balance in 2-3 Search tree is this operation:
 ```
   2,4                    4   
 ┌──┼──┐ - Insert 5 ->  ┌─┴─┐
-                       2   5
+Ø  Ø  Ø                2   5
 ```
 
 it's a way to push a key down, demoting it from parent to child, and thus balancing the tree.
