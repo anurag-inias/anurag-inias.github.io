@@ -4,13 +4,13 @@
 
 Maintaining perfect balance is often too expensive. 2-3 Search tree slightly relaxes the perfect balance requirement to provide guranteed logarithmic performance.
 
-We introduce the idea of _multiple keys_ per node. Specificially, allowing 3 nodes per-node. 
+We introduce the idea of _multiple keys_ per node. Specificially, allowing 2 keys per-node (i.e. 3 child nodes). 
 
 ```
      2                2,4
    ┌─┴─┐            ┌──┼──┐ 
    1   3            1  3  5
-normal 2-node   now allowed 3-node
+normal 2-node      new 3-node
 ```
 
 In a 3-node, with keys $p$ and $q$:
@@ -21,17 +21,17 @@ In a 3-node, with keys $p$ and $q$:
 
 ## Search
 
-Search is identical to search in BST.
+Identical to search in BST.
 
 ## Insertion
 
-Insertion in 2-3 Search tree is pretty interesting: 
+Insertion in 2-3 Search tree is where differences emerge: 
 
-1. It starts out as conventional insertion in a BST where we first do an unsuccessful search for key to be inserted. 
-2. The new key is never added as a child node, instead the would-be parent swallows the new key. Meaning a 2-node is promoted to 3-node, and a 3-node is promoted to 4-node.
-3. This being a 2-3 Search tree, the resultant 2-node and 3-node are left as is.
+1. It starts out as conventional insertion in a BST where we first do an unsuccessful search for the key to be inserted. 
+2. The new key is never added as a child node, instead the would-be parent absorbs the new key. A 2-node is promoted to 3-node, and a 3-node promoted to 4-node.
+3. This being a 2-3 Search tree, the resultant 2-node / 3-node are left as is.
 4. The 4-nodes, however, are _unstable_ and are "splintered" (not a standard term).
-5. This splinter then travel upwards towards the root.
+5. This splinter then traverses upwards to the root.
 
 ### Examples
 
