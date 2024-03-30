@@ -1,6 +1,8 @@
 site_name: Just Another Blog
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
   font:
     text: Zilla Slab
     code: Ubuntu Mono
@@ -52,4 +54,5 @@ nav:
 - About: 'index.md'
 - Graph:
   - About: 'graph/about.md'
+  - Breadth-first Search: 'graph/breadth-first-search.md'
   - Depth-first Search: 'graph/depth-first-search.md'
