@@ -56,3 +56,4 @@ nav:
   - About: 'graph/about.md'
   - Breadth-first Search: 'graph/breadth-first-search.md'
   - Depth-first Search: 'graph/depth-first-search.md'
+  - Topological Search: 'graph/topological-sort.md'
