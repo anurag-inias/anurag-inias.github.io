@@ -24,7 +24,7 @@
 
 </div>
 
-## Implementation
+## DFS based algorithm
 
 Due to the recursive nature of the DFS, the `post` time of a vertex will be ahead of the `post` time of its predecessor. So all we have to do is run DFS on the graph and sort the vertices in descendending `post` time.
 
@@ -34,6 +34,7 @@ Due to the recursive nature of the DFS, the `post` time of a vertex will be ahea
 topologicalSort(G):
   out = []
   for u in G:
+    # If back-edge present, then TS not possible
     if u is not visited:
       DFS(G, u)
   return out
@@ -67,6 +68,60 @@ fun topologicalSort(graph: Graph)
       dfs(v)
 
   return out
+}
+```
+
+</div>
+
+## Kahn's algorithm
+
+<div class="grid" markdown>
+
+```ruby title="Pseudocode"
+O = topological sort result = []
+Q = list of all vertices with in-degree = 0
+
+while Q is not empty:
+  u = Q.poll()
+  O += [u]
+
+  for (u, v) in G:
+    v.indegree--
+    if v.indegree == 0:
+      Q.enqueue(v) 
+
+return O
+```
+
+```kotlin title="topologicalSort(G)" linenums="1"
+fun topologicalSort(graph: Graph): List<Vertex> {
+  val out = ArrayList<Vertex>()
+
+  val indegree = graph.indegree()
+  val queue = indegree.filter { it.value == 0 }
+    .keys.toMutableList()
+  while (queue.isNotEmpty()) {
+    val u = queue.removeFirst()
+    out += u
+
+    for (v in graph.neighbours(u)) {
+      indegree[v] = indegree[v]!! - 1
+      if (indegree[v] == 0)
+        queue.add(v)
+    }
+  }
+
+  return out
+}
+
+fun Graph.indegree(): MutableMap<Vertex, Int> {
+  val indegree = HashMap<Vertex, Int>()
+  for (u in vertices) {
+    indegree.putIfAbsent(u, 0)
+    for (v in neighbours(u))
+      indegree[v] = 1+ indegree.getOrDefault(v, 0)
+  }
+  return indegree
 }
 ```
 
