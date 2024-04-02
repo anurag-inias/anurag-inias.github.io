@@ -806,7 +806,7 @@
 <h2 id="iterative-implementation">Iterative implementation</h2>
 <p>Things are harder in iterative implementation.</p>
 <div class="grid">
-<div class="language-ruby highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">...</span>
+<div class="language-ruby highlight"><span class="filename">incorrect implementation</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">...</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">v</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">GRAY</span><span class="w"> </span><span class="c1"># no-op</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
@@ -820,7 +820,7 @@
 </span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
 </span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">v</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">BLACK</span><span class="w"> </span><span class="c1"># overwrites GRAY</span>
 </span></code></pre></div>
-<div class="language-ruby highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">...</span>
+<div class="language-ruby highlight"><span class="filename">correct implementation</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">...</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">v</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">GRAY</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="hll"><span class="n">explored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">true</span>
@@ -831,9 +831,9 @@
 </span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="hll"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ss">WHITE</span><span class="p">:</span>
 </span></span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="hll"><span class="w">      </span><span class="n">explored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">false</span>
 </span></span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="k">if</span><span class="w"> </span><span class="ss">explored</span><span class="p">:</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">  </span><span class="n">v</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">BLACK</span>
-</span></code></pre></div>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="hll"><span class="k">if</span><span class="w"> </span><span class="ss">explored</span><span class="p">:</span>
+</span></span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="hll"><span class="w">  </span><span class="n">v</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">BLACK</span>
+</span></span></code></pre></div>
 </div>
 <p>In recursive implementation, vertices adjacent to \(v\) will see \(v\) as <code>GRAY</code> and thus see \((v, u)\) as back edge. But in iterative impelementation, they'd only ever encounter \(v\) as <code>BLACK</code> and mistake \((v, u)\) as forward/cross edge.</p>
 <p>To solve this, we mark a vertex <code>BLACK</code> only if the loop prior did not find any undiscovered neighbours.</p>
