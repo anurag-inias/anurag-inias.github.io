@@ -1,5 +1,11 @@
 # Topological Sort
 
+## About
+
+Topological sort or topological ordering of a directed graph is a linear ordering of its vertices such that for every edge \\((u, v)\\), \\(u\\) comes before \\(v\\) in the ordering.
+
+Such an ordering is only possible if there are no cycles in the graph, i.e. it's a DAG.
+
 ## Example
 
 <div class="grid" markdown>
@@ -26,7 +32,7 @@
 
 ## DFS based algorithm
 
-Due to the recursive nature of the DFS, the `post` time of a vertex will be ahead of the `post` time of its predecessor. So all we have to do is run DFS on the graph and sort the vertices in descendending `post` time.
+DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.e. \\(p_{post} \gt u_{post}\\). So laying out vertices in the descending order of \\(\text{post}\\) time will give us their topological ordering. Additionally, if we keep track of each vertex's color, we can also detect cycles (i.e. edge to a `GRAY` neighbour) and know when topological ordering is not possible.
 
 <div class="grid" markdown>
 
@@ -75,6 +81,8 @@ fun topologicalSort(graph: Graph)
 
 ## Kahn's algorithm
 
+The general idea behind this solution is that topological ordering will place source vertices before sink vertices. So we begin by listing all source vertices first (i.e. \\(\text{in-degree} = 0\\)), followed by their neighbours, followed by their neighbour's neighbours and so on. 
+
 <div class="grid" markdown>
 
 ```ruby title="Pseudocode"
@@ -86,10 +94,14 @@ while Q is not empty:
   O += [u]
 
   for (u, v) in G:
+    remove (u, v) from G
+    # discover neighbours of source vertices
     v.indegree--
     if v.indegree == 0:
       Q.enqueue(v) 
 
+if G has edges:
+  error "graph has cycle(s)"
 return O
 ```
 

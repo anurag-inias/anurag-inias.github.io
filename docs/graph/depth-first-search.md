@@ -249,7 +249,7 @@ Things are harder in iterative implementation.
 
 <div class="grid" markdown>
 
-```ruby
+```ruby title="incorrect implementation"
 ...
 v.color = GRAY # no-op
 
@@ -265,7 +265,7 @@ if v is not visited:
 v.color = BLACK # overwrites GRAY
 ```
 
-```ruby hl_lines="4 9 10"
+```ruby title="correct implementation" hl_lines="4 9 10 12 13"
 ...
 v.color = GRAY
 
