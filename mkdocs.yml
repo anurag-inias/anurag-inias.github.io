@@ -62,5 +62,5 @@ nav:
   - Depth-first Search: 'graph/depth-first-search.md'
   - Topological Sort: 'graph/topological-sort.md'
 - JS: 
-  - Basics: 'js/basics.md'
+  - Types: 'js/types.md'
   - Object: 'js/object.md'

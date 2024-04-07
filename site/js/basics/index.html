@@ -12,13 +12,15 @@
         <link rel="prev" href="../../graph/topological-sort/">
       
       
+        <link rel="next" href="../object/">
+      
       
       <link rel="icon" href="../../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
     
     
       
-        <title>JS crash course - Just Another Blog</title>
+        <title>Basics - Just Another Blog</title>
       
     
     
@@ -44,6 +46,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -61,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#javascript-crash-course" class="md-skip">
+        <a href="#basics" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JS crash course
+              Basics
             
           </span>
         </div>
@@ -118,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -128,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
@@ -372,6 +376,43 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    JS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -384,7 +425,7 @@
           
   
   <span class="md-ellipsis">
-    JS crash course
+    Basics
   </span>
   
 
@@ -395,7 +436,7 @@
         
   
   <span class="md-ellipsis">
-    JS crash course
+    Basics
   </span>
   
 
@@ -426,9 +467,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
+  <a href="#typeof" class="md-nav__link">
     <span class="md-ellipsis">
-      Objects
+      typeof
     </span>
   </a>
   
@@ -437,6 +478,35 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -478,9 +548,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
+  <a href="#typeof" class="md-nav__link">
     <span class="md-ellipsis">
-      Objects
+      typeof
     </span>
   </a>
   
@@ -501,9 +571,9 @@
                   
 
 
-<h1 id="javascript-crash-course">Javascript crash course</h1>
+<h1 id="basics">Basics</h1>
 <h2 id="types">Types</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">number \(\&amp;\) bigint</label><label for="__tabbed_1_2">string</label><label for="__tabbed_1_3">boolean</label><label for="__tabbed_1_4">undefined \(\&amp;\) null</label><label for="__tabbed_1_5">symbol</label><label for="__tabbed_1_6">object</label><label for="__tabbed_1_7">typeof</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">number \(\&amp;\) bigint</label><label for="__tabbed_1_2">string</label><label for="__tabbed_1_3">boolean</label><label for="__tabbed_1_4">undefined \(\&amp;\) null</label><label for="__tabbed_1_5">symbol</label><label for="__tabbed_1_6">object</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Represents both integer and floating point numbers. </p>
@@ -603,9 +673,11 @@
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>All the aforementioned types are <em>primitive</em>, distinct from <em>Object</em> type. Read more about it below.</p>
+<p>All the aforementioned types are <em>primitive</em>, distinct from <em>Object</em> type. Read more about it <a href="/js/object.md">here</a>.</p>
 </div>
-<div class="tabbed-block">
+</div>
+</div>
+<h2 id="typeof"><code>typeof</code></h2>
 <div class="language-javascript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ow">typeof</span><span class="w"> </span><span class="mf">0</span><span class="w">           </span><span class="c1">// &#39;number&#39;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="ow">typeof</span><span class="w"> </span><span class="mi">1n</span><span class="w">          </span><span class="c1">// &#39;bigint&#39;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="ow">typeof</span><span class="w"> </span><span class="kc">true</span><span class="w">        </span><span class="c1">// &#39;boolean&#39;</span>
@@ -617,10 +689,6 @@
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="ow">typeof</span><span class="w"> </span><span class="p">{}</span><span class="w">          </span><span class="c1">// &#39;object&#39;</span>
 </span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="ow">typeof</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="w"> </span><span class="c1">// &#39;function&#39;, still an object but treated differently by typeof</span>
 </span></code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="objects">Objects</h2>
 
 
 
