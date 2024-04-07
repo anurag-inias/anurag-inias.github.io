@@ -1,4 +1,4 @@
-# Object type
+# Objects type
 
 ## Basics
 

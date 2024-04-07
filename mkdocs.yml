@@ -63,4 +63,4 @@ nav:
   - Topological Sort: 'graph/topological-sort.md'
 - JS: 
   - Types: 'js/types.md'
-  - Object: 'js/object.md'
+  - Objects: 'js/objects.md'
