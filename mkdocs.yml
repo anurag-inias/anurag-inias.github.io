@@ -13,11 +13,13 @@ theme:
   palette: 
     # Palette toggle for light mode
     - scheme: default
+      primary: white
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
+      primary: black
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
@@ -49,6 +51,8 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+extra_css:
+  - assets/extra.css
 
 nav:
 - About: 'index.md'
@@ -57,4 +61,6 @@ nav:
   - Breadth-first Search: 'graph/breadth-first-search.md'
   - Depth-first Search: 'graph/depth-first-search.md'
   - Topological Sort: 'graph/topological-sort.md'
-- JS crash course: 'js/crash-course.md'
+- JS: 
+  - Basics: 'js/basics.md'
+  - Object: 'js/object.md'

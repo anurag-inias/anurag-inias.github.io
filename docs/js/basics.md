@@ -1,4 +1,4 @@
-# Javascript crash course
+# Basics
 
 ## Types
 
@@ -137,22 +137,20 @@
 
 === "object"
 
-    All the aforementioned types are _primitive_, distinct from _Object_ type. Read more about it below.
+    All the aforementioned types are _primitive_, distinct from _Object_ type. Read more about it [here](/js/object.md).
 
-=== "typeof"
+## `typeof`
 
-    ```javascript
-    typeof 0           // 'number'
-    typeof 1n          // 'bigint'
-    typeof true        // 'boolean'
-    typeof 'foo'       // 'string'
-    typeof undefined   // 'undefined'
-    typeof null        // 'object', known bug 
-    typeof Symbol()    // 'symbol'
+```javascript
+typeof 0           // 'number'
+typeof 1n          // 'bigint'
+typeof true        // 'boolean'
+typeof 'foo'       // 'string'
+typeof undefined   // 'undefined'
+typeof null        // 'object', known bug 
+typeof Symbol()    // 'symbol'
 
-    typeof {}          // 'object'
-    typeof console.log // 'function', still an object but treated differently by typeof
-    ```
-
-## Objects
+typeof {}          // 'object'
+typeof console.log // 'function', still an object but treated differently by typeof
+```
 
