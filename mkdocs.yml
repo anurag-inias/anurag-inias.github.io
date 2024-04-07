@@ -57,3 +57,4 @@ nav:
   - Breadth-first Search: 'graph/breadth-first-search.md'
   - Depth-first Search: 'graph/depth-first-search.md'
   - Topological Sort: 'graph/topological-sort.md'
+- JS crash course: 'js/crash-course.md'
