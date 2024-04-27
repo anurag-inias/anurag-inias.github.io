@@ -30,91 +30,6 @@ Notice that in iterative approach, we push vertices on stack regardless of wheth
 
 If \\(a, b, c\\) are adjacent to \\(u\\), and the recursive DFS visits them in said order, then iterative implementation will visit them in reverse order of \\(c, b, a\\).
 
-## Comparison to BFS
-
-<div class="grid" markdown>
-
-```ruby title="BFS(u) iterative" hl_lines="2 8 9"
-Q = stack.push(u)
-mark u as visited
-while Q is not empty:
-  v = Q.poll()
-
-
-  for each edge (v, w):
-    if w is not visted:
-      mark w as visited
-      Q.push(w)
-```
-
-```ruby title="DFS(u) iterative" hl_lines="5 6"
-S = stack.push(u)
-
-while S is not empty:
-  v = S.pop()
-  if v is not visited:
-    mark v as visted
-    for each edge (v, w):
-      S.push(w)
-```
-
-</div>
-
-Why the iterative DFS postpone checking the `visited` status of a vertex? Why not check it before pushing it on stack? To understand this, consider the following graph:
-
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.85702514648438 292.4285430908203" height="200" style="margin: auto;">
-  <g stroke-linecap="round" transform="translate(79.57135009765625 10) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(99.07614171028558 22.675883860929588) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">0</text></g><g stroke-linecap="round" transform="translate(79.714111328125 127.14283752441406) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(99.21890294075433 139.81872138534362) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g stroke-linecap="round" transform="translate(10 233.4285430908203) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(29.504791612629333 246.10442695174987) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g stroke-linecap="round" transform="translate(177.57135009765625 226.14283752441406) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(197.07614171028558 238.81872138534362) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g stroke-linecap="round"><g transform="translate(102.75256529457295 62.18311059955735) rotate(0 1.2337606269204002 29.729481063219353)"><path d="M0 0 C0.41 9.91, 2.06 49.55, 2.47 59.46 M0 0 C0.41 9.91, 2.06 49.55, 2.47 59.46" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(93.57136535644531 178.2143096923828) rotate(0 -21.42852783203125 26.857131958007812)"><path d="M0 0 C-7.14 8.95, -35.71 44.76, -42.86 53.71 M0 0 C-7.14 8.95, -35.71 44.76, -42.86 53.71" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(126.71418762207031 173.64283752441406) rotate(0 28.857177734375 25.714309692382812)"><path d="M0 0 C9.62 8.57, 48.1 42.86, 57.71 51.43 M0 0 C9.62 8.57, 48.1 42.86, 57.71 51.43" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(64.42860412597656 259.92857360839844) rotate(0 52.571380615234375 -4)"><path d="M0 0 C17.52 -1.33, 87.62 -6.67, 105.14 -8 M0 0 C17.52 -1.33, 87.62 -6.67, 105.14 -8" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask></svg>
-
-<div class="grid" markdown>
-
-``` title="BFS like check"
-
-push 1       stack = [1    ] # 1 visited
-
-pop 1        stack = [     ]
-push 2 0 3   stack = [2 0 3] # 2 0 3 visited
-
-pop 3        stack = [2 0  ]
-pop 0        stack = [2    ]
-pop 2        stack = [     ]
-
-
-Traversal: 1 3 0 2
-```
-
-``` title="postpone visited check"
-push 1       stack = [1      ]
-
-pop 1        stack = [       ] # 1 visited
-push 2 0 3   stack = [2 0 3  ]
-
-pop 3        stack = [2 0    ] # 3 visited
-push 2 1     stack = [2 0 2 1] 
-
-pop 1        stack = [2 0 2  ]
-pop 2        stack = [2 0    ] # 2 visited
-push 3 1     stack = [2 0 3 1]
-
-pop 1        stack = [2 0 3  ]
-pop 3        stack = [2 0    ]
-pop 0        stack = [2      ] # 0 visited
-push 1       stack = [2 1    ]
-
-pop 1        stack = [2      ]
-pop 2        stack = [       ]
-
-
-Traversal: 1 3 2 0
-```
-
-</div>
-
-{==
-
-If we check the `visited` status before pushing vertices on stack, the algorithm will still work; in the sense that you'd not stuck in loops still. But, it wouldn't be a "depth first" search anymore.
-
-==}
-
 ## Enhancements
 
 We now consider the following enhancements on this simple version of DFS:
@@ -178,6 +93,7 @@ Similarly, when a vertex \\(v\\) is first discovered following the edge \\((u, v
 - Tree edge if `v.color = WHITE`.
 - Back edge if `v.color = GRAY`.
 - Forward/Cross edge if `v.color = BLACK`.
+
 
 ## Recursive implementation
 
@@ -362,3 +278,93 @@ enum class Color { WHITE, GRAY, BLACK }
 ```
 
 </div>
+
+## Comparison to BFS
+
+<div class="grid" markdown>
+
+```ruby title="BFS(u) iterative" hl_lines="2 8 9"
+Q = stack.push(u)
+mark u as visited
+while Q is not empty:
+  v = Q.poll()
+
+
+  for each edge (v, w):
+    if w is not visted:
+      mark w as visited
+      Q.push(w)
+```
+
+```ruby title="DFS(u) iterative" hl_lines="5 6"
+S = stack.push(u)
+
+while S is not empty:
+  v = S.pop()
+  if v is not visited:
+    mark v as visted
+    for each edge (v, w):
+      S.push(w)
+```
+
+</div>
+
+Why the iterative DFS postpone checking the `visited` status of a vertex? Why not check it before pushing it on stack? 
+
+See in generalized search algorithm, we can end up "bagging" same vertex multiple times from different routes \\(\[...p_1 \rightarrow u ...... p_2 \rightarrow u ...\]\\) . In DFS, we want to explore the vertex from the last encountered route.
+
+
+Consider the following graph as an example:
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.85702514648438 292.4285430908203" height="200" style="margin: auto;">
+  <g stroke-linecap="round" transform="translate(79.57135009765625 10) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(99.07614171028558 22.675883860929588) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">0</text></g><g stroke-linecap="round" transform="translate(79.714111328125 127.14283752441406) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(99.21890294075433 139.81872138534362) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g stroke-linecap="round" transform="translate(10 233.4285430908203) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(29.504791612629333 246.10442695174987) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g stroke-linecap="round" transform="translate(177.57135009765625 226.14283752441406) rotate(0 25.142837524414062 24.5)"><path d="M50.29 24.5 C50.29 25.92, 50.16 27.36, 49.9 28.75 C49.65 30.15, 49.27 31.55, 48.77 32.88 C48.27 34.21, 47.64 35.52, 46.92 36.75 C46.19 37.98, 45.34 39.16, 44.4 40.25 C43.47 41.33, 42.42 42.36, 41.3 43.27 C40.19 44.18, 38.97 45.01, 37.71 45.72 C36.45 46.43, 35.11 47.04, 33.74 47.52 C32.37 48.01, 30.94 48.38, 29.51 48.63 C28.08 48.87, 26.6 49, 25.14 49 C23.69 49, 22.21 48.87, 20.78 48.63 C19.34 48.38, 17.91 48.01, 16.54 47.52 C15.18 47.04, 13.83 46.43, 12.57 45.72 C11.31 45.01, 10.1 44.18, 8.98 43.27 C7.87 42.36, 6.82 41.33, 5.88 40.25 C4.95 39.16, 4.1 37.98, 3.37 36.75 C2.64 35.52, 2.01 34.21, 1.52 32.88 C1.02 31.55, 0.63 30.15, 0.38 28.75 C0.13 27.36, 0 25.92, 0 24.5 C0 23.08, 0.13 21.64, 0.38 20.25 C0.63 18.85, 1.02 17.45, 1.52 16.12 C2.01 14.79, 2.64 13.48, 3.37 12.25 C4.1 11.02, 4.95 9.84, 5.88 8.75 C6.82 7.67, 7.87 6.64, 8.98 5.73 C10.1 4.82, 11.31 3.99, 12.57 3.28 C13.83 2.57, 15.18 1.96, 16.54 1.48 C17.91 0.99, 19.34 0.62, 20.78 0.37 C22.21 0.13, 23.69 0, 25.14 0 C26.6 0, 28.08 0.13, 29.51 0.37 C30.94 0.62, 32.37 0.99, 33.74 1.48 C35.11 1.96, 36.45 2.57, 37.71 3.28 C38.97 3.99, 40.19 4.82, 41.3 5.73 C42.42 6.64, 43.47 7.67, 44.4 8.75 C45.34 9.84, 46.19 11.02, 46.92 12.25 C47.64 13.48, 48.27 14.79, 48.77 16.12 C49.27 17.45, 49.65 18.85, 49.9 20.25 C50.16 21.64, 50.22 23.79, 50.29 24.5 C50.35 25.21, 50.35 23.79, 50.29 24.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(197.07614171028558 238.81872138534362) rotate(0 5.859375 12)"><text x="5.859375" y="19.3125" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g stroke-linecap="round"><g transform="translate(102.75256529457295 62.18311059955735) rotate(0 1.2337606269204002 29.729481063219353)"><path d="M0 0 C0.41 9.91, 2.06 49.55, 2.47 59.46 M0 0 C0.41 9.91, 2.06 49.55, 2.47 59.46" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(93.57136535644531 178.2143096923828) rotate(0 -21.42852783203125 26.857131958007812)"><path d="M0 0 C-7.14 8.95, -35.71 44.76, -42.86 53.71 M0 0 C-7.14 8.95, -35.71 44.76, -42.86 53.71" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(126.71418762207031 173.64283752441406) rotate(0 28.857177734375 25.714309692382812)"><path d="M0 0 C9.62 8.57, 48.1 42.86, 57.71 51.43 M0 0 C9.62 8.57, 48.1 42.86, 57.71 51.43" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(64.42860412597656 259.92857360839844) rotate(0 52.571380615234375 -4)"><path d="M0 0 C17.52 -1.33, 87.62 -6.67, 105.14 -8 M0 0 C17.52 -1.33, 87.62 -6.67, 105.14 -8" stroke="var(--md-code-fg-color)" stroke-width="1" fill="none"></path></g></g><mask></mask></svg>
+
+<div class="grid" markdown>
+
+``` title="BFS like check"
+
+push 1       stack = [1    ] # 1 visited
+
+pop 1        stack = [     ]
+push 2 0 3   stack = [2 0 3] # 2 0 3 visited
+
+pop 3        stack = [2 0  ]
+pop 0        stack = [2    ]
+pop 2        stack = [     ]
+
+
+Traversal: 1 3 0 2
+```
+
+``` title="postpone visited check"
+push 1       stack = [1      ]
+
+pop 1        stack = [       ] # 1 visited
+push 2 0 3   stack = [2 0 3  ]
+
+pop 3        stack = [2 0    ] # 3 visited
+push 2 1     stack = [2 0 2 1] 
+
+pop 1        stack = [2 0 2  ]
+pop 2        stack = [2 0    ] # 2 visited
+push 3 1     stack = [2 0 3 1]
+
+pop 1        stack = [2 0 3  ]
+pop 3        stack = [2 0    ]
+pop 0        stack = [2      ] # 0 visited
+push 1       stack = [2 1    ]
+
+pop 1        stack = [2      ]
+pop 2        stack = [       ]
+
+
+Traversal: 1 3 2 0
+```
+
+</div>
+
+{==
+
+If we check the `visited` status before pushing vertices on stack, the algorithm will still work; in the sense that you'd not stuck in loops still. But, it wouldn't be a "depth first" search anymore.
+
+==}
