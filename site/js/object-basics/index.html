@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../types/">
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+    
+    
+      
+        <title>Basics - Just Another Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Zilla Slab";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Just Another Blog" class="md-header__button md-logo" aria-label="Just Another Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Just Another Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Just Another Blog" class="md-nav__button md-logo" aria-label="Just Another Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Just Another Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Graph
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Graph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/breadth-first-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Breadth-first Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/depth-first-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Depth-first Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/topological-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    JS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Objects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Objects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#object-literal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object literal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object constructor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototypes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#object-literal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object literal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object constructor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototypes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="basics">Basics</h1>
+<p>An object is a composite value: an unordered collection of properties, each with a name and a value. Property names are typically <em>strings</em>, but can also be <em>symbols</em>.</p>
+<p>Object creation comes in two forms: literal and constructed form.</p>
+<h2 id="object-literal">Object literal</h2>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">42</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">};</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span><span class="w"> </span><span class="c1">// &#39;Foo&#39;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="nx">user</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span><span class="w"> </span><span class="c1">// 42</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">// leaves user = { name: &#39;Foo&#39; }</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="ow">delete</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="nx">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// &#39;Foo&#39;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>keys can be computed as well:</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;umm&quot;</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="s2">&quot;foo bar&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">123</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="p">[</span><span class="nx">key</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; hey&#39;</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="mf">456</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">};</span>
+</span></code></pre></div></td></tr></table></div>
+<p>If property name and value are the same, we can use the shorthand notation:</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="nx">name</span><span class="p">,</span><span class="w">  </span><span class="c1">// name: name</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="nx">age</span><span class="p">,</span><span class="w">   </span><span class="c1">// age : age</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="nx">patron</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;zeus&#39;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="object-constructor">Object constructor</h2>
+<p><code>{}</code> syntax is good enough for one-off objects, but how do we create blueprint for a set of objects, all belonging to same <em>"class"</em>?</p>
+<p>For this we use <em>constructor calls</em>. When a function in JS is invoked with <code>new</code> operator, JS hijacks its behaviour so:</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">User</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">  </span><span class="c1">// this = {};       # implicit</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="nx">greet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`hi </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">  </span><span class="c1">// return this;     # implicit</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">User</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// { name: &#39;foo&#39; }</span>
+</span></code></pre></div></td></tr></table></div>
+<details>
+<summary>What about return statement</summary>
+<p>If the function being called has a return statement, it's ignored for primitive return, but not for object.</p>
+<div class="grid" markdown>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">User</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span><span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="ow">new</span><span class="w"> </span><span class="nx">User</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// User {name: &#39;foo&#39;}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">User</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span><span class="w"> </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">oink</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;oink&#39;</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">}</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="ow">new</span><span class="w"> </span><span class="nx">User</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// { oink: &#39;oink }</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</details>
+<p>There are built-in constructor for object, arrays, dates, and <em>boxed</em> primtives:</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Object</span><span class="p">();</span><span class="w"> </span><span class="c1">// same as {}.</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">();</span><span class="w">  </span><span class="c1">// same as [].</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="prototypes">Prototypes</h2>
+<p>Constructor calls do more than just help out with boilerplate. They spit out objects which all point to same <em>prototype</em>. What is that?</p>
+<details>
+<summary>JS vs. classic OOP</summary>
+<p>In every other OOP language one works with classes which are object blueprints. Objects are instances of classes. A class <code>C</code> which subclasses another <code>P</code> inherits its methods.</p>
+<p>JS doesn't work this way. For one, there was* no construct for classes, just objects. Secondly, inheritance worked via delegation. Object <code>C</code> would inherit functionality of parent <code>P</code> through a link called <em>prototype</em>. </p>
+</details>
+<p>Each object in JS has a built-in property, called its <strong>prototype</strong>. Prototype itself is an object, which means it itself has its own prototype, making a <em>prototype chain</em>. This chain ends at <code>Object.prototype</code> which has <code>null</code> prototype:</p>
+<div class="grid">
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span>
+<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="c1">// __proto__ is a legacy feature, is not recommended.</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nx">o</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">;</span><span class="w">                             </span><span class="c1">// Object.prototype</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span><span class="w">                </span><span class="c1">// Object.prototype</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span><span class="w"> </span><span class="c1">// null</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span><span class="w">                </span><span class="c1">// Array.prototype</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span><span class="w">  </span><span class="c1">// Object.prototype</span>
+</span></code></pre></div></td></tr></table></div>
+<p style="text-align: center">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 296.39984130859375 444.91424560546875" height="320px">
+      <g stroke-linecap="round" transform="translate(164.39996337890625 390.1142578125) rotate(0 29.4857177734375 22.399993896484375)"><path d="M11.2 0 C20.67 0, 30.14 0, 47.77 0 M11.2 0 C22.21 0, 33.23 0, 47.77 0 M47.77 0 C55.24 0, 58.97 3.73, 58.97 11.2 M47.77 0 C55.24 0, 58.97 3.73, 58.97 11.2 M58.97 11.2 C58.97 17.44, 58.97 23.67, 58.97 33.6 M58.97 11.2 C58.97 19.84, 58.97 28.48, 58.97 33.6 M58.97 33.6 C58.97 41.07, 55.24 44.8, 47.77 44.8 M58.97 33.6 C58.97 41.07, 55.24 44.8, 47.77 44.8 M47.77 44.8 C33.97 44.8, 20.16 44.8, 11.2 44.8 M47.77 44.8 C37.33 44.8, 26.89 44.8, 11.2 44.8 M11.2 44.8 C3.73 44.8, 0 41.07, 0 33.6 M11.2 44.8 C3.73 44.8, 0 41.07, 0 33.6 M0 33.6 C0 28.67, 0 23.73, 0 11.2 M0 33.6 C0 28.7, 0 23.8, 0 11.2 M0 11.2 C0 3.73, 3.73 0, 11.2 0 M0 11.2 C0 3.73, 3.73 0, 11.2 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(183.9756851196289 400.0142517089844) rotate(0 9.909996032714844 12.5)"><text x="9.909996032714844" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">[]</text></g><g stroke-linecap="round" transform="translate(108.65719604492188 264.228515625) rotate(0 88.39999389648432 30)"><path d="M15 0 C58.39 0, 101.78 0, 161.8 0 M15 0 C63.01 0, 111.02 0, 161.8 0 M161.8 0 C171.8 0, 176.8 5, 176.8 15 M161.8 0 C171.8 0, 176.8 5, 176.8 15 M176.8 15 C176.8 23.72, 176.8 32.44, 176.8 45 M176.8 15 C176.8 21.98, 176.8 28.97, 176.8 45 M176.8 45 C176.8 55, 171.8 60, 161.8 60 M176.8 45 C176.8 55, 171.8 60, 161.8 60 M161.8 60 C106.85 60, 51.9 60, 15 60 M161.8 60 C120.76 60, 79.72 60, 15 60 M15 60 C5 60, 0 55, 0 45 M15 60 C5 60, 0 55, 0 45 M0 45 C0 37.87, 0 30.75, 0 15 M0 45 C0 37.38, 0 29.75, 0 15 M0 15 C0 5, 5 0, 15 0 M0 15 C0 5, 5 0, 15 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(121.0972671508789 281.728515625) rotate(0 75.95992279052734 12.5)"><text x="75.95992279052734" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">Array.prototype</text></g><g stroke-linecap="round" transform="translate(103.19989013671875 132.00003051757812) rotate(0 91.5999755859375 30)"><path d="M15 0 C64.55 0, 114.11 0, 168.2 0 M15 0 C50.07 0, 85.15 0, 168.2 0 M168.2 0 C178.2 0, 183.2 5, 183.2 15 M168.2 0 C178.2 0, 183.2 5, 183.2 15 M183.2 15 C183.2 26.18, 183.2 37.35, 183.2 45 M183.2 15 C183.2 21.68, 183.2 28.36, 183.2 45 M183.2 45 C183.2 55, 178.2 60, 168.2 60 M183.2 45 C183.2 55, 178.2 60, 168.2 60 M168.2 60 C114.46 60, 60.71 60, 15 60 M168.2 60 C129.67 60, 91.13 60, 15 60 M15 60 C5 60, 0 55, 0 45 M15 60 C5 60, 0 55, 0 45 M0 45 C0 38.19, 0 31.38, 0 15 M0 45 C0 34.37, 0 23.75, 0 15 M0 15 C0 5, 5 0, 15 0 M0 15 C0 5, 5 0, 15 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(113.5999526977539 149.50003051757812) rotate(0 81.19991302490234 12.5)"><text x="81.19991302490234" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">Object.prototype</text></g><g stroke-linecap="round"><g transform="translate(196.4358168272396 385.31427001953125) rotate(0 0.3163149382734787 -27.542861938476562)"><path d="M0 0 C0.11 -9.18, 0.53 -45.9, 0.63 -55.09 M0 0 C0.11 -9.18, 0.53 -45.9, 0.63 -55.09" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(196.4358168272396 385.31427001953125) rotate(0 0.3163149382734787 -27.542861938476562)"><path d="M8.91 -31.5 C6.11 -39.48, 3.31 -47.46, 0.63 -55.09 M8.91 -31.5 C7.19 -36.4, 5.47 -41.29, 0.63 -55.09" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(196.4358168272396 385.31427001953125) rotate(0 0.3163149382734787 -27.542861938476562)"><path d="M-8.19 -31.69 C-5.2 -39.61, -2.22 -47.52, 0.63 -55.09 M-8.19 -31.69 C-6.36 -36.55, -4.52 -41.41, 0.63 -55.09" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(196.97772054142433 258.22857666015625) rotate(0 -0.31944716064583645 -27.714279174804688)"><path d="M0 0 C-0.11 -9.24, -0.53 -46.19, -0.64 -55.43 M0 0 C-0.11 -9.24, -0.53 -46.19, -0.64 -55.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(196.97772054142433 258.22857666015625) rotate(0 -0.31944716064583645 -27.714279174804688)"><path d="M8.18 -32.04 C4.68 -41.33, 1.17 -50.62, -0.64 -55.43 M8.18 -32.04 C5.93 -38, 3.68 -43.97, -0.64 -55.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(196.97772054142433 258.22857666015625) rotate(0 -0.31944716064583645 -27.714279174804688)"><path d="M-8.92 -31.84 C-5.63 -41.21, -2.34 -50.58, -0.64 -55.43 M-8.92 -31.84 C-6.81 -37.86, -4.7 -43.87, -0.64 -55.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round" transform="translate(10 263.79998779296875) rotate(0 31.999969482421818 30)"><path d="M15 0 C28.3 0, 41.6 0, 49 0 M15 0 C23.8 0, 32.61 0, 49 0 M49 0 C59 0, 64 5, 64 15 M49 0 C59 0, 64 5, 64 15 M64 15 C64 24.91, 64 34.83, 64 45 M64 15 C64 23.94, 64 32.87, 64 45 M64 45 C64 55, 59 60, 49 60 M64 45 C64 55, 59 60, 49 60 M49 60 C37.94 60, 26.88 60, 15 60 M49 60 C37.98 60, 26.95 60, 15 60 M15 60 C5 60, 0 55, 0 45 M15 60 C5 60, 0 55, 0 45 M0 45 C0 33.16, 0 21.32, 0 15 M0 45 C0 34.54, 0 24.08, 0 15 M0 15 C0 5, 5 0, 15 0 M0 15 C0 5, 5 0, 15 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(31.3099746704101 281.29998779296875) rotate(0 10.689994812011719 12.5)"><text x="10.689994812011719" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">{}</text></g><g stroke-linecap="round"><g transform="translate(51.157049593541785 255.60003662109375) rotate(0 41.58380364553997 -28.000015258789034)"><path d="M0 0 C13.86 -9.33, 69.31 -46.67, 83.17 -56 M0 0 C13.86 -9.33, 69.31 -46.67, 83.17 -56" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(51.157049593541785 255.60003662109375) rotate(0 41.58380364553997 -28.000015258789034)"><path d="M68.46 -35.79 C73.83 -43.18, 79.21 -50.56, 83.17 -56 M68.46 -35.79 C73.53 -42.76, 78.6 -49.73, 83.17 -56" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(51.157049593541785 255.60003662109375) rotate(0 41.58380364553997 -28.000015258789034)"><path d="M58.91 -49.97 C67.77 -52.18, 76.64 -54.38, 83.17 -56 M58.91 -49.97 C67.27 -52.05, 75.64 -54.13, 83.17 -56" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round" transform="translate(158.7999267578125 10) rotate(0 31.999969482421818 30)"><path d="M15 0 C25.87 0, 36.74 0, 49 0 M15 0 C22.46 0, 29.91 0, 49 0 M49 0 C59 0, 64 5, 64 15 M49 0 C59 0, 64 5, 64 15 M64 15 C64 24.72, 64 34.44, 64 45 M64 15 C64 26.84, 64 38.69, 64 45 M64 45 C64 55, 59 60, 49 60 M64 45 C64 55, 59 60, 49 60 M49 60 C39.55 60, 30.11 60, 15 60 M49 60 C38.95 60, 28.91 60, 15 60 M15 60 C5 60, 0 55, 0 45 M15 60 C5 60, 0 55, 0 45 M0 45 C0 35.73, 0 26.46, 0 15 M0 45 C0 37.42, 0 29.85, 0 15 M0 15 C0 5, 5 0, 15 0 M0 15 C0 5, 5 0, 15 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(175.18991088867188 27.5) rotate(0 15.6099853515625 12.5)"><text x="15.6099853515625" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">null</text></g><g stroke-linecap="round"><g transform="translate(192.81306320539898 126) rotate(0 0.2666101017297251 -23.600006103515625)"><path d="M0 0 C0.09 -7.87, 0.44 -39.33, 0.53 -47.2 M0 0 C0.09 -7.87, 0.44 -39.33, 0.53 -47.2" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(192.81306320539898 126) rotate(0 0.2666101017297251 -23.600006103515625)"><path d="M8.35 -24.93 C6.4 -30.48, 4.45 -36.04, 0.53 -47.2 M8.35 -24.93 C6.48 -30.28, 4.6 -35.63, 0.53 -47.2" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(192.81306320539898 126) rotate(0 0.2666101017297251 -23.600006103515625)"><path d="M-7.79 -25.11 C-5.71 -30.62, -3.64 -36.13, 0.53 -47.2 M-7.79 -25.11 C-5.79 -30.42, -3.79 -35.72, 0.53 -47.2" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask></svg>
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
