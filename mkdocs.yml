@@ -58,6 +58,8 @@ nav:
 - About: 'index.md'
 - Graph:
   - Intro: 'graph/intro.md'
+  - Traversal:
+      - BFS: 'graph/bfs.md'
   - Breadth-first Search: 'graph/breadth-first-search.md'
   - Depth-first Search: 'graph/depth-first-search.md'
   - Topological Sort: 'graph/topological-sort.md'
