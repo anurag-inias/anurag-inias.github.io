@@ -102,9 +102,7 @@ while S is not empty:
 
 </div>
 
-## Determining edge type
-
-### #1 Vertex coloring
+## Vertex coloring
 
 Introduce a third state after *visited*, called *explored* to mark vertices whose neighbours are all visited. When an edge \\(u \rightarrow v\\) is first traversed, the color of \\(v\\) determines the type of this edge:
 
@@ -348,31 +346,10 @@ Introduce a third state after *visited*, called *explored* to mark vertices whos
 
 <hr>
 
-### #2 Parenthesis property
+## Parenthesis property
 
 Consider any two vertices \\(u\\) and \\(v\\): the ranges \\([u_{s}, u_{f}]\\) and \\([v_{s}, v_{f}]\\) will either contain each other or will be completely disjoint, never partially overlapping. An edge \\(u \rightarrow v\\) is then: 
 
 1. Tree/forward edge if \\( \underset{u}{\big\[} \; \underset{v}{\big\[} \; \underset{v}{\big\]} \; \underset{u}{\big\]} \\).
 2. Back edge if \\( \underset{v}{\big\[} \; \underset{u}{\big\[} \; \underset{u}{\big\]} \; \underset{v}{\big\]} \\).
 3. Cross edge if \\( \underset{u}{\big\[} \; \underset{u}{\big\]} \; \underset{v}{\big\[} \; \underset{v}{\big\]} \\) or \\( \underset{v}{\big\[} \; \underset{v}{\big\]} \; \underset{u}{\big\[} \; \underset{u}{\big\]} \\).
-
-
-```ruby linenums="1"
-DFS(G):
-  clock = 0
-  for u in G:
-    if u is not visited:
-      DFS(G, u, clock)
-
-DFS(G, u, clock):
-  u.s = clock++
-  for (u, v) in G:
-    if v is not visited:
-      DFS(G, v)
-    switch(u.s):
-      is v.s - 1          -> # u → v is tree edge
-      is less than v.s    -> # u → v is tree/forward edge
-      in [v.s, v.f]       -> # u → v is back edge
-      is greater than v.f -> # u → v is cross edge 
-  u.f = clock++
-```

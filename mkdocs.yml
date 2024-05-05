@@ -61,8 +61,6 @@ nav:
   - Traversal:
       - BFS: 'graph/bfs.md'
       - DFS: 'graph/dfs.md'
-  - Breadth-first Search: 'graph/breadth-first-search.md'
-  - Depth-first Search: 'graph/depth-first-search.md'
   - Topological Sort: 'graph/topological-sort.md'
 - JS: 
   - Types: 'js/types.md'
