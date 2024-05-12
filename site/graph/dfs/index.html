@@ -1,0 +1,1362 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../bfs/">
+      
+      
+        <link rel="next" href="../topological-sort/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+    
+    
+      
+        <title>DFS - Just Another Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Zilla Slab";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#depth-first-search" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Just Another Blog" class="md-header__button md-logo" aria-label="Just Another Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Just Another Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DFS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Just Another Blog" class="md-nav__button md-logo" aria-label="Just Another Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Just Another Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Graph
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Graph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Traversal
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Traversal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    DFS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    DFS
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudo-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudo-code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pseudo-code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dfs-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertex-coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vertex coloring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vertex coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parenthesis-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parenthesis property
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topological-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    JS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Objects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Objects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/object-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudo-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudo-code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pseudo-code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dfs-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertex-coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vertex coloring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vertex coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parenthesis-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parenthesis property
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="depth-first-search">Depth-first Search</h1>
+<h2 id="intro">Intro</h2>
+<div class="grid">
+<p>It's helpful to consider DFS in contrast to its sibling BFS. Where BFS is the cautious approach, clearing up the graph layer-by-layer, DFS is the head-first adventure in the maze. <br> <br> BFS is akin to a group of people exploring a maze, splitting off into subgroups at each intersection. Whereas DFS is like a lone explorer uncovering a maze.</p>
+<p><img alt="" loading="lazy" src="/assets/dfs.gif" /></p>
+</div>
+<h2 id="pseudo-code">Pseudo-code</h2>
+<div class="grid">
+<h3 id="basic-version">Basic version</h3>
+<p><span></p>
+<div class="language-ruby highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">recursive DFS(G, s)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">mark</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">visited</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">print</span><span class="w"> </span><span class="n">u</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">visited</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-ruby highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">iterative DFS(G, s)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">while</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">empty</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">visited</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="n">mark</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">visited</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nb">print</span><span class="w"> </span><span class="n">u</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">      </span><span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Recursive version is DFS at its simplest. Notice that it's not a one-to-one conversion to the iterative version.</p>
+<p>Iterative DFS is quite like BFS, except: <br>
+a) stack instead of queue. <br>
+b) vertex is checked for being <em>visited</em> after taking them out of the <em>bag</em>, instead of before being "bagged". <br><br></p>
+</div>
+<h3 id="explanation">Explanation</h3>
+<div class="grid">
+<p>If we just replace queue with stack in BFS, that'd not be enough for it to be DFS. <code>DFS(G, 2)</code> would spit out <code>2, 3, 1, 4</code>. The strategy of "carry on" exploring a path gets disrupted when the next vertex on said path is already marked visited. </p>
+<p><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244.9398193359375 242.1428985595703" height="200">
+  <g transform="translate(90.00009155273438 10) rotate(0 2.7099990844726562 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g transform="translate(87.71862030029297 85.642822265625) rotate(0 7.1199951171875 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g transform="translate(48.147178649902344 149.2142791748047) rotate(0 6.80999755859375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g transform="translate(135.04721069335938 147.78565979003906) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">4</text></g><g stroke-linecap="round"><g transform="translate(70.00006103515625 161.29702530418444) rotate(0 28.571456909179688 -0.6864076853945562)"><path d="M0 0 C9.52 -0.23, 47.62 -1.14, 57.14 -1.37 M0 0 C9.52 -0.23, 47.62 -1.14, 57.14 -1.37" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(86.57144165039062 105.2138667785772) rotate(0 -13.32079926665432 18.393089498894994)"><path d="M0 0 C-4.44 6.13, -22.2 30.66, -26.64 36.79 M0 0 C-4.44 6.13, -22.2 30.66, -26.64 36.79" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(104.28573608398438 105.67627072040335) rotate(0 15.850694695968343 19.018988968411605)"><path d="M0 0 C5.28 6.34, 26.42 31.7, 31.7 38.04 M0 0 C5.28 6.34, 26.42 31.7, 31.7 38.04" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(93.18247074756766 38.571441650390625) rotate(0 -0.3302059878339776 20.285690307617188)"><path d="M0 0 C-0.11 6.76, -0.55 33.81, -0.66 40.57 M0 0 C-0.11 6.76, -0.55 33.81, -0.66 40.57" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(73.42868041992188 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M0 0 C-6.76 8.95, -33.81 44.76, -40.57 53.71 M0 0 C-6.76 8.95, -33.81 44.76, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(73.42868041992188 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M-33.24 29.81 C-36.11 39.18, -38.99 48.55, -40.57 53.71 M-33.24 29.81 C-34.9 35.23, -36.56 40.64, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(73.42868041992188 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M-19.59 40.12 C-27.81 45.45, -36.04 50.78, -40.57 53.71 M-19.59 40.12 C-24.34 43.2, -29.09 46.28, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g mask="url(#mask-zK9cLogAqVV9WaNBeScmd)" stroke-linecap="round"><g transform="translate(55.142913818359375 184.85719299316406) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M0 0 C15.05 -0.1, 75.24 -0.48, 90.29 -0.57" stroke="#e03131" stroke-width="2.5" fill="none" stroke-dasharray="1.5 8"></path></g><g transform="translate(55.142913818359375 184.85719299316406) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M66.85 8.13 C71.84 6.27, 76.84 4.42, 90.29 -0.57" stroke="#e03131" stroke-width="2.5" fill="none" stroke-dasharray="1.5 6"></path></g><g transform="translate(55.142913818359375 184.85719299316406) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M66.74 -8.97 C71.76 -7.18, 76.77 -5.39, 90.29 -0.57" stroke="#e03131" stroke-width="2.5" fill="none" stroke-dasharray="1.5 6"></path></g></g><mask id="mask-zK9cLogAqVV9WaNBeScmd"><rect x="0" y="0" fill="#fff" width="245.42868041992188" height="285.4286346435547"></rect><rect x="94.66580200195312" y="172.07147216796875" fill="#000" width="11.239990234375" height="25" opacity="1"></rect></mask><g transform="translate(94.66580200195312 172.07147216796875) rotate(0 5.6199951171875 12.5)"><text x="5.6199951171875" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">x</text></g><g transform="translate(10 207.1428985595703) rotate(0 112.46990966796875 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">Did not "push onwards"</text></g></svg></p>
+<p>The right approach then is to postpone marking vertices visited. This gives us the right result <code>2, 3, 4, 1</code>. Let vertices be pushed to the stack multiple times; <em>visit</em> them from the most recently traversed edge.</p>
+<p><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.2090110596016 194.8088534473485" height="160">
+  <g transform="translate(67.1429443359375 10) rotate(0 2.7099990844726562 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g transform="translate(64.8614730834961 85.642822265625) rotate(0 7.1199951171875 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g transform="translate(25.29003143310547 149.2142791748047) rotate(0 6.80999755859375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g transform="translate(112.1900634765625 147.78565979003906) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">4</text></g><g stroke-linecap="round"><g transform="translate(47.14291381835943 161.29454441711863) rotate(0 28.57145690917966 -0.6854106107120685)"><path d="M0 0 C9.52 -0.23, 47.62 -1.14, 57.14 -1.37 M0 0 C9.52 -0.23, 47.62 -1.14, 57.14 -1.37" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(63.71429443359375 105.19053641329424) rotate(0 -13.322925765192053 18.404754681536474)"><path d="M0 0 C-4.44 6.13, -22.2 30.67, -26.65 36.81 M0 0 C-4.44 6.13, -22.2 30.67, -26.65 36.81" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(81.4285888671875 105.65413369214286) rotate(0 15.852669093809425 19.03005748254185)"><path d="M0 0 C5.28 6.34, 26.42 31.72, 31.71 38.06 M0 0 C5.28 6.34, 26.42 31.72, 31.71 38.06" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(70.35662956109286 38.571441650390625) rotate(0 -0.34173385564980663 20.285690307617188)"><path d="M0 0 C-0.11 6.76, -0.57 33.81, -0.68 40.57 M0 0 C-0.11 6.76, -0.57 33.81, -0.68 40.57" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(50.571533203125 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M0 0 C-6.76 8.95, -33.81 44.76, -40.57 53.71 M0 0 C-6.76 8.95, -33.81 44.76, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(50.571533203125 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M-33.24 29.81 C-36.11 39.18, -38.99 48.55, -40.57 53.71 M-33.24 29.81 C-34.9 35.23, -36.56 40.64, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(50.571533203125 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M-19.59 40.12 C-27.81 45.45, -36.04 50.78, -40.57 53.71 M-19.59 40.12 C-24.34 43.2, -29.09 46.28, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(39.92324445803911 184.8088534473485) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M0 0 C15.05 -0.1, 75.24 -0.48, 90.29 -0.57 M0 0 C15.05 -0.1, 75.24 -0.48, 90.29 -0.57" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(39.92324445803911 184.8088534473485) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M66.85 8.13 C71.84 6.27, 76.84 4.42, 90.29 -0.57 M66.85 8.13 C76.12 4.69, 85.4 1.24, 90.29 -0.57" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(39.92324445803911 184.8088534473485) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M66.74 -8.97 C71.76 -7.18, 76.77 -5.39, 90.29 -0.57 M66.74 -8.97 C76.06 -5.65, 85.37 -2.32, 90.29 -0.57" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(90.00009155273438 89.4285888671875) rotate(0 -0.5714263916015625 -32.857154846191406)"><path d="M0 0 C-0.19 -10.95, -0.95 -54.76, -1.14 -65.71 M0 0 C-0.19 -10.95, -0.95 -54.76, -1.14 -65.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(90.00009155273438 89.4285888671875) rotate(0 -0.5714263916015625 -32.857154846191406)"><path d="M7.81 -42.37 C5.57 -48.22, 3.32 -54.07, -1.14 -65.71 M7.81 -42.37 C5.69 -47.92, 3.56 -53.46, -1.14 -65.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(90.00009155273438 89.4285888671875) rotate(0 -0.5714263916015625 -32.857154846191406)"><path d="M-9.28 -42.08 C-7.24 -48, -5.2 -53.93, -1.14 -65.71 M-9.28 -42.08 C-7.35 -47.69, -5.42 -53.3, -1.14 -65.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask></svg></p>
+</div>
+<p>i.e. Give multiple edges: \(a \rightarrow t, b \rightarrow t, c \rightarrow t\) leading to the same destination vertex \(t\); the incomplete version of DFS (i.e. just BFS with stack) takes the first encountered edge \(a \rightarrow t\) to \(t\). The complete solution is to pick the last encountered edge \(c \rightarrow t\).</p>
+<h2 id="dfs-tree">DFS tree</h2>
+<p>If we are to trace the above DFS algorithm running on a graph, it'd lead us to a tree structure. Let's call it \(G_{\pi}\). \(G_{\pi}\) will have all the vertices of \(G\), meaning it'll be a spanning tree (or forest if there are multiple connected components). However, not all the edges of \(G\) will be present in \(G_{\pi}\). We classify edges of \(G\) in following manner:</p>
+<ol>
+<li><em>Tree edge:</em> an edge of \(G\) that is also present in \(G_{\pi}\). This is an edge DFS actually traversed.</li>
+<li><em>Back edge:</em> an edge of \(G\) leading a vertex back to its ancestor (proper or parent) in \(G_{\pi}\).</li>
+<li><em>Forward edge:</em> an edge of \(G\) leading a vertex to its proper descendant in \(G_{\pi}\). </li>
+<li><em>Cross edge:</em> all other edges.</li>
+</ol>
+<p>An undirected graph can only have #1 and #2, as there are no <em>one-way</em> edges. DFS will traverse would-be forward/cross edges, turning them into tree edges or back edges. </p>
+<p>From this, identifying a back edge in an undirected graph is straightforward:</p>
+<div class="grid">
+<div class="language-ruby highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">recursive DFS(G, s)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">mark</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">visited</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">print</span><span class="w"> </span><span class="n">u</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">visited</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="hll"><span class="w">  </span><span class="k">else</span><span class="p">:</span>
+</span></span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="hll"><span class="w">    </span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;back edge. loop detected.&quot;</span><span class="p">)</span>
+</span></span></code></pre></div></td></tr></table></div>
+<div class="language-ruby highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">iterative DFS(G, s)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">while</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">empty</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">visited</span><span class="p">:</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="n">mark</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">visited</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="nb">print</span><span class="w"> </span><span class="n">u</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">      </span><span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="hll"><span class="w">  </span><span class="k">else</span><span class="p">:</span>
+</span></span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="hll"><span class="w">    </span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;back edge. loop detected.&quot;</span><span class="p">)</span>
+</span></span></code></pre></div></td></tr></table></div>
+</div>
+<h2 id="vertex-coloring">Vertex coloring</h2>
+<p>Introduce a third state after <em>visited</em>, called <em>explored</em> to mark vertices whose neighbours are all visited. When an edge \(u \rightarrow v\) is first traversed, the color of \(v\) determines the type of this edge:</p>
+<ol>
+<li><code>WHITE</code> indicates it's a tree edge.</li>
+<li><code>GRAY</code> indicates it's a back edge.</li>
+<li><code>BLACK</code> indicates it's a forward or cross edge.</li>
+</ol>
+<div class="grid">
+<div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">recursive</label><label for="__tabbed_1_2">iterative</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-ruby highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">WHITE</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ss">WHITE</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">      </span><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">):</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">  </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">GRAY</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="n">switch</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">color</span><span class="p">):</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">      </span><span class="no">WHITE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">      </span><span class="no">GRAY</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="c1"># u → v is back edge</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">      </span><span class="no">BLACK</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="c1"># u → v is forward/cross edge</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">  </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">BLACK</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-ruby highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">WHITE</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ss">WHITE</span><span class="p">:</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">      </span><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="no">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">):</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">  </span><span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">&lt;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="c1"># tuple</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">empty</span><span class="p">:</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="nb">p</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="nb">print</span><span class="w"> </span><span class="s2">&quot;$p-$u $u.color&quot;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">WHITE</span><span class="p">:</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">      </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">GRAY</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">      </span><span class="n">explored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">true</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">        </span><span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">&lt;</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">&gt;</span><span class="p">)</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">WHITE</span><span class="p">:</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="w">          </span><span class="n">explored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">false</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="ss">explored</span><span class="p">:</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="w">        </span><span class="n">u</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">BLACK</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">recursive</label><label for="__tabbed_2_2">iterative</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">fun</span><span class="w"> </span><span class="n">Graph</span><span class="p">.</span><span class="nf">dfs</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">vertices</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">color</span><span class="o">[</span><span class="n">u</span><span class="o">]</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">      </span><span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="p">}</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="kd">fun</span><span class="w"> </span><span class="n">Graph</span><span class="p">.</span><span class="nf">dfs</span><span class="p">(</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">  </span><span class="n">source</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">  </span><span class="n">parent</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">  </span><span class="n">indent</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">  </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">()</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="n">indent</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">parent</span><span class="s">-</span><span class="si">$</span><span class="n">source</span><span class="s"> tree&quot;</span><span class="p">)</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">  </span><span class="n">color</span><span class="o">[</span><span class="n">source</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">GRAY</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">ci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">parent</span><span class="s">-&quot;</span><span class="p">.</span><span class="na">length</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">neighbours</span><span class="p">(</span><span class="n">source</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">    </span><span class="k">when</span><span class="p">(</span><span class="n">color</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="w">      </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">ci</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">      </span><span class="n">Color</span><span class="p">.</span><span class="na">GRAY</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="n">ci</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">source</span><span class="s">-</span><span class="si">$</span><span class="n">n</span><span class="s"> back&quot;</span><span class="p">)</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">      </span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="n">ci</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">source</span><span class="s">-</span><span class="si">$</span><span class="n">n</span><span class="s"> forward/cross&quot;</span><span class="p">)</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="w">  </span><span class="n">color</span><span class="o">[</span><span class="n">source</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="p">}</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27"></a>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">WHITE</span><span class="p">,</span><span class="w"> </span><span class="n">GRAY</span><span class="p">,</span><span class="w"> </span><span class="n">BLACK</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span>
+<span class="normal"><a href="#__codelineno-7-35">35</a></span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span>
+<span class="normal"><a href="#__codelineno-7-37">37</a></span>
+<span class="normal"><a href="#__codelineno-7-38">38</a></span>
+<span class="normal"><a href="#__codelineno-7-39">39</a></span>
+<span class="normal"><a href="#__codelineno-7-40">40</a></span>
+<span class="normal"><a href="#__codelineno-7-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">fun</span><span class="w"> </span><span class="n">Graph</span><span class="p">.</span><span class="nf">dfs</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">vertices</span><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">color</span><span class="o">[</span><span class="n">u</span><span class="o">]</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">      </span><span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="p">}</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="kd">fun</span><span class="w"> </span><span class="n">Graph</span><span class="p">.</span><span class="nf">dfs</span><span class="p">(</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">  </span><span class="n">source</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">  </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">()</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;</span><span class="n">Record</span><span class="o">&gt;</span><span class="p">().</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Record</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isNotEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="p">(</span><span class="nv">p</span><span class="p">,</span><span class="w"> </span><span class="nv">u</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">removeFirst</span><span class="p">()</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">childIndent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">p</span><span class="s">-&quot;</span><span class="p">.</span><span class="na">length</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="o">[</span><span class="n">u</span><span class="o">]</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">p</span><span class="s">-</span><span class="si">$</span><span class="n">u</span><span class="s"> </span><span class="si">${</span><span class="n">c</span><span class="p">.</span><span class="na">type</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18"></a>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">      </span><span class="n">color</span><span class="o">[</span><span class="n">u</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">GRAY</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nv">explored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">neighbours</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">addFirst</span><span class="p">(</span><span class="n">Record</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">childIndent</span><span class="p">))</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">color</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="w">          </span><span class="n">explored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28"></a>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">explored</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">        </span><span class="n">color</span><span class="o">[</span><span class="n">u</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="p">}</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34"></a>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="kd">private</span><span class="w"> </span><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Record</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">src</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">dst</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">indent</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36"></a>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">type</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">  </span><span class="n">WHITE</span><span class="p">(</span><span class="s">&quot;tree&quot;</span><span class="p">),</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="w">  </span><span class="n">GRAY</span><span class="p">(</span><span class="s">&quot;back&quot;</span><span class="p">),</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40"></a><span class="w">  </span><span class="n">BLACK</span><span class="p">(</span><span class="s">&quot;forward/cross&quot;</span><span class="p">)</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="example-run">Example run</h3>
+<p><span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">output from recursive</label><label for="__tabbed_3_2">output from iterative</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-ruby highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">      </span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">      </span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">      </span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">        </span><span class="mi">4</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">        </span><span class="mi">4</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">        </span><span class="mi">4</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">  </span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">  </span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-ruby highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="mi">4</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">      </span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">      </span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">      </span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">        </span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">        </span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="mi">4</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">    </span><span class="mi">4</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">  </span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">  </span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<p><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.51434326171875 149.64280700683594" height="120" style="margin-top: 30px">
+  <g transform="translate(65.56714630126953 10) rotate(0 2.7099990844726562 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g transform="translate(62.71437072753906 74.92847442626953) rotate(0 7.1199951171875 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g transform="translate(10 112.64277648925781) rotate(0 6.80999755859375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g transform="translate(118.71435546875 114.64280700683594) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">4</text></g><g stroke-linecap="round"><g transform="translate(59.85295867919922 88.45775341974183) rotate(0 -16.562538052309662 12.655519062760078)"><path d="M0 0 C-5.52 4.22, -27.6 21.09, -33.13 25.31 M0 0 C-5.52 4.22, -27.6 21.09, -33.13 25.31" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(80.42436981201172 90.3067120074881) rotate(0 17.787845611572266 15.08297932621204)"><path d="M0 0 C5.93 5.03, 29.65 25.14, 35.58 30.17 M0 0 C5.93 5.03, 29.65 25.14, 35.58 30.17" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(67.91935867542236 36) rotate(0 -0.07211355440611555 18.964237213134766)"><path d="M0 0 C-0.02 6.32, -0.12 31.61, -0.14 37.93 M0 0 C-0.02 6.32, -0.12 31.61, -0.14 37.93" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(29.567237854003963 124.88887204649251) rotate(0 41.42855834960935 -0.034995567774018355)"><path d="M0 0 C13.81 -0.01, 69.05 -0.06, 82.86 -0.07 M0 0 C13.81 -0.01, 69.05 -0.06, 82.86 -0.07" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(15.52679134263741 111.14274597167969) rotate(0 21.877370472480123 -40.71464349171035)"><path d="M0 0 C7.29 -13.57, 36.46 -67.86, 43.75 -81.43 M0 0 C7.29 -13.57, 36.46 -67.86, 43.75 -81.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(78.13867950439453 29.95840096158105) rotate(0 23.775752241648377 41.44933498063526)"><path d="M0 0 C7.93 13.82, 39.63 69.08, 47.55 82.9 M0 0 C7.93 13.82, 39.63 69.08, 47.55 82.9" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask></svg></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">output from recursive</label><label for="__tabbed_4_2">output from iterative</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-ruby highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="mi">0</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">  </span><span class="mi">0</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="mi">2</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="mi">2</span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">      </span><span class="mi">6</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">      </span><span class="mi">6</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">        </span><span class="mi">4</span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="mi">4</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">          </span><span class="mi">5</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">          </span><span class="mi">5</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">          </span><span class="mi">5</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">            </span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">            </span><span class="mi">3</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">        </span><span class="mi">4</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">        </span><span class="mi">4</span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">          </span><span class="mi">7</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">          </span><span class="mi">7</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">            </span><span class="mi">1</span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">          </span><span class="mi">7</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">  </span><span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">  </span><span class="mi">0</span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="language-ruby highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="mi">0</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">  </span><span class="mi">0</span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="mi">7</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="mi">7</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">      </span><span class="mi">1</span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="mi">7</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">      </span><span class="mi">4</span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">      </span><span class="mi">4</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">        </span><span class="mi">3</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">          </span><span class="mi">5</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">          </span><span class="mi">5</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">          </span><span class="mi">5</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">      </span><span class="mi">4</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">      </span><span class="mi">4</span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="mi">6</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">        </span><span class="mi">6</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">tree</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">          </span><span class="mi">2</span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">          </span><span class="mi">2</span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">back</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="w">  </span><span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">  </span><span class="mi">0</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">forward</span><span class="o">/</span><span class="n">cross</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<p><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180.49137115478516 211.7143096923828" height="160" style="margin-top: 30px">
+  <g transform="translate(10 10.500015258789062) rotate(0 6.879997253417969 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">0</text></g><g transform="translate(93.83417510986328 10) rotate(0 7.1199951171875 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g transform="translate(16.83423614501953 176.7143096923828) rotate(0 6.17999267578125 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">5</text></g><g transform="translate(100.4056167602539 176.14280700683594) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">4</text></g><g transform="translate(55.54853057861328 130.8571319580078) rotate(0 6.80999755859375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g stroke-linecap="round"><g transform="translate(33.999969482421875 188.7857208251953) rotate(0 29.714309692382812 0)"><path d="M0 0 C9.9 0, 49.52 0, 59.43 0 M0 0 C9.9 0, 49.52 0, 59.43 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(31.71429443359375 173.35716247558594) rotate(0 9.714263916015625 -13.142868041992188)"><path d="M0 0 C3.24 -4.38, 16.19 -21.9, 19.43 -26.29 M0 0 C3.24 -4.38, 16.19 -21.9, 19.43 -26.29" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(75.142822265625 146.5000457763672) rotate(0 12 13.714279174804688)"><path d="M0 0 C4 4.57, 20 22.86, 24 27.43 M0 0 C4 4.57, 20 22.86, 24 27.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g transform="translate(100.11991119384766 79.99998474121094) rotate(0 5.379997253417969 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">7</text></g><g transform="translate(55.977088928222656 76.42860412597656) rotate(0 2.7099990844726562 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g stroke-linecap="round"><g transform="translate(67.71432495117188 90.38973310592377) rotate(0 12.85711669921875 0.028216028677121585)"><path d="M0 0 C4.29 0.01, 21.43 0.05, 25.71 0.06 M0 0 C4.29 0.01, 21.43 0.05, 25.71 0.06" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(105.1629345563212 105.999984741211) rotate(0 0.9548937491055938 32.2500305175781)"><path d="M0 0 C0.32 10.75, 1.59 53.75, 1.91 64.5 M0 0 C0.32 10.75, 1.59 53.75, 1.91 64.5" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(15.71429443359375 32.78572082519531) rotate(0 2.85711669921875 69.71430969238281)"><path d="M0 0 C0.95 23.24, 4.76 116.19, 5.71 139.43 M0 0 C0.95 23.24, 4.76 116.19, 5.71 139.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(27.142822265625 20.51993882605143) rotate(0 31.142852783203125 0.22967394617921855)"><path d="M0 0 C10.38 0.08, 51.9 0.38, 62.29 0.46 M0 0 C10.38 0.08, 51.9 0.38, 62.29 0.46" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(22.571441650390625 28.214279174804688) rotate(0 37.714263916015625 24.857147216796875)"><path d="M0 0 C12.57 8.29, 62.86 41.43, 75.43 49.71 M0 0 C12.57 8.29, 62.86 41.43, 75.43 49.71" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g transform="translate(157.6913833618164 76.85713195800781) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">6</text></g><g stroke-linecap="round"><g transform="translate(111.71429443359375 29.928573608398438) rotate(0 23.428573608398438 23.428573608398438)"><path d="M0 0 C7.81 7.81, 39.05 39.05, 46.86 46.86 M0 0 C7.81 7.81, 39.05 39.05, 46.86 46.86" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(162.57144165039062 100.21434020996094) rotate(0 -23.14288330078125 40.85713195800781)"><path d="M0 0 C-7.71 13.62, -38.57 68.1, -46.29 81.71 M0 0 C-7.71 13.62, -38.57 68.1, -46.29 81.71" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask></svg></p>
+</div>
+<hr>
+
+<h2 id="parenthesis-property">Parenthesis property</h2>
+<p>Consider any two vertices \(u\) and \(v\): the ranges \([u_{s}, u_{f}]\) and \([v_{s}, v_{f}]\) will either contain each other or will be completely disjoint, never partially overlapping. An edge \(u \rightarrow v\) is then: </p>
+<ol>
+<li>Tree/forward edge if \( \underset{u}{\big[} \; \underset{v}{\big[} \; \underset{v}{\big]} \; \underset{u}{\big]} \).</li>
+<li>Back edge if \( \underset{v}{\big[} \; \underset{u}{\big[} \; \underset{u}{\big]} \; \underset{v}{\big]} \).</li>
+<li>Cross edge if \( \underset{u}{\big[} \; \underset{u}{\big]} \; \underset{v}{\big[} \; \underset{v}{\big]} \) or \( \underset{v}{\big[} \; \underset{v}{\big]} \; \underset{u}{\big[} \; \underset{u}{\big]} \).</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

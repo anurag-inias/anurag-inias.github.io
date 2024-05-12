@@ -59,6 +59,7 @@ nav:
 - Graph:
   - Intro: 'graph/intro.md'
   - Traversal:
+      - Generic Search: 'graph/generic-search.md'
       - BFS: 'graph/bfs.md'
       - DFS: 'graph/dfs.md'
   - Topological Sort: 'graph/topological-sort.md'

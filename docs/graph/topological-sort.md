@@ -36,24 +36,28 @@ DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.
 
 <div class="grid" markdown>
 
-```ruby title="Pseudocode"
+```ruby title="pseudocode" linenums="1"
 topologicalSort(G):
   out = []
   for u in G:
-    # If back-edge present, then TS not possible
     if u is not visited:
       DFS(G, u)
   return out
 
 DFS(G, u):
-  mark u as visited
+  u.color = GRAY
+  
   for each edge (u, v):
-    if v is not visited:
+    if v.color is WHITE:
       DFS(G, v)
+    else if v.color is GRAY:
+      error "graph has cycle(s)"
+
+  u.color = BLACK
   out = [u, ...out]
 ```
 
-```kotlin title="topologicalSort(G)" linenums="1"
+```kotlin title="kotlin" linenums="1"
 fun topologicalSort(graph: Graph)
   : List<Vertex> {
   val out = ArrayList<Vertex>(
@@ -85,27 +89,26 @@ The general idea behind this solution is that topological ordering will place so
 
 <div class="grid" markdown>
 
-```ruby title="Pseudocode"
-O = topological sort result = []
-Q = list of all vertices with in-degree = 0
+```ruby title="pseudocode" linenums="1"
+queue = list of all source vertices # in-degree = 0
+result = []
 
-while Q is not empty:
-  u = Q.poll()
-  O += [u]
+while queue is not empty:
+  u = queue.any() # order doesn't matter
+  result.add(u)
 
+  # Derive the new set of "source" vertices
   for (u, v) in G:
     remove (u, v) from G
-    # discover neighbours of source vertices
-    v.indegree--
-    if v.indegree == 0:
-      Q.enqueue(v) 
+    if --v.indegree is 0:
+      queue.add(v)
 
 if G has edges:
   error "graph has cycle(s)"
-return O
+return result
 ```
 
-```kotlin title="topologicalSort(G)" linenums="1"
+```kotlin title="kotlin" linenums="1"
 fun topologicalSort(graph: Graph): List<Vertex> {
   val out = ArrayList<Vertex>()
 
