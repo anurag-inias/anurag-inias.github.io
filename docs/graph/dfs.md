@@ -110,7 +110,7 @@ Introduce a third state after *visited*, called *explored* to mark vertices whos
 2. `GRAY` indicates it's a back edge.
 3. `BLACK` indicates it's a forward or cross edge.
 
-=== "pseudo-code"
+=== "recursive"
 
     ```ruby linenums="1"
     DFS(G):
@@ -124,9 +124,9 @@ Introduce a third state after *visited*, called *explored* to mark vertices whos
       u.color = GRAY
       for (u, v) in G:
         switch(v.color):
-          WHITE -> DFS(G, v)
-          GRAY  -> # u → v is back edge
-          BLACK -> # u → v is forward/cross edge
+          WHITE: DFS(G, v)
+          GRAY:  # u -> v is back edge
+          BLACK: # u -> v is forward/cross edge
       u.color = BLACK
     ```
 
@@ -162,6 +162,91 @@ Introduce a third state after *visited*, called *explored* to mark vertices whos
 
     enum class Color { WHITE, GRAY, BLACK }
     ```
+
+=== "iterative"
+
+    ```ruby linenums="1"
+    DFS(G):
+      for u in G:
+        u.color = WHITE
+      for u in G:
+        if u.color is WHITE:
+          DFS(G, u)
+
+    DFS(G, s):
+      S.push({∅, s, false})
+      while S is not empty:
+        p, u, explored = S.pop()
+        if explored:
+          u.color = BLACK
+          continue
+
+        switch(u.color):
+          WHITE:
+            u.color = GRAY
+            S.push({p, u, true}) # to mark u explored later
+            for (u, v) in G:
+              S.push({u, v})
+          GRAY:  # p -> u is back edge
+          BLACK: # p -> u is forward/cross edge
+    ```
+
+=== "kotlin"
+
+    ```kotlin linenums="1"
+    fun Graph.dfs() {
+      val color = HashMap<Int, Color>()
+      for (u in vertices)
+        if (color.getOrDefault(u, Color.WHITE) == Color.WHITE)
+          dfs(u, color)
+    }
+
+    fun Graph.dfs(
+      source: Int,
+      color: HashMap<Int, Color> = HashMap(),
+    ) {
+      val stack = ArrayDeque<Record>().apply { this.add(Record(source, source)) }
+      while (stack.isNotEmpty()) {
+        val r = stack.removeFirst()
+        val c = color.getOrDefault(r.src, Color.WHITE)
+        if (r.explored) {
+          color[r.src] = Color.BLACK
+          continue
+        }
+        println("$r ${c.type}")
+
+        if (c == Color.WHITE) {
+          color[r.src] = Color.GRAY
+
+          // set up a memo to mark u `BLACK` when all neighbours are explored.
+          stack.addFirst(r.copy(explored = true))
+
+          // push neighbours in reverse order to mimic recusive dfs output.
+          for (v in neighbours(r.src).reversed())
+            stack.addFirst(Record(r.src, v, r.childIndent()))
+        }
+      }
+    }
+
+    data class Record(
+      val pred: Int, 
+      val src: Int, 
+      val indent: Int = 0, 
+      val explored: Boolean = false
+    ) {
+      fun childIndent(): Int = indent + "$pred-".length
+      override fun toString(): String {
+        if (explored) return "$src explored"
+        return " ".repeat(indent) + "$pred-$src"
+      }
+    }
+
+    enum class Color(val type: String) {
+      WHITE("tree"), GRAY("back"), BLACK("forward/cross")
+    }
+    ```
+    
+    1. hello
 
 <div class="grid" markdown>
 

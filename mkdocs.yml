@@ -9,6 +9,7 @@ theme:
   features:
     - content.code.copy
     - navigation.expand
+    - content.code.annotate
   # Setup for theme switch https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-palette-toggle
   palette: 
     # Palette toggle for light mode
