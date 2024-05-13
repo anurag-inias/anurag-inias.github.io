@@ -30,6 +30,7 @@ Such an ordering is only possible if there are no cycles in the graph, i.e. it's
 
 ``` title="Valid topological sorting"
 10 13 6 7 5 9 14 15 11 12 16 8 4 3 1 2
+1 5 6 10 2 7 13 9 14 15 11 12 8 16 4 3
 ```
 
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 406.320617885659 353.1903024009223" height="240">
@@ -138,34 +139,28 @@ The general idea behind this solution is that topological ordering will place so
 === "kotlin"
 
     ```kotlin linenums="1"
-    fun topologicalSort(graph: Graph): List<Vertex> {
-      val out = ArrayList<Vertex>()
+    fun Graph.topologicalSort(): List<Int>? {
+      val degree = HashMap<Int, Int>()
+      for (u in vertices) {
+        degree.putIfAbsent(u, 0)
+        for (v in neighbours(u))
+          degree[v] = (degree[v] ?: 0) + 1
+      }
 
-      val indegree = graph.indegree()
-      val queue = indegree.filter { it.value == 0 }
-        .keys.toMutableList()
+      val result = ArrayList<Int>()
+      val queue = degree.filter { it.value == 0 }.map { it.key }.toCollection(ArrayList())
       while (queue.isNotEmpty()) {
         val u = queue.removeFirst()
-        out += u
+        result.add(u)
 
-        for (v in graph.neighbours(u)) {
-          indegree[v] = indegree[v]!! - 1
-          if (indegree[v] == 0)
-            queue.add(v)
+        for (v in neighbours(u)) {
+          degree[v] = (degree[v] ?: 0) - 1
+          if (degree[v] == 0) queue.add(v)
         }
       }
 
-      return out
-    }
-
-    fun Graph.indegree(): MutableMap<Vertex, Int> {
-      val indegree = HashMap<Vertex, Int>()
-      for (u in vertices) {
-        indegree.putIfAbsent(u, 0)
-        for (v in neighbours(u))
-          indegree[v] = 1+ indegree.getOrDefault(v, 0)
-      }
-      return indegree
+      if (degree.map { it.value }.sum() > 0) return null
+      return result
     }
     ```
 
