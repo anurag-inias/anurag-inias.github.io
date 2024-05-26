@@ -57,6 +57,7 @@ extra_css:
 
 nav:
 - About: 'index.md'
+- Binary Search: 'search/binary.md'
 - Graph:
   - Intro: 'graph/intro.md'
   - Traversal:
