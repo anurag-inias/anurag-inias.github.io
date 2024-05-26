@@ -59,6 +59,8 @@ nav:
 - About: 'index.md'
 - Binary Search: 'search/binary.md'
 - Partitioning: 'partition/partition.md'
+- Sorting:
+  - Quicksort: 'sort/quicksort.md'
 - Graph:
   - Intro: 'graph/intro.md'
   - Traversal:

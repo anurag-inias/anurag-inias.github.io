@@ -170,9 +170,9 @@ We start the `cursor` at index `1`, moving all the elements \\(\lt\\) `pivot` in
 	  var l = 0; var c = 0; var r = size - 1
 	  while (c <= r)
 	    when {
-	      this[c] < pivot -> swap(l++, c++)
+	      this[c]  < pivot -> swap(l++, c++)
 	      this[c] == pivot -> c++
-	      this[c] > pivot -> swap(c, r--)
+	      this[c]  > pivot -> swap(c, r--)
 	    }
 	  return Pair(l, c)
 	}
