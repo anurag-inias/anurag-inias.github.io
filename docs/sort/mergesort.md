@@ -213,7 +213,7 @@ fun benchmark() {
     val copy = list.toList().toMutableList()
 
     var start = System.nanoTime()
-    list.quickSort()
+    list.mergesort()
     val durationHomemade = System.nanoTime() - start
 
     start = System.nanoTime()
