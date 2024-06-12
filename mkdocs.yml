@@ -57,6 +57,8 @@ extra_css:
 
 nav:
 - About: 'index.md'
+- Numbers:
+  - Representation: 'numbers/representation.md'
 - Binary Search: 'search/binary.md'
 - Partitioning: 'partition/partition.md'
 - Sorting:
