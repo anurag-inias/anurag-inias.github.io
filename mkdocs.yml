@@ -59,6 +59,7 @@ nav:
 - About: 'index.md'
 - Numbers:
   - Representation: 'numbers/representation.md'
+  - Arithmetic: 'numbers/arithmetic.md'
 - Binary Search: 'search/binary.md'
 - Partitioning: 'partition/partition.md'
 - Sorting:
