@@ -217,3 +217,190 @@ fun main() = runBlocking {
 ```
 
 Had we passing in `Dispatcher.IO + Job()` to `launch`, the `childJob` would have been child of this new `Job` instead.
+
+## `coroutineScope`
+
+[Source](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html)
+
+In addition to coroutine scope provided by different builders, it is possible to create your own scope using `coroutineScope`. It creates a new scope and does not complete until all launched children complete.
+
+It looks similar to `runBlocking`, but `runBlocking` **blocks** current thread while `coroutineScope` just suspends. That's why `corountineScope` is a suspend function whereas `runBlocking` is a regular function.
+
+`coroutineScope` will fail if any of the child coroutine fail, resulting in cancellation of all other children. If you want other children to still complete regardless, use `supervisorScope`.
+
+<div class="grid" markdown>   
+
+```kotlin linenums="1"
+fun main() = runBlocking {
+  coroutineScope {
+    launch {
+      delay(5000L)
+      println("a")
+    }
+    launch {
+      delay(1L)
+      throw Exception()
+    }
+  }
+  println()
+}
+```
+
+```kotlin linenums="1"
+fun main() = runBlocking {
+  supervisorScope {
+    launch {
+      delay(5000L)
+      println("a")
+    }
+    launch {
+      delay(1L)
+      throw Exception()
+    }
+  }
+  println()
+}
+```
+
+finishes in right away
+ 
+finishes after 5 second 
+
+<hr>
+
+<hr>
+
+</div>
+
+## Cancelling coroutines
+
+[Kotlin in Action 2](https://www.manning.com/books/kotlin-in-action-second-edition)
+
+We can call `cancel` on both `Job` and `Deferred<T>` to cancel the coroutine ahead of its time. This is useful in avoiding unnecessary work and leaks. 
+
+Cancellation of parent cadcades through all children coroutines. Note that this is different thing from `coroutineScope/supervisorScope` which is about sibling cancellation.
+
+```kotlin linenums="1"
+fun main() = runBlocking {
+  val job = launch {
+    launch {
+      launch {
+        launch {
+          delay(1000L)
+          println("descendant 1 done") // prints
+        }
+        launch {
+          delay(10_000L)
+          println("descendant 2 done") // does not print
+        }
+      }
+    }
+  }
+  delay(1500L)
+  job.cancel()
+}
+```
+
+this exits right after 1.5s.
+
+We can also use `withTimeout` and `withTimeoutOrNull` to automatically cancel a coroutine.
+
+
+<div class="grid" markdown>   
+
+```kotlin linenums="1"
+fun main() = runBlocking {
+  withTimeout(50_000L) {
+    delay(10_000L)
+    println("hello")
+  }
+}
+```
+
+```kotlin linenums="1"
+fun main() = runBlocking {
+  withTimeout(500L) {
+    delay(10_000L)
+    println("hello")
+  }
+}
+```
+
+prints `hello` after 10s
+
+aborts after .5s
+
+<hr>
+
+<hr>
+
+</div>
+
+{==
+
+Cancellation is implemented by throwing a special exception type `CancellationException`. So never do a catch-all for `CancellationException` or its super-type `IllegalStateException`, `RuntimeException`, `Exception` and `Throwable`. Otherwise you will prevent the cancellation.
+
+==}
+
+## Suspension Point
+
+[source 1](https://kotlinlang.org/spec/asynchronous-programming-with-coroutines.html) and [2](https://kotlinlang.org/docs/cancellation-and-timeouts.html#asynchronous-timeout-and-resources).
+
+A suspending function is different from non-suspending functions by having zero or more *suspension points* - statements in the body where the function execution can be paused and resumed later. Usually that's the points at which the function calls other suspending functions. 
+
+That's why non-suspending functions cannot call suspending ones, as they do not support suspension points. Also, suspending functions may call non-suspending functions knowing that it will not introduce a suspension point. [See function coloring](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
+
+```kotlin linenums="1"
+coroutineScope {
+  print("A")
+  delay(500L) <- suspension point
+  print("B")
+  print("C")
+}
+```
+
+this code will either print `A` or `ABC`, but never `AB` as there are no suspension point between `B` and `C`. 
+
+Why are we talking about this? Consider the following example:
+
+```kotlin linenums="1"
+fun heavyCpuWork(): Int {
+  while(...) {
+    compute()
+  }
+}
+
+fun main() = runBlocking {
+  launch { heavyCpuWork() }
+  launch { heavyCpuWork() }
+}
+```
+
+Just using coroutines will not magically make our code concurrent. In the example above, `heavyCpuWork` has no suspension point. As a result, even when running on a coroutine, it will never suspend to let other coroutine have a go. The first corountine will finish to completion before second one gets a chance.
+
+<div class="grid" markdown>   
+
+```kotlin linenums="1" hl_lines="4"
+fun heavyCpuWork(): Int {
+  while(...) {
+    compute()
+    yield()
+  }
+}
+```
+
+```kotlin linenums="1" hl_lines="3 5"
+fun heavyCpuWork(): Int {
+  while(...) {
+    if (isActive) {
+      compute()
+    }
+  }
+}
+```
+
+Use `yield` function lets coroutine voluntarily give way for other corountines.
+
+The other approach is to explicitly check cancellation status.
+
+</div>
