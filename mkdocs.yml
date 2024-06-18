@@ -76,5 +76,7 @@ nav:
   - Types: 'js/types.md'
   - Objects:
     - Basics: 'js/object-basics.md'
+- Kotlin:
+  - Coroutines: 'kt/coroutines.md'
 
 
