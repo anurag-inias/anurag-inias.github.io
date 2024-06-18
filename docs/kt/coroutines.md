@@ -404,3 +404,67 @@ Use `yield` function lets coroutine voluntarily give way for other corountines.
 The other approach is to explicitly check cancellation status.
 
 </div>
+
+## Channels
+
+[Source](https://kotlinlang.org/docs/channels.html)
+
+Basically `BlockingQueue` but instead of a blocking `put`, it has a suspending `send` and instead of a blocking `take`, it has a suspending `receive`.
+
+<div class="grid" markdown>   
+
+```kotlin linenums="1"
+suspend fun produce(channel: Channel<Int>) {
+  repeat(20) {
+    delay(1000L)
+    channel.send(it)
+  }
+  channel.close()
+}
+
+suspend fun consume(channel: Channel<Int>) {
+  for (i in channel) { // until channel is closed
+    println("${coroutineContext[CoroutineName]?.name} received $i")
+  }
+}
+
+fun main() = runBlocking {
+  val channel = Channel<Int>()
+  launch(CoroutineName("A")) { consume(channel) }
+  launch(CoroutineName("B")) { consume(channel) }
+  launch(CoroutineName("C")) { consume(channel) }
+  launch(CoroutineName("D")) { consume(channel) }
+  launch(CoroutineName("P")) { produce(channel) }
+  println()
+}
+```
+
+```text linenums="1"
+A received 0
+B received 1
+C received 2
+D received 3
+A received 4
+B received 5
+C received 6
+D received 7
+A received 8
+B received 9
+C received 10
+D received 11
+A received 12
+B received 13
+C received 14
+D received 15
+A received 16
+B received 17
+C received 18
+D received 19
+```
+
+</div>
+
+The example above had no buffer. Unbuffered channels transfer elements when sender and receiver meet each other (i.e. rendezvous). If sender is invoked first, then it gets suspended until receiver is invoked, and vice-versa.
+
+We can optionally specify as capacity `Channel<T>(42)` which allows sender to send multiple items before getting suspended.
+
