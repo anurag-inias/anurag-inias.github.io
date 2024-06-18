@@ -945,6 +945,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Channels
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1063,6 +1072,15 @@
   <a href="#suspension-point" class="md-nav__link">
     <span class="md-ellipsis">
       Suspension Point
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Channels
     </span>
   </a>
   
@@ -1575,6 +1593,99 @@
 <p>Use <code>yield</code> function lets coroutine voluntarily give way for other corountines.</p>
 <p>The other approach is to explicitly check cancellation status.</p>
 </div>
+<h2 id="channels">Channels</h2>
+<p><a href="https://kotlinlang.org/docs/channels.html">Source</a></p>
+<p>Basically <code>BlockingQueue</code> but instead of a blocking <code>put</code>, it has a suspending <code>send</code> and instead of a blocking <code>take</code>, it has a suspending <code>receive</code>.</p>
+<div class="grid">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span>
+<span class="normal"><a href="#__codelineno-21-13">13</a></span>
+<span class="normal"><a href="#__codelineno-21-14">14</a></span>
+<span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span>
+<span class="normal"><a href="#__codelineno-21-19">19</a></span>
+<span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span>
+<span class="normal"><a href="#__codelineno-21-22">22</a></span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">produce</span><span class="p">(</span><span class="n">channel</span><span class="p">:</span><span class="w"> </span><span class="n">Channel</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">  </span><span class="n">repeat</span><span class="p">(</span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">    </span><span class="n">channel</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">  </span><span class="n">channel</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="p">}</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8"></a>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">consume</span><span class="p">(</span><span class="n">channel</span><span class="p">:</span><span class="w"> </span><span class="n">Channel</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// until channel is closed</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">${</span><span class="n">coroutineContext</span><span class="o">[</span><span class="n">CoroutineName</span><span class="o">]?.</span><span class="na">name</span><span class="si">}</span><span class="s"> received </span><span class="si">$</span><span class="n">i</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">}</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14"></a>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Channel</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="w">  </span><span class="n">launch</span><span class="p">(</span><span class="n">CoroutineName</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="w">  </span><span class="n">launch</span><span class="p">(</span><span class="n">CoroutineName</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="w">  </span><span class="n">launch</span><span class="p">(</span><span class="n">CoroutineName</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="w">  </span><span class="n">launch</span><span class="p">(</span><span class="n">CoroutineName</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">  </span><span class="n">launch</span><span class="p">(</span><span class="n">CoroutineName</span><span class="p">(</span><span class="s">&quot;P&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">produce</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="w">  </span><span class="n">println</span><span class="p">()</span>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-22-10">10</a></span>
+<span class="normal"><a href="#__codelineno-22-11">11</a></span>
+<span class="normal"><a href="#__codelineno-22-12">12</a></span>
+<span class="normal"><a href="#__codelineno-22-13">13</a></span>
+<span class="normal"><a href="#__codelineno-22-14">14</a></span>
+<span class="normal"><a href="#__codelineno-22-15">15</a></span>
+<span class="normal"><a href="#__codelineno-22-16">16</a></span>
+<span class="normal"><a href="#__codelineno-22-17">17</a></span>
+<span class="normal"><a href="#__codelineno-22-18">18</a></span>
+<span class="normal"><a href="#__codelineno-22-19">19</a></span>
+<span class="normal"><a href="#__codelineno-22-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a>A received 0
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a>B received 1
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a>C received 2
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4"></a>D received 3
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5"></a>A received 4
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6"></a>B received 5
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7"></a>C received 6
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8"></a>D received 7
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9"></a>A received 8
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10"></a>B received 9
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11"></a>C received 10
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12"></a>D received 11
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13"></a>A received 12
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14"></a>B received 13
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15"></a>C received 14
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16"></a>D received 15
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17"></a>A received 16
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18"></a>B received 17
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19"></a>C received 18
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20"></a>D received 19
+</span></code></pre></div></td></tr></table></div>
+</div>
+<p>The example above had no buffer. Unbuffered channels transfer elements when sender and receiver meet each other (i.e. rendezvous). If sender is invoked first, then it gets suspended until receiver is invoked, and vice-versa.</p>
+<p>We can optionally specify as capacity <code>Channel&lt;T&gt;(42)</code> which allows sender to send multiple items before getting suspended.</p>
 
 
 
