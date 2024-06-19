@@ -1,6 +1,8 @@
 #  Coroutines
 
-## Intro
+## Coroutines
+
+### Intro
 
 [source](https://kotlinlang.org/docs/coroutines-basics.html) and [Kotlin in Action 2](https://www.manning.com/books/kotlin-in-action-second-edition)
 
@@ -68,7 +70,7 @@ second coroutine resumed
 
 </div>
 
-## Dispatchers
+### Dispatchers
 
 ```kotlin linenums="1"
 launch(Dispatchers.Default) {
@@ -89,7 +91,7 @@ Dispatcher | Number of threads | Used for
 - `Unconfined` executes coroutine immediately on current thread and later resumes it whatever thread called `resume`.
 - `limitedParallelism(n)` creates a *view* of the current dispatcher but with guarantee that no more than `n` coroutines are executed at any time.
 
-## `launch` and `async` 
+### `launch` and `async` 
 
 <div class="grid" markdown>   
 
@@ -111,7 +113,7 @@ public fun <T> CoroutineScope.async(
 
 Both coroutine builders are actually extension of `CoroutineScope`. Well, what is a `CoroutineScope`?
 
-## CoroutineScope
+### CoroutineScope
 
 ```kotlin linenums="1"
 public interface CoroutineScope {
@@ -121,7 +123,7 @@ public interface CoroutineScope {
 
 It's just a wrapper arount `CoroutineContext`. And what is that?
 
-## CoroutineContext
+### CoroutineContext
 
 ```kotlin linenums="1"
 // Persistent context for the coroutine. It is an indexed set of [Element] instances.
@@ -175,7 +177,7 @@ fun main() {
 }
 ```
 
-## Adding it all together
+### Adding it all together
 
 [Source - Roman Elizarov: Kotlin Project Lead](https://elizarov.medium.com/coroutine-context-and-scope-c8b255d59055)
 
@@ -218,7 +220,7 @@ fun main() = runBlocking {
 
 Had we passing in `Dispatcher.IO + Job()` to `launch`, the `childJob` would have been child of this new `Job` instead.
 
-## `coroutineScope`
+### `coroutineScope`
 
 [Source](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html)
 
@@ -272,7 +274,7 @@ finishes after 5 second
 
 </div>
 
-## Cancelling coroutines
+### Cancelling coroutines
 
 [Kotlin in Action 2](https://www.manning.com/books/kotlin-in-action-second-edition)
 
@@ -342,7 +344,7 @@ Cancellation is implemented by throwing a special exception type `CancellationEx
 
 ==}
 
-## Suspension Point
+### Suspension Point
 
 [source 1](https://kotlinlang.org/spec/asynchronous-programming-with-coroutines.html) and [2](https://kotlinlang.org/docs/cancellation-and-timeouts.html#asynchronous-timeout-and-resources).
 
@@ -468,3 +470,154 @@ The example above had no buffer. Unbuffered channels transfer elements when send
 
 We can optionally specify as capacity `Channel<T>(42)` which allows sender to send multiple items before getting suspended.
 
+## Flow
+
+[Flow](https://kotlinlang.org/docs/flow.html)
+
+`Flow` is basically `Sequence` that also support suspending functions. And a sequence is like `Stream`, but more kotliny.
+
+<div class="grid" markdown>   
+
+```kotlin linenums="1"
+fun produce() = sequence {
+  for (i in 1..5) {
+    Thread.sleep(1000L)
+    yield(i)
+  }
+}
+
+fun main() {
+  produce().forEach { println(it) }
+}
+```
+
+```kotlin linenums="1"
+fun produce() = flow {
+  for (i in 1..5) {
+    delay(1000L)
+    emit(i)
+  }
+}
+
+fun main() = runBlocking {
+  produce().collect { println(it) }
+}
+```
+
+Prints `1`, `2`, `3`, `4`, `5`, each after 1s delay.
+
+Does the same thing, but doesn't block the thread, just suspends it.
+
+</div>
+
+Notice that the function is no longer marked `suspend`, why's that? See `suspend` makes sense when function is returning just one thing and that thing may take time to "cook". `Flow`, on the other hand, is a lightweight object that's available right away. The function will always return it immediately. So a `suspend foo(): Flow` is moot in the same manner `suspend foo(): ListenableFuture<T>` is moot.
+
+Once you got your hands on a flow, then sure it may take time to collect items from it. Which is why `collect` is still suspending function. 
+
+Flows are **cold streams** similar to sequences, i.e. the builder does not run until the flow is `collect`ed. And you can do the same things to Flows as you can do with Sequences/Streams.
+
+By default, code in `flow {...}` runs in the context that is provided by its collector. But it can be changed like this:
+
+```kotlin linenums="1"
+flow {
+  ...
+}.flowOn(Dispatchers.Default)
+```
+
+<hr>
+
+<div class="grid" markdown>   
+
+```kotlin linenums="1"
+fun produce() = flow {
+  for (i in 1..5) {
+    delay(1000L)
+    emit(i)
+  }
+}
+
+fun main() = runBlocking {
+  produce()
+  .collect {
+    delay(3000L)
+    println(it)
+  }
+}
+```
+
+```kotlin linenums="1" hl_lines="10"
+fun produce() = flow {
+  for (i in 1..5) {
+    delay(1000L)
+    emit(i)
+  }
+}
+
+fun main() = runBlocking {
+  produce()
+  .buffer()
+  .collect {
+    delay(3000L)
+    println(it)
+  }
+}
+```
+
+Takes 4s to print each number (1s + 3s) due to running emit and collect sequentially.
+
+`buffer` runs emitting code of `produce` concurrently with collecting code. So we wait 1s for first number and then only 3s each number.
+
+</div>
+
+Similar to `buffer`, use `conflate` to skip intermediate steps when the collector is too slow and you want to drop in-between emitted values. For `xxx` operator like `collect`, there is a family of `xxxLatest` operators (e.g. `collectLatest`) that cancel their code on a new value.
+
+We can use `catch` before `collect` to grab exceptions thrown by the emitter. Again, note that the `collect` is not same as `collect` of `Stream`s. Without `collect`, a flow is cold, never emitting a value.
+
+## Hot Flows
+
+Hot flows are useful when sharing emitted items across multiple collectors, this time called *subscribers*. Which is why it doesn't make sense for relying on a collector to start collecting. 
+
+It's like broadcasting. A TV station or a twitch stream will broadcast, regardless of whether there are any viewers or not.
+
+Kotlin has two implementations of hot flows out of the box: *Shared flows* and *State flows*.
+
+<div class="grid" markdown>
+
+```kotlin title="producer" linenums="1"
+val flow = MutableSharedFlow<Int>()
+
+fun broadcast(scope: CoroutineScope) = scope.launch {
+  repeat(1000) {
+    delay(1000L)
+    flow.emit("ping")
+  }
+} 
+```
+
+```kotlin title="subscriber" linenums="1"
+val readOnly = flow.asSharedFlow()
+
+readOnly.collect{ println(it) }
+```
+
+</div>
+
+Subscribers only receive emissions that happened after they called `collect`. A hot flow can let you see some past broadcast with `replay` param: `MutableSharedFlow<Int>(replay = 10)`.
+
+A special case of hot flow is when you need to track state of a system right now and don't care for past values.
+
+```kotlin linenums="1"
+private val viewWriter = MutableStateFlow(0) // inital views = 0
+private vale viewReader = viewWriter.asStateFlow() 
+
+fun increment() {
+  viewWriter.update { it + 1 }
+}
+
+fun main() {
+  increment()
+  println(reader.value)
+}
+```
+
+`StateFlow` only emit last known value, so no `relay`. They also come with a start value in the constructor that's emitted immediately. In general, it's a simpler API.

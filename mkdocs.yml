@@ -77,6 +77,6 @@ nav:
   - Objects:
     - Basics: 'js/object-basics.md'
 - Kotlin:
-  - Coroutines: 'kt/coroutines.md'
+  - Concurrency: 'kt/concurrency.md'
 
 
