@@ -65,6 +65,7 @@ nav:
 - Sorting:
   - Quicksort: 'sort/quicksort.md'
   - Mergesort: 'sort/mergesort.md'
+- Heap: 'heap/index.md'
 - Graph:
   - Intro: 'graph/intro.md'
   - Traversal:
