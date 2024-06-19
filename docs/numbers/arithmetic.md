@@ -10,7 +10,7 @@
 x & (x-1) = aaaa 0000 
 ```
 
-`x` will have only one bit set if it's a power of two, meaning that `x & (x-1) == 2` for \\(x = 2^n\\).
+`x` will have only one bit set if it's a power of two, meaning that `x & (x-1) == 0` for \\(x = 2^n\\).
 
 <hr>
 

@@ -134,7 +134,7 @@ Keep spliting the input in half and sort the halves recursively.
 Half the struggle in mergesort is getting the boundaries right. A few points to highlight here:
 
 1. Splitting and merging should be done with \\([start, end)\\) as range and not \\([0, size)\\).
-2. We don't maintain an auxiliary arrary for the left half of the input. So when we recursively sort it, the correct range is \\([start, start + \frac{end - start}{2})\\).
+2. We only move the right half to auxiliary array. So when we recursively sort the left half, make sure to use the right range: \\([start, start + \frac{end - start}{2})\\). Otherwise, it'll get stuck in an infinite loop, or worse give a non-sense sorting. 
 
 ## Explanation
 

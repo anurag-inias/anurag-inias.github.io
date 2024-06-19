@@ -26,7 +26,7 @@ for (s, u) in G:
     DFS(G, u)
 ```
 
-```ruby title="iterative DFS(G, s)" linenums="1"
+```ruby title="iterative DFS(G, s)" linenums="1" hl_lines="3 4"
 S.push(s)
 while S is not empty:
   u = S.pop()
@@ -181,10 +181,12 @@ Introduce a third state after *visited*, called *explored* to mark vertices whos
           u.color = BLACK
           continue
 
+        print p -> u
+        
         switch(u.color):
           WHITE:
             u.color = GRAY
-            S.push({p, u, true}) # to mark u explored later
+            S.push({p, u, true}) # to later mark u as explored
             for (u, v) in G:
               S.push({u, v})
           GRAY:  # p -> u is back edge

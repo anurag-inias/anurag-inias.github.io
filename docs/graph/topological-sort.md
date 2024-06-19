@@ -40,7 +40,7 @@ Such an ordering is only possible if there are no cycles in the graph, i.e. it's
 
 ## DFS based algorithm
 
-DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.e. \\(p_{post} \gt u_{post}\\). So laying out vertices in the descending order of \\(\text{post}\\) time will give us their topological ordering. Additionally, if we keep track of each vertex's color, we can also detect cycles (i.e. edge to a `GRAY` neighbour) and know when topological ordering is not possible.
+DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.e. \\(p_{post} \gt u_{post}\\). That is, root vertices will have the highest `post` and leaf vertices will have the lowest `post`. So laying out vertices in the descending order of \\(\text{post}\\) time will give us their topological ordering. Additionally, if we keep track of each vertex's color, we can also detect cycles (i.e. edge to a `GRAY` neighbour) and know when topological ordering is not possible.
 
 === "pseudocode"
 
@@ -62,7 +62,7 @@ DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.
           error "graph has cycle(s)"
 
       u.color = BLACK
-      out = [u, ...out]
+      out = [u, ...out] # prepend
     ```
 
 === "kotlin"

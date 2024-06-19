@@ -11,7 +11,7 @@ BFS is a graph traversal and search algorithm. It explores the vertices of a gra
 
 ## Pseudo-code
 
-```ruby title="BFS(G, s)" linenums="1"
+```ruby title="BFS(G, s)" linenums="1" hl_lines="1 2 10 11"
 mark s visited
 Q.enqueue(s)
 

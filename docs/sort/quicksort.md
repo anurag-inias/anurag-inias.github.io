@@ -4,7 +4,7 @@
 
 ## tl;dr
 
-We start with the partitioning as [discussed previously](/partition/partition) and repeatedly partition the input in smaller and smaller chunks, implicitly sort them.
+We start with the partitioning as [discussed previously](/partition/partition) and repeatedly partition the input in smaller and smaller chunks, implicitly sorting them.
 
 === "pseudocode"
 
