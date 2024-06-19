@@ -3,10 +3,15 @@
   src: url("https://excalidraw.com/Virgil.woff2");
 }
 @font-face {
-  font-family: "Cascadia";
-  src: url("https://excalidraw.com/Cascadia.woff2");
-}
-@font-face {
   font-family: "Assistant";
   src: url("https://excalidraw.com/Assistant-Regular.woff2");
+}
+@font-face {
+  font-family: "Cascadia";
+  src: url("/assets/fonts/CascadiaCode.woff2");
+}
+@font-face {
+  font-family: "Cascadia";
+  src: url("/assets/fonts/CascadiaCodeItalic.woff2");
+  font-style: italic;
 }
