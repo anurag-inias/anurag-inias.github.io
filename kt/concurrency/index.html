@@ -18,7 +18,7 @@
     
     
       
-        <title>Coroutines - Just Another Blog</title>
+        <title>Concurrency - Just Another Blog</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Coroutines
+              Concurrency
             
           </span>
         </div>
@@ -832,7 +832,7 @@
           
   
   <span class="md-ellipsis">
-    Coroutines
+    Concurrency
   </span>
   
 
@@ -843,7 +843,7 @@
         
   
   <span class="md-ellipsis">
-    Coroutines
+    Concurrency
   </span>
   
 
@@ -865,6 +865,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#coroutines_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coroutines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coroutines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#intro" class="md-nav__link">
     <span class="md-ellipsis">
       Intro
@@ -872,8 +882,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#dispatchers" class="md-nav__link">
     <span class="md-ellipsis">
       Dispatchers
@@ -881,8 +891,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#launch-and-async" class="md-nav__link">
     <span class="md-ellipsis">
       launch and async
@@ -890,8 +900,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#coroutinescope" class="md-nav__link">
     <span class="md-ellipsis">
       CoroutineScope
@@ -899,8 +909,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#coroutinecontext" class="md-nav__link">
     <span class="md-ellipsis">
       CoroutineContext
@@ -908,8 +918,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#adding-it-all-together" class="md-nav__link">
     <span class="md-ellipsis">
       Adding it all together
@@ -917,8 +927,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#coroutinescope_1" class="md-nav__link">
     <span class="md-ellipsis">
       coroutineScope
@@ -926,8 +936,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cancelling-coroutines" class="md-nav__link">
     <span class="md-ellipsis">
       Cancelling coroutines
@@ -935,8 +945,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#suspension-point" class="md-nav__link">
     <span class="md-ellipsis">
       Suspension Point
@@ -944,11 +954,34 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#channels" class="md-nav__link">
     <span class="md-ellipsis">
       Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hot-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hot Flows
     </span>
   </a>
   
@@ -997,6 +1030,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#coroutines_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coroutines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coroutines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#intro" class="md-nav__link">
     <span class="md-ellipsis">
       Intro
@@ -1004,8 +1047,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#dispatchers" class="md-nav__link">
     <span class="md-ellipsis">
       Dispatchers
@@ -1013,8 +1056,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#launch-and-async" class="md-nav__link">
     <span class="md-ellipsis">
       launch and async
@@ -1022,8 +1065,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#coroutinescope" class="md-nav__link">
     <span class="md-ellipsis">
       CoroutineScope
@@ -1031,8 +1074,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#coroutinecontext" class="md-nav__link">
     <span class="md-ellipsis">
       CoroutineContext
@@ -1040,8 +1083,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#adding-it-all-together" class="md-nav__link">
     <span class="md-ellipsis">
       Adding it all together
@@ -1049,8 +1092,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#coroutinescope_1" class="md-nav__link">
     <span class="md-ellipsis">
       coroutineScope
@@ -1058,8 +1101,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cancelling-coroutines" class="md-nav__link">
     <span class="md-ellipsis">
       Cancelling coroutines
@@ -1067,8 +1110,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#suspension-point" class="md-nav__link">
     <span class="md-ellipsis">
       Suspension Point
@@ -1076,11 +1119,34 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#channels" class="md-nav__link">
     <span class="md-ellipsis">
       Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hot-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hot Flows
     </span>
   </a>
   
@@ -1102,7 +1168,8 @@
 
 
 <h1 id="coroutines">Coroutines</h1>
-<h2 id="intro">Intro</h2>
+<h2 id="coroutines_1">Coroutines</h2>
+<h3 id="intro">Intro</h3>
 <p><a href="https://kotlinlang.org/docs/coroutines-basics.html">source</a> and <a href="https://www.manning.com/books/kotlin-in-action-second-edition">Kotlin in Action 2</a></p>
 <p>A coroutine is an instance of suspendable computation. Conceptually similar to a thread, but with a number of advantages:</p>
 <ol>
@@ -1189,7 +1256,7 @@
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>second coroutine resumed
 </span></code></pre></div></td></tr></table></div>
 </div>
-<h2 id="dispatchers">Dispatchers</h2>
+<h3 id="dispatchers">Dispatchers</h3>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Default</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1237,7 +1304,7 @@
 <li><code>Unconfined</code> executes coroutine immediately on current thread and later resumes it whatever thread called <code>resume</code>.</li>
 <li><code>limitedParallelism(n)</code> creates a <em>view</em> of the current dispatcher but with guarantee that no more than <code>n</code> coroutines are executed at any time.</li>
 </ul>
-<h2 id="launch-and-async"><code>launch</code> and <code>async</code></h2>
+<h3 id="launch-and-async"><code>launch</code> and <code>async</code></h3>
 <div class="grid">
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
@@ -1257,7 +1324,7 @@
 </span></code></pre></div></td></tr></table></div>
 </div>
 <p>Both coroutine builders are actually extension of <code>CoroutineScope</code>. Well, what is a <code>CoroutineScope</code>?</p>
-<h2 id="coroutinescope">CoroutineScope</h2>
+<h3 id="coroutinescope">CoroutineScope</h3>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nc">CoroutineScope</span><span class="w"> </span><span class="p">{</span>
@@ -1265,7 +1332,7 @@
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>It's just a wrapper arount <code>CoroutineContext</code>. And what is that?</p>
-<h2 id="coroutinecontext">CoroutineContext</h2>
+<h3 id="coroutinecontext">CoroutineContext</h3>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
@@ -1337,7 +1404,7 @@
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">foo</span><span class="o">[</span><span class="n">Job</span><span class="o">]?.</span><span class="na">isActive</span><span class="p">)</span><span class="w"> </span><span class="c1">// false</span>
 </span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<h2 id="adding-it-all-together">Adding it all together</h2>
+<h3 id="adding-it-all-together">Adding it all together</h3>
 <p><a href="https://elizarov.medium.com/coroutine-context-and-scope-c8b255d59055">Source - Roman Elizarov: Kotlin Project Lead</a></p>
 <p>Recall our prior example of launching a coroutine with a given dispatcher:</p>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
@@ -1386,7 +1453,7 @@
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Had we passing in <code>Dispatcher.IO + Job()</code> to <code>launch</code>, the <code>childJob</code> would have been child of this new <code>Job</code> instead.</p>
-<h2 id="coroutinescope_1"><code>coroutineScope</code></h2>
+<h3 id="coroutinescope_1"><code>coroutineScope</code></h3>
 <p><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html">Source</a></p>
 <p>In addition to coroutine scope provided by different builders, it is possible to create your own scope using <code>coroutineScope</code>. It creates a new scope and does not complete until all launched children complete.</p>
 <p>It looks similar to <code>runBlocking</code>, but <code>runBlocking</code> <strong>blocks</strong> current thread while <code>coroutineScope</code> just suspends. That's why <code>corountineScope</code> is a suspend function whereas <code>runBlocking</code> is a regular function.</p>
@@ -1449,7 +1516,7 @@
 <hr>
 <hr>
 </div>
-<h2 id="cancelling-coroutines">Cancelling coroutines</h2>
+<h3 id="cancelling-coroutines">Cancelling coroutines</h3>
 <p><a href="https://www.manning.com/books/kotlin-in-action-second-edition">Kotlin in Action 2</a></p>
 <p>We can call <code>cancel</code> on both <code>Job</code> and <code>Deferred&lt;T&gt;</code> to cancel the coroutine ahead of its time. This is useful in avoiding unnecessary work and leaks. </p>
 <p>Cancellation of parent cadcades through all children coroutines. Note that this is different thing from <code>coroutineScope/supervisorScope</code> which is about sibling cancellation.</p>
@@ -1524,7 +1591,7 @@
 <mark class="critic block">
 <p>Cancellation is implemented by throwing a special exception type <code>CancellationException</code>. So never do a catch-all for <code>CancellationException</code> or its super-type <code>IllegalStateException</code>, <code>RuntimeException</code>, <code>Exception</code> and <code>Throwable</code>. Otherwise you will prevent the cancellation.</p>
 </mark>
-<h2 id="suspension-point">Suspension Point</h2>
+<h3 id="suspension-point">Suspension Point</h3>
 <p><a href="https://kotlinlang.org/spec/asynchronous-programming-with-coroutines.html">source 1</a> and <a href="https://kotlinlang.org/docs/cancellation-and-timeouts.html#asynchronous-timeout-and-resources">2</a>.</p>
 <p>A suspending function is different from non-suspending functions by having zero or more <em>suspension points</em> - statements in the body where the function execution can be paused and resumed later. Usually that's the points at which the function calls other suspending functions. </p>
 <p>That's why non-suspending functions cannot call suspending ones, as they do not support suspension points. Also, suspending functions may call non-suspending functions knowing that it will not introduce a suspension point. <a href="https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/">See function coloring</a>.</p>
@@ -1686,6 +1753,182 @@
 </div>
 <p>The example above had no buffer. Unbuffered channels transfer elements when sender and receiver meet each other (i.e. rendezvous). If sender is invoked first, then it gets suspended until receiver is invoked, and vice-versa.</p>
 <p>We can optionally specify as capacity <code>Channel&lt;T&gt;(42)</code> which allows sender to send multiple items before getting suspended.</p>
+<h2 id="flow">Flow</h2>
+<p><a href="https://kotlinlang.org/docs/flow.html">Flow</a></p>
+<p><code>Flow</code> is basically <code>Sequence</code> that also support suspending functions. And a sequence is like <code>Stream</code>, but more kotliny.</p>
+<div class="grid">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="n">yield</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="p">}</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7"></a>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="w">  </span><span class="n">produce</span><span class="p">().</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="n">emit</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="p">}</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7"></a>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">  </span><span class="n">produce</span><span class="p">().</span><span class="na">collect</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Prints <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, each after 1s delay.</p>
+<p>Does the same thing, but doesn't block the thread, just suspends it.</p>
+</div>
+<p>Notice that the function is no longer marked <code>suspend</code>, why's that? See <code>suspend</code> makes sense when function is returning just one thing and that thing may take time to "cook". <code>Flow</code>, on the other hand, is a lightweight object that's available right away. The function will always return it immediately. So a <code>suspend foo(): Flow</code> is moot in the same manner <code>suspend foo(): ListenableFuture&lt;T&gt;</code> is moot.</p>
+<p>Once you got your hands on a flow, then sure it may take time to collect items from it. Which is why <code>collect</code> is still suspending function. </p>
+<p>Flows are <strong>cold streams</strong> similar to sequences, i.e. the builder does not run until the flow is <code>collect</code>ed. And you can do the same things to Flows as you can do with Sequences/Streams.</p>
+<p>By default, code in <code>flow {...}</code> runs in the context that is provided by its collector. But it can be changed like this:</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">flow</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">  </span><span class="p">...</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="p">}.</span><span class="na">flowOn</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Default</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<hr>
+
+<div class="grid">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="w">    </span><span class="n">emit</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="p">}</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7"></a>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="w">  </span><span class="n">produce</span><span class="p">()</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="w">  </span><span class="p">.</span><span class="na">collect</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">3000L</span><span class="p">)</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-27-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-27-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-27-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-27-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-27-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-27-10">10</a></span>
+<span class="normal"><a href="#__codelineno-27-11">11</a></span>
+<span class="normal"><a href="#__codelineno-27-12">12</a></span>
+<span class="normal"><a href="#__codelineno-27-13">13</a></span>
+<span class="normal"><a href="#__codelineno-27-14">14</a></span>
+<span class="normal"><a href="#__codelineno-27-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="w">    </span><span class="n">emit</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="p">}</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7"></a>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="w">  </span><span class="n">produce</span><span class="p">()</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="hll"><span class="w">  </span><span class="p">.</span><span class="na">buffer</span><span class="p">()</span>
+</span></span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="w">  </span><span class="p">.</span><span class="na">collect</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">3000L</span><span class="p">)</span>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span>
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Takes 4s to print each number (1s + 3s) due to running emit and collect sequentially.</p>
+<p><code>buffer</code> runs emitting code of <code>produce</code> concurrently with collecting code. So we wait 1s for first number and then only 3s each number.</p>
+</div>
+<p>Similar to <code>buffer</code>, use <code>conflate</code> to skip intermediate steps when the collector is too slow and you want to drop in-between emitted values. For <code>xxx</code> operator like <code>collect</code>, there is a family of <code>xxxLatest</code> operators (e.g. <code>collectLatest</code>) that cancel their code on a new value.</p>
+<p>We can use <code>catch</code> before <code>collect</code> to grab exceptions thrown by the emitter. Again, note that the <code>collect</code> is not same as <code>collect</code> of <code>Stream</code>s. Without <code>collect</code>, a flow is cold, never emitting a value.</p>
+<h2 id="hot-flows">Hot Flows</h2>
+<p>Hot flows are useful when sharing emitted items across multiple collectors, this time called <em>subscribers</em>. Which is why it doesn't make sense for relying on a collector to start collecting. </p>
+<p>It's like broadcasting. A TV station or a twitch stream will broadcast, regardless of whether there are any viewers or not.</p>
+<p>Kotlin has two implementations of hot flows out of the box: <em>Shared flows</em> and <em>State flows</em>.</p>
+<div class="grid">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">producer</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span>
+<span class="normal"><a href="#__codelineno-28-5">5</a></span>
+<span class="normal"><a href="#__codelineno-28-6">6</a></span>
+<span class="normal"><a href="#__codelineno-28-7">7</a></span>
+<span class="normal"><a href="#__codelineno-28-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">flow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MutableSharedFlow</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">broadcast</span><span class="p">(</span><span class="n">scope</span><span class="p">:</span><span class="w"> </span><span class="n">CoroutineScope</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">  </span><span class="n">repeat</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">    </span><span class="n">flow</span><span class="p">.</span><span class="na">emit</span><span class="p">(</span><span class="s">&quot;ping&quot;</span><span class="p">)</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="p">}</span><span class="w"> </span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">subscriber</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flow</span><span class="p">.</span><span class="na">asSharedFlow</span><span class="p">()</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="n">readOnly</span><span class="p">.</span><span class="na">collect</span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<p>Subscribers only receive emissions that happened after they called <code>collect</code>. A hot flow can let you see some past broadcast with <code>replay</code> param: <code>MutableSharedFlow&lt;Int&gt;(replay = 10)</code>.</p>
+<p>A special case of hot flow is when you need to track state of a system right now and don't care for past values.</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-30-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-30-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-30-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-30-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-30-10">10</a></span>
+<span class="normal"><a href="#__codelineno-30-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">viewWriter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MutableStateFlow</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// inital views = 0</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="n">private</span><span class="w"> </span><span class="n">vale</span><span class="w"> </span><span class="n">viewReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewWriter</span><span class="p">.</span><span class="na">asStateFlow</span><span class="p">()</span><span class="w"> </span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="w">  </span><span class="n">viewWriter</span><span class="p">.</span><span class="na">update</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="p">}</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7"></a>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="w">  </span><span class="n">increment</span><span class="p">()</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10"></a><span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">reader</span><span class="p">.</span><span class="na">value</span><span class="p">)</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p><code>StateFlow</code> only emit last known value, so no <code>relay</code>. They also come with a start value in the constructor that's emitted immediately. In general, it's a simpler API.</p>
 
 
 
