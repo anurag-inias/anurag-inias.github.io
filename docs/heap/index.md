@@ -1,5 +1,15 @@
 # Heap
 
+<style>
+.md-logo img {
+  content: url('/heap/triangle-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/heap/triangle-dark.svg');
+}
+</style>
+
 ## Priority Queue
 
 Before we talk about heaps, lets first talk about **Priority queue**. Priority queue is an abstract data type (ADT) that's a generalization of regular queue and stack ADT.

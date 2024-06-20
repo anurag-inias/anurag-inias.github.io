@@ -1,5 +1,15 @@
 # Depth-first Search
 
+<style>
+.md-logo img {
+  content: url('/graph/network-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/graph/network-dark.svg');
+}
+</style>
+
 ## Intro
 
 <div class="grid" markdown>

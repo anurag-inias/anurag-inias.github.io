@@ -2,6 +2,17 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+
+<style>
+.md-logo img {
+  content: url('/sort/sort-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/sort/sort-dark.svg');
+}
+</style>
+
 ## tl;dr
 
 We start with the partitioning as [discussed previously](/partition/partition) and repeatedly partition the input in smaller and smaller chunks, implicitly sorting them.

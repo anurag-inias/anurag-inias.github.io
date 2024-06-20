@@ -1,5 +1,15 @@
 # Binary Search
 
+<style>
+.md-logo img {
+  content: url('/search/binary-search-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/search/binary-search-dark.svg');
+}
+</style>
+
 ## tl;dr
 
 Finds an element in a sorted list. If not found, returns the place to insert said element.

@@ -2,6 +2,16 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<style>
+.md-logo img {
+  content: url('/sort/sort-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/sort/sort-dark.svg');
+}
+</style>
+
 ## tl;dr
 
 Keep spliting the input in half and sort the halves recursively.

@@ -1,5 +1,15 @@
 # Number representation
 
+<style>
+.md-logo img {
+  content: url('/numbers/binary-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/numbers/binary-dark.svg');
+}
+</style>
+
 A signed 32-bit integer can represent the range \\([-2^{31}, 2^{31}-1]\\). An unsigned integer need not allocate the sign bit and thus represents \\([0, 2^{32}-1]\\).
 
 ## 2's complement

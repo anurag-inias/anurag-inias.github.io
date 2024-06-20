@@ -1,5 +1,15 @@
 # Topological Sort
 
+<style>
+.md-logo img {
+  content: url('/graph/network-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/graph/network-dark.svg');
+}
+</style>
+
 ## About
 
 Topological sort or topological ordering of a directed graph is a linear ordering of its vertices such that for every edge \\((u, v)\\), \\(u\\) comes before \\(v\\) in the ordering.

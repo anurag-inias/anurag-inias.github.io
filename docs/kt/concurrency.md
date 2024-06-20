@@ -1,5 +1,15 @@
 #  Coroutines
 
+<style>
+.md-logo img {
+  content: url('/kt/k-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/kt/k-dark.svg');
+}
+</style>
+
 ## Coroutines
 
 ### Intro

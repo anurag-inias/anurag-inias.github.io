@@ -1,5 +1,15 @@
 # Generic graph search
 
+<style>
+.md-logo img {
+  content: url('/graph/network-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/graph/network-dark.svg');
+}
+</style>
+
 ## About
 
 The algorithms we explore later are all specialiazation of this generic search algorithm.

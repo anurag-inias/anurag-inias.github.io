@@ -1,5 +1,15 @@
 # Types
 
+<style>
+.md-logo img {
+  content: url('/js/js-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/js/js-dark.svg');
+}
+</style>
+
 There are 8 basic types in JS, with all but _Objects_ being _primitive_.
 
 ## Boolean

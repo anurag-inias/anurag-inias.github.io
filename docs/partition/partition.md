@@ -1,5 +1,15 @@
 # Partitioning
 
+<style>
+.md-logo img {
+  content: url('/partition/split-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/partition/split-dark.svg');
+}
+</style>
+
 ## Two-way partition
 
 === "pseudocode"

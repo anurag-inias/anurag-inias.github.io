@@ -1,5 +1,15 @@
 # Bit arithmetic
 
+<style>
+.md-logo img {
+  content: url('/numbers/binary-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/numbers/binary-dark.svg');
+}
+</style>
+
 ## Rightmost bits
 
 `x & (x-1)` to unset rightmost 1-bit in a word.

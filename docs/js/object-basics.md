@@ -1,5 +1,15 @@
 # Basics
 
+<style>
+.md-logo img {
+  content: url('/js/js-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/js/js-dark.svg');
+}
+</style>
+
 An object is a composite value: an unordered collection of properties, each with a name and a value. Property names are typically *strings*, but can also be *symbols*.
 
 Object creation comes in two forms: literal and constructed form.

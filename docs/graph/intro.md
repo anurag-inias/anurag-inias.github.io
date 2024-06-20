@@ -1,5 +1,15 @@
 # Introduction
 
+<style>
+.md-logo img {
+  content: url('/graph/network-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/graph/network-dark.svg');
+}
+</style>
+
 Formally, a graph \\(G\\) is a set of *vertices* \\(V\\) and a set of _edges_ \\(E\\) that connect said vertices. We'd be limiting ourselves to _simple graphs_ which disallow duplicate *(parallel)* edges and edges connecting a vertex to itself *(self loop)*.
 
 In an *undirected* graph, edges are denoted as unordered pair \\(\\{u, v\\}\\) while in a directed graph, they are ordered pair \\((u, v)\\).

@@ -1,5 +1,15 @@
 # Breadth-first Search
 
+<style>
+.md-logo img {
+  content: url('/graph/network-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/graph/network-dark.svg');
+}
+</style>
+
 BFS is a graph traversal and search algorithm. It explores the vertices of a graph in layers. 
 
 1. First layer contains just the starting vertex \\(s\\).
