@@ -1,8 +1,8 @@
 site_name: Just Another Blog
 theme:
   name: material
-  logo: assets/logo.svg
-  favicon: assets/favicon.svg
+  logo: assets/tired.svg
+  favicon: assets/fatigue-dark.svg
   font:
     text: Zilla Slab
     code: Cascadia
