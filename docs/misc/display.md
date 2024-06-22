@@ -1,12 +1,23 @@
 # Display Upgrade
 
+<style>
+.md-logo img {
+  content: url('/misc/hd-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/misc/hd-dark.svg');
+}
+</style>
+
+
 ## Lore
 
-I used to daily drive Asus Vivobook Pro 14X OLED ([M7400QC](https://in.store.asus.com/creator-laptop-asus-vivobook-pro-14x-oled-m7400qc.html)) as my personal laptop. This is a great laptop, but in just two years of owning it, I started to feel a number pain points:
+I used to daily drive Asus Vivobook Pro 14X OLED ([M7400QC](https://in.store.asus.com/creator-laptop-asus-vivobook-pro-14x-oled-m7400qc.html)) as my personal laptop. This is a great laptop, but in just two years of owning it, I started to feel a number of pain points:
 
-1. 14 inch display was just too small. Especially if you are multiwindowing like me.
-2. No thunderbolt port. So connecting to my external display is a chore
-3. I can't use Macbook chargers that are laying around. It's own 120W brick is indeed a brick, weight-wise.
+1. 14 inch display was just too small. Especially if you are multi-windowing like me.
+2. No thunderbolt port. So connecting to my external display is a chore.
+3. I can't use Macbook chargers that are laying around. It's own 120W brick is indeed a brick (weight-wise).
 3. No expansion option. It has 16GB RAM soldered.
 
 At the time of writing this, the best option was another Asus machine, [Asus Vivobook 16X](https://in.store.asus.com/creator-laptop-asus-vivobook-16x-k3605zv-mb741ws.html). It ticked all the boxes of what I needed, and more:
@@ -16,13 +27,13 @@ At the time of writing this, the best option was another Asus machine, [Asus Viv
 - [x] Expandable memory.
 - [x] RTX 4060
 
-It my haste to move on with my life, I didn't look too much into it and ordered one online. Only to discover later that the display is 1960x1200 (WUXGA?). 
+In my haste to move on with my life, I didn't look too much into it and ordered one online. Only to discover later that the display is 1960x1200 (WUXGA?). 
 
 ## The Downgrade
 
 My previous laptop had an OLED display, 2880x1800 display size with [242PPI](https://www.panelook.com/modeldetail.php?id=52193). For comparison, the new laptop is just [141PPI](https://www.panelook.com/modeldetail.php?id=61970). That's a substantial downgrade, and you feel it. Within 15 mins of booting the laptop up, I knew something was up. 
 
-It turns out, Asus has bunch of SKUs with similar name. There are Vivobook, Vivobook S, Vivobook Pro. I had bought one without OLED screen (which I don't care for much), and more crucially, a very low res screen.
+It turns out, Asus has bunch of SKUs with similar name. There are Vivobook, Vivobook S, Vivobook Pro. I had bought one without OLED screen (which I don't care for much), but more crucially, a very low res screen.
 
 ## The Upgrade
 
@@ -44,8 +55,8 @@ The specs we are concerned are these:
 
 Write these down somewhere. The idea is to make sure **we don't end up getting a worse panel**. Higher screen resolution is great, but that shouldn't come at the expense of these other metrics. What do they all mean?
 
-- Panel Type: that's LCD, OLED etc. I had past experience IPS panels, so I knew to keep a watch out for this. In short, go for OLED if possible. If not, LCD at the very least.
-- Viewing angle: the IPS panel I mentioned had a viewing angle of ~45 deg. You'd know when you see one. Just slightly tilting the panel will make reading the screen impossible, with the background lights bleed through.
+- Panel Type: that's LCD, OLED etc. I had past experience with IPS panels, so I knew to keep a watch out for this. In short, go for OLED if possible and LCD if not.
+- Viewing angle: the IPS panel I mentioned had a viewing angle of ~45 deg. You'd know when you see one. Just slightly tilting the panel will make reading the screen impossible, with the background lights bleeding through.
 - Contrat: that should be obvious. Poor contrast means washed out colors.
 - Coverage %: this is not that obvious, but think of this as panel adding a bias/tint to everything you see.
 - Brightness: higher the better, otherwise you'll struggle using it in a lit room.
@@ -72,7 +83,7 @@ In fact, I order two different panels:
 
 You can actually see the comparison between the three panels (stock, NE160QDM-NYD, NE160QAM-NZ1) [here](https://www.panelook.com/modelcompare.php?ids=61970,63485,55904).
 
-Display quality-wise, this is what the upgrade looks like:
+I'm now using `NE160QAM-NZ1`, and **it's great!**. Display quality-wise, this is what the upgrade looks like:
 
 - Panel Type: Oxide TFT-LCD *(unchanged)*
 - Resolution: 3840x2400, 282PPI *(double the pixels)*
@@ -82,7 +93,7 @@ Display quality-wise, this is what the upgrade looks like:
 - DCI-P3 Overage: 100% *(+26)*
 - Brightness: 500 \\(cd/m^2\\) *(+200)*
 
-I'm now using `NE160QAM-NZ1`, and **it's great!**. Even up close, my eyes can't discern any two pixels apart. It's more vibrant, more bright. There is enough room now on screen to tile 4 different windows on each corner.
+Even up close, my eyes can't discern any two pixels apart. It's more vibrant, more bright. There is enough room now on screen to tile 4 different windows on each corner.
 
 ## Tools needed
 
