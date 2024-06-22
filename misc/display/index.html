@@ -1181,12 +1181,22 @@
 
 
 <h1 id="display-upgrade">Display Upgrade</h1>
+<style>
+.md-logo img {
+  content: url('/misc/hd-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/misc/hd-dark.svg');
+}
+</style>
+
 <h2 id="lore">Lore</h2>
-<p>I used to daily drive Asus Vivobook Pro 14X OLED (<a href="https://in.store.asus.com/creator-laptop-asus-vivobook-pro-14x-oled-m7400qc.html">M7400QC</a>) as my personal laptop. This is a great laptop, but in just two years of owning it, I started to feel a number pain points:</p>
+<p>I used to daily drive Asus Vivobook Pro 14X OLED (<a href="https://in.store.asus.com/creator-laptop-asus-vivobook-pro-14x-oled-m7400qc.html">M7400QC</a>) as my personal laptop. This is a great laptop, but in just two years of owning it, I started to feel a number of pain points:</p>
 <ol>
-<li>14 inch display was just too small. Especially if you are multiwindowing like me.</li>
-<li>No thunderbolt port. So connecting to my external display is a chore</li>
-<li>I can't use Macbook chargers that are laying around. It's own 120W brick is indeed a brick, weight-wise.</li>
+<li>14 inch display was just too small. Especially if you are multi-windowing like me.</li>
+<li>No thunderbolt port. So connecting to my external display is a chore.</li>
+<li>I can't use Macbook chargers that are laying around. It's own 120W brick is indeed a brick (weight-wise).</li>
 <li>No expansion option. It has 16GB RAM soldered.</li>
 </ol>
 <p>At the time of writing this, the best option was another Asus machine, <a href="https://in.store.asus.com/creator-laptop-asus-vivobook-16x-k3605zv-mb741ws.html">Asus Vivobook 16X</a>. It ticked all the boxes of what I needed, and more:</p>
@@ -1196,10 +1206,10 @@
 <li>[x] Expandable memory.</li>
 <li>[x] RTX 4060</li>
 </ul>
-<p>It my haste to move on with my life, I didn't look too much into it and ordered one online. Only to discover later that the display is 1960x1200 (WUXGA?). </p>
+<p>In my haste to move on with my life, I didn't look too much into it and ordered one online. Only to discover later that the display is 1960x1200 (WUXGA?). </p>
 <h2 id="the-downgrade">The Downgrade</h2>
 <p>My previous laptop had an OLED display, 2880x1800 display size with <a href="https://www.panelook.com/modeldetail.php?id=52193">242PPI</a>. For comparison, the new laptop is just <a href="https://www.panelook.com/modeldetail.php?id=61970">141PPI</a>. That's a substantial downgrade, and you feel it. Within 15 mins of booting the laptop up, I knew something was up. </p>
-<p>It turns out, Asus has bunch of SKUs with similar name. There are Vivobook, Vivobook S, Vivobook Pro. I had bought one without OLED screen (which I don't care for much), and more crucially, a very low res screen.</p>
+<p>It turns out, Asus has bunch of SKUs with similar name. There are Vivobook, Vivobook S, Vivobook Pro. I had bought one without OLED screen (which I don't care for much), but more crucially, a very low res screen.</p>
 <h2 id="the-upgrade">The Upgrade</h2>
 <p>Luckly, I stumbled on this video from <a href="https://www.youtube.com/watch?v=FAa2jQ40FhA&amp;t">NL Tech</a>. Don't remember what I was searching for, but thanks Google!</p>
 <p>I followed the guide, and found that new laptop is using this panel <a href="https://www.panelook.com/modeldetail.php?id=61970">NE160WUM-NX1</a> from <a href="https://www.hwinfo.com/">HWiNFO</a>.</p>
@@ -1216,8 +1226,8 @@
 </ul>
 <p>Write these down somewhere. The idea is to make sure <strong>we don't end up getting a worse panel</strong>. Higher screen resolution is great, but that shouldn't come at the expense of these other metrics. What do they all mean?</p>
 <ul>
-<li>Panel Type: that's LCD, OLED etc. I had past experience IPS panels, so I knew to keep a watch out for this. In short, go for OLED if possible. If not, LCD at the very least.</li>
-<li>Viewing angle: the IPS panel I mentioned had a viewing angle of ~45 deg. You'd know when you see one. Just slightly tilting the panel will make reading the screen impossible, with the background lights bleed through.</li>
+<li>Panel Type: that's LCD, OLED etc. I had past experience with IPS panels, so I knew to keep a watch out for this. In short, go for OLED if possible and LCD if not.</li>
+<li>Viewing angle: the IPS panel I mentioned had a viewing angle of ~45 deg. You'd know when you see one. Just slightly tilting the panel will make reading the screen impossible, with the background lights bleeding through.</li>
 <li>Contrat: that should be obvious. Poor contrast means washed out colors.</li>
 <li>Coverage %: this is not that obvious, but think of this as panel adding a bias/tint to everything you see.</li>
 <li>Brightness: higher the better, otherwise you'll struggle using it in a lit room.</li>
@@ -1239,7 +1249,7 @@
 <li><a href="https://www.panelook.com/modeldetail.php?id=55904">NE160QAM-NZ1</a>: a 3840x2400 panel which was best option all around, but didn't have the same connector and had slighly different placement.</li>
 </ul>
 <p>You can actually see the comparison between the three panels (stock, NE160QDM-NYD, NE160QAM-NZ1) <a href="https://www.panelook.com/modelcompare.php?ids=61970,63485,55904">here</a>.</p>
-<p>Display quality-wise, this is what the upgrade looks like:</p>
+<p>I'm now using <code>NE160QAM-NZ1</code>, and <strong>it's great!</strong>. Display quality-wise, this is what the upgrade looks like:</p>
 <ul>
 <li>Panel Type: Oxide TFT-LCD <em>(unchanged)</em></li>
 <li>Resolution: 3840x2400, 282PPI <em>(double the pixels)</em></li>
@@ -1249,7 +1259,7 @@
 <li>DCI-P3 Overage: 100% <em>(+26)</em></li>
 <li>Brightness: 500 \(cd/m^2\) <em>(+200)</em></li>
 </ul>
-<p>I'm now using <code>NE160QAM-NZ1</code>, and <strong>it's great!</strong>. Even up close, my eyes can't discern any two pixels apart. It's more vibrant, more bright. There is enough room now on screen to tile 4 different windows on each corner.</p>
+<p>Even up close, my eyes can't discern any two pixels apart. It's more vibrant, more bright. There is enough room now on screen to tile 4 different windows on each corner.</p>
 <h2 id="tools-needed">Tools needed</h2>
 <p><a href="https://www.ifixit.com/products/pro-tech-toolkit">iFixit Pro toolkit</a> had all that I needed, which was just the screendriver bits, plastic opening picks (for laptop case), jimmy (for display panel) and tweezer (for adhesive rubber). I used the OSFT 2mm double sided tape to glue the new panel.</p>
 <h2 id="panel-purchase">Panel purchase</h2>
