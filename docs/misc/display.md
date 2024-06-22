@@ -87,3 +87,15 @@ I'm now using `NE160QAM-NZ1`, and **it's great!**. Even up close, my eyes can't 
 ## Tools needed
 
 [iFixit Pro toolkit](https://www.ifixit.com/products/pro-tech-toolkit) had all that I needed, which was just the screendriver bits, plastic opening picks (for laptop case), jimmy (for display panel) and tweezer (for adhesive rubber). I used the OSFT 2mm double sided tape to glue the new panel.
+
+## Panel purchase
+
+Just search the panel model online and you'd stumble onto a number of websites.
+
+- Ubuy: I bought the 2560 panel from here. Don't use it. I ended up paying ~50% surchage on customs, and they sent the wrong panel.
+- Bliss computers: very slow processing. 
+- eBay: that's where I bought the 3840 panel from [win0win](https://www.ebay.it/str/win0win), really helpful folks. Delivered within 15 days, no customs and actually cheaper than 2560 model. 
+
+## Extras
+
+During laptop disassembly, take pictures at each steps. Really useful when putting it back together. Also check for videos on YT where people are opening your laptop model (or same brand at least), this is helpful in watching out for OEM quirks.
