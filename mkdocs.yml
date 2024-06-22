@@ -79,5 +79,8 @@ nav:
     - Basics: 'js/object-basics.md'
 - Kotlin:
   - Concurrency: 'kt/concurrency.md'
+- Miscellaneous:
+  - Display Upgrade: 'misc/display.md'
+
 
 
