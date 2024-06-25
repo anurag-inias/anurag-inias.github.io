@@ -5,7 +5,7 @@ theme:
   favicon: assets/fatigue-dark.svg
   font:
     text: Zilla Slab
-    code: Cascadia
+    code: Sono Monospace
   features:
     - content.code.copy
     - navigation.expand
