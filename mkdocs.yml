@@ -81,6 +81,7 @@ nav:
   - Concurrency: 'kt/concurrency.md'
 - Android:
   - Activities: 'android/activities.md'
+  - Tasks: 'android/tasks.md'
 - Miscellaneous:
   - Display Upgrade: 'misc/display.md'
 
