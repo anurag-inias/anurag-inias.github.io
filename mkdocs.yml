@@ -77,6 +77,8 @@ nav:
   - Types: 'js/types.md'
   - Objects:
     - Basics: 'js/object-basics.md'
+- Concurrency:
+  - Intro: 'concurrency/intro.md'
 - Kotlin:
   - Concurrency: 'kt/concurrency.md'
 - Android:
