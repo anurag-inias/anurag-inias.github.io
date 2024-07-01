@@ -84,6 +84,7 @@ nav:
 - Android:
   - Activities: 'android/activities.md'
   - Tasks: 'android/tasks.md'
+  - Fragments: 'android/fragments.md'
 - Miscellaneous:
   - Display Upgrade: 'misc/display.md'
 
