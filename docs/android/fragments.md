@@ -10,12 +10,6 @@
 - The fragment’s view hierarchy becomes part of, or attaches to, the host’s view hierarchy.
 - Unlike activities, 
 
-
-
-## Lifecycle
-
-![](https://developer.android.com/static/images/guide/fragments/fragment-view-lifecycle.png){width=420}
-
 ## Creating fragment
 
 <div class="grid" markdown>
@@ -220,5 +214,40 @@ for adding a new fragment not already part of the activity | for reattaching a f
 triggers full lifecycle `onAttach onCreate onCreateView onStart onResume` | skips `onAttach onCreate`
 
 {==
-Note that `onAttach/onDetach` are poorly named and are not related. These are lifecycle events when fragment is first given a context (i.e. an activity). Called before/after an activity's `onCreate/onDestroy`.
+Note that `onAttach/onDetach` are poorly named.
 ==}
+
+
+## Lifecycle
+
+A fragment and its view have separate `Lifecycle`, managed independently. View's lifecycle can be accessed through `viewLifecycleOwner` in fragment.
+
+![](https://developer.android.com/static/images/guide/fragments/fragment-view-lifecycle.png){width=420}
+
+- Fragment when first instantiated is in `INITIALIZED` state. `findFragmentBy*` will not work yet.
+- Not shown in diagram above, there are two more lifecyle events called `onAttach` and `onDetach`.
+- `onAttach` is called before even `onCreate` and its counterpart is called after `onDestroy`.
+- `onAttach` is called when it is added to a `FragmentManager` and its host. It is now **active**. `findFragmentBy*` starts working here.
+- `onDetach` is called when fragment is remove from `FragmentManager`. It is no longer active and cannot be found with `findFragmentBy*`.
+
+Fragment | View | Notes
+---------|------|---------
+`CREATED` | | added to `FragmentManager`. restore any saved state here.
+`CREATED` | `INITIALIZED` | `view` can now be retrieved. set up initiate state of the view in `onViewCreated` and start observing `LiveData`.
+`CREATED` | `CREATED` | any previous view state is restored.
+`STARTED` | `STARTED` | recommended to tie lifecycle-aware components to this state. safe to perform transactions on child fragment.
+`RESUMED` | `RESUMED` | Animations and transitions have finished. ready for interaction. ok to manually set focus.
+`CREATED` | `CREATED` | downwards, no longer visible. 
+`CREATED` | `DESTROYED` | exist animations and transitions done. fragment's view has been detached from the window.
+
+{==
+
+`ON_STOP` event is the last point where it's safe to perform a fragment transaction.
+
+![](https://developer.android.com/static/images/guide/fragments/stop-save-order.png){width=480}
+
+==}
+
+### Maximum state
+
+`setMaxLifecycle` can be included in transaction to cap the maximum lifecycle state of a fragment. Additionally, a fragment cannot have state greater than its parent.
