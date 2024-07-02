@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../kt/concurrency/">
+        <link rel="prev" href="../fragments/">
       
       
-        <link rel="next" href="../tasks/">
+        <link rel="next" href="../../misc/display/">
       
       
       <link rel="icon" href="../../assets/fatigue-dark.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Activities - listless 💤</title>
+        <title>Animations - listless 💤</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#activities" class="md-skip">
+        <a href="#navigation-animations" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Activities
+              Animations
             
           </span>
         </div>
@@ -968,30 +968,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Activities
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../activities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1000,53 +980,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#concept" class="md-nav__link">
-    <span class="md-ellipsis">
-      Concept
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manifest" class="md-nav__link">
-    <span class="md-ellipsis">
-      Manifest
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lifecycle
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1098,10 +1031,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../animation-transition/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Animations
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1110,6 +1063,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#animation-animator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation + Animator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transition-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extras:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1214,27 +1214,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#concept" class="md-nav__link">
+  <a href="#animation-animator" class="md-nav__link">
     <span class="md-ellipsis">
-      Concept
+      Animation + Animator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#manifest" class="md-nav__link">
+  <a href="#transition-framework" class="md-nav__link">
     <span class="md-ellipsis">
-      Manifest
+      Transition framework
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lifecycle" class="md-nav__link">
+  <a href="#extras" class="md-nav__link">
     <span class="md-ellipsis">
-      Lifecycle
+      Extras:
     </span>
   </a>
   
@@ -1255,134 +1255,134 @@
                   
 
 
-<h1 id="activities">Activities</h1>
-<p><a href="https://developer.android.com/guide/components/activities/intro-activities">source</a></p>
-<h2 id="concept">Concept</h2>
-<ul>
-<li>Mobile apps don't have a central entry point like <code>main</code>. </li>
-<li>User journey in your app may begin in a non-deterministically way. Example: gmail app start from the launcher icon vs opening from share sheet.</li>
-<li>Android starts the activities of an app, instead of app as an atomic whole.</li>
-<li>Activity provides window in which app draws its UI.</li>
-</ul>
-<h2 id="manifest">Manifest</h2>
+<h1 id="navigation-animations">Navigation animations</h1>
+<p><a href="https://developer.android.com/guide/fragments/animate">source</a></p>
+<p>There are two mains ways to animation navigations:</p>
 <ol>
-<li>Activities must be declared in the manifest file:
-  <div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;manifest</span><span class="w"> </span><span class="err">...</span><span class="nt">&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&lt;application</span><span class="w"> </span><span class="err">...</span><span class="nt">&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&lt;activity</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;.FooActivity&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div><ul>
-<li><code>android:name</code> is the only required attribute.</li>
-</ul>
-</li>
-<li>
-<p>To allow other apps to launch your activity through <strong>implicit intent</strong>, add an <code>intent-filter</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">called activity</label><label for="__tabbed_1_2">caller activity</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;activity</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;.FooActivity&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&lt;intent-filter&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.action.SEND&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&lt;data</span><span class="w"> </span><span class="na">android:mimeType=</span><span class="s">&quot;text/plain&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">startActivity</span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">Intent</span><span class="p">().</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Intent</span><span class="p">.</span><span class="na">ACTION_SEND</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;text/plain&quot;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">putExtra</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="na">EXTRA_TEXT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;here goes my text&quot;</span><span class="p">)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">)</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<ul>
-<li><code>action</code> specifies that this activity sends data.</li>
-<li><code>category</code> as <code>DEFAULT</code> lets activity receive launch requests.</li>
-<li><code>data</code> specifies the type of data this activity can send.</li>
-</ul>
-</li>
-<li>
-<p>Caller and callee activities must share permission.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">called activity</label><label for="__tabbed_2_2">caller activity</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;manifest&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&lt;activity</span><span class="w"> </span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;.FooActivity&quot;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="na">android:permission=</span><span class="s">&quot;com.example.fooapp.permission.SHARE_POST&quot;</span><span class="nt">&gt;</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;manifest&gt;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;com.example.fooapp.permission.SHARE_POST&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-</li>
+<li><code>Animation</code> + <code>Animator</code></li>
+<li>Transitions framework</li>
 </ol>
-<h2 id="lifecycle">Lifecycle</h2>
-<p><a href="https://developer.android.com/guide/components/activities/activity-lifecycle">source</a></p>
-<p style="background-color: rgba(255, 255, 255, 0.1); display: inline-block;">
-<img alt="" src="https://developer.android.com/guide/components/images/activity_lifecycle.png" />
-</p>
-<ol>
-<li>
-<p><code>onCreate</code>: perform logic here that happens once in activity's life. e.g.:</p>
-<ul>
-<li>bind data to list</li>
-<li>associate activity with a <code>ViewModel</code></li>
-<li>instantiate class-scope variables.</li>
-<li>set layout of the activity.</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>onCreate -&gt; onStart
-</span></code></pre></div>
-</li>
-<li>
-<p><code>onStart</code>: it's now visible to the user. It used to be that activity would never remain in <code>STARTED</code> state for long. But on large screen devices, with multi/freeform window, that's no longer the case.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>onStart -&gt; onResume
-</span></code></pre></div>
-</li>
-<li>
-<p><code>onResume</code>: now in focus and interactive.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>onResume -&gt; onPause
-</span></code></pre></div>
-</li>
-<li>
-<p><code>onPause</code>: actitiy is no longer in focus. e.g. a dialog is partially obscuring the activity, or focus is on another activity in multi-window mode. This is very brief and doesn't have enough time to do network and/or disk calls (e.g. save state).</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>onPause -&gt; onResume / onStop
-</span></code></pre></div>
-</li>
-<li>
-<p><code>onStop</code>: Happens when another activity has taken over the full screen or before the activity is finished running and due for termination. Release resources, stop animations, save stuff to db (if can't find a better alternative) and any CPU-intensive work here as the main thread is no longer updating the UI.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>onStop -&gt; onRestart / onDestroy
-</span></code></pre></div>
-</li>
-<li>
-<p><code>onDestroy</code>: Activity is either finishing for good or is being temporarily destroyed for configuration change. In the <code>ViewModel#onCleared()</code> of the activity, check <code>isFinishing()</code> to determine which of the two it is. </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>onDestroy -&gt; [onCreate]
-</span></code></pre></div>
-</li>
-</ol>
-<p>Examples of activity state changes:</p>
-<ol>
-<li><strong>Configuration change:</strong> <code>onPause -&gt; onStop -&gt; onDestroy -&gt; onCreate -&gt; onStart -&gt; onResume</code></li>
-<li><strong>Enter multi-window mode / resize:</strong> same as previously mentioned.</li>
-<li><strong>Activity / disalog appears in foreground:</strong> <code>onPause &lt;-&gt; onResume</code> if partially covered. A further <code>onStop &lt;-&gt; onRestart -&gt; onStart</code> is fully covered.</li>
-<li><strong>Home / Recents button button:</strong> same as if activity has been covered.</li>
-<li><strong>Back button:</strong> <code>onPause -&gt; onStop -&gt; onDestroy</code>. However, if it's the <a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack#back-press-behavior">root launcher activity</a>:<ul>
-<li>on \(\le\) Android 11: system finishes the activity, so same as above.</li>
-<li>on \(\ge\) Android 12: moves activity to background, so same as <em>home / recents</em> button.</li>
-</ul>
-</li>
-<li><strong>Killed by system:</strong> there is no guarantee that <code>onDestory</code> will be called.</li>
-</ol>
-<mark class="critic block">
-<p>The system never kills an activity to free up memory, but instead the whole process.</p>
-</mark>
+<h2 id="animation-animator">Animation + Animator</h2>
+<p><img alt="" src="https://developer.android.com/static/images/training/basics/fragments/enter-exit-animation.gif" width="200" /></p>
+<p>In above example, the previous fragment <code>fades out</code> while the new fragment <code>slides in</code>.</p>
+<div class="grid">
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/fade_out.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">&lt;alpha</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="na">android:fromAlpha=</span><span class="s">&quot;1&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="na">android:toAlpha=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/slide_in.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">&lt;translate</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="na">android:fromXDelta=</span><span class="s">&quot;100%&quot;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span><span class="na">android:toXDelta=</span><span class="s">&quot;0%&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/fade_in.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">&lt;alpha</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="na">android:fromAlpha=</span><span class="s">&quot;0&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="na">android:toAlpha=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/slide_out.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nt">&lt;translate</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">  </span><span class="na">android:fromXDelta=</span><span class="s">&quot;0%&quot;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="na">android:toXDelta=</span><span class="s">&quot;100%&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<p>include these animations the part of transaction.</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">commit</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="n">setReorderingAllowed</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="n">setCustomAnimations</span><span class="p">(</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="cm">/* enter=    */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">slide_in</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="cm">/* exit=     */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">fade_out</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="cm">/* popEnter= */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">fade_in</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="cm">/* popExit   */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">slide_out</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">  </span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">  </span><span class="n">replace</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container</span><span class="p">,</span><span class="w"> </span><span class="n">fragment</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">  </span><span class="n">addToBackStak</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p><mark>Animations must be set before <code>replace</code>. Order matters.</mark></p>
+<h2 id="transition-framework">Transition framework</h2>
+<p>The alternative approach is to define within each fragment, their enter/exit transition. </p>
+<div class="grid">
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/transition/fade.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">&lt;fade</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/transition/slide_right.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nt">&lt;slide</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="na">android:slideEdge=</span><span class="s">&quot;right&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">outgoing fragment</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">FragmentA</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Fragment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="hll"><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">inflater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransitionInflater</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">requireContext</span><span class="p">())</span>
+</span></span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="hll"><span class="w">    </span><span class="n">exitTransition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inflater</span><span class="p">.</span><span class="na">inflateTransition</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">transition</span><span class="p">.</span><span class="na">fade</span><span class="p">)</span>
+</span></span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">incoming fragment</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">FragmentB</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Fragment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="hll"><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">inflater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransitionInflater</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">requireContext</span><span class="p">())</span>
+</span></span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="hll"><span class="w">    </span><span class="n">enterTransition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inflater</span><span class="p">.</span><span class="na">inflateTransition</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">transition</span><span class="p">.</span><span class="na">slide_right</span><span class="p">)</span>
+</span></span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<h2 id="extras">Extras:</h2>
+<p>Read more about <strong>postponing transitions</strong> and sharing views between enter-exiting fragments on source page.  </p>
 
 
 
