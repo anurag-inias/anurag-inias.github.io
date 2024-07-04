@@ -12,7 +12,7 @@
         <link rel="prev" href="../tasks/">
       
       
-        <link rel="next" href="../../misc/display/">
+        <link rel="next" href="../animation-transition/">
       
       
       <link rel="icon" href="../../assets/fatigue-dark.svg">
@@ -1068,15 +1068,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lifecycle
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#creating-fragment" class="md-nav__link">
     <span class="md-ellipsis">
       Creating fragment
@@ -1172,10 +1163,55 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maximum-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum state
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../animation-transition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Animations
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1289,15 +1325,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lifecycle
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#creating-fragment" class="md-nav__link">
     <span class="md-ellipsis">
       Creating fragment
@@ -1393,6 +1420,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maximum-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum state
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1418,8 +1469,6 @@
 <li>The fragment’s view hierarchy becomes part of, or attaches to, the host’s view hierarchy.</li>
 <li>Unlike activities, </li>
 </ul>
-<h2 id="lifecycle">Lifecycle</h2>
-<p><img alt="" src="https://developer.android.com/static/images/guide/fragments/fragment-view-lifecycle.png" width="420" /></p>
 <h2 id="creating-fragment">Creating fragment</h2>
 <div class="grid">
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
@@ -1644,8 +1693,70 @@
 </tbody>
 </table>
 <p><mark class="critic">
-Note that <code>onAttach/onDetach</code> are poorly named and are not related. These are lifecycle events when fragment is first given a context (i.e. an activity). Called before/after an activity's <code>onCreate/onDestroy</code>.
+Note that <code>onAttach/onDetach</code> are poorly named.
 </mark></p>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>A fragment and its view have separate <code>Lifecycle</code>, managed independently. View's lifecycle can be accessed through <code>viewLifecycleOwner</code> in fragment.</p>
+<p><img alt="" src="https://developer.android.com/static/images/guide/fragments/fragment-view-lifecycle.png" width="420" /></p>
+<ul>
+<li>Fragment when first instantiated is in <code>INITIALIZED</code> state. <code>findFragmentBy*</code> will not work yet.</li>
+<li>Not shown in diagram above, there are two more lifecyle events called <code>onAttach</code> and <code>onDetach</code>.</li>
+<li><code>onAttach</code> is called before even <code>onCreate</code> and its counterpart is called after <code>onDestroy</code>.</li>
+<li><code>onAttach</code> is called when it is added to a <code>FragmentManager</code> and its host. It is now <strong>active</strong>. <code>findFragmentBy*</code> starts working here.</li>
+<li><code>onDetach</code> is called when fragment is remove from <code>FragmentManager</code>. It is no longer active and cannot be found with <code>findFragmentBy*</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Fragment</th>
+<th>View</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CREATED</code></td>
+<td></td>
+<td>added to <code>FragmentManager</code>. restore any saved state here.</td>
+</tr>
+<tr>
+<td><code>CREATED</code></td>
+<td><code>INITIALIZED</code></td>
+<td><code>view</code> can now be retrieved. set up initiate state of the view in <code>onViewCreated</code> and start observing <code>LiveData</code>.</td>
+</tr>
+<tr>
+<td><code>CREATED</code></td>
+<td><code>CREATED</code></td>
+<td>any previous view state is restored.</td>
+</tr>
+<tr>
+<td><code>STARTED</code></td>
+<td><code>STARTED</code></td>
+<td>recommended to tie lifecycle-aware components to this state. safe to perform transactions on child fragment.</td>
+</tr>
+<tr>
+<td><code>RESUMED</code></td>
+<td><code>RESUMED</code></td>
+<td>Animations and transitions have finished. ready for interaction. ok to manually set focus.</td>
+</tr>
+<tr>
+<td><code>CREATED</code></td>
+<td><code>CREATED</code></td>
+<td>downwards, no longer visible.</td>
+</tr>
+<tr>
+<td><code>CREATED</code></td>
+<td><code>DESTROYED</code></td>
+<td>exist animations and transitions done. fragment's view has been detached from the window.</td>
+</tr>
+</tbody>
+</table>
+<mark class="critic block">
+<p><code>ON_STOP</code> event is the last point where it's safe to perform a fragment transaction.</p>
+<p><img alt="" src="https://developer.android.com/static/images/guide/fragments/stop-save-order.png" width="480" /></p>
+</mark>
+<h3 id="maximum-state">Maximum state</h3>
+<p><code>setMaxLifecycle</code> can be included in transaction to cap the maximum lifecycle state of a fragment. Additionally, a fragment cannot have state greater than its parent.</p>
 
 
 

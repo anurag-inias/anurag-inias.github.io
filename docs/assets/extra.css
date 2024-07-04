@@ -23,3 +23,11 @@
 :root [data-md-color-scheme=slate] .md-logo img  {
   content: url('/assets/fatigue-dark.svg');
 }
+
+.md-typeset { 
+  font-size: 0.8rem;
+}
+
+.md-typeset code {
+  font-size: 0.6rem;
+}

@@ -4,8 +4,8 @@ theme:
   logo: assets/tired.svg
   favicon: assets/fatigue-dark.svg
   font:
-    text: Zilla Slab
-    code: Sono Monospace
+    text: Labrada
+    code: Sono Monospace Medium
   features:
     - content.code.copy
     - navigation.expand
