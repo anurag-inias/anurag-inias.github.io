@@ -4,8 +4,8 @@ theme:
   logo: assets/tired.svg
   favicon: assets/fatigue-dark.svg
   font:
-    text: Labrada
-    code: Sono Monospace Medium
+    text: PT Sans
+    code: Source Code Pro Medium
   features:
     - content.code.copy
     - navigation.expand
@@ -86,6 +86,8 @@ nav:
   - Tasks: 'android/tasks.md'
   - Fragments: 'android/fragments.md'
   - Animations: 'android/animation-transition.md'
+- Ubuntu:
+  - Setup: 'ubuntu/setup.md'
 - Miscellaneous:
   - Display Upgrade: 'misc/display.md'
 
