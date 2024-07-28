@@ -20,6 +20,18 @@
   content: url('/assets/fatigue-light.svg');
 }
 
+:root {
+  font-size: 20px;
+}
+
 :root [data-md-color-scheme=slate] .md-logo img  {
   content: url('/assets/fatigue-dark.svg');
+}
+
+.md-typeset { 
+  font-size: 0.7rem;
+}
+
+.md-typeset code {
+  font-size: 0.6rem;
 }
