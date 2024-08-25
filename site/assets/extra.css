@@ -35,3 +35,7 @@
 .md-typeset code {
   font-size: 0.6rem;
 }
+
+.md-typeset .emojione, .md-typeset .gemoji, .md-typeset .twemoji {
+  vertical-align: sub;
+}

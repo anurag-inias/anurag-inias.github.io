@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../../concurrency/intro/">
       
-        <link rel="next" href="numbers/representation/">
+      
+        <link rel="next" href="../../kt/concurrency/">
       
       
-      <link rel="icon" href="assets/fatigue-dark.svg">
+      <link rel="icon" href="../../assets/fatigue-dark.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>listless 💤</title>
+        <title>Collections - listless 💤</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,16 +46,16 @@
       
     
     
-      <link rel="stylesheet" href="assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -62,7 +64,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -81,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about" class="md-skip">
+        <a href="#java-collections" class="md-skip">
           Skip to content
         </a>
       
@@ -97,9 +99,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="assets/tired.svg" alt="logo">
+  <img src="../../assets/tired.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -116,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              About
+              Collections
             
           </span>
         </div>
@@ -180,9 +182,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="assets/tired.svg" alt="logo">
+  <img src="../../assets/tired.svg" alt="logo">
 
     </a>
     listless 💤
@@ -194,19 +196,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -215,7 +208,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -264,7 +256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="numbers/representation/" class="md-nav__link">
+      <a href="../../numbers/representation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -285,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="numbers/arithmetic/" class="md-nav__link">
+      <a href="../../numbers/arithmetic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -350,7 +342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="linear/circular-list/" class="md-nav__link">
+      <a href="../../linear/circular-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -378,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="search/binary/" class="md-nav__link">
+      <a href="../../search/binary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="partition/partition/" class="md-nav__link">
+      <a href="../../partition/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -455,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sort/quicksort/" class="md-nav__link">
+      <a href="../../sort/quicksort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -476,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sort/mergesort/" class="md-nav__link">
+      <a href="../../sort/mergesort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -504,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="heap/" class="md-nav__link">
+      <a href="../../heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graph/intro/" class="md-nav__link">
+      <a href="../../graph/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -619,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graph/generic-search/" class="md-nav__link">
+      <a href="../../graph/generic-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -640,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graph/bfs/" class="md-nav__link">
+      <a href="../../graph/bfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -661,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graph/dfs/" class="md-nav__link">
+      <a href="../../graph/dfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -690,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graph/topological-sort/" class="md-nav__link">
+      <a href="../../graph/topological-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -755,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="js/types/" class="md-nav__link">
+      <a href="../../js/types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="js/object-basics/" class="md-nav__link">
+      <a href="../../js/object-basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concurrency/intro/" class="md-nav__link">
+      <a href="../../concurrency/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -911,19 +903,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
         
           
           <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
@@ -937,7 +929,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -948,10 +940,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="java/collections-framework/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Collections
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -960,6 +972,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#outline-of-the-collections-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outline of the Collections Framework
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1016,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kt/concurrency/" class="md-nav__link">
+      <a href="../../kt/concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1081,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="android/activities/" class="md-nav__link">
+      <a href="../../android/activities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1102,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="android/tasks/" class="md-nav__link">
+      <a href="../../android/tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1123,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="android/fragments/" class="md-nav__link">
+      <a href="../../android/fragments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1144,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="android/animation-transition/" class="md-nav__link">
+      <a href="../../android/animation-transition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1209,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ubuntu/setup/" class="md-nav__link">
+      <a href="../../ubuntu/setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1274,7 +1315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="misc/display/" class="md-nav__link">
+      <a href="../../misc/display/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1315,6 +1356,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#outline-of-the-collections-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outline of the Collections Framework
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1328,7 +1386,36 @@
                   
 
 
-<h1 id="about">About</h1>
+<h1 id="java-collections">Java Collections</h1>
+<p><a class="glightbox" href="../collections.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../collections.svg" width="1280px" /></a></p>
+<h2 id="outline-of-the-collections-framework"><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html">Outline of the Collections Framework</a></h2>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 7v2h-1v6h1v2h-4v-2h1V9h-1V7h4m-2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8Z"/></svg></span> Collection</a>: A group of objects. No assumptions are made about the order of the collection (if any) or whether it can contain duplicate elements. Most of the common operations such as <code>add</code>, <code>remove</code>, <code>isEmpty</code>, <code>contains</code> come from here.</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 7v2h-1v6h1v2h-4v-2h1V9h-1V7h4m-2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8Z"/></svg></span> Set</a>: The familiar set abstraction. No duplicate elements permitted. May or may not be ordered.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> HashSet</a>: Concrete implementation of a <code>Set</code>. Implemented using hash table, and as such iteration order is not guaranteed. All basic operations <code>add</code>, <code>remove</code>, <code>contains</code> are constant time \(O(1)\).</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashSet.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> LinkedHashSet</a>: Concrete implementation of a <code>Set</code>. Implemented using a doubly-linked list where the oldest element is at front and the latest element is at back. It has a deterministic iteration order, which is the order of insertion. Average time complexity for basic operations is still \(O(1)\), but may go as high as \(O(n)\).</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/SortedSet.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 7v2h-1v6h1v2h-4v-2h1V9h-1V7h4m-2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8Z"/></svg></span> SortedSet</a>: Further provides a total ordering on its elements. This lets it support <code>first</code> and <code>last</code> elements in a set, as well as various windows such as <code>subSet</code>, <code>headSet</code>, and <code>tailSet</code>. <code>SortedSet</code> is further extended by <a href="https://docs.oracle.com/javase/8/docs/api/java/util/NavigableSet.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 7v2h-1v6h1v2h-4v-2h1V9h-1V7h4m-2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8Z"/></svg></span> NavigableSet</a> with navigation methods reporting closest matches for given search targets.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> TreeSet</a>: Red-black tree implementation of <code>NavigableSet</code>. Guaranteed \(O(log \ n)\) time for most basic operations.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 7v2h-1v6h1v2h-4v-2h1V9h-1V7h4m-2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8Z"/></svg></span> List</a>: Ordered collection, also known as a sequence. Duplicates are generally permitted. Allows positional access.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Vector.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> Vector</a>: Implemented as resizable array. Retrofitted to <code>List</code> interface in Java 1.2, and is synchronized by default. Use <code>ArrayList</code> instead. Similarly, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> Stack</a> which builds on top of <code>Vector</code> inherits its unnecessary costs. Use <code>Deque</code> instead.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> ArrayList</a>: Good 'ol resizable array.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> LinkedList</a>: Doubly-linked list implementation of the <code>List</code> and <code>Deque</code> interfaces.</li>
+</ul>
+</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 7v2h-1v6h1v2h-4v-2h1V9h-1V7h4m-2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8Z"/></svg></span> Queue</a>: A collection designed for holding elements before processing. Provide additional insertion, extraction, and inspection operations.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> LinkedList</a>: See above.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> PriorityQueue</a>: A min-heap.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 7v2h-1v6h1v2h-4v-2h1V9h-1V7h4m-2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8Z"/></svg></span> Deque</a>: A double ended queue, supporting element insertion and removal at both ends.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m-1 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1h-2v1h-2V9h2v1h2V9a2 2 0 0 0-2-2h-2Z"/></svg></span> ArrayDeque</a>: Implemented as a circular resizable-array. However, since it's a <code>Queue</code> interface and not <code>List</code>, one cannot access elements randomly by index.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 
 
@@ -1375,12 +1462,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "navigation.expand", "content.code.annotate"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
