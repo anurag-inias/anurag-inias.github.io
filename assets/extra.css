@@ -7,6 +7,10 @@
   src: url("https://excalidraw.com/Assistant-Regular.woff2");
 }
 @font-face {
+  font-family: "Comic Shanns";
+  src: url("/assets/fonts/comic-shanns-2.ttf");
+}
+@font-face {
   font-family: "Cascadia";
   src: url("/assets/fonts/CascadiaCode.woff2");
 }
