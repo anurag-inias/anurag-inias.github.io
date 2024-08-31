@@ -1,4 +1,4 @@
-# Python – Objects
+# Python – Functions
 
 <style>
 .md-logo img {

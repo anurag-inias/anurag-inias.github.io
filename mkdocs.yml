@@ -104,6 +104,7 @@ nav:
   - Structure: 'python/structure.md'
   - Objects: 'python/objects.md'
   - Functions: 'python/functions.md'
+  - Generators: 'python/generators.md'
 - Ubuntu:
   - Setup: 'ubuntu/setup.md'
 - Miscellaneous:
