@@ -103,6 +103,7 @@ nav:
   - Operators: 'python/operators.md'
   - Structure: 'python/structure.md'
   - Objects: 'python/objects.md'
+  - Functions: 'python/functions.md'
 - Ubuntu:
   - Setup: 'ubuntu/setup.md'
 - Miscellaneous:
