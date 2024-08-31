@@ -105,6 +105,7 @@ nav:
   - Objects: 'python/objects.md'
   - Functions: 'python/functions.md'
   - Generators: 'python/generators.md'
+  - Object Oriented Programming: 'python/oop.md'
 - Ubuntu:
   - Setup: 'ubuntu/setup.md'
 - Miscellaneous:
