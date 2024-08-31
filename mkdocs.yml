@@ -101,6 +101,8 @@ nav:
 - Python:
   - Basics: 'python/basics.md'
   - Operators: 'python/operators.md'
+  - Structure: 'python/structure.md'
+  - Objects: 'python/objects.md'
 - Ubuntu:
   - Setup: 'ubuntu/setup.md'
 - Miscellaneous:
