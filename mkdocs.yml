@@ -83,10 +83,6 @@ nav:
   - Sorting:
     - Quicksort: 'data-structures/sort/quicksort.md'
     - Mergesort: 'data-structures/sort/mergesort.md'
-- JS: 
-  - Types: 'js/types.md'
-  - Objects:
-    - Basics: 'js/object-basics.md'
 - Concurrency:
   - Intro: 'concurrency/intro.md'
 - Java:
@@ -98,6 +94,11 @@ nav:
   - Tasks: 'android/tasks.md'
   - Fragments: 'android/fragments.md'
   - Animations: 'android/animation-transition.md'
+- Javascript:
+  - Types: 'js/types.md'
+  - var, hoisting and global: 'js/hoisting.md'
+  - Closures: 'js/closures.md'
+  - Objects: 'js/objects.md'
 - Python:
   - Basics: 'python/basics.md'
   - Operators: 'python/operators.md'

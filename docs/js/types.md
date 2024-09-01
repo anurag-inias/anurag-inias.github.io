@@ -2,186 +2,174 @@
 
 <style>
 .md-logo img {
-  content: url('/js/js-light.svg');
+  content: url('/js/javascript.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/js/js-dark.svg');
+  content: url('/js/javascript.svg');
 }
 </style>
 
-There are 8 basic types in JS, with all but _Objects_ being _primitive_.
+## 1. boolean
 
-## Boolean
+Primitive, has only two values `true` or `false`. All values are truthy, except[<sup>1</sup>](https://developer.mozilla.org/en-US/docs/Glossary/Truthy):
 
-Straightforward (or so I thought), has two possible values: `true` or `false`. Following values convert to `false`:
+- `false`
+- `0`, `-0`, `0n`
+- `""`
+- `null`, `undefined`
+- `NaN`
+- `document.all` ⚠ deprecated
 
-```javascript linenums="1"
-undefined
-null
-0
--0
-NaN
-"" // empty string
-```
-
-all other values convert to `true`. Use `===`/`!==` to avoid the implicit type coercion. However, `[]` is both truthy and loosely `false`. It's truthy because all objects are truthy, but it's also `false` because it's converted to primitive via `toString()` and emits `""`.
-
-<div class="grid" markdown>
-
-```javascript linenums="1"
-if ([]) {
-  // executes
-}
-```
-
-```javascript linenums="1"
-if ([] == false) {
-  // executes too
-}
-```
-
-</div>
-
-Use [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) to convert non-boolean values to boolean. Don't use it with `new` operator as all objects are truthy, even `Boolean` objects.
-
-```javascript linenums="1"
-const good = Boolean(expression);
-
-if (new Boolean(false)) { // Don't do this!
-  // this will execute
-}
-```
-
-## null & undefined
-
-Both indicate the absence of a value. `==` consider them to be equal, falsy values.
-
-`null` is the sole member of its own type and implies a program-level, intentional absence of a value. `typeof` will report it incorrectly as `'object'`, that's a legacy bug.
-
-`undefined` represents uninitialized values, a deeper kind of a absence. `undefined` is variable in global scope.
-
-## Symbol
-
-Introduced in ES6 to serve as non-string property names. There is no literal syntax for symbols.
-
-<div class="grid" markdown>
-
-When you want to keep your symbols private to your own code, guaranteed that they will not conflict with properties used by other code.
-
-When you want to share symbol widely with other code.
-
-```javascript title="acquire unique symbols" linenums="1"
-const a = Symbol();
-const b = Symbol("foo");
-const c = Symbol("foo");
-
-a == b; // false
-b == c; // false
-```
-
-```javascript title="acquire shared symbols" linenums="1"
-const a = Symbol.for("shared");
-const b = Symbol.for("shared");
-
-a === b;          // true
-Symbol.keyFor(a); // "shared"
-```
-
-</div>
-
-## String
-
-JS strings use UTF-16 encoding of Unicode character set as sequences of unsigned 16-bit values. This is fine for most commonly used unicode characters as they'll fit in a single code point. 
-
-But there are unicode characters which will take two code points. These will report wrong `length` and attempts to iterate over these may give unexpected results. That's why it's recommended to use _for/of_ loop.
-
-<div class="grid" markdown>
-
-```javascript title="wrong way to iterate" linenums="1"
-const smiley = "😄";
-smiley.length; // 2, \ud83d\ude04
-
-for (let i = 0; i < smiley.length; i++)
-  console.log(smiley.charAt(i)); // � �
-```
-
-```javascript title="right way to iterate" linenums="1"
-const smiley = "😄";
-let length = 0;
-
-for (let c of smiley) {
-  console.log(c); // "😄"
-  length++;
-}
-
-console.log(length); // 1
-```
-
-</div>
-
-<div class="grid" markdown>
-
-String created from literal and from `String()` call are primitive values.
-
-But ones created from `new String()` are an object.
-
-```javascript linenums="1"
-'test' // 'test'
-"test" // 'test'
-
-const name = "bob";
-`hello
-${name}` // 'hello\nbob', 
-
-String(1);        // '1'
-typeof String(1); // 'string'
-```
-
-```javascript linenums="1"
-new String("foo"); // String {'foo'}
-typeof s;          // 'object'
-```
-
-</div>
-
-## Number & BigInt
-
-There are no distinct integer and floating representation, instead JS uses 64-bit IEEE 754 floating point for both. \\(1\\) bit for _sign_, \\(11\\) bits for _exponent_ and \\(52\\) bits for _mantissa_ (a number b/w \\(0\\) and \\(1\\)).
-
-\\[
-  \text{number} = -1^\text{sign} \cdot (1 + \text{mantissa}) \cdot 2^{\text{exponent}}
-\\]
-
-Integers can be represented without loss of precision in range \\(\[-2^{53}+1, 2^{53}-1\]\\). Use `BigInt` beyond that.
-
-```javascript linenums="1"
-Number.MAX_VALUE        // 1.7976931348623157e+308
-Number.MAX_SAFE_INTEGER // 9007199254740991
-Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2 // true, precision loss
-
-const num = 1234567890123456789012345678901234567890n;
-typeof num; // bigint
-```
-
-## Object
-
-Object types (objects, arrays, functions) need their own section for a thorough breakdown.
-
---------
-
-## `typeof` heads up
+But since it's Javascript, our exceptions have exceptions. `{}` is truthy, yet `{} == false`. That's because:
 
 ```javascript
-typeof 0           // 'number'
-typeof 1n          // 'bigint'
-typeof true        // 'boolean'
-typeof 'foo'       // 'string'
-typeof undefined   // 'undefined'
-typeof null        // 'object', known bug 
-typeof Symbol()    // 'symbol'
-
-typeof {}          // 'object'
-typeof console.log // 'function', still an object but treated differently by typeof
+String({})                 // '[object Object]' non-empty string
+Boolean('[object Object]') // true
 ```
 
+## 2. number
+
+JS has no separate `int` and `float` types. Instead all numbers are represented as IEEE 754 64-bit floating numbers. Integers in range \\(\pm2^{53}-1\\) can be represented exactly.
+
+```javascript
+42       // decimal
+0b101010 // in binary (ES6)
+052      // in octal  (ES6)
+0o52     // in octal  (ES6)
+0x2a     // in hexadecimal
+4.2e1    // in exponential
+```
+
+`Number` is the wrapper object around the primitve.
+
+Property | Decription
+---------|-------------
+`Number.MAX_VALUE` | Largest representable positive number
+`Number.MAX_SAFE_INTEGER` | Largest safe integer \\(2^{53}-1\\)
+`Number.EPSILON` | Smallest value greater than \\(1\\) that can be represented.
+`Number.NaN` | Special "not a number" value.
+`Number.POSITIVE_INFINITY` | Overflow.
+
+```javascript
+Number.parseInt('2')    // 2
+Number.parseInt('2.0')  // 2
+Number.parseInt('2a')   // 2
+Number.parseInt('2a2')  // 2
+Number.parseInt('22a')  // 22
+Number.parseInt('a2')   // NaN
+
+Number.isInteger('2.0') // True
+Number.isInteger('2.1') // False
+```
+
+## 3. BigInt
+
+For arbitrary length integer.
+
+```javascript
+>> 1234567891234567891
+1234567891234568000    // normal number can't handle it
+
+>> 1234567891234567891n
+1234567891234567891n   // a bigint literal
+
+>> BigInt("1234567891234567891")
+1234567891234567891n   // can also pass as a long string
+
+>> BigInt(1234567891234567891)
+1234567891234567936n   // ⚠ precision can be lost before conversion
+```
+
+Since Sept 2020 available in latest browsers. 96% coverage as of Sep 2024.
+
+```javascript
+1n + 2n // 3n
+1n + 2  // Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions
+```
+
+## 4. string
+
+Immutable ordered sequence of 16-bit values, each of which typically represents a Unicode character. `length` is the count of these 16-bit values.
+
+```javascript
+'€'.length; // 1
+'❤️'.length; // 2
+```
+
+Since ES6 strings are iterable, so use `for/of` loop, or `...` operator to iterate the actual characters of the strings and not the 16-bit values.
+
+```javascript
+for (const c of '❤️') {
+  console.log(c); // '❤️'
+}
+
+let [..codepoints] = '❤️'; // ['❤️']
+```
+
+Use backticks for constructing string templates.
+
+```javascript
+let name = 'Oinkster';
+let greet = `Hello ${name}`; // 'Hello Oinkster'
+```
+
+## 5. null 
+
+Represents a program-level, normal, or expected absence of value.
+
+```javascript
+typeof null; // 'object'
+```
+
+is an known bug.
+
+## 6. undefined
+
+Represents a system-level, unexpected, or error-like absence of value. It's a the value of a variable that has not been initialized. It's also the return value of functions that return nothing.
+
+## 7. Symbol
+
+```javascript
+let a = Symbol("hi"); // Symbol(hi)
+
+let s = Symbol(); // Symbol()
+let t = Symbol(); // Symbol()
+s == t;           // false
+
+Symbol(123) == Symbol(123) // false
+Symbol("x") == Symbol("x") // false
+```
+
+there is no `Symbol` literal. `Symbol()` function returns unique values each time.
+
+```javascript
+let s = Symbol.for("foo");
+let t = Symbol.for("foo");
+s == t;                    // true
+```
+
+JavaScript defines a global Symbol registry, which if needed can be used to pump out reproducible symbols with `Symbol.for`.
+
+## 8. object
+
+![](/js/ok.png){width=100px}
+
+[...alright](/js/objects)
+
+-------------------
+
+## typedef
+
+Type | Result | Comments
+-----|--------|-----------
+`typeof true` | `'boolean'` | 
+`typeof 42` | `'number'` |
+`typeof 42n` | `'bigint'` |
+`typeof 'hello'` | `'string'` |
+`typeof null` | `'object'` | bug
+`typeof undefined` <br> `typeof neverSeenBeforeName` | `'undefined'`
+`typeof Symbol()` | `'symbol'` |
+`typeof {}` <br> | `'object'` | 
+`typeof console.log` | `'function'` | implements `[[Call]]`
+`typeof WeakMap` | `'function`' | classes are functions
