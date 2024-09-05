@@ -4,8 +4,8 @@ theme:
   logo: assets/tired.svg
   favicon: assets/fatigue-dark.svg
   font:
-    text: PT Sans
-    code: Source Code Pro Medium
+    text: "Roboto"
+    code: "Roboto Mono"
   features:
     - content.code.copy
     - content.code.annotate
@@ -69,7 +69,7 @@ nav:
     - Basics: 'data-structures/linked-list/basics.md'
     - Reversing linked list: 'data-structures/linked-list/reverse.md'
   - Heap: 'data-structures/heap/index.md'
-  - Circular list: 'data-structures/linear/circular-list.md'
+  - Circular list: 'data-structures/circular-list.md'
   - Graph:
     - Intro: 'data-structures/graph/intro.md'
     - Traversal:
@@ -78,11 +78,11 @@ nav:
         - DFS: 'data-structures/graph/dfs.md'
     - Topological Sort: 'graph/topological-sort.md'
 - Algorithms:
-  - Binary Search: 'data-structures/search/binary.md'
-  - Partitioning: 'data-structures/partition/partition.md'
+  - Binary Search: 'algorithms/search/binary.md'
+  - Partitioning: 'algorithms/partition/partition.md'
   - Sorting:
-    - Quicksort: 'data-structures/sort/quicksort.md'
-    - Mergesort: 'data-structures/sort/mergesort.md'
+    - Quicksort: 'algorithms/sort/quicksort.md'
+    - Mergesort: 'algorithms/sort/mergesort.md'
 - Concurrency:
   - Intro: 'concurrency/intro.md'
 - Java:
