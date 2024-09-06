@@ -1,5 +1,15 @@
 # Reversing a linked list
 
+<style>
+.md-logo img {
+  content: url('/data-structures/linked-list/polyline-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/data-structures/linked-list/polyline-night.svg');
+}
+</style>
+
 ```kotlin
 fun Node.reverse(predecessor: Node? = null): Node {
   var prev: Node? = predecessor

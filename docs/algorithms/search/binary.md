@@ -2,11 +2,11 @@
 
 <style>
 .md-logo img {
-  content: url('/search/binary-search-light.svg');
+  content: url('/algorithms/search/binary-search-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/search/binary-search-dark.svg');
+  content: url('/algorithms/search/binary-search-dark.svg');
 }
 </style>
 

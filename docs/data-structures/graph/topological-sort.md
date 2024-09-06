@@ -2,11 +2,11 @@
 
 <style>
 .md-logo img {
-  content: url('/graph/network-light.svg');
+  content: url('/data-structures/graph/network-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/graph/network-dark.svg');
+  content: url('/data-structures/graph/network-dark.svg');
 }
 </style>
 

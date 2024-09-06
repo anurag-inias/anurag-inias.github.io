@@ -2,11 +2,11 @@
 
 <style>
 .md-logo img {
-  content: url('/numbers/binary-light.svg');
+  content: url('/data-structures/numbers/binary-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/numbers/binary-dark.svg');
+  content: url('/data-structures/numbers/binary-dark.svg');
 }
 </style>
 

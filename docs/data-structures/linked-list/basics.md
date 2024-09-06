@@ -1,5 +1,15 @@
 # Linked List
 
+<style>
+.md-logo img {
+  content: url('/data-structures/linked-list/polyline-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/data-structures/linked-list/polyline-night.svg');
+}
+</style>
+
 ## About
 
 Linked list is a linear data structure in which objects are ordered through a _reference_ in each object. 

@@ -2,11 +2,11 @@
 
 <style>
 .md-logo img {
-  content: url('/heap/triangle-light.svg');
+  content: url('/data-structures/heap/triangle-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/heap/triangle-dark.svg');
+  content: url('/data-structures/heap/triangle-dark.svg');
 }
 </style>
 

@@ -68,6 +68,7 @@ nav:
   - Linked List:
     - Basics: 'data-structures/linked-list/basics.md'
     - Reversing linked list: 'data-structures/linked-list/reverse.md'
+    - Sentinel: 'data-structures/linked-list/sentinel.md'
   - Heap: 'data-structures/heap/index.md'
   - Circular list: 'data-structures/circular-list.md'
   - Graph:
@@ -76,7 +77,7 @@ nav:
         - Generic Search: 'data-structures/graph/generic-search.md'
         - BFS: 'data-structures/graph/bfs.md'
         - DFS: 'data-structures/graph/dfs.md'
-    - Topological Sort: 'graph/topological-sort.md'
+    - Topological Sort: 'data-structures/graph/topological-sort.md'
 - Algorithms:
   - Binary Search: 'algorithms/search/binary.md'
   - Partitioning: 'algorithms/partition/partition.md'

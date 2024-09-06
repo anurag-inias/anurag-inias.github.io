@@ -5,11 +5,11 @@
 
 <style>
 .md-logo img {
-  content: url('/sort/sort-light.svg');
+  content: url('/algorithms/sort/sort-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/sort/sort-dark.svg');
+  content: url('/algorithms/sort/sort-dark.svg');
 }
 </style>
 
