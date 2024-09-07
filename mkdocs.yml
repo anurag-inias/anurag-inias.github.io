@@ -67,6 +67,8 @@ nav:
     - Basics: 'data-structures/linked-list/basics.md'
     - Reversing linked list: 'data-structures/linked-list/reverse.md'
     - Sentinel: 'data-structures/linked-list/sentinel.md'
+    - Linked list as Stack: 'data-structures/linked-list/stack-as-linked-list.md'
+    - Linked list as Queue: 'data-structures/linked-list/queue-as-linked-list.md'
   - Heap: 'data-structures/heap/index.md'
   - Circular list: 'data-structures/circular-list.md'
   - Graph:

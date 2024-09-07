@@ -122,6 +122,20 @@ Unlike the previous iteration of linked list, this time we don't have `head` and
         @property
         def empty(self):
             return self._sentinel.next == self._sentinel
+
+        // Peak head
+        @property
+        def head(self) -> Optional[int]:
+            if self.empty:
+                return None
+            return self._sentinel.next.value
+
+        // Peak tail
+        @property
+        def tail(self) -> Optional[int]:
+            if self.empty:
+                return None
+            return self._sentinel.prev.value
     ```
 
 ## Adding elements
