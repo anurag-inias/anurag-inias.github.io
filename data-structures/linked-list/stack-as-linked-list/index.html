@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../operators/">
+        <link rel="prev" href="../sentinel/">
       
       
-        <link rel="next" href="../objects/">
+        <link rel="next" href="../queue-as-linked-list/">
       
       
-      <link rel="icon" href="../../assets/fatigue-dark.svg">
+      <link rel="icon" href="../../../assets/fatigue-dark.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>Structure - listless 💤</title>
+        <title>Linked list as Stack - listless 💤</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,16 +46,16 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -64,7 +64,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-program-structure" class="md-skip">
+        <a href="#linked-list-as-stack" class="md-skip">
           Skip to content
         </a>
       
@@ -99,9 +99,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Structure
+              Linked list as Stack
             
           </span>
         </div>
@@ -182,9 +182,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     listless 💤
@@ -199,7 +199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -216,17 +216,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -240,7 +242,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Data Structures
@@ -289,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/representation/" class="md-nav__link">
+      <a href="../../numbers/representation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/arithmetic/" class="md-nav__link">
+      <a href="../../numbers/arithmetic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -336,17 +338,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -360,7 +364,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Linked List
@@ -374,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/basics/" class="md-nav__link">
+      <a href="../basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -395,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/reverse/" class="md-nav__link">
+      <a href="../reverse/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -416,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/sentinel/" class="md-nav__link">
+      <a href="../sentinel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -434,10 +438,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/stack-as-linked-list/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Linked list as Stack
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -446,6 +470,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit tests
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -458,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/queue-as-linked-list/" class="md-nav__link">
+      <a href="../queue-as-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -487,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/heap/" class="md-nav__link">
+      <a href="../../heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -508,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/circular-list/" class="md-nav__link">
+      <a href="../../circular-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -564,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/intro/" class="md-nav__link">
+      <a href="../../graph/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/generic-search/" class="md-nav__link">
+      <a href="../../graph/generic-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/bfs/" class="md-nav__link">
+      <a href="../../graph/bfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/dfs/" class="md-nav__link">
+      <a href="../../graph/dfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/topological-sort/" class="md-nav__link">
+      <a href="../../graph/topological-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -762,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/search/binary/" class="md-nav__link">
+      <a href="../../../algorithms/search/binary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -783,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/partition/partition/" class="md-nav__link">
+      <a href="../../../algorithms/partition/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -839,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/quicksort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/quicksort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -860,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/mergesort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/mergesort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -931,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/intro/" class="md-nav__link">
+      <a href="../../../concurrency/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -994,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections-framework/" class="md-nav__link">
+      <a href="../../../java/collections-framework/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1057,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kt/concurrency/" class="md-nav__link">
+      <a href="../../../kt/concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1120,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/activities/" class="md-nav__link">
+      <a href="../../../android/activities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1141,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/tasks/" class="md-nav__link">
+      <a href="../../../android/tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1162,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fragments/" class="md-nav__link">
+      <a href="../../../android/fragments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1183,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/animation-transition/" class="md-nav__link">
+      <a href="../../../android/animation-transition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1246,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/types/" class="md-nav__link">
+      <a href="../../../js/types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1267,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/hoisting/" class="md-nav__link">
+      <a href="../../../js/hoisting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1288,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/closures/" class="md-nav__link">
+      <a href="../../../js/closures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1309,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/" class="md-nav__link">
+      <a href="../../../js/objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1334,19 +1396,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1360,7 +1420,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Python
@@ -1374,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basics/" class="md-nav__link">
+      <a href="../../../python/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1395,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
+      <a href="../../../python/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1413,30 +1473,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Structure
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../python/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1445,53 +1485,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#loops" class="md-nav__link">
-    <span class="md-ellipsis">
-      Loops
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exception" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exception
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1504,7 +1497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../objects/" class="md-nav__link">
+      <a href="../../../python/objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1525,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
+      <a href="../../../python/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1546,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../generators/" class="md-nav__link">
+      <a href="../../../python/generators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1567,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/" class="md-nav__link">
+      <a href="../../../python/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1630,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/setup/" class="md-nav__link">
+      <a href="../../../ubuntu/setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1693,7 +1686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/display/" class="md-nav__link">
+      <a href="../../../misc/display/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1741,27 +1734,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
+  <a href="#implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Structure
+      Implementation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#loops" class="md-nav__link">
+  <a href="#unit-tests" class="md-nav__link">
     <span class="md-ellipsis">
-      Loops
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exception" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exception
+      Unit tests
     </span>
   </a>
   
@@ -1782,89 +1766,158 @@
                   
 
 
-<h1 id="python-program-structure">Python – Program Structure</h1>
+<h1 id="linked-list-as-stack">Linked list as Stack</h1>
 <style>
 .md-logo img {
-  content: url('/python/python.svg');
+  content: url('/data-structures/linked-list/polyline-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/python/python.svg');
+  content: url('/data-structures/linked-list/polyline-night.svg');
 }
 </style>
 
-<h2 id="structure">Structure</h2>
-<p>All Python programs are sequence of statments, and statements have equal status with all other statements.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># do something</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># do something else</span>
-</span></code></pre></div>
-<p>which makes the above valid, something not possible in other languages.</p>
-<h2 id="loops">Loops</h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  <span class="c1"># x = 1, y = 2, z = 3</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  <span class="c1"># x = 1, z = 3</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  <span class="c1"># built-in function to get index</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">]</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="c1"># combines the two in an iterable of tuples</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  <span class="c1"># x = &#39;a&#39;, y = &#39;p&#39;</span>
-</span></code></pre></div>
-<h2 id="exception">Exception</h2>
-<table>
-<thead>
-<tr>
-<th>Exception class</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>BaseException</code></td>
-<td>Root class for all exceptions</td>
-</tr>
-<tr>
-<td><code>Exception</code></td>
-<td>Base of all program-related errors</td>
-</tr>
-<tr>
-<td><code>ArithmeticError</code></td>
-<td>Base of all math-related errors</td>
-</tr>
-<tr>
-<td><code>ImportError</code></td>
-<td>Base of all import related errors</td>
-</tr>
-<tr>
-<td><code>LookupError</code></td>
-<td>Base of all container lookup errors</td>
-</tr>
-<tr>
-<td><code>OSError</code></td>
-<td>Base of all system errors</td>
-</tr>
-<tr>
-<td><code>ValueError</code></td>
-<td>Base of all value related errors, including Unicode</td>
-</tr>
-<tr>
-<td><code>UnicodeError</code></td>
-<td>Base of all string encoding errors</td>
-</tr>
-</tbody>
-</table>
-<p>Some exception are used to alter control flow. e.g. <code>SystemExit</code> for when progrm exits, <code>KeyboardInterrupt</code> for when program is killed via Ctrl+C, and <code>StopIteration</code> to signal iteration end.</p>
+<h2 id="implementation">Implementation</h2>
+<p>This can be implemented even as a singly-linked list, with <code>push</code> and <code>pop</code> happening at <code>head</code>.</p>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">stack.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">linkedlist.list</span> <span class="kn">import</span> <span class="n">LinkedList</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_list</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="nd">@property</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="nd">@property</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="o">.</span><span class="n">head</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a>            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="o">.</span><span class="n">remove_front</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="unit-tests">Unit tests</h2>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">test_stack.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">stack.stack</span> <span class="kn">import</span> <span class="n">Stack</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="k">def</span> <span class="nf">test_initialize_stack</span><span class="p">():</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span> <span class="ow">is</span> <span class="kc">True</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="k">def</span> <span class="nf">test_push_element_to_stack</span><span class="p">():</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span> <span class="ow">is</span> <span class="kc">None</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a>    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span> <span class="ow">is</span> <span class="mi">3</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span> <span class="ow">is</span> <span class="mi">2</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span> <span class="ow">is</span> <span class="mi">1</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26"></a>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28"></a>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="k">def</span> <span class="nf">test_pop_element_from_stack</span><span class="p">():</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30"></a>    <span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32"></a>    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33"></a>    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34"></a>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="ow">is</span> <span class="mi">1</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36"></a>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="ow">is</span> <span class="mi">2</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39"></a>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40"></a>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="ow">is</span> <span class="mi">3</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43"></a>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45"></a>    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">empty</span>
+</span></code></pre></div></td></tr></table></div>
 
 
 
@@ -1911,10 +1964,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
