@@ -26,61 +26,131 @@ This can avoid through involving a **sentinel**:
 
 ## Node 
 
-```kotlin linenums="1"
-class Node(val data: Int) {
+=== "Kotlin"
 
-  private var _prev: Node? = null
-  private var _next: Node? = null
+    ```kotlin linenums="1"
+    class Node(val data: Int) {
 
-  // Custom converter ensures that the below setters get triggered.
-  constructor(data: Int, prev: Node?, next: Node?): this(data) {
-    prev?.next = this
-    next?.prev = this
-  }
+      private var _prev: Node? = null
+      private var _next: Node? = null
 
-  var prev: Node?
-    get() = _prev
-    set(value) {
-      _prev = value
-      value?._next = this
+      // Custom converter ensures that the below setters get triggered.
+      constructor(data: Int, prev: Node?, next: Node?): this(data) {
+        prev?.next = this
+        next?.prev = this
+      }
+
+      var prev: Node?
+        get() = _prev
+        set(value) {
+          _prev = value
+          value?._next = this
+        }
+
+      var next: Node?
+        get() = _next
+        set(value) {
+          _next = value
+          value?._prev = this
+        }
+
+      override fun toString() = "${data}"
     }
+    ```
 
-  var next: Node?
-    get() = _next
-    set(value) {
-      _next = value
-      value?._prev = this
-    }
+=== "Python"
 
-  override fun toString() = "${data}"
-}
-```
+    ```python linenums="1"
+
+    class Node:
+
+        def __init__(self, value: int, prev: 'Node' = None, next: 'Node' = None) -> None:
+            self.value = value
+            self.prev = prev
+            self.next = next
+
+        @property
+        def prev(self): return self._prev
+
+        @property
+        def next(self): return self._next
+
+        @prev.setter
+        def prev(self, prev: 'Node'):
+            self._prev = prev
+            if prev is not None:
+                prev._next = self
+
+        @next.setter
+        def next(self, next: 'Node'):
+            self._next = next
+            if next is not None:
+                next._prev = self
+
+        def __str__(self): return f'{self.value}'
+
+        def __repr__(self): return f'Node({self.value})'
+
+    ```
 
 ## Sentinel setup
 
 Unlike the previous iteration of linked list, this time we don't have `head` and `tail` pointers. Instead the sentinel `nil` fills in for both.
 
-```kotlin linenums="1"
-class LinkedList {
-  private var nil = Node(0) // sentinel
-  private var size = 0
+=== "Kotlin"
 
-  init {
-    nil.next = nil         
-  }
-}
-```
+    ```kotlin linenums="1"
+    class LinkedList {
+      private var nil = Node(0) // sentinel
+      private var size = 0
+
+      init {
+        nil.next = nil         
+      }
+    }
+    ```
+
+=== "Python"
+
+    ```python linenums="1"
+    class LinkedList:
+
+        def __init__(self):
+            self._sentinel = Node(0)
+            self._sentinel.next = self._sentinel
+
+        @property
+        def empty(self):
+            return self._sentinel.next == self._sentinel
+    ```
 
 ## Adding elements
 
 <div class="grid" markdown>
 
-```kotlin linenums="1"
-fun prepend(data: Int) {
-  size++
-  nil.next = Node(data, nil, nil.next)
-}
-```
+<div markdown>
+
+=== "Kotlin"
+
+    ```kotlin linenums="1"
+    fun prepend(data: Int) {
+      size++
+      nil.next = Node(data, nil, nil.next)
+    }
+    ```
+
+=== "Python"
+
+    ```kotlin linenums="1"
+    def prepend(self, data: int):
+        self._sentinel.next = Node(data, self._sentinel, self._sentinel.next)
+    ```
+
+</div>
+
+<div markdown>
+
+<br>
 
 ```linenums="1"
 Before ┌>[nil] <-> [old head]<┐
@@ -90,12 +160,31 @@ Before ┌>[nil] <-> [old head]<┐
        └---------------------------------┘   
 ```
 
-```kotlin linenums="1"
-fun append(data: Int) {
-  size++
-  nil.prev = Node(data, nil.prev, nil)
-}
-```
+</div>
+
+<div markdown>
+
+=== "Kotlin"
+
+    ```kotlin linenums="1"
+    fun append(data: Int) {
+      size++
+      nil.prev = Node(data, nil.prev, nil)
+    }
+    ```
+
+=== "Python"
+
+    ```kotlin linenums="1"
+    def append(self, data: int):
+        self._sentinel.prev = Node(data, self._sentinel.prev, self._sentinel)
+    ```
+
+</div>
+
+<div markdown>
+
+<br>
 
 ```linenums="1"
 Before ┌>[old tail] <-> [nil]<┐
@@ -107,20 +196,43 @@ Before ┌>[old tail] <-> [nil]<┐
 
 </div>
 
+</div>
+
 ## Removing elements
 
 <div class="grid" markdown>
 
-```kotlin linenums="1"
-fun removeFront(): Int? {
-  if (size == 0) return null
-  size--
+<div markdown>
 
-  val res = nil.next?.data
-  nil.next = nil.next?.next
-  return res
-}
-```
+=== "Kotlin"
+
+    ```kotlin linenums="1"
+    fun removeFront(): Int? {
+      if (size == 0) return null
+      size--
+
+      val res = nil.next?.data
+      nil.next = nil.next?.next
+      return res
+    }
+    ```
+
+=== "Python"
+
+    ```python linenums="1"
+    def remove_front(self) -> Optional[int]:
+        if self.empty:
+            return None
+
+        val, self._sentinel.next = self._sentinel.next.value, self._sentinel.next.next
+        return val
+    ```
+
+</div>
+
+<div markdown>
+
+<br>
 
 ```linenums="1"
 Before ┌>[nil] <-> [old head] <-> [head]<┐
@@ -130,16 +242,39 @@ Before ┌>[nil] <-> [old head] <-> [head]<┐
        └-------------------┘   
 ```
 
-```kotlin linenums="1"
-fun removeBack(): Int? {
-  if (size == 0) return null
-  size--
+</div>
 
-  val res = nil.prev?.data
-  nil.prev = nil.prev?.prev
-  return res
-}
-```
+<div markdown>
+
+=== "Kotlin"
+
+    ```kotlin linenums="1"
+    fun removeBack(): Int? {
+      if (size == 0) return null
+      size--
+
+      val res = nil.prev?.data
+      nil.prev = nil.prev?.prev
+      return res
+    }
+    ```
+
+=== "Python"
+
+    ```python linenums="1"
+    def remove_back(self) -> Optional[int]:
+        if self.empty:
+            return None
+
+        val, self._sentinel.prev = self._sentinel.prev.value, self._sentinel.prev.prev
+        return val
+    ```
+
+</div>
+
+<div markdown>
+
+<br>
 
 ```linenums="1"
 Before ┌>[tail] <-> [old tail] <-> [nil]<┐
@@ -150,3 +285,245 @@ Before ┌>[tail] <-> [old tail] <-> [nil]<┐
 ```
 
 </div>
+
+</div>
+
+## Unit tests
+
+=== "Kotlin"
+
+    ```kotlin linenums="1" title="LinkedListTest.kt"
+    package com.example.ll
+
+    import org.assertj.core.api.Assertions.assertThat
+    import org.junit.jupiter.api.BeforeEach
+    import org.junit.jupiter.api.Test
+    import java.util.concurrent.ThreadLocalRandom
+    import kotlin.streams.toList
+
+    class LinkedListTest {
+
+      private lateinit var list: LinkedList
+
+      @BeforeEach
+      fun setup() {
+        list = LinkedList()
+      }
+
+      @Test
+      fun empty() {
+        assertThat(list.toString()).isEqualTo("[]")
+      }
+
+      @Test
+      fun append_simple() {
+        list.append(1)
+        list.append(2)
+        list.append(3)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3]")
+      }
+
+      @Test
+      fun append() {
+        val items = ThreadLocalRandom.current().ints(100, 0, 1000).toList()
+        for ((i, v) in items.withIndex()) {
+          list.append(v)
+          assertThat(list.toString()).isEqualTo(items.subList(0, i+1).toString())
+        }
+      }
+
+      @Test
+      fun prepend_simple() {
+        list.prepend(1)
+        list.prepend(2)
+        list.prepend(3)
+        assertThat(list.toString()).isEqualTo("[3, 2, 1]")
+      }
+
+      @Test
+      fun prepend() {
+        val items = ThreadLocalRandom.current().ints(100, 0, 1000).toList()
+        for ((i, v) in items.withIndex()) {
+          list.prepend(v)
+          assertThat(list.toString()).isEqualTo(items.subList(0, i+1).reversed().toString())
+        }
+      }
+
+      @Test
+      fun removeFront_afterAppend() {
+        list.append(1)
+        list.append(2)
+        list.append(3)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3]")
+
+        assertThat(list.removeFront()).isEqualTo(1)
+        assertThat(list.toString()).isEqualTo("[2, 3]")
+
+        assertThat(list.removeFront()).isEqualTo(2)
+        assertThat(list.toString()).isEqualTo("[3]")
+
+        assertThat(list.removeFront()).isEqualTo(3)
+        assertThat(list.toString()).isEqualTo("[]")
+
+        assertThat(list.removeFront()).isNull()
+        assertThat(list.toString()).isEqualTo("[]")
+      }
+
+      @Test
+      fun removeFront_afterPrepend() {
+        list.prepend(3)
+        list.prepend(2)
+        list.prepend(1)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3]")
+
+        assertThat(list.removeFront()).isEqualTo(1)
+        assertThat(list.toString()).isEqualTo("[2, 3]")
+
+        assertThat(list.removeFront()).isEqualTo(2)
+        assertThat(list.toString()).isEqualTo("[3]")
+
+        assertThat(list.removeFront()).isEqualTo(3)
+        assertThat(list.toString()).isEqualTo("[]")
+
+        assertThat(list.removeFront()).isNull()
+        assertThat(list.toString()).isEqualTo("[]")
+      }
+
+      @Test
+      fun removeBack_afterAppend() {
+        list.append(1)
+        list.append(2)
+        list.append(3)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3]")
+
+        assertThat(list.removeBack()).isEqualTo(3)
+        assertThat(list.toString()).isEqualTo("[1, 2]")
+
+        assertThat(list.removeBack()).isEqualTo(2)
+        assertThat(list.toString()).isEqualTo("[1]")
+
+        assertThat(list.removeBack()).isEqualTo(1)
+        assertThat(list.toString()).isEqualTo("[]")
+
+        assertThat(list.removeBack()).isNull()
+        assertThat(list.toString()).isEqualTo("[]")
+      }
+
+      @Test
+      fun append_prepend() {
+        list.append(4)
+        list.append(5)
+        list.append(6)
+        list.prepend(3)
+        list.prepend(2)
+        list.prepend(1)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3, 4, 5, 6]")
+
+        assertThat(list.removeBack()).isEqualTo(6)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3, 4, 5]")
+
+        assertThat(list.removeBack()).isEqualTo(5)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3, 4]")
+
+        assertThat(list.removeBack()).isEqualTo(4)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3]")
+
+        list.append(4)
+        list.append(5)
+        list.append(6)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3, 4, 5, 6]")
+
+        assertThat(list.removeFront()).isEqualTo(1)
+        assertThat(list.toString()).isEqualTo("[2, 3, 4, 5, 6]")
+
+        assertThat(list.removeFront()).isEqualTo(2)
+        assertThat(list.toString()).isEqualTo("[3, 4, 5, 6]")
+
+        assertThat(list.removeFront()).isEqualTo(3)
+        assertThat(list.toString()).isEqualTo("[4, 5, 6]")
+      }
+    }
+
+    ```
+
+=== "Python"
+
+    ```python linenums="1" title="test_list.py"
+    from linkedlist.list import LinkedList
+
+
+    def test_empty():
+        ll = LinkedList()
+        assert ll.empty
+
+
+    def test_prepend():
+        ll = LinkedList()
+        ll.prepend(3)
+        ll.prepend(2)
+        ll.prepend(1)
+        assert str(ll) == "[1, 2, 3]"
+
+
+    def test_append():
+        ll = LinkedList()
+        ll.append(1)
+        ll.append(2)
+        ll.append(3)
+        assert str(ll) == "[1, 2, 3]"
+
+
+    def test_remove_front():
+        ll = LinkedList()
+        ll.prepend(3)
+        ll.prepend(2)
+        ll.prepend(1)
+        assert str(ll) == "[1, 2, 3]"
+
+        assert ll.remove_front() == 1
+        assert str(ll) == "[2, 3]"
+
+        assert ll.remove_front() == 2
+        assert str(ll) == "[3]"
+
+        assert ll.remove_front() == 3
+        assert str(ll) == "[]"
+
+        assert ll.remove_front() is None
+        assert str(ll) == "[]"
+
+        ll.append(3)
+        ll.prepend(2)
+        ll.prepend(1)
+        assert ll.remove_front() == 1
+        assert ll.remove_front() == 2
+        assert ll.remove_front() == 3
+
+
+    def test_remove_back():
+        ll = LinkedList()
+        ll.append(1)
+        ll.append(2)
+        ll.append(3)
+        assert str(ll) == "[1, 2, 3]"
+
+        assert ll.remove_back() == 3
+        assert str(ll) == "[1, 2]"
+
+        assert ll.remove_back() == 2
+        assert str(ll) == "[1]"
+
+        assert ll.remove_back() == 1
+        assert str(ll) == "[]"
+
+        assert ll.remove_back() is None
+        assert str(ll) == "[]"
+
+        ll.prepend(2)
+        ll.append(3)
+        ll.prepend(1)
+        assert ll.remove_back() == 3
+        assert ll.remove_back() == 2
+        assert ll.remove_back() == 1
+
+    ```

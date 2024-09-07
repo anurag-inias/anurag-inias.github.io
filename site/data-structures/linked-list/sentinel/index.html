@@ -1,0 +1,2030 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../reverse/">
+      
+      
+        <link rel="next" href="../../heap/">
+      
+      
+      <link rel="icon" href="../../../assets/fatigue-dark.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Sentinel - listless 💤</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sentinel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+      
+  <img src="../../../assets/tired.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            listless 💤
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sentinel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+      
+  <img src="../../../assets/tired.svg" alt="logo">
+
+    </a>
+    listless 💤
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Numbers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Numbers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numbers/representation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Representation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numbers/arithmetic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arithmetic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linked List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linked List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reversing linked list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sentinel
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sentinel
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simplifying-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplifying edge-cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sentinel setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding elements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing elements
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../circular-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Circular list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Graph
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Graph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Traversal
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Traversal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/generic-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/bfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/dfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/topological-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/search/binary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/partition/partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sorting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sorting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/sort/quicksort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quicksort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/sort/mergesort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mergesort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Concurrency
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Concurrency
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concurrency/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/collections-framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kt/concurrency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/activities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Activities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/fragments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fragments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/animation-transition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/hoisting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    var, hoisting and global
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/closures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Closures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/generators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/oop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object Oriented Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Ubuntu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ubuntu/setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/display/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Display Upgrade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simplifying-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplifying edge-cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sentinel setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding elements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing elements
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="sentinel">Sentinel</h1>
+<style>
+.md-logo img {
+  content: url('/data-structures/linked-list/polyline-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/data-structures/linked-list/polyline-night.svg');
+}
+</style>
+
+<h2 id="simplifying-edge-cases">Simplifying edge-cases</h2>
+<p>Adding and removing elements at either end requires checking for a number of edge case, due to involvement of null pointers.</p>
+<p>This can avoid through involving a <strong>sentinel</strong>:
+- Linked list is turned circular by stitching both ends together with this sentinel. 
+- A sentinel is a dummy node which doesn't contain any real data.
+- It acts as a replacement for checking boundary conditions.</p>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Do not edit this file with editors other than draw.io -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="358px" height="248px" viewBox="-0.5 -0.5 358 248" content="&lt;mxfile host=&quot;Electron&quot; agent=&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36&quot; version=&quot;24.7.5&quot; scale=&quot;1&quot; border=&quot;0&quot;&gt;&#10;  &lt;diagram name=&quot;Page-1&quot; id=&quot;k1Mti8jgYdnHTAhRTOPR&quot;&gt;&#10;    &lt;mxGraphModel dx=&quot;760&quot; dy=&quot;359&quot; grid=&quot;1&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;1&quot; pageScale=&quot;1&quot; pageWidth=&quot;850&quot; pageHeight=&quot;1100&quot; math=&quot;0&quot; shadow=&quot;0&quot;&gt;&#10;      &lt;root&gt;&#10;        &lt;mxCell id=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;1&quot; parent=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-1&quot; value=&quot;∅&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=default;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;330&quot; y=&quot;190&quot; width=&quot;50&quot; height=&quot;30&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-2&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;endSize=2;startSize=2;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-1&quot; target=&quot;2rN0PpIYbwCfaido1hTp-1&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;390&quot; y=&quot;205&quot; /&gt;&#10;              &lt;mxPoint x=&quot;390&quot; y=&quot;180&quot; /&gt;&#10;              &lt;mxPoint x=&quot;368&quot; y=&quot;180&quot; /&gt;&#10;            &lt;/Array&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-3&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;endSize=2;sourcePerimeterSpacing=-1;startSize=2;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-1&quot; target=&quot;2rN0PpIYbwCfaido1hTp-1&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;320&quot; y=&quot;205&quot; /&gt;&#10;              &lt;mxPoint x=&quot;320&quot; y=&quot;230&quot; /&gt;&#10;              &lt;mxPoint x=&quot;343&quot; y=&quot;230&quot; /&gt;&#10;            &lt;/Array&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-10&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endSize=2;startSize=2;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-4&quot; target=&quot;2rN0PpIYbwCfaido1hTp-7&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-13&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endSize=2;startSize=2;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-4&quot; target=&quot;2rN0PpIYbwCfaido1hTp-7&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;320&quot; y=&quot;295&quot; /&gt;&#10;              &lt;mxPoint x=&quot;320&quot; y=&quot;320&quot; /&gt;&#10;              &lt;mxPoint x=&quot;495&quot; y=&quot;320&quot; /&gt;&#10;            &lt;/Array&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-4&quot; value=&quot;∅&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=default;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;330&quot; y=&quot;280&quot; width=&quot;50&quot; height=&quot;30&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-11&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;startSize=2;endSize=2;endArrow=block;endFill=1;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-7&quot; target=&quot;2rN0PpIYbwCfaido1hTp-4&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-12&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=2;startSize=2;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-7&quot; target=&quot;2rN0PpIYbwCfaido1hTp-4&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;530&quot; y=&quot;288&quot; /&gt;&#10;              &lt;mxPoint x=&quot;530&quot; y=&quot;270&quot; /&gt;&#10;              &lt;mxPoint x=&quot;355&quot; y=&quot;270&quot; /&gt;&#10;            &lt;/Array&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-7&quot; value=&quot;1&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=default;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;470&quot; y=&quot;280&quot; width=&quot;50&quot; height=&quot;30&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-14&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endSize=2;startSize=2;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-16&quot; target=&quot;2rN0PpIYbwCfaido1hTp-19&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-24&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;startSize=2;endArrow=classic;endSize=2;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-16&quot; target=&quot;2rN0PpIYbwCfaido1hTp-20&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;320&quot; y=&quot;395&quot; /&gt;&#10;              &lt;mxPoint x=&quot;320&quot; y=&quot;420&quot; /&gt;&#10;              &lt;mxPoint x=&quot;635&quot; y=&quot;420&quot; /&gt;&#10;            &lt;/Array&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-16&quot; value=&quot;∅&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=default;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;330&quot; y=&quot;380&quot; width=&quot;50&quot; height=&quot;30&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-17&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;startSize=2;endSize=2;endArrow=block;endFill=1;strokeColor=default;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-19&quot; target=&quot;2rN0PpIYbwCfaido1hTp-16&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-21&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;startSize=2;endArrow=classic;endSize=2;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-19&quot; target=&quot;2rN0PpIYbwCfaido1hTp-20&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-19&quot; value=&quot;1&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=default;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;470&quot; y=&quot;380&quot; width=&quot;50&quot; height=&quot;30&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-22&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;startSize=2;endArrow=classic;endSize=2;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-20&quot; target=&quot;2rN0PpIYbwCfaido1hTp-19&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-23&quot; style=&quot;edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;startSize=2;endArrow=classic;endSize=2;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;2rN0PpIYbwCfaido1hTp-20&quot; target=&quot;2rN0PpIYbwCfaido1hTp-16&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;670&quot; y=&quot;388&quot; /&gt;&#10;              &lt;mxPoint x=&quot;670&quot; y=&quot;370&quot; /&gt;&#10;              &lt;mxPoint x=&quot;355&quot; y=&quot;370&quot; /&gt;&#10;            &lt;/Array&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;2rN0PpIYbwCfaido1hTp-20&quot; value=&quot;2&quot; style=&quot;rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=default;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;610&quot; y=&quot;380&quot; width=&quot;50&quot; height=&quot;30&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;      &lt;/root&gt;&#10;    &lt;/mxGraphModel&gt;&#10;  &lt;/diagram&gt;&#10;&lt;/mxfile&gt;&#10;"><defs/><g><g data-cell-id="0"><g data-cell-id="1"><g data-cell-id="2rN0PpIYbwCfaido1hTp-1"><g><rect x="13" y="13" width="50" height="30" fill="none" stroke="var(--md-code-fg-color)" pointer-events="all"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 48px; height: 1px; padding-top: 28px; margin-left: 14px;"><div data-drawio-colors="color: var(--md-code-fg-color); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: var(--md-code-fg-color); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">∅</div></div></div></foreignObject><image x="14" y="21.5" width="48" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAABECAYAAADX/TrJAAAAAXNSR0IArs4c6QAABW9JREFUeF7tnFvopVMYxn9jUKbBhdMYxyjKsRGSQ5ILSnK4UQ4XUqJMTcmp0TgkOSshF3KeueAGuXBjhpghQpFDRMmpXFDOOa9H66vV1/7vvb79X3tfzPusy/9/7Wet932f5/ve9a61viW42QOBPbAksO023R7AAjAJQnvAAggdfhtvAZgDoT1gAYQOv423AMyB0B6wAEKH38ZbAOZAaA9YAKHDb+MtAHMgtAcsgNDht/EWgDkQ2gMWQOjw23gLwBwI7QELYP7h3x7YF9gd2BX4FfgU+BL4Z/7TiT2iBTCf+G8LnAWcC5w/Zsh3Ur93gYeBN3r99gFeBO4CHp3PtLf+USyA2cf4dOBu4JCBQ20EVgMfJkHsDbwCHJAxLgYeG4jn7iM8YAHMjhZ66t8LXDFiiJ+At4Hvchp0TBLJjgtM5R7g7IL86nYDcPPsph4H2QKYTax3Sk/8p4HTevAPAU8CbwJ/9f63W+5/FXDEmGlJVFcmEfw7m6nHQrUA2sdbT/5ngTMK6M3ApTmdmTTiNnmdIKH0233AGpN/kgvr/28B1PuqtqcWqXpCd+1x4DLg91oAYGVeDKtSVLaLgKcG4LjrBA9YAG0pclxKY14vIDcAFw58Yov8r/Zy/g5Sa4dDc8m07cyDolkA7QIvX4q4J2RIlTRPynX+2lFGkV9vEJVPu0XyI0kAl9QCut94D1gA7RhyYhZAh3hsWge8NQB+FPnvTAK6GlDq80SBtT/wxQBsd13AAxZAO2rcBlyT4VQBOm8A9DjyC2ZpWhh/UqRFKq0+MADfXS2AmXPgs4KgZwIvVI4o8m8CDir6d0/+EkLVH5VA1e7Pm2SVQ7jbQh7wG6ANN1T6/LOAWg78UgFdS35BnQy8nDG1S3xqBb67TPCABdCGInumOv83GerztNl1YAXsKPLfUaRRfYi9gK/yH7WDvEfFGO5iAcyFA4cB7+eRtOmlBfG4NpT8wtIG2d8F6M7Aj3OxbisexG+ANsEVob+ufANMQ/5uliJ8Vw7dBfi+zfTjolgAbWIvP5Zn+ZelVOa3EdBKlZTHlwve29Mu8bUV09iht6egypDvD1Q4blwXC2CRDix+rh1g7QSrKSX6oAe9GPIL6nhA6ZWa1wCN4mYBNHJkvsTS7dDqHL9KlV1bLPmFcytwXQbUEYsL2k09LpIF0C72l6drjg9mOFVrVAn6A2hBfh2vFmaX/+t80fp2U4+LZAG0i72qMrrX25FURxh0cnPanL+c2U0p31+X/6ADcfsBP7SbelwkC6Bt7EVSkbVrImt506t2wVvO6hRAG19dW5vTobYzD4pmAbQNvKo/2g/o7u6W6NOQX0eftbjuRKQ0SH9z/b9R3CyARo4sYPonN/UvnQrV6dAhTZfpdaiufIMcne8SD8Fx3zEesADa0kO5udKVUW+A53Ie/96EIVekc0VKc/qX6X0brG2s/kezANo5VaTXp0v0CZNx7Zl8b+Aj4GPg5/xliFXp6a5TpCJ6v52T7xm3m62RLIDGHHituA0m6FtSvi6y6yNWR005lu4A6BtAW6b8vX82wQN+A7SjiL7t81LO2W8sqkE6Kq0Nsusr3g7dbFQ9UkVJ+wraS3CbkQcsgLaOPTI/7Ud9unC7lCKppKkvxB0MHF58/+fbfMVRFaTn85GH/neD2s7UaE6BzAF7wG8AcyC0ByyA0OG38RaAORDaAxZA6PDbeAvAHAjtAQsgdPhtvAVgDoT2gAUQOvw23gIwB0J7wAIIHX4bbwGYA6E9YAGEDr+NtwDMgdAesABCh9/GWwDmQGgPWAChw2/jLQBzILQHLIDQ4bfxFoA5ENoDFkDo8Nt4C8AcCO0BCyB0+G28BWAOhPbAf3p1qUVs0BfpAAAAAElFTkSuQmCC"/></switch></g></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-2"><g><path d="M 63 28 L 73 28 L 73 3 L 50.5 3 L 50.5 9.63" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 50.5 11.88 L 49 8.88 L 50.5 9.63 L 52 8.88 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-3"><g><path d="M 13 28 L 3 28 L 3 53 L 25.5 53 L 25.5 46.37" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 25.5 44.12 L 27 47.12 L 25.5 46.37 L 24 47.12 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-10"><g><path d="M 63 110.5 L 149.63 110.5" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 151.88 110.5 L 148.88 112 L 149.63 110.5 L 148.88 109 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-13"><g><path d="M 13 118 L 3 118 L 3 143 L 178 143 L 178 136.37" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 178 134.12 L 179.5 137.12 L 178 136.37 L 176.5 137.12 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-4"><g><rect x="13" y="103" width="50" height="30" fill="none" stroke="var(--md-code-fg-color)" pointer-events="all"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 48px; height: 1px; padding-top: 118px; margin-left: 14px;"><div data-drawio-colors="color: var(--md-code-fg-color); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: var(--md-code-fg-color); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">∅</div></div></div></foreignObject><image x="14" y="111.5" width="48" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAABECAYAAADX/TrJAAAAAXNSR0IArs4c6QAABW9JREFUeF7tnFvopVMYxn9jUKbBhdMYxyjKsRGSQ5ILSnK4UQ4XUqJMTcmp0TgkOSshF3KeueAGuXBjhpghQpFDRMmpXFDOOa9H66vV1/7vvb79X3tfzPusy/9/7Wet932f5/ve9a61viW42QOBPbAksO023R7AAjAJQnvAAggdfhtvAZgDoT1gAYQOv423AMyB0B6wAEKH38ZbAOZAaA9YAKHDb+MtAHMgtAcsgNDht/EWgDkQ2gMWQOjw23gLwBwI7QELYP7h3x7YF9gd2BX4FfgU+BL4Z/7TiT2iBTCf+G8LnAWcC5w/Zsh3Ur93gYeBN3r99gFeBO4CHp3PtLf+USyA2cf4dOBu4JCBQ20EVgMfJkHsDbwCHJAxLgYeG4jn7iM8YAHMjhZ66t8LXDFiiJ+At4Hvchp0TBLJjgtM5R7g7IL86nYDcPPsph4H2QKYTax3Sk/8p4HTevAPAU8CbwJ/9f63W+5/FXDEmGlJVFcmEfw7m6nHQrUA2sdbT/5ngTMK6M3ApTmdmTTiNnmdIKH0233AGpN/kgvr/28B1PuqtqcWqXpCd+1x4DLg91oAYGVeDKtSVLaLgKcG4LjrBA9YAG0pclxKY14vIDcAFw58Yov8r/Zy/g5Sa4dDc8m07cyDolkA7QIvX4q4J2RIlTRPynX+2lFGkV9vEJVPu0XyI0kAl9QCut94D1gA7RhyYhZAh3hsWge8NQB+FPnvTAK6GlDq80SBtT/wxQBsd13AAxZAO2rcBlyT4VQBOm8A9DjyC2ZpWhh/UqRFKq0+MADfXS2AmXPgs4KgZwIvVI4o8m8CDir6d0/+EkLVH5VA1e7Pm2SVQ7jbQh7wG6ANN1T6/LOAWg78UgFdS35BnQy8nDG1S3xqBb67TPCABdCGInumOv83GerztNl1YAXsKPLfUaRRfYi9gK/yH7WDvEfFGO5iAcyFA4cB7+eRtOmlBfG4NpT8wtIG2d8F6M7Aj3OxbisexG+ANsEVob+ufANMQ/5uliJ8Vw7dBfi+zfTjolgAbWIvP5Zn+ZelVOa3EdBKlZTHlwve29Mu8bUV09iht6egypDvD1Q4blwXC2CRDix+rh1g7QSrKSX6oAe9GPIL6nhA6ZWa1wCN4mYBNHJkvsTS7dDqHL9KlV1bLPmFcytwXQbUEYsL2k09LpIF0C72l6drjg9mOFVrVAn6A2hBfh2vFmaX/+t80fp2U4+LZAG0i72qMrrX25FURxh0cnPanL+c2U0p31+X/6ADcfsBP7SbelwkC6Bt7EVSkbVrImt506t2wVvO6hRAG19dW5vTobYzD4pmAbQNvKo/2g/o7u6W6NOQX0eftbjuRKQ0SH9z/b9R3CyARo4sYPonN/UvnQrV6dAhTZfpdaiufIMcne8SD8Fx3zEesADa0kO5udKVUW+A53Ie/96EIVekc0VKc/qX6X0brG2s/kezANo5VaTXp0v0CZNx7Zl8b+Aj4GPg5/xliFXp6a5TpCJ6v52T7xm3m62RLIDGHHituA0m6FtSvi6y6yNWR005lu4A6BtAW6b8vX82wQN+A7SjiL7t81LO2W8sqkE6Kq0Nsusr3g7dbFQ9UkVJ+wraS3CbkQcsgLaOPTI/7Ud9unC7lCKppKkvxB0MHF58/+fbfMVRFaTn85GH/neD2s7UaE6BzAF7wG8AcyC0ByyA0OG38RaAORDaAxZA6PDbeAvAHAjtAQsgdPhtvAVgDoT2gAUQOvw23gIwB0J7wAIIHX4bbwGYA6E9YAGEDr+NtwDMgdAesABCh9/GWwDmQGgPWAChw2/jLQBzILQHLIDQ4bfxFoA5ENoDFkDo8Nt4C8AcCO0BCyB0+G28BWAOhPbAf3p1qUVs0BfpAAAAAElFTkSuQmCC"/></switch></g></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-11"><g><path d="M 153 125.5 L 67.12 125.5" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 64.12 125.5 L 67.12 124 L 67.12 127 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-12"><g><path d="M 203 110.5 L 213 110.5 L 213 93 L 38 93 L 38 99.63" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 38 101.88 L 36.5 98.88 L 38 99.63 L 39.5 98.88 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-7"><g><rect x="153" y="103" width="50" height="30" fill="none" stroke="var(--md-code-fg-color)" pointer-events="all"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 48px; height: 1px; padding-top: 118px; margin-left: 154px;"><div data-drawio-colors="color: var(--md-code-fg-color); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: var(--md-code-fg-color); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">1</div></div></div></foreignObject><image x="154" y="111.5" width="48" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAABECAYAAADX/TrJAAAAAXNSR0IArs4c6QAAAsNJREFUeF7tnT1KBEEQRj9BwcRAb2FioAfwAEaGBh7Ja3gCD6DgVbyABoIoyATKKLvzs91d9UG/TQx2p6r6ffO2lkV0Tzwg0DGBvY7PztEhIATgJuiaAAJ0HT+HRwDuga4JIEDX8XN4BOAe6JoAAnQdP4dHAO6BrgkgQNfxc3gEyL0HjiS9SBp+Do83SceSvnLH6qc7AuRmfSPp/t8IB5I+c8fqpzsC5Gb9IOkKAfJCQIA89peSHje0ZwMEZoIAgbBHrc4kPY8++4+nQIDATBAgDvaJpOFd/1bS9URbBIjLhN8Gbcz6TtK5pIst7/ab2iNA41DG5dkAbWG/rrjxfyZBgLaZ/KmOAG1hI0BbvsXVEaAY4WQBBGjLt7g6AhQjnCxwOvER6FDSE1+Dtg1grjoCzBFq9/wgwDsCtAO8pDICLKHU5jUI0IbrqqoIsApX1RcjQFWcuxVDgN241bgKAWpQLKyBAIUACy5HgAJ4tS5FgFok19dBgPXMql+BANWRLi6IAItRtXshArRjO1cZAeYIBTyPAAGQt7RAgDz2v50RIC8EBMhjjwAG7BHAIAQ2QF4ICJDHng1gwB4BDEJgA+SFgAB57NkABuwRwCAENkBeCAiQx54NYMAeAQxCYAPkhYAAeezZAAbsEcAgBDZAXggIkMeeDWDAHgEMQmAD5IWAAHns2QAG7Ie/APexYY59/kFGXDpsgDjWdDIkgACGoTBSHAEEiGNNJ0MCCGAYCiPFEUCAONZ0MiSAAIahMFIcAQSIY00nQwIIYBgKI8URQIA41nQyJIAAhqEwUhwBBIhjTSdDAghgGAojxRFAgDjWdDIkgACGoTBSHAEEiGNNJ0MCCGAYCiPFEUCAONZ0MiSAAIahMFIcAQSIY00nQwIIYBgKI8URQIA41nQyJIAAhqEwUhwBBIhjTSdDAghgGAojxRH4Blh7RUWrAH4WAAAAAElFTkSuQmCC"/></switch></g></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-14"><g><path d="M 63 210.5 L 149.63 210.5" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 151.88 210.5 L 148.88 212 L 149.63 210.5 L 148.88 209 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-24"><g><path d="M 13 218 L 3 218 L 3 243 L 318 243 L 318 236.37" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 318 234.12 L 319.5 237.12 L 318 236.37 L 316.5 237.12 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-16"><g><rect x="13" y="203" width="50" height="30" fill="none" stroke="var(--md-code-fg-color)" pointer-events="all"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 48px; height: 1px; padding-top: 218px; margin-left: 14px;"><div data-drawio-colors="color: var(--md-code-fg-color); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: var(--md-code-fg-color); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">∅</div></div></div></foreignObject><image x="14" y="211.5" width="48" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAABECAYAAADX/TrJAAAAAXNSR0IArs4c6QAABW9JREFUeF7tnFvopVMYxn9jUKbBhdMYxyjKsRGSQ5ILSnK4UQ4XUqJMTcmp0TgkOSshF3KeueAGuXBjhpghQpFDRMmpXFDOOa9H66vV1/7vvb79X3tfzPusy/9/7Wet932f5/ve9a61viW42QOBPbAksO023R7AAjAJQnvAAggdfhtvAZgDoT1gAYQOv423AMyB0B6wAEKH38ZbAOZAaA9YAKHDb+MtAHMgtAcsgNDht/EWgDkQ2gMWQOjw23gLwBwI7QELYP7h3x7YF9gd2BX4FfgU+BL4Z/7TiT2iBTCf+G8LnAWcC5w/Zsh3Ur93gYeBN3r99gFeBO4CHp3PtLf+USyA2cf4dOBu4JCBQ20EVgMfJkHsDbwCHJAxLgYeG4jn7iM8YAHMjhZ66t8LXDFiiJ+At4Hvchp0TBLJjgtM5R7g7IL86nYDcPPsph4H2QKYTax3Sk/8p4HTevAPAU8CbwJ/9f63W+5/FXDEmGlJVFcmEfw7m6nHQrUA2sdbT/5ngTMK6M3ApTmdmTTiNnmdIKH0233AGpN/kgvr/28B1PuqtqcWqXpCd+1x4DLg91oAYGVeDKtSVLaLgKcG4LjrBA9YAG0pclxKY14vIDcAFw58Yov8r/Zy/g5Sa4dDc8m07cyDolkA7QIvX4q4J2RIlTRPynX+2lFGkV9vEJVPu0XyI0kAl9QCut94D1gA7RhyYhZAh3hsWge8NQB+FPnvTAK6GlDq80SBtT/wxQBsd13AAxZAO2rcBlyT4VQBOm8A9DjyC2ZpWhh/UqRFKq0+MADfXS2AmXPgs4KgZwIvVI4o8m8CDir6d0/+EkLVH5VA1e7Pm2SVQ7jbQh7wG6ANN1T6/LOAWg78UgFdS35BnQy8nDG1S3xqBb67TPCABdCGInumOv83GerztNl1YAXsKPLfUaRRfYi9gK/yH7WDvEfFGO5iAcyFA4cB7+eRtOmlBfG4NpT8wtIG2d8F6M7Aj3OxbisexG+ANsEVob+ufANMQ/5uliJ8Vw7dBfi+zfTjolgAbWIvP5Zn+ZelVOa3EdBKlZTHlwve29Mu8bUV09iht6egypDvD1Q4blwXC2CRDix+rh1g7QSrKSX6oAe9GPIL6nhA6ZWa1wCN4mYBNHJkvsTS7dDqHL9KlV1bLPmFcytwXQbUEYsL2k09LpIF0C72l6drjg9mOFVrVAn6A2hBfh2vFmaX/+t80fp2U4+LZAG0i72qMrrX25FURxh0cnPanL+c2U0p31+X/6ADcfsBP7SbelwkC6Bt7EVSkbVrImt506t2wVvO6hRAG19dW5vTobYzD4pmAbQNvKo/2g/o7u6W6NOQX0eftbjuRKQ0SH9z/b9R3CyARo4sYPonN/UvnQrV6dAhTZfpdaiufIMcne8SD8Fx3zEesADa0kO5udKVUW+A53Ie/96EIVekc0VKc/qX6X0brG2s/kezANo5VaTXp0v0CZNx7Zl8b+Aj4GPg5/xliFXp6a5TpCJ6v52T7xm3m62RLIDGHHituA0m6FtSvi6y6yNWR005lu4A6BtAW6b8vX82wQN+A7SjiL7t81LO2W8sqkE6Kq0Nsusr3g7dbFQ9UkVJ+wraS3CbkQcsgLaOPTI/7Ud9unC7lCKppKkvxB0MHF58/+fbfMVRFaTn85GH/neD2s7UaE6BzAF7wG8AcyC0ByyA0OG38RaAORDaAxZA6PDbeAvAHAjtAQsgdPhtvAVgDoT2gAUQOvw23gIwB0J7wAIIHX4bbwGYA6E9YAGEDr+NtwDMgdAesABCh9/GWwDmQGgPWAChw2/jLQBzILQHLIDQ4bfxFoA5ENoDFkDo8Nt4C8AcCO0BCyB0+G28BWAOhPbAf3p1qUVs0BfpAAAAAElFTkSuQmCC"/></switch></g></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-17"><g><path d="M 153 225.5 L 67.12 225.5" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 64.12 225.5 L 67.12 224 L 67.12 227 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-21"><g><path d="M 203 210.5 L 289.63 210.5" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 291.88 210.5 L 288.88 212 L 289.63 210.5 L 288.88 209 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-19"><g><rect x="153" y="203" width="50" height="30" fill="none" stroke="var(--md-code-fg-color)" pointer-events="all"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 48px; height: 1px; padding-top: 218px; margin-left: 154px;"><div data-drawio-colors="color: var(--md-code-fg-color); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: var(--md-code-fg-color); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">1</div></div></div></foreignObject><image x="154" y="211.5" width="48" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAABECAYAAADX/TrJAAAAAXNSR0IArs4c6QAAAsNJREFUeF7tnT1KBEEQRj9BwcRAb2FioAfwAEaGBh7Ja3gCD6DgVbyABoIoyATKKLvzs91d9UG/TQx2p6r6ffO2lkV0Tzwg0DGBvY7PztEhIATgJuiaAAJ0HT+HRwDuga4JIEDX8XN4BOAe6JoAAnQdP4dHAO6BrgkgQNfxc3gEyL0HjiS9SBp+Do83SceSvnLH6qc7AuRmfSPp/t8IB5I+c8fqpzsC5Gb9IOkKAfJCQIA89peSHje0ZwMEZoIAgbBHrc4kPY8++4+nQIDATBAgDvaJpOFd/1bS9URbBIjLhN8Gbcz6TtK5pIst7/ab2iNA41DG5dkAbWG/rrjxfyZBgLaZ/KmOAG1hI0BbvsXVEaAY4WQBBGjLt7g6AhQjnCxwOvER6FDSE1+Dtg1grjoCzBFq9/wgwDsCtAO8pDICLKHU5jUI0IbrqqoIsApX1RcjQFWcuxVDgN241bgKAWpQLKyBAIUACy5HgAJ4tS5FgFok19dBgPXMql+BANWRLi6IAItRtXshArRjO1cZAeYIBTyPAAGQt7RAgDz2v50RIC8EBMhjjwAG7BHAIAQ2QF4ICJDHng1gwB4BDEJgA+SFgAB57NkABuwRwCAENkBeCAiQx54NYMAeAQxCYAPkhYAAeezZAAbsEcAgBDZAXggIkMeeDWDAHgEMQmAD5IWAAHns2QAG7Ie/APexYY59/kFGXDpsgDjWdDIkgACGoTBSHAEEiGNNJ0MCCGAYCiPFEUCAONZ0MiSAAIahMFIcAQSIY00nQwIIYBgKI8URQIA41nQyJIAAhqEwUhwBBIhjTSdDAghgGAojxRFAgDjWdDIkgACGoTBSHAEEiGNNJ0MCCGAYCiPFEUCAONZ0MiSAAIahMFIcAQSIY00nQwIIYBgKI8URQIA41nQyJIAAhqEwUhwBBIhjTSdDAghgGAojxRH4Blh7RUWrAH4WAAAAAElFTkSuQmCC"/></switch></g></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-22"><g><path d="M 293 225.5 L 206.37 225.5" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 204.12 225.5 L 207.12 224 L 206.37 225.5 L 207.12 227 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-23"><g><path d="M 343 210.5 L 353 210.5 L 353 193 L 38 193 L 38 199.63" fill="none" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 38 201.88 L 36.5 198.88 L 38 199.63 L 39.5 198.88 Z" fill="var(--md-code-fg-color)" stroke="var(--md-code-fg-color)" stroke-miterlimit="10" pointer-events="all"/></g></g><g data-cell-id="2rN0PpIYbwCfaido1hTp-20"><g><rect x="293" y="203" width="50" height="30" fill="none" stroke="var(--md-code-fg-color)" pointer-events="all"/></g><g><g transform="translate(-0.5 -0.5)"><switch><foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 48px; height: 1px; padding-top: 218px; margin-left: 294px;"><div data-drawio-colors="color: var(--md-code-fg-color); " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: var(--md-code-fg-color); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">2</div></div></div></foreignObject><image x="294" y="211.5" width="48" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAABECAYAAADX/TrJAAAAAXNSR0IArs4c6QAABJxJREFUeF7tnU2oVVUUx3/PSigoGymUkFk5aJDoIAIhNBARSgoCIVSwQPNrJFJJEAkVZQOhNCIyUygQHJkgfqUUOJASBXUQDfwKGkk4Ugw9S86Dx2Gfc8++d+/z7nvrvycP3tt7rb3/a/3u3Wefdc4bQU0KOFZgxPHatXQpgABQErhWQAC4Dr8WLwCUA64VEACuw6/FCwDlgGsFBIDr8GvxAkA54FoBATA+4Z8CPA7MAB4BrgH/js9UfHsVAN3F/0ngdWAF8FLA7U3gPHABOAv8ANzqbno+PQmA/HF/sEjkD4Btka4MhpUlFJFD1b2tAgKgrVL99bNtzi/Agv6G3x+1tdgmfQH8P4ANDa1RQADkSw3T9gDwRgIX64vrhW8S2JGJigICIF9KbAC+rjF/BvgR+Kv4hL8NPAPMBTbV9Lfrg+d0oZw+WAIgvaZm8QHgH2B6wPyb5TdDyPPsYswuYEngj3uA1Xmm69eqAMgT+0XAiYDpxcCxHi6nAvYN8UKgn50kGVhqiRQQAImErJj5Hni78rvdwDst3c0H/gj0tW+GIy1tqFsLBQRAC5H66GJn+c9Xxr0C/Bph61zgW2AL8GWEDXXtoYAAyJMidwNmHwLuRLjbW94HGDtkH7Aqwoa6CoDOc+Ax4L+KV7upZac8Me0rYGNlwH5geYwR9W1WQN8A6TPk2fJ4c6zlg8CySFe/B26gfQh8EmlH3RsUEADp08MK3V4tSh/s52i7WnNRW+f9CeB64I+vlXeW08/aqUUBMHyBt5gcApYGpjaruBdwefimPHFnJACGL3ZW+xPa5hwtb5CFLrCHbxUTZEYCYHgC9TBgF7519wqeKu4tXBme6U6OmQiA4Yjjy8B3wJya6VgJhJVCqCVWQAAkFjTSnNUKfdrjDvF24D1AW59Icdt0FwBtVErfx+p9rMTZHpJ5tMH8W8DP6d3L4qgCAqD7XLDTnR0N2x2b0ckSkEvdT8+XRwHQXbynlaXO9qle16zuf10Bx0/a8nQTGAHQjc4vls8AzGxwZ3v9z4Ab3UxJXkwBAZA/Dzb3qOC0+h47+/87/1TkoaqAAMibE2uAb2tcXATWAlbzozZOCgiAfMLPKwrg/qwxb5/4tuWJKY/ON1PHlgVAnuBbSbS93Mqe8a22hcCpPG5lNVYBARCrWLv+dpJjD7dXmx2BHm5nQr26UEAA5FH5dOD1h+82XA/kmYWs9lRAAPSUKLqDbXuqJzr28tunteeP1jL7AAGQXmJ7jNGqOqvt4wSujgO/JbAjE6UCAiB9KuwsyxjSW4bPgfdzGPZqUwCkj7y9t8degJWjCYDEqgqAxIIWpc32/G9TycMgHgXAIOoFxgqAtIKanvZKlKYS50E8ftTH/xkYxN+kHysAJn2ItcAmBQSA8sO1AgLAdfi1eAGgHHCtgABwHX4tXgAoB1wrIABch1+LFwDKAdcKCADX4dfiBYBywLUCAsB1+LV4AaAccK2AAHAdfi1eACgHXCsgAFyHX4sXAMoB1woIANfh1+IFgHLAtQICwHX4tXgBoBxwrYAAcB1+LV4AKAdcKyAAXIdfixcAygHXCtwDLn1sRaKidZMAAAAASUVORK5CYII="/></switch></g></g></g></g></g></g></svg></p>
+<h2 id="node">Node</h2>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">_prev</span><span class="p">:</span><span class="w"> </span><span class="n">Node? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">_next</span><span class="p">:</span><span class="w"> </span><span class="n">Node? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="c1">// Custom converter ensures that the below setters get triggered.</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="k">constructor</span><span class="p">(</span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">prev</span><span class="p">:</span><span class="w"> </span><span class="n">Node?,</span><span class="w"> </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="n">Node?)</span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="n">prev</span><span class="o">?.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="n">next</span><span class="o">?.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">prev</span><span class="p">:</span><span class="w"> </span><span class="n">Node?</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_prev</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">      </span><span class="n">_prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">      </span><span class="n">value</span><span class="o">?.</span><span class="na">_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">next</span><span class="p">:</span><span class="w"> </span><span class="n">Node?</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_next</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">      </span><span class="n">_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">      </span><span class="n">value</span><span class="o">?.</span><span class="na">_prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="si">${</span><span class="n">data</span><span class="si">}</span><span class="s">&quot;</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="sentinel-setup">Sentinel setup</h2>
+<p>Unlike the previous iteration of linked list, this time we don't have <code>head</code> and <code>tail</code> pointers. Instead the sentinel <code>nil</code> fills in for both.</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">LinkedList</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">nil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// sentinel</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="n">nil</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nil</span><span class="w">         </span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="adding-elements">Adding elements</h2>
+<div class="grid">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">prepend</span><span class="p">(</span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="n">size</span><span class="o">++</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="n">nil</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">nil</span><span class="p">,</span><span class="w"> </span><span class="n">nil</span><span class="p">.</span><span class="na">next</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Before ┌&gt;[nil] &lt;-&gt; [old head]&lt;┐
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>       └----------------------┘   
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a> After ┌&gt;[nil] &lt;-&gt; [head] &lt;-&gt; [old head]&lt;┐  
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>       └---------------------------------┘   
+</span></code></pre></div></td></tr></table></div>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="n">size</span><span class="o">++</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="n">nil</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">nil</span><span class="p">.</span><span class="na">prev</span><span class="p">,</span><span class="w"> </span><span class="n">nil</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>Before ┌&gt;[old tail] &lt;-&gt; [nil]&lt;┐
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>       └----------------------┘   
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a> After ┌&gt;[old tail] &lt;-&gt; [tail] &lt;-&gt; [nil]&lt;┐  
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>       └---------------------------------┘   
+</span></code></pre></div></td></tr></table></div>
+</div>
+<h2 id="removing-elements">Removing elements</h2>
+<div class="grid">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span>
+<span class="normal"><a href="#__codelineno-6-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">removeFront</span><span class="p">():</span><span class="w"> </span><span class="kt">Int?</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="n">size</span><span class="o">--</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nil</span><span class="p">.</span><span class="na">next</span><span class="o">?.</span><span class="na">data</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">  </span><span class="n">nil</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nil</span><span class="p">.</span><span class="na">next</span><span class="o">?.</span><span class="na">next</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">res</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>Before ┌&gt;[nil] &lt;-&gt; [old head] &lt;-&gt; [head]&lt;┐
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>       └---------------------------------┘   
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a> After ┌&gt;[nil] &lt;-&gt; [head] &lt;┐  
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>       └-------------------┘   
+</span></code></pre></div></td></tr></table></div>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">removeBack</span><span class="p">():</span><span class="w"> </span><span class="kt">Int?</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="n">size</span><span class="o">--</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nil</span><span class="p">.</span><span class="na">prev</span><span class="o">?.</span><span class="na">data</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="n">nil</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nil</span><span class="p">.</span><span class="na">prev</span><span class="o">?.</span><span class="na">prev</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">res</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>Before ┌&gt;[tail] &lt;-&gt; [old tail] &lt;-&gt; [nil]&lt;┐
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>       └---------------------------------┘   
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a> After ┌&gt;[tail] &lt;-&gt; [nil]&lt;┐  
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>       └------------------┘    
+</span></code></pre></div></td></tr></table></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
