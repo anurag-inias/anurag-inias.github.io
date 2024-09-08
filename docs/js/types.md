@@ -51,16 +51,50 @@ Property | Decription
 `Number.NaN` | Special "not a number" value.
 `Number.POSITIVE_INFINITY` | Overflow.
 
-```javascript
-Number.parseInt('2')    // 2
-Number.parseInt('2.0')  // 2
-Number.parseInt('2a')   // 2
-Number.parseInt('2a2')  // 2
-Number.parseInt('22a')  // 22
-Number.parseInt('a2')   // NaN
+Implicit conversion to numbers generally follow common sense, but don't rely on them. Some conversions to keep in mind:
 
-Number.isInteger('2.0') // True
-Number.isInteger('2.1') // False
+Value | Converted to| Rationale
+------|-------------|-----------
+`undefined` | `NaN` | unexpected / system-level absence
+`null`      | `0`   | expected / program-level absence
+`true`      | `1`   | same as C
+`false`     | `0`   | same as C
+
+`string`s are trimmed of any whitespaces; empty strings are converted to `0`, and non-empty strings are passed to `Number()` function. Note that `Number(...)` is different from `Number.parseInt(...)`.
+
+<div class="grid" markdown>
+
+```javascript title="Number"
+Number('        ') // 0
+'        '/3       // 0
+'  33    '/3       // 11
+'  a33   '/3       // NaN
+'  33a   '/3       // NaN
+'  3 33  '/3       // NaN
+```
+
+```javascript title="parseInt"
+                      // (1)
+parseInt('        ')  // NaN
+parseInt('   33   ')  // 33
+parseInt('   a33  ')  // NaN
+parseInt('   33a  ')  // 33
+parseInt('   3 33 ')  // 3
+```
+
+1. what?
+
+</div>
+
+Maths operators (`-`, `*`, `/`, `**`, `%`) convert all operands to numbers too. `+` is an exception to this, which favors string operands.
+
+```javascript
+4 - false  // 4
+4 - true   // 3
+4 - [3]    // 1
+4 - [3, 3] // NaN
+
+4 + true   // 4[object Object]
 ```
 
 ## 3. BigInt
@@ -112,6 +146,20 @@ Use backticks for constructing string templates.
 ```javascript
 let name = 'Oinkster';
 let greet = `Hello ${name}`; // 'Hello Oinkster'
+```
+
+any string in `+` expression turns other operands in strings too.
+
+```javascript linenums="1"
+3 + 'hi'      // hi
+false + 'hi'  // falsehi
+{} + 'hi'     // [object Object]hi
+
+[] + 'hi'     // hi
+[3] + 'hi'    // 3hi
+[3, 4] + 'hi' // 3,4hi
+
+{} + false    // [object Object]false
 ```
 
 ## 5. null 

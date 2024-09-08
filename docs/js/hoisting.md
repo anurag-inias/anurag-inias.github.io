@@ -34,7 +34,7 @@ function foo() {
 
 </div>
 
-Note that only declarations are hosted, not the accompanying assignments.
+Note that only declarations are hoisted, not the accompanying assignments.
 
 ```javascript
 function foo() {
@@ -43,7 +43,7 @@ function foo() {
 }
 ```
 
-Note that JS will hoist even functions, and in fact hoist them before `var`s.
+JS will hoist even functions, and in fact hoist them before `var`s.
 
 ```javascript
 foo(); // 1

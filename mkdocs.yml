@@ -100,9 +100,9 @@ nav:
   - Fragments: 'android/fragments.md'
   - Animations: 'android/animation-transition.md'
 - Javascript:
+  - Basics: 'js/basics.md'
   - Types: 'js/types.md'
   - var, hoisting and global: 'js/hoisting.md'
-  - Closures: 'js/closures.md'
   - Objects: 'js/objects.md'
 - CSS:
   - Box Model: 'css/box-model.md'
