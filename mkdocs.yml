@@ -104,6 +104,8 @@ nav:
   - var, hoisting and global: 'js/hoisting.md'
   - Closures: 'js/closures.md'
   - Objects: 'js/objects.md'
+- CSS:
+  - Box Model: 'css/box-model.md'
 - Python:
   - Basics: 'python/basics.md'
   - Operators: 'python/operators.md'
