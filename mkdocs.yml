@@ -4,8 +4,8 @@ theme:
   logo: assets/fatigue-light.svg
   favicon: assets/fatigue-dark.svg
   font:
-    text: "Roboto"
-    code: "Roboto Mono"
+    text: "Google Sans Text"
+    code: "Roboto Mono Medium"
   features:
     - content.code.copy
     - content.code.annotate
