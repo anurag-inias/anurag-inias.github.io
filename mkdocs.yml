@@ -4,7 +4,7 @@ theme:
   logo: assets/fatigue-light.svg
   favicon: assets/fatigue-dark.svg
   font:
-    text: "Ariel"
+    text: "Briskpace"
     code: "Roboto Mono Medium"
   features:
     - content.code.copy

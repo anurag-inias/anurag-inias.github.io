@@ -20,6 +20,34 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: "Briskpace";
+  src: url("/assets/fonts/Briskpace.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Briskpace";
+  src: url("/assets/fonts/BriskpaceItalic.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Briskpace";
+  src: url("/assets/fonts/BriskpaceBold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Briskpace";
+  src: url("/assets/fonts/BriskpaceBoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic;
+}
+
 .md-logo img {
   content: url('/assets/fatigue-light.svg');
 }
