@@ -10,6 +10,11 @@
 }
 </style>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+</script>
+
 Stack is an abstract data type that serves the elements of a collection in last in, first out fashion.
 
 ## Interface
@@ -156,3 +161,46 @@ interface Stack {
       }
     }
     ```
+
+## Comparision
+
+<div id="impl"></div>
+
+<script type="text/javascript">
+  function chart() {
+    var data = google.visualization.arrayToDataTable(
+      [
+        ["Size", "Array", "Linked List"],
+        [100, 0, 0],
+        [1000, 0, 0],
+        [10000, 0, 0],
+        [100000, 1, 1],
+        [1000000, 3, 17],
+        [2000000, 2, 16],
+        [5000000, 8, 18],
+        [8000000, 6, 26],
+        [10000000, 14, 137],
+        [20000000, 24, 216],
+      ]
+    );
+
+    var options = {
+      title: 'Stack: array vs linked list',
+      curveType: 'function',
+      hAxis: {
+        title: 'input size'
+      },
+      vAxis: {
+        title: 'millis',
+        viewWindow: {
+          min: 0,
+          max: 256
+        },
+      }
+    };
+
+    const chart = new google.visualization.LineChart(document.getElementById('impl'));
+    chart.draw(data, options);
+  };  
+  google.charts.setOnLoadCallback(chart);
+</script>
