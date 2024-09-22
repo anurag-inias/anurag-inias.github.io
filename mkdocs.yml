@@ -74,6 +74,8 @@ nav:
     - Clone linked lists: 'data-structures/linked-list/clone.md'
     - Merge linked lists: 'data-structures/linked-list/merge.md'
     - Circular linked list: 'data-structures/linked-list/circular-linked-list.md'
+  - Stack:
+    - Basics: 'data-structures/stack/basics.md'
   - Heap: 'data-structures/heap/index.md'
   - Circular list: 'data-structures/circular-list.md'
   - Graph:
