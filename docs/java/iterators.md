@@ -178,8 +178,8 @@ Just as `forEach` is used with `Iterable`, `forEachRemaining` is used with `Iter
      Elements:    [0]   [1]   [2]   [3]   [4]   [5]
        Cursor:  ▲     ▲     ▲     ▲     ▲     ▲     ▲
 
-  hasPrevious:  ⍻     ✓     ✓     ✓     ✓     ✓     ✓
-      hasNext:  ✓     ✓     ✓     ✓     ✓     ✓     ⍻
+  hasPrevious:  𐄂     ✓     ✓     ✓     ✓     ✓     ✓
+      hasNext:  ✓     ✓     ✓     ✓     ✓     ✓     𐄂
 
      previous:        0     1     2     3     4     5
          next:  0     1     2     3     4     5
