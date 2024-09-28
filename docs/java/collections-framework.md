@@ -1,5 +1,15 @@
 # Java Collections
 
+<style>
+.md-logo img {
+  content: url('/java/logo.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/java/logo.svg');
+}
+</style>
+
 ![](./collections.svg){width=1280px}
 
 ## [Outline of the Collections Framework](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html)

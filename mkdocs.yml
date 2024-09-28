@@ -95,6 +95,7 @@ nav:
   - Intro: 'concurrency/intro.md'
 - Java:
   - Collections: 'java/collections-framework.md'
+  - Iterators: 'java/iterators.md'
 - Kotlin:
   - Concurrency: 'kt/concurrency.md'
 - Android:
