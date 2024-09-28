@@ -91,6 +91,10 @@ nav:
   - Sorting:
     - Quicksort: 'algorithms/sort/quicksort.md'
     - Mergesort: 'algorithms/sort/mergesort.md'
+- Design Patterns:
+  - Creational:
+    - Singleton: 'design-patterns/singleton.md'
+    - Builder: 'design-patterns/builder.md'
 - Concurrency:
   - Intro: 'concurrency/intro.md'
 - Java:
