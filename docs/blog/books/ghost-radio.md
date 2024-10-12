@@ -1,6 +1,6 @@
 # Ghost Radio by Leopoldo Gout
 
-|![](https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347769846i/3707819.jpg){width=140px}|
+|![](/blog/books/ghost-radio.jpeg){width=140px}|
 |------|
 | Finished :material-star: :material-star: :material-star-outline: :material-star-outline: :material-star-outline: |
 
