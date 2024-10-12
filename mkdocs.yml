@@ -59,6 +59,9 @@ extra_css:
 
 nav:
 - About: 'index.md'
+- Blog:
+  - Books:
+    - Ghost Radio: 'blog/books/ghost-radio.md'
 - Data Structures:
   - Numbers:
     - Representation: 'data-structures/numbers/representation.md'
