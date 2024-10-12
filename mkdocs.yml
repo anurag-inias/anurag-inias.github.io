@@ -63,6 +63,7 @@ nav:
   - Books:
     - Ghost Radio: 'blog/books/ghost-radio.md'
     - The Institute: 'blog/books/the-institute.md'
+    - The Reaping: 'blog/books/the-reaping.md'
 - Data Structures:
   - Numbers:
     - Representation: 'data-structures/numbers/representation.md'
