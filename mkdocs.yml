@@ -96,6 +96,7 @@ nav:
   - Sorting:
     - Quicksort: 'algorithms/sort/quicksort.md'
     - Mergesort: 'algorithms/sort/mergesort.md'
+    - Counting Sort: 'algorithms/sort/counting-sort.md'
 - Design Patterns:
   - Creational:
     - Singleton: 'design-patterns/singleton.md'
