@@ -130,6 +130,7 @@ nav:
   - Generators: 'python/generators.md'
   - Object Oriented Programming: 'python/oop.md'
 - Ubuntu:
+  - Static IP: 'ubuntu/static-ip.md'
   - Setup: 'ubuntu/setup.md'
 - Miscellaneous:
   - Display Upgrade: 'misc/display.md'
