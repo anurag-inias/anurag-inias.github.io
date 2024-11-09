@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../static-ip/">
+        <link rel="prev" href="../transmission/">
       
       
         <link rel="next" href="../../misc/display/">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Setup - listless 💤</title>
+        <title>Samba - listless 💤</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ubuntu-setup" class="md-skip">
+        <a href="#samba" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setup
+              Samba
             
           </span>
         </div>
@@ -2173,6 +2173,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../transmission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmission Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2189,7 +2210,7 @@
           
   
   <span class="md-ellipsis">
-    Setup
+    Samba
   </span>
   
 
@@ -2200,7 +2221,7 @@
         
   
   <span class="md-ellipsis">
-    Setup
+    Samba
   </span>
   
 
@@ -2222,27 +2243,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fix-suspend" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fix suspend
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#share-samba-directory" class="md-nav__link">
     <span class="md-ellipsis">
       Share samba directory
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transmission-web-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transmission web server
     </span>
   </a>
   
@@ -2354,27 +2357,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fix-suspend" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fix suspend
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#share-samba-directory" class="md-nav__link">
     <span class="md-ellipsis">
       Share samba directory
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transmission-web-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transmission web server
     </span>
   </a>
   
@@ -2395,44 +2380,28 @@
                   
 
 
-<h1 id="ubuntu-setup">Ubuntu Setup</h1>
-<h2 id="fix-suspend">Fix suspend</h2>
-<p>First disable NVIDIA systemd services:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo systemctl stop nvidia-suspend.service
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo systemctl stop nvidia-hibernate.service
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo systemctl stop nvidia-resume.service
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo systemctl disable nvidia-suspend.service
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo systemctl disable nvidia-hibernate.service
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>sudo systemctl disable nvidia-resume.service
-</span></code></pre></div>
-<p>and comment out content of <code>/lib/systemd/system-sleep/nvidia</code> file.</p>
+<h1 id="samba">Samba</h1>
+<style>
+.md-logo img {
+  content: url('/ubuntu/ubuntu-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/ubuntu/ubuntu-dark.svg');
+}
+</style>
+
 <h2 id="share-samba-directory">Share samba directory</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[public]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>path = /home/nimbus/external
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>public = yes
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>writeable = yes
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>browseable = yes
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>create mask = 0777
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>directory mask = 0777
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>guest ok = yes
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>force user = nimbus
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[public]
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>path = /home/johndoe/external
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>public = yes
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>writeable = yes
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>browseable = yes
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>create mask = 0777
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>directory mask = 0777
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>guest ok = yes
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>force user = johndoe
 </span></code></pre></div>
-<h2 id="transmission-web-server">Transmission web server</h2>
-<p>First install transmission:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo apt install transmission-daemon
-</span></code></pre></div>
-<p>Next update configurations to run it as user in this file:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/etc/init.d/transmission-daemon
-</span></code></pre></div>
-<p>Also update it here:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo systemctl edit transmission-daemon.service
-</span></code></pre></div>
-<p>After this transmission will create a configuration file at <code>.config/transmission-daemon/settings.json</code>. Update the following here:</p>
-<ul>
-<li><code>rpc-host-whitelist</code> add alll the alias of your host here.</li>
-<li><code>rpc-authentication-require</code> add a username and password here.</li>
-</ul>
 
 
 
