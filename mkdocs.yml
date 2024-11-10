@@ -131,7 +131,8 @@ nav:
   - Object Oriented Programming: 'python/oop.md'
 - Ubuntu:
   - Static IP: 'ubuntu/static-ip.md'
-  - Transmission Setup: 'ubuntu/transmission.md'
+  - NTFS mount: 'ubuntu/ntfs-mount.md'
+  - Transmission: 'ubuntu/transmission.md'
   - Samba: 'ubuntu/samba.md'
 - Miscellaneous:
   - Display Upgrade: 'misc/display.md'
