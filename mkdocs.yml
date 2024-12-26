@@ -10,7 +10,7 @@ theme:
     - content.code.copy
     - content.code.annotate
   # Setup for theme switch https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-palette-toggle
-  palette: 
+  palette:
     # Palette toggle for light mode
     - scheme: default
       primary: white
@@ -24,7 +24,7 @@ theme:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
 plugins:
-   - glightbox
+  - glightbox
 
 markdown_extensions:
   - pymdownx.superfences
@@ -58,84 +58,85 @@ extra_css:
   - assets/extra.css
 
 nav:
-- About: 'index.md'
-- Blog:
-  - Books:
-    - Ghost Radio: 'blog/books/ghost-radio.md'
-    - The Institute: 'blog/books/the-institute.md'
-    - The Reaping: 'blog/books/the-reaping.md'
-- Data Structures:
-  - Numbers:
-    - Representation: 'data-structures/numbers/representation.md'
-    - Arithmetic: 'data-structures/numbers/arithmetic.md'
-  - Linked List:
-    - Basics: 'data-structures/linked-list/basics.md'
-    - Reversing linked list: 'data-structures/linked-list/reverse.md'
-    - Sentinel: 'data-structures/linked-list/sentinel.md'
-    - Linked list as Stack: 'data-structures/linked-list/stack-as-linked-list.md'
-    - Linked list as Queue: 'data-structures/linked-list/queue-as-linked-list.md'
-    - Iterate over list: 'data-structures/linked-list/iterate.md'
-    - Compare linked lists: 'data-structures/linked-list/equality.md'
-    - Clone linked lists: 'data-structures/linked-list/clone.md'
-    - Merge linked lists: 'data-structures/linked-list/merge.md'
-    - Circular linked list: 'data-structures/linked-list/circular-linked-list.md'
-  - Stack:
-    - Basics: 'data-structures/stack/basics.md'
-  - Heap: 'data-structures/heap/index.md'
-  - Circular list: 'data-structures/circular-list.md'
-  - Graph:
-    - Intro: 'data-structures/graph/intro.md'
-    - Traversal:
-        - Generic Search: 'data-structures/graph/generic-search.md'
-        - BFS: 'data-structures/graph/bfs.md'
-        - DFS: 'data-structures/graph/dfs.md'
-    - Topological Sort: 'data-structures/graph/topological-sort.md'
-- Algorithms:
-  - Binary Search: 'algorithms/search/binary.md'
-  - Partitioning: 'algorithms/partition/partition.md'
-  - Sorting:
-    - Quicksort: 'algorithms/sort/quicksort.md'
-    - Mergesort: 'algorithms/sort/mergesort.md'
-    - Counting Sort: 'algorithms/sort/counting-sort.md'
-- Design Patterns:
-  - Creational:
-    - Singleton: 'design-patterns/singleton.md'
-    - Builder: 'design-patterns/builder.md'
-- Concurrency:
-  - Intro: 'concurrency/intro.md'
-- Java:
-  - Collections: 'java/collections-framework.md'
-  - Iterators: 'java/iterators.md'
-- Kotlin:
-  - Concurrency: 'kt/concurrency.md'
-- Android:
-  - Activities: 'android/activities.md'
-  - Tasks: 'android/tasks.md'
-  - Fragments: 'android/fragments.md'
-  - Animations: 'android/animation-transition.md'
-- Javascript:
-  - Objects:
-    - Basics: 'js/objects/basics.md'
-    - Prototype: 'js/objects/prototype.md'
-    - this: 'js/objects/this.md'
-- CSS:
-  - Box Model: 'css/box-model.md'
-  - em, rem, and more: 'css/relative-units.md'
-- Python:
-  - Basics: 'python/basics.md'
-  - Operators: 'python/operators.md'
-  - Structure: 'python/structure.md'
-  - Objects: 'python/objects.md'
-  - Functions: 'python/functions.md'
-  - Generators: 'python/generators.md'
-  - Object Oriented Programming: 'python/oop.md'
-- Ubuntu:
-  - Static IP: 'ubuntu/static-ip.md'
-  - NTFS mount: 'ubuntu/ntfs-mount.md'
-  - Transmission: 'ubuntu/transmission.md'
-  - Samba: 'ubuntu/samba.md'
-- Miscellaneous:
-  - Display Upgrade: 'misc/display.md'
-
-
-
+  - About: "index.md"
+  - Blog:
+      - Books:
+          - Ghost Radio: "blog/books/ghost-radio.md"
+          - The Institute: "blog/books/the-institute.md"
+          - The Reaping: "blog/books/the-reaping.md"
+  - Maths:
+      - Sets: "maths/sets.md"
+  - Data Structures:
+      - Numbers:
+          - Representation: "data-structures/numbers/representation.md"
+          - Arithmetic: "data-structures/numbers/arithmetic.md"
+      - Linked List:
+          - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
+          - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
+          - Problems:
+            - Readme: "data-structures/linked-list/problems/readme.md"
+            - Reversing linked list: "data-structures/linked-list/problems/reverse.md"
+            - Linked list as Stack: "data-structures/linked-list/problems/stack-as-linked-list.md"
+            - Linked list as Queue: "data-structures/linked-list/problems/queue-as-linked-list.md"
+            - Iterate over list: "data-structures/linked-list/problems/iterate.md"
+            - Compare linked lists: "data-structures/linked-list/problems/equality.md"
+            - Clone linked lists: "data-structures/linked-list/problems/clone.md"
+            - Merge linked lists: "data-structures/linked-list/problems/merge.md"
+            - Cycle detection: "data-structures/linked-list/problems/cycle-detection.md"
+      - Stack:
+          - Basics: "data-structures/stack/basics.md"
+      - Heap: "data-structures/heap/index.md"
+      - Circular list: "data-structures/circular-list.md"
+      - Graph:
+          - Intro: "data-structures/graph/intro.md"
+          - Traversal:
+              - Generic Search: "data-structures/graph/generic-search.md"
+              - BFS: "data-structures/graph/bfs.md"
+              - DFS: "data-structures/graph/dfs.md"
+          - Topological Sort: "data-structures/graph/topological-sort.md"
+  - Algorithms:
+      - Binary Search: "algorithms/search/binary.md"
+      - Partitioning: "algorithms/partition/partition.md"
+      - Sorting:
+          - Quicksort: "algorithms/sort/quicksort.md"
+          - Mergesort: "algorithms/sort/mergesort.md"
+          - Counting Sort: "algorithms/sort/counting-sort.md"
+  - Design Patterns:
+      - Creational:
+          - Singleton: "design-patterns/singleton.md"
+          - Builder: "design-patterns/builder.md"
+  - Concurrency:
+      - Intro: "concurrency/intro.md"
+  - Java:
+      - Collections: "java/collections-framework.md"
+      - Iterators: "java/iterators.md"
+  - Kotlin:
+      - Concurrency: "kt/concurrency.md"
+  - Android:
+      - Activities: "android/activities.md"
+      - Tasks: "android/tasks.md"
+      - Fragments: "android/fragments.md"
+      - Animations: "android/animation-transition.md"
+  - Javascript:
+      - Objects:
+          - Basics: "js/objects/basics.md"
+          - Prototype: "js/objects/prototype.md"
+          - this: "js/objects/this.md"
+  - CSS:
+      - Box Model: "css/box-model.md"
+      - em, rem, and more: "css/relative-units.md"
+  - Python:
+      - Basics: "python/basics.md"
+      - Operators: "python/operators.md"
+      - Structure: "python/structure.md"
+      - Objects: "python/objects.md"
+      - Functions: "python/functions.md"
+      - Generators: "python/generators.md"
+      - Object Oriented Programming: "python/oop.md"
+  - Ubuntu:
+      - Static IP: "ubuntu/static-ip.md"
+      - NTFS mount: "ubuntu/ntfs-mount.md"
+      - Transmission: "ubuntu/transmission.md"
+      - Samba: "ubuntu/samba.md"
+  - Miscellaneous:
+      - Display Upgrade: "misc/display.md"
