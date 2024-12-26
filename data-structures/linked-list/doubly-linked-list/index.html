@@ -1,0 +1,3473 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../singly-linked-list/">
+      
+      
+        <link rel="next" href="../problems/readme/">
+      
+      
+      <link rel="icon" href="../../../assets/fatigue-dark.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Doubly Linked List - listless 💤</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Briskpace:300,300i,400,400i,700,700i%7CRoboto+Mono+Medium:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Briskpace";--md-code-font:"Roboto Mono Medium"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#doubly-linked-list" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+      
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            listless 💤
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Doubly Linked List
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+      
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
+
+    </a>
+    listless 💤
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/books/ghost-radio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ghost Radio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/books/the-institute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Institute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/books/the-reaping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Reaping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Maths
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Maths
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../maths/sets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Numbers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Numbers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numbers/representation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Representation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numbers/arithmetic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arithmetic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linked List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linked List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singly-linked-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Singly Linked List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Doubly Linked List
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Doubly Linked List
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sentinel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linked List
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traversal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insertion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deletion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Implementation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Problems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Readme
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/reverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reversing linked list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/stack-as-linked-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linked list as Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/queue-as-linked-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linked list as Queue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/iterate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iterate over list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/equality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compare linked lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/clone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clone linked lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/merge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge linked lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems/cycle-detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cycle detection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stack
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../circular-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Circular list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Graph
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Graph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6_2" id="__nav_4_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Traversal
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Traversal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/generic-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/bfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/dfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/topological-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/search/binary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/partition/partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sorting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sorting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/sort/quicksort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quicksort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/sort/mergesort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mergesort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/sort/counting-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Counting Sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design Patterns
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Design Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Creational
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Creational
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../design-patterns/singleton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Singleton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../design-patterns/builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Concurrency
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Concurrency
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concurrency/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/collections-framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/iterators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iterators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kt/concurrency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/activities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Activities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/fragments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fragments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../android/animation-transition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Objects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Objects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/objects/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/objects/prototype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prototype
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js/objects/this/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    this
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            CSS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../css/box-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Box Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../css/relative-units/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    em, rem, and more
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/generators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/oop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object Oriented Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Ubuntu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ubuntu/static-ip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Static IP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ubuntu/ntfs-mount/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NTFS mount
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ubuntu/transmission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmission
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ubuntu/samba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Samba
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/display/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Display Upgrade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sentinel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linked List
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traversal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insertion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deletion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Implementation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="doubly-linked-list">Doubly Linked List</h1>
+<p><link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css"></p>
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<p>We previously saw the <a href="/data-structures/linked-list/singly-linked-list">singly-linked implementation of a linked list</a>, and one major shortcoming is immediately apparent: almost every operation has check for boundary conditions.</p>
+<h2 id="sentinel">Sentinel</h2>
+<p>We can make two changes to vastly simplify our linked list implementation.</p>
+<ol>
+<li>Maintain reference to \(predecessor\) in each linked list node.</li>
+<li>Turn linked list circular with a \(sentinel\) node.</li>
+</ol>
+<div style="text-align:center;">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 338.94293570518494 296.67578125" width="300">
+  <g stroke-linecap="round" transform="translate(139.23748898506165 10) rotate(0 25.240234375 24.5)"><path d="M14.6 2.94 C19.32 0.5, 26.95 -0.67, 32.24 0.68 C37.53 2.03, 43.36 6.63, 46.34 11.04 C49.31 15.46, 50.64 22.16, 50.09 27.17 C49.54 32.18, 46.74 37.54, 43.03 41.09 C39.32 44.65, 33.24 47.8, 27.82 48.48 C22.39 49.15, 14.98 47.92, 10.5 45.14 C6.03 42.37, 2.21 36.94, 0.95 31.83 C-0.32 26.72, 0.32 19.56, 2.94 14.48 C5.55 9.4, 13.91 3.72, 16.63 1.34 C19.36 -1.03, 18.94 -0.25, 19.28 0.25 M22.14 1.43 C27.23 0.62, 33.63 1.39, 38.24 4.05 C42.85 6.71, 48.34 12.16, 49.79 17.39 C51.24 22.62, 49.18 30.57, 46.94 35.43 C44.7 40.29, 41.06 44.31, 36.36 46.56 C31.66 48.81, 23.81 50.39, 18.72 48.93 C13.62 47.46, 8.82 42.02, 5.76 37.79 C2.71 33.55, 0.13 28.44, 0.37 23.52 C0.61 18.59, 3.17 12.16, 7.19 8.23 C11.21 4.31, 22.04 1.47, 24.48 -0.03 C26.91 -1.53, 22.04 -1.4, 21.82 -0.76" stroke="var(--md-primary-bg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(157.68018254628691 22.17588386092956) rotate(0 6.949999928474426 12.5)"><text x="6.949999928474426" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="var(--md-primary-bg-color)" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">Φ</text></g><g stroke-linecap="round" transform="translate(261.07928586006165 103.4453125) rotate(0 25.240234375 24.5)"><path d="M21.63 0.94 C26.84 0.25, 34.71 1.44, 39.24 4.24 C43.77 7.03, 47.46 12.82, 48.83 17.71 C50.19 22.59, 49.45 28.87, 47.45 33.55 C45.45 38.22, 41.69 43.41, 36.83 45.76 C31.96 48.11, 23.52 48.9, 18.24 47.66 C12.95 46.41, 8.08 42.46, 5.13 38.3 C2.18 34.14, 0.21 27.82, 0.54 22.71 C0.87 17.61, 3.1 11.48, 7.11 7.66 C11.12 3.85, 21.49 0.91, 24.61 -0.17 C27.73 -1.25, 26.01 0.62, 25.82 1.16 M24.08 -0.6 C29.59 -0.97, 37.63 3.25, 42.02 6.75 C46.41 10.26, 49.65 15.27, 50.43 20.42 C51.2 25.57, 49.26 32.95, 46.66 37.64 C44.06 42.33, 39.96 46.89, 34.84 48.55 C29.72 50.21, 21.3 49.4, 15.96 47.6 C10.61 45.8, 5.3 42.3, 2.75 37.77 C0.2 33.23, -0.14 25.57, 0.66 20.37 C1.47 15.18, 3.55 9.89, 7.59 6.6 C11.62 3.31, 22.05 1.85, 24.88 0.64 C27.71 -0.57, 24.72 -1.05, 24.57 -0.64" stroke="none" stroke-width="0" fill="#ffec99"></path><path d="M13.32 3.7 C17.63 1.15, 25.59 -0.35, 30.83 0.59 C36.07 1.52, 41.43 5.23, 44.76 9.32 C48.1 13.41, 51.09 19.92, 50.83 25.12 C50.58 30.33, 46.88 36.62, 43.23 40.57 C39.59 44.52, 34.24 48.11, 28.96 48.85 C23.67 49.58, 16.21 47.9, 11.51 44.99 C6.81 42.08, 2.28 36.42, 0.76 31.36 C-0.76 26.3, 0.14 19.52, 2.39 14.64 C4.64 9.77, 11.87 4.17, 14.24 2.11 C16.6 0.06, 16.41 2.08, 16.58 2.33 M35.61 1.06 C39.94 3.02, 44.74 9.87, 46.83 14.82 C48.93 19.77, 49.42 25.94, 48.18 30.76 C46.94 35.58, 43.63 40.84, 39.4 43.75 C35.16 46.65, 28.23 48.34, 22.76 48.17 C17.29 47.99, 10.16 46.23, 6.58 42.7 C2.99 39.17, 1.74 32.29, 1.23 26.98 C0.71 21.66, 0.58 15.2, 3.5 10.8 C6.43 6.4, 13.07 1.78, 18.76 0.57 C24.45 -0.64, 34.83 2.97, 37.64 3.54 C40.46 4.1, 36 3.63, 35.66 3.96" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g><g transform="translate(282.20198270669493 115.62119636092956) rotate(0 4.269996643066406 12.5)"><text x="4.269996643066406" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g stroke-linecap="round" transform="translate(212.57147336006165 235.328125) rotate(0 25.240234375 24.5)"><path d="M15.35 0.94 C20.21 -1.28, 28.43 -0.22, 33.78 1.52 C39.14 3.26, 44.68 6.88, 47.5 11.39 C50.31 15.9, 51.47 23.37, 50.65 28.56 C49.84 33.74, 46.63 39.1, 42.61 42.5 C38.58 45.89, 32.04 48.64, 26.49 48.94 C20.94 49.25, 13.68 47.42, 9.29 44.32 C4.9 41.21, 1.26 35.38, 0.13 30.31 C-0.99 25.25, -0.46 18.83, 2.52 13.93 C5.5 9.04, 15.14 3.15, 18.03 0.92 C20.91 -1.3, 19.73 0.04, 19.8 0.59 M31.23 2 C36.25 2.95, 43.25 7.08, 46.37 11.32 C49.49 15.57, 50.56 22.57, 49.97 27.46 C49.38 32.35, 46.51 37.32, 42.83 40.66 C39.15 44.01, 33.3 46.79, 27.9 47.53 C22.49 48.28, 14.68 48.19, 10.39 45.11 C6.1 42.02, 3.59 34.34, 2.15 29.02 C0.71 23.7, -0.42 17.61, 1.76 13.21 C3.93 8.82, 10.32 4.62, 15.22 2.63 C20.12 0.63, 28.32 1.2, 31.15 1.25 C33.97 1.3, 32.17 2.8, 32.18 2.91" stroke="none" stroke-width="0" fill="#ffec99"></path><path d="M16.84 1.72 C21.55 -0.06, 29.91 0.86, 34.94 2.54 C39.98 4.22, 44.65 7.25, 47.06 11.78 C49.47 16.32, 50.44 24.5, 49.39 29.74 C48.34 34.98, 44.82 40.11, 40.74 43.21 C36.66 46.3, 30.28 48.38, 24.9 48.33 C19.53 48.28, 12.45 46.17, 8.49 42.9 C4.54 39.64, 1.93 33.97, 1.18 28.74 C0.43 23.51, 0.72 16.33, 3.99 11.52 C7.26 6.7, 17.25 1.75, 20.8 -0.15 C24.34 -2.05, 25.21 -0.34, 25.24 0.09 M25.56 0.39 C30.64 0.65, 37.23 3.61, 41.53 7.09 C45.84 10.57, 50.68 16.01, 51.41 21.24 C52.14 26.48, 49.31 34.27, 45.92 38.49 C42.54 42.71, 36.4 45.22, 31.1 46.56 C25.81 47.91, 18.97 48.18, 14.15 46.56 C9.33 44.95, 4.5 41.52, 2.19 36.86 C-0.13 32.21, -1.1 23.94, 0.28 18.61 C1.66 13.29, 6 8.2, 10.47 4.93 C14.93 1.66, 24.2 -0.11, 27.09 -1.02 C29.99 -1.94, 28.06 -1.04, 27.83 -0.56" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g><g transform="translate(230.96416684976134 247.50400886092956) rotate(0 7 12.5)"><text x="7" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g stroke-linecap="round" transform="translate(75.96991086006165 237.67578125) rotate(0 25.240234375 24.5)"><path d="M36.05 1.82 C40.78 3.81, 45.82 10.08, 48.17 14.96 C50.52 19.83, 51.44 26.24, 50.16 31.07 C48.89 35.9, 44.93 40.95, 40.51 43.95 C36.1 46.94, 29.14 49.43, 23.67 49.03 C18.19 48.62, 11.56 45.26, 7.67 41.53 C3.78 37.8, 1.01 31.71, 0.34 26.62 C-0.34 21.53, 0.7 15.31, 3.62 11.01 C6.53 6.71, 11.92 1.89, 17.84 0.83 C23.76 -0.24, 35.47 3.91, 39.12 4.64 C42.78 5.37, 40.14 5, 39.78 5.21 M29.69 1.85 C34.93 2.13, 40.5 3.79, 44.2 7.37 C47.89 10.95, 51.66 17.77, 51.86 23.33 C52.07 28.9, 49.31 36.71, 45.45 40.77 C41.59 44.83, 33.96 47.12, 28.7 47.72 C23.44 48.32, 18.29 46.89, 13.88 44.39 C9.47 41.9, 4.53 37.55, 2.23 32.73 C-0.07 27.92, -1.58 20.59, 0.06 15.49 C1.7 10.39, 7.4 4.9, 12.09 2.13 C16.78 -0.63, 25.12 -0.88, 28.22 -1.09 C31.32 -1.3, 30.48 0.24, 30.71 0.86" stroke="none" stroke-width="0" fill="#ffec99"></path><path d="M23.57 -0.29 C28.6 -1.08, 34.87 0.89, 39.22 3.83 C43.56 6.77, 48.26 12.37, 49.63 17.35 C51.01 22.33, 49.64 28.96, 47.45 33.71 C45.26 38.46, 41.18 43.29, 36.5 45.83 C31.81 48.38, 24.68 50.19, 19.35 48.99 C14.01 47.79, 7.65 43.13, 4.49 38.61 C1.33 34.09, 0.11 27.17, 0.39 21.86 C0.67 16.55, 1.63 10.42, 6.17 6.75 C10.71 3.07, 23.03 0.71, 27.64 -0.18 C32.26 -1.07, 33.88 0.91, 33.86 1.4 M27.25 -1.07 C32.19 -1.13, 37.43 2.14, 41.24 5.71 C45.05 9.27, 49.4 15.13, 50.11 20.3 C50.82 25.48, 48.16 32.27, 45.47 36.76 C42.79 41.25, 39.17 45.31, 34.01 47.25 C28.84 49.19, 19.55 50.07, 14.46 48.42 C9.37 46.76, 5.78 42.05, 3.45 37.31 C1.11 32.57, -0.77 25.25, 0.45 20 C1.67 14.75, 6.55 9.07, 10.79 5.82 C15.03 2.56, 23.35 1.47, 25.9 0.47 C28.44 -0.53, 25.92 -0.41, 26.07 -0.19" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g><g transform="translate(95.28261014810118 249.85166511092962) rotate(0 6.079994201660156 12.5)"><text x="6.079994201660156" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g stroke-linecap="round" transform="translate(28.591004610061646 106.49609375) rotate(0 25.240234375 24.5)"><path d="M22.95 -0.79 C28.01 -1.86, 35.32 0.18, 39.77 3.37 C44.22 6.56, 48.28 13.17, 49.66 18.33 C51.03 23.49, 50.26 29.68, 48.03 34.33 C45.79 38.98, 41.05 43.88, 36.23 46.23 C31.42 48.58, 24.45 49.69, 19.15 48.42 C13.84 47.16, 7.52 42.78, 4.4 38.65 C1.29 34.52, -0.01 28.7, 0.47 23.65 C0.95 18.6, 2.7 12.39, 7.27 8.37 C11.84 4.34, 23.8 0.68, 27.91 -0.5 C32.02 -1.68, 32.03 0.88, 31.92 1.29 M33.92 2.06 C38.94 3.57, 44.7 7.75, 47.42 12.17 C50.14 16.59, 51.28 23.34, 50.24 28.58 C49.2 33.83, 45.57 40.42, 41.19 43.62 C36.81 46.81, 29.69 48.11, 23.95 47.76 C18.22 47.41, 10.66 44.94, 6.8 41.51 C2.94 38.07, 1.42 32.39, 0.8 27.15 C0.17 21.92, 0.22 14.4, 3.07 10.1 C5.91 5.79, 12.51 2.75, 17.86 1.31 C23.21 -0.12, 32.38 1.27, 35.17 1.48 C37.96 1.68, 34.87 2.04, 34.6 2.55" stroke="none" stroke-width="0" fill="#ffec99"></path><path d="M35.05 0.8 C39.73 2.5, 43.99 8.38, 46.57 13.18 C49.16 17.98, 51.63 24.64, 50.57 29.6 C49.52 34.57, 44.66 39.88, 40.25 42.98 C35.85 46.09, 29.52 48.3, 24.13 48.21 C18.75 48.13, 11.82 45.9, 7.92 42.49 C4.02 39.07, 1.49 32.72, 0.74 27.7 C-0.01 22.67, 0.81 16.71, 3.44 12.33 C6.07 7.96, 10.3 2.59, 16.53 1.44 C22.75 0.3, 35.99 3.99, 40.77 5.45 C45.54 6.9, 45.59 9.8, 45.18 10.18 M33.03 0.83 C37.89 1.76, 42.78 6.05, 45.87 10.52 C48.95 14.99, 52.22 22.52, 51.55 27.64 C50.89 32.75, 46.01 37.7, 41.86 41.22 C37.72 44.74, 31.97 48.26, 26.66 48.76 C21.36 49.26, 14.38 47.15, 10.03 44.23 C5.68 41.32, 1.65 36.5, 0.58 31.28 C-0.49 26.06, 1.24 17.59, 3.6 12.91 C5.96 8.23, 10.14 4.96, 14.75 3.18 C19.35 1.41, 28.15 2.43, 31.23 2.27 C34.31 2.11, 33.09 1.99, 33.23 2.23" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g><g transform="translate(48.13369962564025 118.67197761092962) rotate(0 5.849998474121094 12.5)"><text x="5.849998474121094" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">4</text></g><g stroke-linecap="round"><g transform="translate(206.40545773506165 248.82421875) rotate(0 -37.22460565284405 -1.2806890825683013)"><path d="M0 0 C-12.41 -0.43, -62.04 -2.13, -74.45 -2.56 M0 0 C-12.41 -0.43, -62.04 -2.13, -74.45 -2.56" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(206.40545773506165 248.82421875) rotate(0 -37.22460565284405 -1.2806890825683013)"><path d="M-50.68 -10.3 C-56.05 -8.55, -61.42 -6.8, -74.45 -2.56 M-50.68 -10.3 C-55.65 -8.68, -60.61 -7.06, -74.45 -2.56" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(206.40545773506165 248.82421875) rotate(0 -37.22460565284405 -1.2806890825683013)"><path d="M-51.26 6.79 C-56.5 4.68, -61.74 2.56, -74.45 -2.56 M-51.26 6.79 C-56.11 4.84, -60.96 2.88, -74.45 -2.56" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(102.76777850765018 229.3618098407823) rotate(0 -12.552254136294266 -37.61645179539116)"><path d="M0 0 C-4.18 -12.54, -20.92 -62.69, -25.1 -75.23 M0 0 C-4.18 -12.54, -20.92 -62.69, -25.1 -75.23" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(102.76777850765018 229.3618098407823) rotate(0 -12.552254136294266 -37.61645179539116)"><path d="M-9.56 -55.66 C-15.76 -63.47, -21.97 -71.29, -25.1 -75.23 M-9.56 -55.66 C-14.96 -62.45, -20.36 -69.25, -25.1 -75.23" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(102.76777850765018 229.3618098407823) rotate(0 -12.552254136294266 -37.61645179539116)"><path d="M-25.78 -50.24 C-25.51 -60.22, -25.24 -70.2, -25.1 -75.23 M-25.78 -50.24 C-25.54 -58.92, -25.31 -67.6, -25.1 -75.23" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(86.56561398506165 118.296875) rotate(0 32.525390625 -25.94140625)"><path d="M0 0 C10.84 -8.65, 54.21 -43.24, 65.05 -51.88 M0 0 C10.84 -8.65, 54.21 -43.24, 65.05 -51.88" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(86.56561398506165 118.296875) rotate(0 32.525390625 -25.94140625)"><path d="M52.02 -30.55 C56.4 -37.72, 60.78 -44.9, 65.05 -51.88 M52.02 -30.55 C55.06 -35.54, 58.11 -40.53, 65.05 -51.88" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(86.56561398506165 118.296875) rotate(0 32.525390625 -25.94140625)"><path d="M41.35 -43.92 C49.32 -46.6, 57.29 -49.28, 65.05 -51.88 M41.35 -43.92 C46.9 -45.78, 52.44 -47.64, 65.05 -51.88" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(179.04998898506165 66.18359375) rotate(0 36.40420863551384 30.305309173687505)"><path d="M0 0 C12.13 10.1, 60.67 50.51, 72.81 60.61 M0 0 C12.13 10.1, 60.67 50.51, 72.81 60.61" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(179.04998898506165 66.18359375) rotate(0 36.40420863551384 30.305309173687505)"><path d="M49.28 52.15 C58.22 55.37, 67.17 58.58, 72.81 60.61 M49.28 52.15 C58.25 55.37, 67.21 58.6, 72.81 60.61" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(179.04998898506165 66.18359375) rotate(0 36.40420863551384 30.305309173687505)"><path d="M60.22 39.01 C65.01 47.22, 69.79 55.43, 72.81 60.61 M60.22 39.01 C65.02 47.24, 69.81 55.47, 72.81 60.61" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(261.47121447825396 151.94724790446048) rotate(0 -15.589518996596155 37.47950104776976)"><path d="M0 0 C-5.2 12.49, -25.98 62.47, -31.18 74.96 M0 0 C-5.2 12.49, -25.98 62.47, -31.18 74.96" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(261.47121447825396 151.94724790446048) rotate(0 -15.589518996596155 37.47950104776976)"><path d="M-30.05 49.98 C-30.5 59.94, -30.95 69.91, -31.18 74.96 M-30.05 49.98 C-30.41 57.84, -30.76 65.7, -31.18 74.96" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(261.47121447825396 151.94724790446048) rotate(0 -15.589518996596155 37.47950104776976)"><path d="M-14.26 56.55 C-21.01 63.89, -27.76 71.23, -31.18 74.96 M-14.26 56.55 C-19.59 62.35, -24.91 68.14, -31.18 74.96" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(129.23358273506165 39.4921875) rotate(0 -35.525390625 29.255859375)"><path d="M0 0 C-14.72 12.12, -29.44 24.24, -71.05 58.51 M0 0 C-23.51 19.36, -47.01 38.71, -71.05 58.51" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(129.23358273506165 39.4921875) rotate(0 -35.525390625 29.255859375)"><path d="M-58.35 36.98 C-60.98 41.44, -63.61 45.9, -71.05 58.51 M-58.35 36.98 C-62.55 44.1, -66.75 51.23, -71.05 58.51" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(129.23358273506165 39.4921875) rotate(0 -35.525390625 29.255859375)"><path d="M-47.48 50.18 C-52.36 51.9, -57.25 53.63, -71.05 58.51 M-47.48 50.18 C-55.28 52.94, -63.08 55.69, -71.05 58.51" stroke="#f08c00" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(269.0826056468384 98.13486532417619) rotate(0 -35.305370830888364 -31.563526412088095)"><path d="M0 0 C-22.74 -20.33, -45.47 -40.65, -70.61 -63.13 M0 0 C-23.82 -21.29, -47.64 -42.59, -70.61 -63.13" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(269.0826056468384 98.13486532417619) rotate(0 -35.305370830888364 -31.563526412088095)"><path d="M-47.4 -53.84 C-54.87 -56.83, -62.35 -59.82, -70.61 -63.13 M-47.4 -53.84 C-55.23 -56.98, -63.06 -60.11, -70.61 -63.13" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(269.0826056468384 98.13486532417619) rotate(0 -35.305370830888364 -31.563526412088095)"><path d="M-58.8 -41.1 C-62.6 -48.19, -66.4 -55.28, -70.61 -63.13 M-58.8 -41.1 C-62.78 -48.53, -66.77 -55.96, -70.61 -63.13" stroke="#f08c00" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(268.19061398506165 239.8046875) rotate(0 16.675656079043847 -40.08520159908403)"><path d="M0 0 C11.75 -28.24, 23.49 -56.47, 33.35 -80.17 M0 0 C8.53 -20.5, 17.05 -41, 33.35 -80.17" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(268.19061398506165 239.8046875) rotate(0 16.675656079043847 -40.08520159908403)"><path d="M32.22 -55.2 C32.62 -63.99, 33.02 -72.79, 33.35 -80.17 M32.22 -55.2 C32.51 -61.58, 32.8 -67.97, 33.35 -80.17" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(268.19061398506165 239.8046875) rotate(0 16.675656079043847 -40.08520159908403)"><path d="M16.43 -61.76 C22.39 -68.25, 28.35 -74.73, 33.35 -80.17 M16.43 -61.76 C20.76 -66.47, 25.08 -71.18, 33.35 -80.17" stroke="#f08c00" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(131.04863482871986 281.00474222490243) rotate(0 40.752630203170895 1.1597382625487853)"><path d="M0 0 C32.16 0.92, 64.33 1.83, 81.51 2.32 M0 0 C17.11 0.49, 34.21 0.97, 81.51 2.32" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(131.04863482871986 281.00474222490243) rotate(0 40.752630203170895 1.1597382625487853)"><path d="M57.78 10.2 C67.14 7.09, 76.51 3.98, 81.51 2.32 M57.78 10.2 C62.76 8.54, 67.74 6.89, 81.51 2.32" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(131.04863482871986 281.00474222490243) rotate(0 40.752630203170895 1.1597382625487853)"><path d="M58.27 -6.9 C67.44 -3.26, 76.61 0.38, 81.51 2.32 M58.27 -6.9 C63.14 -4.96, 68.02 -3.03, 81.51 2.32" stroke="#f08c00" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(51.612488985061646 162.42578125) rotate(0 13.388304966365581 37.268758849010055)"><path d="M0 0 C5.7 15.86, 11.39 31.71, 26.78 74.54 M0 0 C7.18 20, 14.37 40, 26.78 74.54" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(51.612488985061646 162.42578125) rotate(0 13.388304966365581 37.268758849010055)"><path d="M10.79 55.32 C14.19 59.41, 17.59 63.5, 26.78 74.54 M10.79 55.32 C15.08 60.48, 19.37 65.63, 26.78 74.54" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(51.612488985061646 162.42578125) rotate(0 13.388304966365581 37.268758849010055)"><path d="M26.88 49.54 C26.86 54.86, 26.84 60.17, 26.78 74.54 M26.88 49.54 C26.85 56.25, 26.83 62.95, 26.78 74.54" stroke="#f08c00" stroke-width="2" fill="none"></path></g></g><mask></mask><g transform="translate(282.84295773506165 71.171875) rotate(0 23.049988985061646 12.5)"><text x="0" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#1971c2" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">head</text></g><g transform="translate(10 68.6953125) rotate(0 15.979988098144531 12.5)"><text x="0" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">tail</text></g><g stroke-linecap="round" transform="translate(130.79998898506165 137.92578125) rotate(0 5.8125 5.853515625)"><path d="M2.91 0 C4.5 0, 6.1 0, 8.72 0 C10.66 0, 11.63 0.97, 11.63 2.91 C11.63 5.05, 11.63 7.19, 11.63 8.8 C11.63 10.74, 10.66 11.71, 8.72 11.71 C7.2 11.71, 5.69 11.71, 2.91 11.71 C0.97 11.71, 0 10.74, 0 8.8 C0 6.68, 0 4.55, 0 2.91 C0 0.97, 0.97 0, 2.91 0" stroke="none" stroke-width="0" fill="#ffec99"></path><path d="M2.91 0 C4.74 0, 6.57 0, 8.72 0 M2.91 0 C4.91 0, 6.9 0, 8.72 0 M8.72 0 C10.66 0, 11.63 0.97, 11.63 2.91 M8.72 0 C10.66 0, 11.63 0.97, 11.63 2.91 M11.63 2.91 C11.63 4.21, 11.63 5.51, 11.63 8.8 M11.63 2.91 C11.63 5.15, 11.63 7.39, 11.63 8.8 M11.63 8.8 C11.63 10.74, 10.66 11.71, 8.72 11.71 M11.63 8.8 C11.63 10.74, 10.66 11.71, 8.72 11.71 M8.72 11.71 C6.75 11.71, 4.78 11.71, 2.91 11.71 M8.72 11.71 C7.06 11.71, 5.39 11.71, 2.91 11.71 M2.91 11.71 C0.97 11.71, 0 10.74, 0 8.8 M2.91 11.71 C0.97 11.71, 0 10.74, 0 8.8 M0 8.8 C0 7.44, 0 6.07, 0 2.91 M0 8.8 C0 7.61, 0 6.43, 0 2.91 M0 2.91 C0 0.97, 0.97 0, 2.91 0 M0 2.91 C0 0.97, 0.97 0, 2.91 0" stroke="#f08c00" stroke-width="2" fill="none"></path></g><g transform="translate(155.15155148506165 129.1015625) rotate(0 20.43998795747757 12.5)"><text x="0" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#f08c00" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">prev</text></g><g stroke-linecap="round" transform="translate(130.63343852758408 173.203125) rotate(0 5.8125 5.853515625)"><path d="M2.91 0 C4.5 0, 6.1 0, 8.72 0 C10.66 0, 11.63 0.97, 11.63 2.91 C11.63 4.54, 11.63 6.18, 11.63 8.8 C11.63 10.74, 10.66 11.71, 8.72 11.71 C7.33 11.71, 5.93 11.71, 2.91 11.71 C0.97 11.71, 0 10.74, 0 8.8 C0 7.26, 0 5.72, 0 2.91 C0 0.97, 0.97 0, 2.91 0" stroke="none" stroke-width="0" fill="#b2f2bb"></path><path d="M2.91 0 C4.34 0, 5.78 0, 8.72 0 M2.91 0 C4.64 0, 6.37 0, 8.72 0 M8.72 0 C10.66 0, 11.63 0.97, 11.63 2.91 M8.72 0 C10.66 0, 11.63 0.97, 11.63 2.91 M11.63 2.91 C11.63 4.47, 11.63 6.03, 11.63 8.8 M11.63 2.91 C11.63 4.75, 11.63 6.59, 11.63 8.8 M11.63 8.8 C11.63 10.74, 10.66 11.71, 8.72 11.71 M11.63 8.8 C11.63 10.74, 10.66 11.71, 8.72 11.71 M8.72 11.71 C7.31 11.71, 5.9 11.71, 2.91 11.71 M8.72 11.71 C7.25 11.71, 5.77 11.71, 2.91 11.71 M2.91 11.71 C0.97 11.71, 0 10.74, 0 8.8 M2.91 11.71 C0.97 11.71, 0 10.74, 0 8.8 M0 8.8 C0 7.52, 0 6.24, 0 2.91 M0 8.8 C0 7.07, 0 5.33, 0 2.91 M0 2.91 C0 0.97, 0.97 0, 2.91 0 M0 2.91 C0 0.97, 0.97 0, 2.91 0" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(154.98500102758408 164.37890625) rotate(0 22.129986107349396 12.5)"><text x="0" y="17.619999999999997" font-family="Virgil, Xiaolai, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">next</text></g></svg>
+</div>
+
+<h2 id="node">Node</h2>
+<p>We started with this implementation of the linked list <code>Node</code>:</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">value</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">next</span><span class="p">:</span><span class="w"> </span><span class="n">Node? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">toString</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">value</span><span class="s">&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>and make the following adjustments:</p>
+<ul>
+<li>we move both \(prev\) and \(next\) to backing fields <code>_prev</code> and <code>_next</code>.</li>
+<li>both <code>prev</code> and <code>next</code> are now synthetic properties which simplify the bookkeeping of references.</li>
+<li>we provide a new secondary constructor to trigger our synthetic field setters.</li>
+<li>\(next\) and \(prev\) can now be non-nulls, since our list now is circular.</li>
+</ul>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>private data class Node(var value: Int) {
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="gi">+ private lateinit var _prev: Node</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w"> </span> private lateinit var _next: Node
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="gi">+ constructor(value: Int, prev: Node, next: Node) : this(value) {</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="gi">+   this.prev = prev // triggers the custom setter</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="gi">+   this.next = next // triggers the custom setter</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="gi">+ }</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="gi">+ var prev: Node</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="gi">+   get() = _prev</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="gi">+   set(value) {</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="gi">+     _prev = value</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="gi">+     value._next = this // .next will cause an ∞-loop</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="gi">+   }</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="gi">+ var next: Node</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="gi">+   get() = _next</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="gi">+   set(value) {</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="gi">+     _next = value</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="gi">+     value._prev = this // .prev will cause an ∞-loop</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="gi">+   }</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w"> </span> override fun toString(): String = &quot;$value&quot;
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26"></a>}
+</span></code></pre></div></td></tr></table></div>
+<h2 id="linked-list">Linked List</h2>
+<p>We maintain references to the head and the tail of the list, allowing \(O(1)\) insertion on both ends.</p>
+<div class="grid">
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>class LinkedList {
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w"> </span> private var _size = 0
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="gd">- private var _head: Node? = null</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="gd">- private var _tail: Node? = null</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="gi">+ private var sentinel: Node = Node(0)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w"> </span> val size: Int
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w"> </span>   get() = _size
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w"> </span> fun isEmpty() = size == 0
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="gd">- val head: Int?</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="gd">-   get() = _head?.value</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="gi">+ val head: Int?</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="gi">+   get() = if (isEmpty()) null else sentinel.next.value</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="gd">- val tail: Int?</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="gd">-   get() = _tail?.value</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="gi">+ val tail: Int?</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="gi">+   get() = if (isEmpty()) null else sentinel.prev.value</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24"></a>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w"> </span> // Rest of the implementation goes here. //
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26"></a>}
+</span></code></pre></div></td></tr></table></div>
+<div>
+<p>Drop separate references to \(head\) and \(tail\) for a single reference \(sentinel\). </p>
+<p>the \(next\) of \(sentinel\) is our \(head\) and \(prev\) is \(tail\).</p>
+</div>
+</div>
+<h2 id="traversal">Traversal</h2>
+<div class="grid">
+<p>all the <code>null</code> checks are replaced with comparison against <code>sentinel</code>. Notice the comparison by reference as opposed to comparison by value. Our \(sentinel\) is like any other node in the list, and its special status is its identity, not its value.</p>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>override fun toString(): String {
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w"> </span> val sb = StringBuilder().append(&#39;[&#39;)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w"> </span> var cursor = sentinel.next
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="gd">- while (cursor != null) {</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="gi">+ while (cursor !== sentinel) {</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w"> </span>   sb.append(cursor.value)
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w"> </span>   cursor = cursor.next
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="gd">-   if (cursor != null) sb.append(&quot;, &quot;)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="gi">+   if (cursor !== sentinel) sb.append(&quot;, &quot;)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w"> </span> }
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w"> </span> return sb.append(&#39;]&#39;).toString()
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>}
+</span></code></pre></div></td></tr></table></div>
+</div>
+<h2 id="getter">Getter</h2>
+<div class="grid">
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>operator fun get(index: Int): Int? {
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w"> </span> // saves time
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w"> </span> if (index &lt; 0 || index &gt;= size) return null
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w"> </span> if (index == size - 1) return tail
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="gd">- var cursor = _head</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="gd">- for (i in 0..&lt;index) cursor = cursor.next</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="gi">+ var cursor = sentinel</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="gi">+ for (i in 0..index) cursor = cursor.next</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w"> </span> return cursor.value
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>}
+</span></code></pre></div></td></tr></table></div>
+<div>
+<p>Previously we had to start traversal at \(head\) and that made our loop bounds a confusing \([0, index)\).</p>
+<p>Now we can start at \(sentinel\) (effectively \(null\) in singly-linked list terms).</p>
+</div>
+</div>
+<h2 id="setter">Setter</h2>
+<div class="grid">
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>operator fun set(index: Int, value: Int) {
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w"> </span> if (index &lt; 0 || index &gt;= size) 
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w"> </span>   throw IndexOutOfBoundsException(&quot;Index $index out of bounds for length $size&quot;)
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w"> </span> if (index == size - 1) {
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="gd">-   _tail!!.value = value</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="gi">+   sentinel.prev.value = value</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w"> </span>   return
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w"> </span> }
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="gd">- var cursor = _head</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="gd">- for (i in 0..&lt;index) cursor = cursor.next</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="gi">+ var cursor = sentinel</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="gi">+ for (i in 0..index) cursor = cursor.next</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w"> </span> cursor.value = value
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a>}
+</span></code></pre></div></td></tr></table></div>
+<div></div>
+</div>
+<h2 id="insertion">Insertion</h2>
+<div class="grid">
+<div>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>fun addFirst(value: Int) {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w"> </span>   _size++
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="gd">-   _head = Node(value, _head)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="gd">-   _tail = _tail ?: _head</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="gi">+   sentinel.next = Node(value, sentinel, sentinel.next)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>}
+</span></code></pre></div></td></tr></table></div>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>fun addLast(value: Int) {
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w"> </span> _size++
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="gd">- val node = Node(value)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="gd">- if (_head == null) _head = node</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="gd">- else _tail!!.next = node</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="gd">- _tail = node</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="gi">+   sentinel.prev = Node(value, sentinel.prev, sentinel)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>}
+</span></code></pre></div></td></tr></table></div>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>fun add(index: Int, value: Int) {
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w"> </span> if (index &lt; 0 || index &gt; size) throw IndexOutOfBoundsException(&quot;Index $index out of bounds for length $size&quot;)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w"> </span> when(index) {
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w"> </span>   0 -&gt; addFirst(value)
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w"> </span>   size -&gt; addLast(value)
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w"> </span>   else -&gt; {
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w"> </span>     _size++
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="gd">-     var pred = _head</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="gi">+     var pred = sentinel</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="gd">-     for (i in 0..&lt;(index-1))</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="gi">+     for (i in 0..&lt;index)</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w"> </span>       pred = pred.next
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="gd">-     pred!!.next = Node(value, pred.next)</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="gi">+     pred.next = Node(value, pred, pred.next)</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w"> </span>   }
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w"> </span> }
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17"></a>}
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div>
+<p>As promised, insertions with sentinels are a lot more straighforward.</p>
+<p><br></p>
+<p>\[
+node .next .next .next ... .next
+\]</p>
+<p>that's because the circular list ensures that no matter how many \(next\) or \(prev\) we chain, we can't ever hit a dead end.</p>
+<p><br></p>
+<p>\[
+  \bcancel{null.prev} \implies sentinel.prev
+\]</p>
+<p>and we've substituted checks against \(sentinel\) for \(null\) checks, which will never throw NPE. </p>
+</div>
+</div>
+<h2 id="deletion">Deletion</h2>
+<div class="grid">
+<p>There is no longer need for a special case of size one list. The rest of the method is exactly as before, which just few renames.</p>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>fun removeFirst(): Int? {
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="gd">- if (head == null) return null</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="gi">+ if (isEmpty()) return null</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w"> </span> _size--
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="gd">- if (head == tail) {</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="gd">-   val value = head!!.value</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="gd">-   head = null</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="gd">-   tail = null</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="gd">-   return value</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="gd">- }</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="gi">+ val head = sentinel.next</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w"> </span> val value = head.value
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="gd">- head = head!!.next</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="gi">+ sentinel.next = head.next // basically same as deleted line above</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w"> </span> return value
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17"></a>}
+</span></code></pre></div></td></tr></table></div>
+<p>Since we are using a doubly-linked list, it's possible to find the predecessor of \(tail\) in \(O(1)\) without requiring a full traversal. <br> <br> The rest of the deletion is same as before.</p>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>fun removeLast(): Int? {
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="gd">- if (head == null) return null</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="gi">+ if (isEmpty()) return null</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w"> </span> _size--
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="gd">- if (head == tail) {</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="gd">-   val value = head!!.value</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="gd">-   head = null</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="gd">-   tail = null</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="gd">-   return value</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="gd">- }</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="gd">- var pred = head</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="gd">- while (pred!!.next != tail) pred = cursor.next</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="gi">+ val tail = sentinel.prev</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w"> </span> val value = tail.value
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="gd">- pred.next = null</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="gd">- tail = pred</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="gi">+ sentinel.prev = tail.prev</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w"> </span> return value
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22"></a>}
+</span></code></pre></div></td></tr></table></div>
+<div></div>
+<div class="language-diff highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>fun remove(index: Int): Int? {
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w"> </span> if (index &lt; 0 || index &gt;= size)
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w"> </span>   throw IndexOutOfBoundsException(&quot;Index $index out of bounds for length $size&quot;)
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w"> </span> return when(index) {
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w"> </span>   0 -&gt; removeFirst()
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w"> </span>   size - 1 -&gt; removeLast()
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w"> </span>   else -&gt; {
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w"> </span>     _size--
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="gd">-     var pred = _head</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="gi">+     var pred = sentinel</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="gd">-     for (i in 0..&lt;(index-1)) </span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="gi">+     for (i in 0..&lt;index) </span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w"> </span>       pred = pred.next
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w"> </span>     val value = pred.next.value
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w"> </span>     pred.next = pred.next.next
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w"> </span>     return value
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w"> </span>   }
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="w"> </span> }
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21"></a>}
+</span></code></pre></div></td></tr></table></div>
+</div>
+<h2 id="full-implementation">Full Implementation</h2>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-12-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-12-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-12-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-12-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-12-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-12-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-12-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-12-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-12-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-12-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-12-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-12-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-12-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-12-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-12-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-12-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-12-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-12-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-12-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-12-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-12-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-12-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-12-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-12-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-12-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-12-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-12-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-12-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-12-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-12-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-12-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-12-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-12-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-12-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-12-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-12-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-12-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-12-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-12-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-12-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-12-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-12-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-12-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-12-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-12-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-12-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-12-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-12-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-12-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-12-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-12-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-12-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-12-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-12-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-12-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-12-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-12-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-12-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-12-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-12-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-12-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-12-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-12-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-12-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-12-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-12-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-12-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-12-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-12-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-12-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-12-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-12-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-12-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-12-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-12-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-12-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-12-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-12-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-12-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-12-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-12-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-12-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-12-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-12-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-12-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-12-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-12-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-12-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-12-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-12-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-12-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-12-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-12-100">100</a></span>
+<span class="normal"><a href="#__codelineno-12-101">101</a></span>
+<span class="normal"><a href="#__codelineno-12-102">102</a></span>
+<span class="normal"><a href="#__codelineno-12-103">103</a></span>
+<span class="normal"><a href="#__codelineno-12-104">104</a></span>
+<span class="normal"><a href="#__codelineno-12-105">105</a></span>
+<span class="normal"><a href="#__codelineno-12-106">106</a></span>
+<span class="normal"><a href="#__codelineno-12-107">107</a></span>
+<span class="normal"><a href="#__codelineno-12-108">108</a></span>
+<span class="normal"><a href="#__codelineno-12-109">109</a></span>
+<span class="normal"><a href="#__codelineno-12-110">110</a></span>
+<span class="normal"><a href="#__codelineno-12-111">111</a></span>
+<span class="normal"><a href="#__codelineno-12-112">112</a></span>
+<span class="normal"><a href="#__codelineno-12-113">113</a></span>
+<span class="normal"><a href="#__codelineno-12-114">114</a></span>
+<span class="normal"><a href="#__codelineno-12-115">115</a></span>
+<span class="normal"><a href="#__codelineno-12-116">116</a></span>
+<span class="normal"><a href="#__codelineno-12-117">117</a></span>
+<span class="normal"><a href="#__codelineno-12-118">118</a></span>
+<span class="normal"><a href="#__codelineno-12-119">119</a></span>
+<span class="normal"><a href="#__codelineno-12-120">120</a></span>
+<span class="normal"><a href="#__codelineno-12-121">121</a></span>
+<span class="normal"><a href="#__codelineno-12-122">122</a></span>
+<span class="normal"><a href="#__codelineno-12-123">123</a></span>
+<span class="normal"><a href="#__codelineno-12-124">124</a></span>
+<span class="normal"><a href="#__codelineno-12-125">125</a></span>
+<span class="normal"><a href="#__codelineno-12-126">126</a></span>
+<span class="normal"><a href="#__codelineno-12-127">127</a></span>
+<span class="normal"><a href="#__codelineno-12-128">128</a></span>
+<span class="normal"><a href="#__codelineno-12-129">129</a></span>
+<span class="normal"><a href="#__codelineno-12-130">130</a></span>
+<span class="normal"><a href="#__codelineno-12-131">131</a></span>
+<span class="normal"><a href="#__codelineno-12-132">132</a></span>
+<span class="normal"><a href="#__codelineno-12-133">133</a></span>
+<span class="normal"><a href="#__codelineno-12-134">134</a></span>
+<span class="normal"><a href="#__codelineno-12-135">135</a></span>
+<span class="normal"><a href="#__codelineno-12-136">136</a></span>
+<span class="normal"><a href="#__codelineno-12-137">137</a></span>
+<span class="normal"><a href="#__codelineno-12-138">138</a></span>
+<span class="normal"><a href="#__codelineno-12-139">139</a></span>
+<span class="normal"><a href="#__codelineno-12-140">140</a></span>
+<span class="normal"><a href="#__codelineno-12-141">141</a></span>
+<span class="normal"><a href="#__codelineno-12-142">142</a></span>
+<span class="normal"><a href="#__codelineno-12-143">143</a></span>
+<span class="normal"><a href="#__codelineno-12-144">144</a></span>
+<span class="normal"><a href="#__codelineno-12-145">145</a></span>
+<span class="normal"><a href="#__codelineno-12-146">146</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">package</span><span class="w"> </span><span class="nn">com.example.linkedlist</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="kd">private</span><span class="w"> </span><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">value</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">lateinit</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">_prev</span><span class="p">:</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">lateinit</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">_next</span><span class="p">:</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">constructor</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">prev</span><span class="p">:</span><span class="w"> </span><span class="n">Node</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="n">Node</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="c1">// triggers the custom setter</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="c1">// triggers the custom setter</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">prev</span><span class="p">:</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_prev</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">      </span><span class="n">_prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">      </span><span class="n">value</span><span class="p">.</span><span class="na">_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="c1">// .next will cause infinite-loop</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19"></a>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">next</span><span class="p">:</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_next</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22"></a><span class="w">    </span><span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23"></a><span class="w">      </span><span class="n">_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24"></a><span class="w">      </span><span class="n">value</span><span class="p">.</span><span class="na">_prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="c1">// .prev will cause infinite-loop</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26"></a>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">toString</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">value</span><span class="s">&quot;</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28"></a><span class="p">}</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29"></a>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30"></a><span class="kd">class</span><span class="w"> </span><span class="nc">LinkedList</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31"></a>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">sentinel</span><span class="p">:</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// value doesn&#39;t matter</span>
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34"></a>
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35"></a><span class="w">  </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36"></a><span class="w">    </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span>
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38"></a>
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">size</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
+</span><span id="__span-12-40"><a id="__codelineno-12-40" name="__codelineno-12-40"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_size</span>
+</span><span id="__span-12-41"><a id="__codelineno-12-41" name="__codelineno-12-41"></a>
+</span><span id="__span-12-42"><a id="__codelineno-12-42" name="__codelineno-12-42"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-12-43"><a id="__codelineno-12-43" name="__codelineno-12-43"></a>
+</span><span id="__span-12-44"><a id="__codelineno-12-44" name="__codelineno-12-44"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">head</span><span class="p">:</span><span class="w"> </span><span class="kt">Int?</span>
+</span><span id="__span-12-45"><a id="__codelineno-12-45" name="__codelineno-12-45"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span><span class="p">.</span><span class="na">value</span>
+</span><span id="__span-12-46"><a id="__codelineno-12-46" name="__codelineno-12-46"></a>
+</span><span id="__span-12-47"><a id="__codelineno-12-47" name="__codelineno-12-47"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">tail</span><span class="p">:</span><span class="w"> </span><span class="kt">Int?</span>
+</span><span id="__span-12-48"><a id="__codelineno-12-48" name="__codelineno-12-48"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">prev</span><span class="p">.</span><span class="na">value</span>
+</span><span id="__span-12-49"><a id="__codelineno-12-49" name="__codelineno-12-49"></a>
+</span><span id="__span-12-50"><a id="__codelineno-12-50" name="__codelineno-12-50"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">addFirst</span><span class="p">(</span><span class="k">vararg</span><span class="w"> </span><span class="n">values</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-51"><a id="__codelineno-12-51" name="__codelineno-12-51"></a><span class="w">    </span><span class="n">values</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-52"><a id="__codelineno-12-52" name="__codelineno-12-52"></a><span class="w">      </span><span class="n">_size</span><span class="o">++</span>
+</span><span id="__span-12-53"><a id="__codelineno-12-53" name="__codelineno-12-53"></a><span class="w">      </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="nb">it</span><span class="p">,</span><span class="w"> </span><span class="n">sentinel</span><span class="p">,</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span><span class="p">)</span>
+</span><span id="__span-12-54"><a id="__codelineno-12-54" name="__codelineno-12-54"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-55"><a id="__codelineno-12-55" name="__codelineno-12-55"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-56"><a id="__codelineno-12-56" name="__codelineno-12-56"></a>
+</span><span id="__span-12-57"><a id="__codelineno-12-57" name="__codelineno-12-57"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">addLast</span><span class="p">(</span><span class="k">vararg</span><span class="w"> </span><span class="n">values</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-58"><a id="__codelineno-12-58" name="__codelineno-12-58"></a><span class="w">    </span><span class="n">values</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-59"><a id="__codelineno-12-59" name="__codelineno-12-59"></a><span class="w">      </span><span class="n">_size</span><span class="o">++</span>
+</span><span id="__span-12-60"><a id="__codelineno-12-60" name="__codelineno-12-60"></a><span class="w">      </span><span class="n">sentinel</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="nb">it</span><span class="p">,</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">prev</span><span class="p">,</span><span class="w"> </span><span class="n">sentinel</span><span class="p">)</span>
+</span><span id="__span-12-61"><a id="__codelineno-12-61" name="__codelineno-12-61"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-62"><a id="__codelineno-12-62" name="__codelineno-12-62"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-63"><a id="__codelineno-12-63" name="__codelineno-12-63"></a>
+</span><span id="__span-12-64"><a id="__codelineno-12-64" name="__codelineno-12-64"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-65"><a id="__codelineno-12-65" name="__codelineno-12-65"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">IndexOutOfBoundsException</span><span class="p">(</span><span class="s">&quot;Index </span><span class="si">$</span><span class="n">index</span><span class="s"> out of bounds for length </span><span class="si">$</span><span class="n">size</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-12-66"><a id="__codelineno-12-66" name="__codelineno-12-66"></a><span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-67"><a id="__codelineno-12-67" name="__codelineno-12-67"></a><span class="w">      </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">addFirst</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-12-68"><a id="__codelineno-12-68" name="__codelineno-12-68"></a><span class="w">      </span><span class="n">size</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">addLast</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-12-69"><a id="__codelineno-12-69" name="__codelineno-12-69"></a><span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-70"><a id="__codelineno-12-70" name="__codelineno-12-70"></a><span class="w">        </span><span class="n">_size</span><span class="o">++</span>
+</span><span id="__span-12-71"><a id="__codelineno-12-71" name="__codelineno-12-71"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span>
+</span><span id="__span-12-72"><a id="__codelineno-12-72" name="__codelineno-12-72"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="n">pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pred</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-73"><a id="__codelineno-12-73" name="__codelineno-12-73"></a><span class="w">        </span><span class="n">pred</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">pred</span><span class="p">,</span><span class="w"> </span><span class="n">pred</span><span class="p">.</span><span class="na">next</span><span class="p">)</span>
+</span><span id="__span-12-74"><a id="__codelineno-12-74" name="__codelineno-12-74"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-12-75"><a id="__codelineno-12-75" name="__codelineno-12-75"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-76"><a id="__codelineno-12-76" name="__codelineno-12-76"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-77"><a id="__codelineno-12-77" name="__codelineno-12-77"></a>
+</span><span id="__span-12-78"><a id="__codelineno-12-78" name="__codelineno-12-78"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">removeFirst</span><span class="p">():</span><span class="w"> </span><span class="kt">Int?</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-79"><a id="__codelineno-12-79" name="__codelineno-12-79"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-12-80"><a id="__codelineno-12-80" name="__codelineno-12-80"></a>
+</span><span id="__span-12-81"><a id="__codelineno-12-81" name="__codelineno-12-81"></a><span class="w">    </span><span class="n">_size</span><span class="o">--</span>
+</span><span id="__span-12-82"><a id="__codelineno-12-82" name="__codelineno-12-82"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-83"><a id="__codelineno-12-83" name="__codelineno-12-83"></a><span class="w">    </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-84"><a id="__codelineno-12-84" name="__codelineno-12-84"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">.</span><span class="na">value</span>
+</span><span id="__span-12-85"><a id="__codelineno-12-85" name="__codelineno-12-85"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-86"><a id="__codelineno-12-86" name="__codelineno-12-86"></a>
+</span><span id="__span-12-87"><a id="__codelineno-12-87" name="__codelineno-12-87"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">removeLast</span><span class="p">():</span><span class="w"> </span><span class="kt">Int?</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-88"><a id="__codelineno-12-88" name="__codelineno-12-88"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-12-89"><a id="__codelineno-12-89" name="__codelineno-12-89"></a>
+</span><span id="__span-12-90"><a id="__codelineno-12-90" name="__codelineno-12-90"></a><span class="w">    </span><span class="n">_size</span><span class="o">--</span>
+</span><span id="__span-12-91"><a id="__codelineno-12-91" name="__codelineno-12-91"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">prev</span>
+</span><span id="__span-12-92"><a id="__codelineno-12-92" name="__codelineno-12-92"></a><span class="w">    </span><span class="n">sentinel</span><span class="p">.</span><span class="na">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="p">.</span><span class="na">prev</span>
+</span><span id="__span-12-93"><a id="__codelineno-12-93" name="__codelineno-12-93"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">tail</span><span class="p">.</span><span class="na">value</span>
+</span><span id="__span-12-94"><a id="__codelineno-12-94" name="__codelineno-12-94"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-95"><a id="__codelineno-12-95" name="__codelineno-12-95"></a>
+</span><span id="__span-12-96"><a id="__codelineno-12-96" name="__codelineno-12-96"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int?</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-97"><a id="__codelineno-12-97" name="__codelineno-12-97"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+</span><span id="__span-12-98"><a id="__codelineno-12-98" name="__codelineno-12-98"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">IndexOutOfBoundsException</span><span class="p">(</span><span class="s">&quot;Index </span><span class="si">$</span><span class="n">index</span><span class="s"> out of bounds for length </span><span class="si">$</span><span class="n">size</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-12-99"><a id="__codelineno-12-99" name="__codelineno-12-99"></a>
+</span><span id="__span-12-100"><a id="__codelineno-12-100" name="__codelineno-12-100"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-101"><a id="__codelineno-12-101" name="__codelineno-12-101"></a><span class="w">      </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">removeFirst</span><span class="p">()</span>
+</span><span id="__span-12-102"><a id="__codelineno-12-102" name="__codelineno-12-102"></a><span class="w">      </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">removeLast</span><span class="p">()</span>
+</span><span id="__span-12-103"><a id="__codelineno-12-103" name="__codelineno-12-103"></a><span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-104"><a id="__codelineno-12-104" name="__codelineno-12-104"></a><span class="w">        </span><span class="n">_size</span><span class="o">--</span>
+</span><span id="__span-12-105"><a id="__codelineno-12-105" name="__codelineno-12-105"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span>
+</span><span id="__span-12-106"><a id="__codelineno-12-106" name="__codelineno-12-106"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="n">pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pred</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-107"><a id="__codelineno-12-107" name="__codelineno-12-107"></a>
+</span><span id="__span-12-108"><a id="__codelineno-12-108" name="__codelineno-12-108"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pred</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-109"><a id="__codelineno-12-109" name="__codelineno-12-109"></a><span class="w">        </span><span class="n">pred</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-110"><a id="__codelineno-12-110" name="__codelineno-12-110"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">target</span><span class="p">.</span><span class="na">value</span>
+</span><span id="__span-12-111"><a id="__codelineno-12-111" name="__codelineno-12-111"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-12-112"><a id="__codelineno-12-112" name="__codelineno-12-112"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-113"><a id="__codelineno-12-113" name="__codelineno-12-113"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-114"><a id="__codelineno-12-114" name="__codelineno-12-114"></a>
+</span><span id="__span-12-115"><a id="__codelineno-12-115" name="__codelineno-12-115"></a><span class="w">  </span><span class="kd">operator</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int?</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-116"><a id="__codelineno-12-116" name="__codelineno-12-116"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// saves time</span>
+</span><span id="__span-12-117"><a id="__codelineno-12-117" name="__codelineno-12-117"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">tail</span>
+</span><span id="__span-12-118"><a id="__codelineno-12-118" name="__codelineno-12-118"></a>
+</span><span id="__span-12-119"><a id="__codelineno-12-119" name="__codelineno-12-119"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span>
+</span><span id="__span-12-120"><a id="__codelineno-12-120" name="__codelineno-12-120"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="na">index</span><span class="p">)</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-121"><a id="__codelineno-12-121" name="__codelineno-12-121"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">value</span>
+</span><span id="__span-12-122"><a id="__codelineno-12-122" name="__codelineno-12-122"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-123"><a id="__codelineno-12-123" name="__codelineno-12-123"></a>
+</span><span id="__span-12-124"><a id="__codelineno-12-124" name="__codelineno-12-124"></a><span class="w">  </span><span class="kd">operator</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-125"><a id="__codelineno-12-125" name="__codelineno-12-125"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">IndexOutOfBoundsException</span><span class="p">(</span><span class="s">&quot;Index </span><span class="si">$</span><span class="n">index</span><span class="s"> out of bounds for length </span><span class="si">$</span><span class="n">size</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-12-126"><a id="__codelineno-12-126" name="__codelineno-12-126"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-127"><a id="__codelineno-12-127" name="__codelineno-12-127"></a><span class="w">      </span><span class="n">sentinel</span><span class="p">.</span><span class="na">prev</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+</span><span id="__span-12-128"><a id="__codelineno-12-128" name="__codelineno-12-128"></a><span class="w">      </span><span class="k">return</span>
+</span><span id="__span-12-129"><a id="__codelineno-12-129" name="__codelineno-12-129"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-130"><a id="__codelineno-12-130" name="__codelineno-12-130"></a>
+</span><span id="__span-12-131"><a id="__codelineno-12-131" name="__codelineno-12-131"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span>
+</span><span id="__span-12-132"><a id="__codelineno-12-132" name="__codelineno-12-132"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="na">index</span><span class="p">)</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-133"><a id="__codelineno-12-133" name="__codelineno-12-133"></a><span class="w">    </span><span class="n">cursor</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+</span><span id="__span-12-134"><a id="__codelineno-12-134" name="__codelineno-12-134"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-135"><a id="__codelineno-12-135" name="__codelineno-12-135"></a>
+</span><span id="__span-12-136"><a id="__codelineno-12-136" name="__codelineno-12-136"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">toString</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-137"><a id="__codelineno-12-137" name="__codelineno-12-137"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">().</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39;[&#39;</span><span class="p">)</span>
+</span><span id="__span-12-138"><a id="__codelineno-12-138" name="__codelineno-12-138"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-139"><a id="__codelineno-12-139" name="__codelineno-12-139"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">sentinel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-140"><a id="__codelineno-12-140" name="__codelineno-12-140"></a><span class="w">      </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">value</span><span class="p">)</span>
+</span><span id="__span-12-141"><a id="__codelineno-12-141" name="__codelineno-12-141"></a><span class="w">      </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-12-142"><a id="__codelineno-12-142" name="__codelineno-12-142"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">sentinel</span><span class="p">)</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">)</span>
+</span><span id="__span-12-143"><a id="__codelineno-12-143" name="__codelineno-12-143"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-144"><a id="__codelineno-12-144" name="__codelineno-12-144"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39;]&#39;</span><span class="p">).</span><span class="na">toString</span><span class="p">()</span>
+</span><span id="__span-12-145"><a id="__codelineno-12-145" name="__codelineno-12-145"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-146"><a id="__codelineno-12-146" name="__codelineno-12-146"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
