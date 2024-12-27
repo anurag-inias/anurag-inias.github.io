@@ -13,7 +13,7 @@ data class Node(var value: Int, var next: Node? = null) {
 }
 ```
 
-## Linked List 
+## Linked List
 
 We maintain references to the head and the tail of the list, allowing \\(O(1)\\) insertion on both ends.
 
@@ -55,6 +55,60 @@ override fun toString(): String {
     if (cursor != null) sb.append(", ")
   }
   return sb.append(']').toString()
+}
+```
+
+</div>
+
+## Getter
+
+<div markdown class="grid">
+
+```kotlin linenums="1"
+operator fun get(index: Int): Int? {
+  // saves time
+  if (index < 0 || index >= size) return null
+  if (index == size - 1) return tail
+
+  var cursor = _head
+  for (i in 0..<index) cursor = cursor!!.next
+  return cursor!!.value
+}
+```
+
+<div markdown>
+
+in _Kotlin_ we can overload the `get` operator for this purpose.
+
+Note the half-open interval \\([0, index)\\) in the for loop. That's because we begin at \\(head\\) before the loop even begins.
+
+</div>
+
+</div>
+
+## Setter
+
+<div markdown class="grid">
+
+<div markdown>
+
+again we check for an exceptional case with \\(size-1\\) to avoid the \\(O(n)\\) traversal.
+
+</div>
+
+```kotlin linenums="1"
+operator fun set(index: Int, value: Int) {
+  if (index < 0 || index >= size)
+    throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
+
+  if (index == size - 1) {
+    _tail!!.value = value
+    return
+  }
+
+  var cursor = _head
+  for (i in 0..<index) cursor = cursor!!.next
+  cursor!!.value = value
 }
 ```
 
@@ -106,7 +160,7 @@ fun addLast(vararg values: Int) {
 
 ```kotlin linenums="1"
 fun add(index: Int, value: Int) {
-  if (index < 0 || index > size) 
+  if (index < 0 || index > size)
     throw IndexOutOfBoundsException(
       "Index $index out of bounds for length $size"
     )
@@ -115,11 +169,11 @@ fun add(index: Int, value: Int) {
     size -> addLast(value)
     else -> {
       _size++
-      
+
       var pred = _head
-      for (i in 0..<(index-1)) 
+      for (i in 0..<(index-1))
         pred = pred!!.next
-      
+
       pred!!.next = Node(value, pred.next)
     }
   }
@@ -238,366 +292,3 @@ fun remove(index: Int): Int? {
 ```
 
 </div>
-
-## Getter
-
-<div markdown class="grid">
-
-```kotlin linenums="1"
-operator fun get(index: Int): Int? {
-  // saves time
-  if (index < 0 || index >= size) return null
-  if (index == size - 1) return tail
-
-  var cursor = _head
-  for (i in 0..<index) cursor = cursor!!.next
-  return cursor!!.value
-}
-```
-
-<div markdown>
-
-in _Kotlin_ we can overload the `get` operator for this purpose.
-
-Note the half-open interval \\([0, index)\\) in the for loop. That's because we begin at \\(head\\) before the loop even begins.
-
-</div>
-
-</div>
-
-## Setter
-
-<div markdown class="grid">
-
-<div markdown>
-
-again we check for an exceptional case with \\(size-1\\) to avoid the \\(O(n)\\) traversal.
-
-</div>
-
-```kotlin linenums="1"
-operator fun set(index: Int, value: Int) {
-  if (index < 0 || index >= size) 
-    throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
-  
-  if (index == size - 1) {
-    _tail!!.value = value
-    return
-  }
-
-  var cursor = _head
-  for (i in 0..<index) cursor = cursor!!.next
-  cursor!!.value = value
-}
-```
-
-</div>
-
-## Unit tests
-
-```kotlin linenums="1"
-package com.example.linkedlist
-
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
-import java.util.concurrent.ThreadLocalRandom
-
-class LinkedListTest {
-
-  @Test
-  fun empty() {
-    val list = LinkedList()
-
-    assertThat(list.size).isEqualTo(0)
-    assertThat(list.toString()).isEqualTo("[]")
-    assertThat(list[0]).isNull()
-    assertThrows<IndexOutOfBoundsException> { list[0] = 0 }
-    assertThat(list.head).isNull()
-    assertThat(list.tail).isNull()
-  }
-
-  @Test
-  fun addFirst_simple() {
-    val list = LinkedList()
-
-    list.addFirst(1, 2, 3)
-
-    assertThat(list.size).isEqualTo(3)
-    assertThat(list.toString()).isEqualTo("[3, 2, 1]")
-    assertThat(list[0]).isEqualTo(3)
-    assertThat(list[1]).isEqualTo(2)
-    assertThat(list[2]).isEqualTo(1)
-    assertThat(list.head).isEqualTo(3)
-    assertThat(list.tail).isEqualTo(1)
-  }
-
-  @Test
-  fun addLast_simple() {
-    val list = LinkedList()
-
-    list.addLast(1, 2, 3)
-
-    assertThat(list.size).isEqualTo(3)
-    assertThat(list.toString()).isEqualTo("[1, 2, 3]")
-    assertThat(list[0]).isEqualTo(1)
-    assertThat(list[1]).isEqualTo(2)
-    assertThat(list[2]).isEqualTo(3)
-    assertThat(list.head).isEqualTo(1)
-    assertThat(list.tail).isEqualTo(3)
-  }
-
-  @Test
-  fun add_mixed() {
-    val list = LinkedList()
-
-    list.addFirst(2)
-    list.addLast(3)
-    list.addFirst(1)
-    list.addLast(4)
-
-    assertThat(list.size).isEqualTo(4)
-    assertThat(list.toString()).isEqualTo("[1, 2, 3, 4]")
-    assertThat(list[0]).isEqualTo(1)
-    assertThat(list[1]).isEqualTo(2)
-    assertThat(list[2]).isEqualTo(3)
-    assertThat(list[3]).isEqualTo(4)
-    assertThat(list.head).isEqualTo(1)
-    assertThat(list.tail).isEqualTo(4)
-  }
-
-  @Test
-  fun add_at() {
-    val list = LinkedList()
-
-    list.add(0, 1)
-    assertThat(list.toString()).isEqualTo("[1]")
-    assertThat(list.head).isEqualTo(1)
-    assertThat(list.tail).isEqualTo(1)
-
-    assertThrows<IndexOutOfBoundsException> { list.add(-1, 2) }
-    assertThrows<IndexOutOfBoundsException> { list.add(2, 2) }
-
-    list.add(1, 3)
-    assertThat(list.toString()).isEqualTo("[1, 3]")
-    assertThat(list.head).isEqualTo(1)
-    assertThat(list.tail).isEqualTo(3)
-
-    list.add(1, 2)
-    assertThat(list.toString()).isEqualTo("[1, 2, 3]")
-    assertThat(list.head).isEqualTo(1)
-    assertThat(list.tail).isEqualTo(3)
-  }
-
-  @Test
-  fun add_at_fuzzy() {
-    val list = LinkedList()
-    val ctrl = ArrayList<Int>()
-    val rand = ThreadLocalRandom.current()
-
-    for (i in 0..100) {
-      val value = rand.nextInt()
-      val index = rand.nextInt(ctrl.size + 1)
-
-      ctrl.add(index, value)
-      list.add(index, value)
-      assertThat(list.toString()).isEqualTo(ctrl.toString())
-    }
-  }
-
-  @Test
-  fun removeFirst_simple() {
-    val list = LinkedList()
-
-    list.addFirst(2)
-    list.addLast(3)
-    list.addFirst(1)
-    list.addLast(4)
-
-    assertThat(list[0]).isEqualTo(1)
-    assertThat(list.removeFirst()).isEqualTo(1)
-    assertThat(list.size).isEqualTo(3)
-
-    assertThat(list[0]).isEqualTo(2)
-    assertThat(list.removeFirst()).isEqualTo(2)
-    assertThat(list.size).isEqualTo(2)
-
-    assertThat(list[0]).isEqualTo(3)
-    assertThat(list.removeFirst()).isEqualTo(3)
-    assertThat(list.size).isEqualTo(1)
-
-    assertThat(list[0]).isEqualTo(4)
-    assertThat(list.removeFirst()).isEqualTo(4)
-    assertThat(list.size).isEqualTo(0)
-
-    assertThat(list.removeFirst()).isNull()
-    assertThat(list.size).isEqualTo(0)
-  }
-
-  @Test
-  fun removeLast_simple() {
-    val list = LinkedList()
-
-    list.addFirst(2)
-    list.addLast(3)
-    list.addFirst(1)
-    list.addLast(4)
-
-    assertThat(list[3]).isEqualTo(4)
-    assertThat(list.removeLast()).isEqualTo(4)
-    assertThat(list.size).isEqualTo(3)
-
-    assertThat(list[2]).isEqualTo(3)
-    assertThat(list.removeLast()).isEqualTo(3)
-    assertThat(list.size).isEqualTo(2)
-
-    assertThat(list[1]).isEqualTo(2)
-    assertThat(list.removeLast()).isEqualTo(2)
-    assertThat(list.size).isEqualTo(1)
-
-    assertThat(list[0]).isEqualTo(1)
-    assertThat(list.removeLast()).isEqualTo(1)
-    assertThat(list.size).isEqualTo(0)
-
-    assertThat(list.removeLast()).isNull()
-    assertThat(list.size).isEqualTo(0)
-  }
-
-  @Test
-  fun remove_at_ends() {
-    val list = LinkedList()
-
-    list.addLast(1, 2, 3, 4)
-
-    assertThat(list.remove(0)).isEqualTo(1)
-    assertThat(list.head).isEqualTo(2)
-    assertThat(list.tail).isEqualTo(4)
-
-    assertThat(list.remove(2)).isEqualTo(4)
-    assertThat(list.head).isEqualTo(2)
-    assertThat(list.tail).isEqualTo(3)
-  }
-
-  @Test
-  fun remove_at_middle() {
-    val list = LinkedList()
-
-    list.addLast(1, 2, 3, 4, 5)
-
-    assertThat(list.remove(2)).isEqualTo(3)
-    assertThat(list.toString()).isEqualTo("[1, 2, 4, 5]")
-    assertThat(list.head).isEqualTo(1)
-    assertThat(list.tail).isEqualTo(5)
-
-    assertThat(list.remove(2)).isEqualTo(4)
-    assertThat(list.toString()).isEqualTo("[1, 2, 5]")
-    assertThat(list.head).isEqualTo(1)
-    assertThat(list.tail).isEqualTo(5)
-  }
-
-  @Test
-  fun remove_at_fuzzy() {
-    val list = LinkedList()
-    val ctrl = ArrayList<Int>()
-    val rand = ThreadLocalRandom.current()
-
-    rand.ints(100, 0, 1000).forEach {
-      list.addLast(it)
-      ctrl.addLast(it)
-    }
-
-    while (ctrl.isNotEmpty()) {
-      val index = rand.nextInt(ctrl.size)
-
-      val removed = ctrl[index]
-      ctrl.removeAt(index)
-      assertThat(list.remove(index)).isEqualTo(removed)
-      assertThat(list.toString()).isEqualTo(ctrl.toString())
-    }
-    assertThat(list.size).isEqualTo(0)
-  }
-
-  @Test
-  fun get_simple() {
-    val list = LinkedList()
-
-    assertThat(list[0]).isNull()
-    assertThat(list[1]).isNull()
-    assertThat(list[2]).isNull()
-    assertThat(list[3]).isNull()
-
-    list.addLast(3)
-    list.addFirst(2)
-    list.addLast(4)
-    list.addFirst(1)
-
-    assertThat(list[0]).isEqualTo(1)
-    assertThat(list[1]).isEqualTo(2)
-    assertThat(list[2]).isEqualTo(3)
-    assertThat(list[3]).isEqualTo(4)
-  }
-
-  @Test
-  fun set_simple() {
-    val list = LinkedList()
-
-    list.addLast(3)
-    list.addFirst(2)
-    list.addLast(4)
-    list.addFirst(1)
-
-    list[0] = 9
-    list[1] = 8
-    list[2] = 7
-    list[3] = 6
-
-    assertThat(list[0]).isEqualTo(9)
-    assertThat(list[1]).isEqualTo(8)
-    assertThat(list[2]).isEqualTo(7)
-    assertThat(list[3]).isEqualTo(6)
-
-    assertThrows<IndexOutOfBoundsException> { list[4] = 0 }
-    assertThrows<IndexOutOfBoundsException> { list[5] = 1 }
-    assertThrows<IndexOutOfBoundsException> { list[6] = 2 }
-  }
-
-  @Test
-  fun fuzzy() {
-    val list = LinkedList()
-    val ctrl = ArrayList<Int>()
-    val rand = ThreadLocalRandom.current()
-    // Test add
-    for (i in 0..100) {
-      val addLast = rand.nextBoolean()
-      val toBeAdded = rand.nextInt()
-
-      if (addLast) {
-        list.addLast(toBeAdded)
-        ctrl.addLast(toBeAdded)
-      }
-      else {
-        list.addFirst(toBeAdded)
-        ctrl.addFirst(toBeAdded)
-      }
-    }
-    // Test get
-    for (i in 0..100) {
-      assertThat(list[i]).isEqualTo(ctrl[i])
-    }
-    // Test toString
-    assertThat(list.toString()).isEqualTo(ctrl.toString())
-    // Test remove
-    while (ctrl.isNotEmpty()) {
-      val removeLast = rand.nextBoolean()
-
-      if (removeLast) {
-        assertThat(list.removeLast()).isEqualTo(ctrl.removeLast())
-      } else {
-        assertThat(list.removeFirst()).isEqualTo(ctrl.removeFirst())
-      }
-    }
-    // Test size
-    assertThat(list.size).isEqualTo(0)
-  }
-}
-```

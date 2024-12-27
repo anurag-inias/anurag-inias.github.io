@@ -63,7 +63,7 @@ private data class Node(var value: Int) {
 }
 ```
 
-## Linked List 
+## Linked List
 
 We maintain references to the head and the tail of the list, allowing \\(O(1)\\) insertion on both ends.
 
@@ -99,9 +99,10 @@ class LinkedList {
 ```
 
 <div markdown>
-Drop separate references to \\(head\\) and \\(tail\\) for a single reference \\(sentinel\\). 
+Drop separate references to \\(head\\) and \\(tail\\) for a single reference \\(sentinel\\).
 
 the \\(next\\) of \\(sentinel\\) is our \\(head\\) and \\(prev\\) is \\(tail\\).
+
 </div>
 
 </div>
@@ -151,6 +152,7 @@ operator fun get(index: Int): Int? {
 Previously we had to start traversal at \\(head\\) and that made our loop bounds a confusing \\([0, index)\\).
 
 Now we can start at \\(sentinel\\) (effectively \\(null\\) in singly-linked list terms).
+
 </div>
 
 </div>
@@ -159,12 +161,11 @@ Now we can start at \\(sentinel\\) (effectively \\(null\\) in singly-linked list
 
 <div markdown class="grid">
 
-
 ```diff linenums="1"
 operator fun set(index: Int, value: Int) {
-  if (index < 0 || index >= size) 
+  if (index < 0 || index >= size)
     throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
-  
+
   if (index == size - 1) {
 -   _tail!!.value = value
 +   sentinel.prev.value = value
@@ -186,6 +187,28 @@ operator fun set(index: Int, value: Int) {
 ## Insertion
 
 <div markdown class="grid">
+
+<div markdown>
+
+As promised, insertions with sentinels are a lot more straighforward.
+
+<br>
+
+\\[
+node .next .next .next ... .next
+\\]
+
+that's because the circular list ensures that no matter how many \\(next\\) or \\(prev\\) we chain, we can't ever hit a dead end.
+
+<br>
+
+\\[
+\bcancel{null.prev} \implies sentinel.prev
+\\]
+
+and we've substituted checks against \\(sentinel\\) for \\(null\\) checks, which will never throw NPE.
+
+</div>
 
 <div markdown>
 
@@ -233,28 +256,6 @@ fun add(index: Int, value: Int) {
 
 </div>
 
-<div markdown>
-
-As promised, insertions with sentinels are a lot more straighforward.
-
-<br>
-
-\\[
-node .next .next .next ... .next
-\\]
-
-that's because the circular list ensures that no matter how many \\(next\\) or \\(prev\\) we chain, we can't ever hit a dead end.
-
-<br>
-
-\\[
-  \bcancel{null.prev} \implies sentinel.prev
-\\]
-
-and we've substituted checks against \\(sentinel\\) for \\(null\\) checks, which will never throw NPE. 
-
-</div>
-
 </div>
 
 ## Deletion
@@ -283,8 +284,6 @@ fun removeFirst(): Int? {
 }
 ```
 
-Since we are using a doubly-linked list, it's possible to find the predecessor of \\(tail\\) in \\(O(1)\\) without requiring a full traversal. <br> <br> The rest of the deletion is same as before.
-
 ```diff linenums="1"
 fun removeLast(): Int? {
 - if (head == null) return null
@@ -310,7 +309,7 @@ fun removeLast(): Int? {
 }
 ```
 
-<div markdown></div>
+Since we are using a doubly-linked list, it's possible to find the predecessor of \\(tail\\) in \\(O(1)\\) without requiring a full traversal. <br> <br> The rest of the deletion is same as before.
 
 ```diff linenums="1"
 fun remove(index: Int): Int? {
@@ -324,8 +323,8 @@ fun remove(index: Int): Int? {
       _size--
 -     var pred = _head
 +     var pred = sentinel
--     for (i in 0..<(index-1)) 
-+     for (i in 0..<index) 
+-     for (i in 0..<(index-1))
++     for (i in 0..<index)
         pred = pred.next
 
       val value = pred.next.value
@@ -340,151 +339,780 @@ fun remove(index: Int): Int? {
 
 ## Full Implementation
 
-```kotlin linenums="1"
-package com.example.linkedlist
+=== "Kotlin"
 
-private data class Node(var value: Int) {
+    ```kotlin linenums="1" title="LinkedList.kt"
+    package com.example.linkedlist
 
-  private lateinit var _prev: Node
-  private lateinit var _next: Node
+    private data class Node(var value: Int) {
 
-  constructor(value: Int, prev: Node, next: Node) : this(value) {
-    this.prev = prev // triggers the custom setter
-    this.next = next // triggers the custom setter
-  }
+      private lateinit var _prev: Node
+      private lateinit var _next: Node
 
-  var prev: Node
-    get() = _prev
-    set(value) {
-      _prev = value
-      value._next = this // .next will cause infinite-loop
-    }
-
-  var next: Node
-    get() = _next
-    set(value) {
-      _next = value
-      value._prev = this // .prev will cause infinite-loop
-    }
-
-  override fun toString(): String = "$value"
-}
-
-class LinkedList {
-
-  private var sentinel: Node = Node(0) // value doesn't matter
-  private var _size = 0
-
-  init {
-    sentinel.next = sentinel
-  }
-
-  val size: Int
-    get() = _size
-
-  fun isEmpty() = size == 0
-
-  val head: Int?
-    get() = if (isEmpty()) null else sentinel.next.value
-
-  val tail: Int?
-    get() = if (isEmpty()) null else sentinel.prev.value
-
-  fun addFirst(vararg values: Int) {
-    values.forEach {
-      _size++
-      sentinel.next = Node(it, sentinel, sentinel.next)
-    }
-  }
-
-  fun addLast(vararg values: Int) {
-    values.forEach {
-      _size++
-      sentinel.prev = Node(it, sentinel.prev, sentinel)
-    }
-  }
-
-  fun add(index: Int, value: Int) {
-    if (index < 0 || index > size) throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
-    when (index) {
-      0 -> addFirst(value)
-      size -> addLast(value)
-      else -> {
-        _size++
-        var pred = sentinel
-        for (i in 0..<index) pred = pred.next
-        pred.next = Node(value, pred, pred.next)
+      constructor(value: Int, prev: Node, next: Node) : this(value) {
+        this.prev = prev // triggers the custom setter
+        this.next = next // triggers the custom setter
       }
+
+      var prev: Node
+        get() = _prev
+        set(value) {
+          _prev = value
+          value._next = this // .next will cause infinite-loop
+        }
+
+      var next: Node
+        get() = _next
+        set(value) {
+          _next = value
+          value._prev = this // .prev will cause infinite-loop
+        }
+
+      override fun toString(): String = "$value"
     }
-  }
 
-  fun removeFirst(): Int? {
-    if (isEmpty()) return null
+    class LinkedList {
 
-    _size--
-    val head = sentinel.next
-    sentinel.next = head.next
-    return head.value
-  }
+      private var sentinel: Node = Node(0) // value doesn't matter
+      private var _size = 0
 
-  fun removeLast(): Int? {
-    if (isEmpty()) return null
+      init {
+        sentinel.next = sentinel
+      }
 
-    _size--
-    val tail = sentinel.prev
-    sentinel.prev = tail.prev
-    return tail.value
-  }
+      val size: Int
+        get() = _size
 
-  fun remove(index: Int): Int? {
-    if (index < 0 || index >= size)
-      throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
+      fun isEmpty() = size == 0
 
-    return when (index) {
-      0 -> removeFirst()
-      size - 1 -> removeLast()
-      else -> {
+      val head: Int?
+        get() = if (isEmpty()) null else sentinel.next.value
+
+      val tail: Int?
+        get() = if (isEmpty()) null else sentinel.prev.value
+
+      fun addFirst(vararg values: Int) {
+        values.forEach {
+          _size++
+          sentinel.next = Node(it, sentinel, sentinel.next)
+        }
+      }
+
+      fun addLast(vararg values: Int) {
+        values.forEach {
+          _size++
+          sentinel.prev = Node(it, sentinel.prev, sentinel)
+        }
+      }
+
+      fun add(index: Int, value: Int) {
+        if (index < 0 || index > size) throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
+        when (index) {
+          0 -> addFirst(value)
+          size -> addLast(value)
+          else -> {
+            _size++
+            var pred = sentinel
+            for (i in 0..<index) pred = pred.next
+            pred.next = Node(value, pred, pred.next)
+          }
+        }
+      }
+
+      fun removeFirst(): Int? {
+        if (isEmpty()) return null
+
         _size--
-        var pred = sentinel
-        for (i in 0..<index) pred = pred.next
+        val head = sentinel.next
+        sentinel.next = head.next
+        return head.value
+      }
 
-        val target = pred.next
-        pred.next = target.next
-        return target.value
+      fun removeLast(): Int? {
+        if (isEmpty()) return null
+
+        _size--
+        val tail = sentinel.prev
+        sentinel.prev = tail.prev
+        return tail.value
+      }
+
+      fun remove(index: Int): Int? {
+        if (index < 0 || index >= size)
+          throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
+
+        return when (index) {
+          0 -> removeFirst()
+          size - 1 -> removeLast()
+          else -> {
+            _size--
+            var pred = sentinel
+            for (i in 0..<index) pred = pred.next
+
+            val target = pred.next
+            pred.next = target.next
+            return target.value
+          }
+        }
+      }
+
+      operator fun get(index: Int): Int? {
+        if (index >= size) return null // saves time
+        if (index == size - 1) return tail
+
+        var cursor = sentinel
+        for (i in 0..index) cursor = cursor.next
+        return cursor.value
+      }
+
+      operator fun set(index: Int, value: Int) {
+        if (index >= size) throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
+        if (index == size - 1) {
+          sentinel.prev.value = value
+          return
+        }
+
+        var cursor = sentinel
+        for (i in 0..index) cursor = cursor.next
+        cursor.value = value
+      }
+
+      override fun toString(): String {
+        val sb = StringBuilder().append('[')
+        var cursor = sentinel.next
+        while (cursor !== sentinel) {
+          sb.append(cursor.value)
+          cursor = cursor.next
+          if (cursor !== sentinel) sb.append(", ")
+        }
+        return sb.append(']').toString()
       }
     }
-  }
+    ```
 
-  operator fun get(index: Int): Int? {
-    if (index >= size) return null // saves time
-    if (index == size - 1) return tail
+=== "Unit Tests"
 
-    var cursor = sentinel
-    for (i in 0..index) cursor = cursor.next
-    return cursor.value
-  }
+    ```kotlin linenums="1" title="LinkedListTest.kt"
+    package com.example.linkedlist
 
-  operator fun set(index: Int, value: Int) {
-    if (index >= size) throw IndexOutOfBoundsException("Index $index out of bounds for length $size")
-    if (index == size - 1) {
-      sentinel.prev.value = value
-      return
+    import org.assertj.core.api.Assertions.assertThat
+    import org.junit.jupiter.api.BeforeEach
+    import org.junit.jupiter.api.Test
+    import org.junit.jupiter.api.assertThrows
+    import java.util.concurrent.ThreadLocalRandom
+
+    class LinkedListTest {
+
+      private lateinit var list: LinkedList
+
+      @BeforeEach
+      fun setup() {
+        list = LinkedList()
+      }
+
+      @Test
+      fun empty() {
+        assertThat(list.size).isEqualTo(0)
+        assertThat(list.toString()).isEqualTo("[]")
+        assertThat(list[0]).isNull()
+        assertThrows<IndexOutOfBoundsException> { list[0] = 0 }
+        assertThat(list.head).isNull()
+        assertThat(list.tail).isNull()
+      }
+
+      @Test
+      fun addFirst_simple() {
+        list.addFirst(1, 2, 3)
+
+        assertThat(list.size).isEqualTo(3)
+        assertThat(list.toString()).isEqualTo("[3, 2, 1]")
+        assertThat(list[0]).isEqualTo(3)
+        assertThat(list[1]).isEqualTo(2)
+        assertThat(list[2]).isEqualTo(1)
+        assertThat(list.head).isEqualTo(3)
+        assertThat(list.tail).isEqualTo(1)
+      }
+
+      @Test
+      fun addLast_simple() {
+        list.addLast(1, 2, 3)
+
+        assertThat(list.size).isEqualTo(3)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3]")
+        assertThat(list[0]).isEqualTo(1)
+        assertThat(list[1]).isEqualTo(2)
+        assertThat(list[2]).isEqualTo(3)
+        assertThat(list.head).isEqualTo(1)
+        assertThat(list.tail).isEqualTo(3)
+      }
+
+      @Test
+      fun add_mixed() {
+        list.addFirst(2)
+        list.addLast(3)
+        list.addFirst(1)
+        list.addLast(4)
+
+        assertThat(list.size).isEqualTo(4)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3, 4]")
+        assertThat(list[0]).isEqualTo(1)
+        assertThat(list[1]).isEqualTo(2)
+        assertThat(list[2]).isEqualTo(3)
+        assertThat(list[3]).isEqualTo(4)
+        assertThat(list.head).isEqualTo(1)
+        assertThat(list.tail).isEqualTo(4)
+      }
+
+      @Test
+      fun add_at() {
+        list.add(0, 1)
+        assertThat(list.toString()).isEqualTo("[1]")
+        assertThat(list.head).isEqualTo(1)
+        assertThat(list.tail).isEqualTo(1)
+
+        assertThrows<IndexOutOfBoundsException> { list.add(-1, 2) }
+        assertThrows<IndexOutOfBoundsException> { list.add(2, 2) }
+
+        list.add(1, 3)
+        assertThat(list.toString()).isEqualTo("[1, 3]")
+        assertThat(list.head).isEqualTo(1)
+        assertThat(list.tail).isEqualTo(3)
+
+        list.add(1, 2)
+        assertThat(list.toString()).isEqualTo("[1, 2, 3]")
+        assertThat(list.head).isEqualTo(1)
+        assertThat(list.tail).isEqualTo(3)
+      }
+
+      @Test
+      fun add_at_fuzzy() {
+        val ctrl = ArrayList<Int>()
+        val rand = ThreadLocalRandom.current()
+
+        for (i in 0..100) {
+          val value = rand.nextInt()
+          val index = rand.nextInt(ctrl.size + 1)
+
+          ctrl.add(index, value)
+          list.add(index, value)
+          assertThat(list.toString()).isEqualTo(ctrl.toString())
+        }
+      }
+
+      @Test
+      fun removeFirst_simple() {
+        list.addFirst(2)
+        list.addLast(3)
+        list.addFirst(1)
+        list.addLast(4)
+
+        assertThat(list[0]).isEqualTo(1)
+        assertThat(list.removeFirst()).isEqualTo(1)
+        assertThat(list.size).isEqualTo(3)
+
+        assertThat(list[0]).isEqualTo(2)
+        assertThat(list.removeFirst()).isEqualTo(2)
+        assertThat(list.size).isEqualTo(2)
+
+        assertThat(list[0]).isEqualTo(3)
+        assertThat(list.removeFirst()).isEqualTo(3)
+        assertThat(list.size).isEqualTo(1)
+
+        assertThat(list[0]).isEqualTo(4)
+        assertThat(list.removeFirst()).isEqualTo(4)
+        assertThat(list.size).isEqualTo(0)
+
+        assertThat(list.removeFirst()).isNull()
+        assertThat(list.size).isEqualTo(0)
+      }
+
+      @Test
+      fun removeLast_simple() {
+        list.addFirst(2)
+        list.addLast(3)
+        list.addFirst(1)
+        list.addLast(4)
+
+        assertThat(list[3]).isEqualTo(4)
+        assertThat(list.removeLast()).isEqualTo(4)
+        assertThat(list.size).isEqualTo(3)
+
+        assertThat(list[2]).isEqualTo(3)
+        assertThat(list.removeLast()).isEqualTo(3)
+        assertThat(list.size).isEqualTo(2)
+
+        assertThat(list[1]).isEqualTo(2)
+        assertThat(list.removeLast()).isEqualTo(2)
+        assertThat(list.size).isEqualTo(1)
+
+        assertThat(list[0]).isEqualTo(1)
+        assertThat(list.removeLast()).isEqualTo(1)
+        assertThat(list.size).isEqualTo(0)
+
+        assertThat(list.removeLast()).isNull()
+        assertThat(list.size).isEqualTo(0)
+      }
+
+      @Test
+      fun remove_at_ends() {
+        list.addLast(1, 2, 3, 4)
+
+        assertThat(list.remove(0)).isEqualTo(1)
+        assertThat(list.head).isEqualTo(2)
+        assertThat(list.tail).isEqualTo(4)
+
+        assertThat(list.remove(2)).isEqualTo(4)
+        assertThat(list.head).isEqualTo(2)
+        assertThat(list.tail).isEqualTo(3)
+      }
+
+      @Test
+      fun remove_at_middle() {
+        list.addLast(1, 2, 3, 4, 5)
+
+        assertThat(list.remove(2)).isEqualTo(3)
+        assertThat(list.toString()).isEqualTo("[1, 2, 4, 5]")
+        assertThat(list.head).isEqualTo(1)
+        assertThat(list.tail).isEqualTo(5)
+
+        assertThat(list.remove(2)).isEqualTo(4)
+        assertThat(list.toString()).isEqualTo("[1, 2, 5]")
+        assertThat(list.head).isEqualTo(1)
+        assertThat(list.tail).isEqualTo(5)
+      }
+
+      @Test
+      fun remove_at_fuzzy() {
+        val ctrl = ArrayList<Int>()
+        val rand = ThreadLocalRandom.current()
+
+        rand.ints(100, 0, 1000).forEach {
+          list.addLast(it)
+          ctrl.addLast(it)
+        }
+
+        while (ctrl.isNotEmpty()) {
+          val index = rand.nextInt(ctrl.size)
+
+          val removed = ctrl[index]
+          ctrl.removeAt(index)
+          assertThat(list.remove(index)).isEqualTo(removed)
+          assertThat(list.toString()).isEqualTo(ctrl.toString())
+        }
+        assertThat(list.size).isEqualTo(0)
+      }
+
+      @Test
+      fun get_simple() {
+        assertThat(list[0]).isNull()
+        assertThat(list[1]).isNull()
+        assertThat(list[2]).isNull()
+        assertThat(list[3]).isNull()
+
+        list.addLast(3)
+        list.addFirst(2)
+        list.addLast(4)
+        list.addFirst(1)
+
+        assertThat(list[0]).isEqualTo(1)
+        assertThat(list[1]).isEqualTo(2)
+        assertThat(list[2]).isEqualTo(3)
+        assertThat(list[3]).isEqualTo(4)
+      }
+
+      @Test
+      fun set_simple() {
+        list.addLast(3)
+        list.addFirst(2)
+        list.addLast(4)
+        list.addFirst(1)
+
+        list[0] = 9
+        list[1] = 8
+        list[2] = 7
+        list[3] = 6
+
+        assertThat(list[0]).isEqualTo(9)
+        assertThat(list[1]).isEqualTo(8)
+        assertThat(list[2]).isEqualTo(7)
+        assertThat(list[3]).isEqualTo(6)
+
+        assertThrows<IndexOutOfBoundsException> { list[4] = 0 }
+        assertThrows<IndexOutOfBoundsException> { list[5] = 1 }
+        assertThrows<IndexOutOfBoundsException> { list[6] = 2 }
+      }
+
+      @Test
+      fun fuzzy() {
+        val ctrl = ArrayList<Int>()
+        val rand = ThreadLocalRandom.current()
+        // Test add
+        for (i in 0..100) {
+          val addLast = rand.nextBoolean()
+          val toBeAdded = rand.nextInt()
+
+          if (addLast) {
+            list.addLast(toBeAdded)
+            ctrl.addLast(toBeAdded)
+          }
+          else {
+            list.addFirst(toBeAdded)
+            ctrl.addFirst(toBeAdded)
+          }
+        }
+        // Test get
+        for (i in 0..100) {
+          assertThat(list[i]).isEqualTo(ctrl[i])
+        }
+        // Test toString
+        assertThat(list.toString()).isEqualTo(ctrl.toString())
+        // Test remove
+        while (ctrl.isNotEmpty()) {
+          val removeLast = rand.nextBoolean()
+
+          if (removeLast) {
+            assertThat(list.removeLast()).isEqualTo(ctrl.removeLast())
+          } else {
+            assertThat(list.removeFirst()).isEqualTo(ctrl.removeFirst())
+          }
+        }
+        // Test size
+        assertThat(list.size).isEqualTo(0)
+      }
     }
+    ```
 
-    var cursor = sentinel
-    for (i in 0..index) cursor = cursor.next
-    cursor.value = value
-  }
+=== "Python"
 
-  override fun toString(): String {
-    val sb = StringBuilder().append('[')
-    var cursor = sentinel.next
-    while (cursor !== sentinel) {
-      sb.append(cursor.value)
-      cursor = cursor.next
-      if (cursor !== sentinel) sb.append(", ")
-    }
-    return sb.append(']').toString()
-  }
-}
-```
+    ```python linenums="1" title="list.py"
+    from typing import Optional
+
+    class LinkedList:
+        class Node:
+            _prev: 'LinkedList.Node'
+            _next: 'LinkedList.Node'
+
+            def __init__(self, value: int):
+                self.value = value
+
+            @staticmethod
+            def create(value: int, prev: 'LinkedList.Node', next: 'LinkedList.Node') -> 'LinkedList.Node':
+                node = LinkedList.Node(value)
+                node.next = next
+                node.prev = prev
+                return node
+
+            @property
+            def prev(self):
+                return self._prev
+
+            @property
+            def next(self):
+                return self._next
+
+            @prev.setter
+            def prev(self, value: 'LinkedList.Node'):
+                self._prev = value
+                value._next = self
+
+            @next.setter
+            def next(self, value: 'LinkedList.Node'):
+                self._next = value
+                value._prev = self
+
+            def __str__(self):
+                return f"{self.value}"
+
+        def __init__(self):
+            self.sentinel = LinkedList.Node(0)
+            self.sentinel.next = self.sentinel
+            self._size = 0
+
+        @property
+        def size(self) -> int:
+            return self._size
+
+        @property
+        def empty(self):
+            return self._size == 0
+
+        @property
+        def head(self) -> Optional[int]:
+            if self.empty:
+                return None
+            return self.sentinel.next.value
+
+        @property
+        def tail(self) -> Optional[int]:
+            if self.empty:
+                return None
+            return self.sentinel.prev.value
+
+        def add_front(self, *values: int):
+            for v in values:
+                self._size += 1
+                self.sentinel.next = LinkedList.Node.create(v, self.sentinel, self.sentinel.next)
+
+        def add_last(self, *values: int):
+            for v in values:
+                self._size += 1
+                self.sentinel.prev = LinkedList.Node.create(v, self.sentinel.prev, self.sentinel)
+
+        def add(self, index: int, value: int):
+            if index < 0 or index > self.size:
+                raise IndexError("Index out of range")
+            match index:
+                case 0:
+                    self.add_front(value)
+                case self.size:
+                    self.add_last(value)
+                case _:
+                    self._size += 1
+                    pred = self.sentinel
+                    for _ in range(index):
+                        pred = pred.next
+                    pred.next = LinkedList.Node.create(value, pred, pred.next)
+
+        def remove_front(self) -> Optional[int]:
+            if self.empty:
+                return None
+            self._size -= 1
+            out, self.sentinel.next = self.sentinel.next.value, self.sentinel.next.next
+            return out
+
+        def remove_last(self) -> Optional[int]:
+            if self.empty:
+                return None
+            self._size -= 1
+            out, self.sentinel.prev = self.sentinel.prev.value, self.sentinel.prev.prev
+            return out
+
+        def remove(self, index: int) -> Optional[int]:
+            if index < 0 or index >= self.size:
+                raise IndexError("Index out of range")
+            if self.empty:
+                return None
+            if index == 0:
+                return self.remove_front()
+            if index == self.size - 1:
+                return self.remove_last()
+            self._size -= 1
+            pred = self.sentinel
+            for _ in range(index):
+                pred = pred.next
+            out, pred.next = pred.next.value, pred.next.next
+            return out
+
+        def __getitem__(self, index: int) -> Optional[int]:
+            if index < 0 or index >= self.size:
+                return None
+            cursor = self.sentinel
+            for _ in range(index + 1):
+                cursor = cursor.next
+            return cursor.value
+
+        def __setitem__(self, index: int, value: int):
+            if index < 0 or index >= self.size:
+                raise IndexError("Index out of range")
+            cursor = self.sentinel
+            for _ in range(index + 1):
+                cursor = cursor.next
+            cursor.value = value
+
+        def __delitem__(self, index: int):
+            return self.remove(index)
+
+        def __str__(self):
+            tokens = []
+            cursor = self.sentinel.next
+            while cursor != self.sentinel:
+                tokens.append(f'{cursor.value}')
+                cursor = cursor.next
+            return '[' + ', '.join(tokens) + ']'
+    ```
+
+=== "Unit Tests"
+
+    ```python linenums="1" title="test_list.py"
+    import random
+
+    from _pytest.python_api import raises
+    from distributed.utils_test import throws
+    from numpy.matlib import empty
+
+    from linkedlist.list import LinkedList
+
+
+    def test_empty():
+        list = LinkedList()
+
+        assert list.size is 0
+        assert list.empty is True
+        assert list.head is None
+        assert list.tail is None
+        assert list[0] is None
+        assert str(list) == "[]"
+
+    def test_add_first_simple():
+        list = LinkedList()
+
+        list.add_front(1, 2, 3)
+
+        assert list.size is 3
+        assert list.empty is False
+        assert list.head is 3
+        assert list.tail is 1
+        assert list[0] is 3
+        assert list[1] is 2
+        assert list[2] is 1
+        assert str(list) == "[3, 2, 1]"
+
+    def test_add_last_simple():
+        list = LinkedList()
+
+        list.add_last(1, 2, 3)
+
+        assert list.size is 3
+        assert list.empty is False
+        assert list.head is 1
+        assert list.tail is 3
+        assert list[0] is 1
+        assert list[1] is 2
+        assert list[2] is 3
+        assert str(list) == "[1, 2, 3]"
+
+    def test_add_mixed():
+        list = LinkedList()
+
+        list.add_front(2)
+        list.add_last(3)
+        list.add_front(1)
+        list.add_last(4)
+
+        assert list.size is 4
+        assert list.empty is False
+        assert list.head is 1
+        assert list.tail is 4
+        assert list[0] is 1
+        assert list[1] is 2
+        assert list[2] is 3
+        assert list[3] is 4
+        assert str(list) == "[1, 2, 3, 4]"
+
+    def test_add_at():
+        list = LinkedList()
+
+        list.add(0, 1)
+        assert str(list) == "[1]"
+        assert list.head is 1
+        assert list.tail is 1
+
+        with raises(IndexError):
+            list.add(-1, 2)
+
+        with raises(IndexError):
+            list.add(2, 2)
+
+        list.add(1, 3)
+        assert str(list) == "[1, 3]"
+        assert list.head is 1
+        assert list.tail is 3
+
+        list.add(1, 2)
+        assert str(list) == "[1, 2, 3]"
+        assert list.head is 1
+        assert list.tail is 3
+
+    def test_add_at_fuzzy():
+        list = LinkedList()
+        ctrl = []
+
+        for _ in range(100):
+            value = random.randint(0, 10000)
+            index = random.randint(0, len(ctrl))
+
+            ctrl.insert(index, value)
+            list.add(index, value)
+
+            assert str(list) == str(ctrl)
+
+    def test_remove_front_simple():
+        list = LinkedList()
+
+        list.add_front(2)
+        list.add_last(3)
+        list.add_front(1)
+        list.add_last(4)
+
+        assert list[0] is 1
+        assert list.remove_front() is 1
+        assert list.size is 3
+
+        assert list[0] is 2
+        assert list.remove_front() is 2
+        assert list.size is 2
+
+        assert list[0] is 3
+        assert list.remove_front() is 3
+        assert list.size is 1
+
+        assert list[0] is 4
+        assert list.remove_front() is 4
+        assert list.size is 0
+
+    def test_remove_last_simple():
+        list = LinkedList()
+
+        list.add_front(2)
+        list.add_last(3)
+        list.add_front(1)
+        list.add_last(4)
+
+        assert list[3] is 4
+        assert list.remove_last() is 4
+        assert list.size is 3
+
+        assert list[2] is 3
+        assert list.remove_last() is 3
+        assert list.size is 2
+
+        assert list[1] is 2
+        assert list.remove_last() is 2
+        assert list.size is 1
+
+        assert list[0] is 1
+        assert list.remove_last() is 1
+        assert list.size is 0
+
+    def test_remove_at_middle():
+        list = LinkedList()
+
+        list.add_last(1, 2, 3, 4, 5)
+
+        assert list.remove(2) is 3
+        assert str(list) == "[1, 2, 4, 5]"
+        assert list.head is 1
+        assert list.tail is 5
+
+        assert list.remove(2) is 4
+        assert str(list) == "[1, 2, 5]"
+        assert list.head is 1
+        assert list.tail is 5
+
+    def test_remove_at_fuzzy():
+        list = LinkedList()
+        ctrl = []
+
+        for _ in range(100):
+            value = random.randint(0, 1000)
+            list.add_last(value)
+            ctrl.append(value)
+
+        while len(ctrl) > 0:
+            index = random.randint(0, len(ctrl) - 1)
+            value = ctrl[index]
+
+            del ctrl[index]
+            assert list.remove(index) is value
+        assert list.empty is True
+    ```
