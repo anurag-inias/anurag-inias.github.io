@@ -1,5 +1,15 @@
 # Singly Linked List
 
+<style>
+.md-logo img {
+  content: url('/data-structures/linked-list/polyline-light.svg');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/data-structures/linked-list/polyline-night.svg');
+}
+</style>
+
 <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
 <script src="https://tikzjax.com/v1/tikzjax.js"></script>
 
