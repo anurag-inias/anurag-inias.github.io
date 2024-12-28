@@ -12,17 +12,9 @@
 
 ## Basics
 
-> A set is an unordered collection of distinct objects.
+!!! quote ""
 
-
-Some common sets:
-
-- \\(\mathbb{N} = \lbrace 1, 2, 3, ... \rbrace \\), set of all natural numbers.
-- \\(\mathbb{Z} = \lbrace ..., -2, -1, 0, 1, 2, ... \rbrace \\), set of all integers.
-- \\(\mathbb{Q} = \lbrace p/q \text{ | } p, q \in \mathbb{Z} \text{ and } q \not= 0 \rbrace \\), set of all rational numbers.
-- \\(\mathbb{Z}\\), set of all real numbers.
-- \\(\mathbb{C}\\), set of all complex numbers.
-- \\(\phi\\), empty set.
+    A set is an unordered collection of distinct objects.
 
 ## Identities
 
@@ -44,4 +36,3 @@ Some common sets:
 | \\(\overline{ A \cup B } = \overline A \cap \overline B \\) |                  |
 | \\(A \cup (A \cap B) = A\\)                                 | Absorption       |
 | \\(A \cap (A \cup B) = A\\)                                 |                  |
-
