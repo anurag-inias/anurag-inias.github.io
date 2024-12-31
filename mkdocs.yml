@@ -69,8 +69,10 @@ nav:
           - The Institute: "blog/books/the-institute.md"
           - The Reaping: "blog/books/the-reaping.md"
   - Maths:
-      - Number Systems: "maths/number-systems.md"
-      - Sets: "maths/sets.md"
+      - Algebra:
+          - Numbers: "maths/numbers.md"
+          - Laws of arithmetics: "maths/arithmetic-laws.md"
+          - Exponent and logarithmic identities: "maths/exponent-and-logarithmic-identities.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
