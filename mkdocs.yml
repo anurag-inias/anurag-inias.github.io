@@ -122,6 +122,8 @@ nav:
       - Iterators: "java/iterators.md"
   - Kotlin:
       - Concurrency: "kt/concurrency.md"
+  - Go:
+      - Tour: "go/tour.md"
   - Android:
       - Activities: "android/activities.md"
       - Tasks: "android/tasks.md"
