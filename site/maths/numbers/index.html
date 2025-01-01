@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../number-systems/">
+        <link rel="prev" href="../../blog/books/the-reaping/">
       
       
-        <link rel="next" href="../../data-structures/numbers/representation/">
+        <link rel="next" href="../arithmetic-laws/">
       
       
       <link rel="icon" href="../../assets/fatigue-dark.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Sets - listless 💤</title>
+        <title>Numbers - listless 💤</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sets" class="md-skip">
+        <a href="#numbers" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sets
+              Numbers
             
           </span>
         </div>
@@ -401,22 +401,38 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../number-systems/" class="md-nav__link">
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    Number Systems
+    Algebra
   </span>
   
 
-      </a>
-    </li>
-  
-
-              
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algebra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -438,7 +454,7 @@
           
   
   <span class="md-ellipsis">
-    Sets
+    Numbers
   </span>
   
 
@@ -449,7 +465,7 @@
         
   
   <span class="md-ellipsis">
-    Sets
+    Numbers
   </span>
   
 
@@ -471,18 +487,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basics" class="md-nav__link">
+  <a href="#common-numbers-sets" class="md-nav__link">
     <span class="md-ellipsis">
-      Basics
+      Common numbers sets
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#identities" class="md-nav__link">
+  <a href="#rational-and-irrational-numbers" class="md-nav__link">
     <span class="md-ellipsis">
-      Identities
+      Rational and Irrational numbers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factors-primes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Factors &amp; Primes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fractions-and-ratios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fractions and ratios
     </span>
   </a>
   
@@ -491,6 +525,56 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arithmetic-laws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Laws of arithmetics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exponent-and-logarithmic-identities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exponent and logarithmic identities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -2556,18 +2640,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basics" class="md-nav__link">
+  <a href="#common-numbers-sets" class="md-nav__link">
     <span class="md-ellipsis">
-      Basics
+      Common numbers sets
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#identities" class="md-nav__link">
+  <a href="#rational-and-irrational-numbers" class="md-nav__link">
     <span class="md-ellipsis">
-      Identities
+      Rational and Irrational numbers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factors-primes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Factors &amp; Primes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fractions-and-ratios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fractions and ratios
     </span>
   </a>
   
@@ -2588,7 +2690,7 @@
                   
 
 
-<h1 id="sets">Sets</h1>
+<h1 id="numbers">Numbers</h1>
 <style>
 .md-logo img {
   content: url('/maths/maths-light.svg');
@@ -2599,85 +2701,42 @@
 }
 </style>
 
-<h2 id="basics">Basics</h2>
-<div class="admonition quote">
-<p>A set is an unordered collection of distinct objects.</p>
-</div>
-<h2 id="identities">Identities</h2>
-<table>
-<thead>
-<tr>
-<th>Identity</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\(A \cap U = A\)</td>
-<td>Identity</td>
-</tr>
-<tr>
-<td>\(A \cup \phi = A\)</td>
-<td></td>
-</tr>
-<tr>
-<td>\(A \cup \overline A = U\)</td>
-<td>Complement</td>
-</tr>
-<tr>
-<td>\(A \cap \overline A = \phi\)</td>
-<td></td>
-</tr>
-<tr>
-<td>\(A \cup U = U\)</td>
-<td>Domination</td>
-</tr>
-<tr>
-<td>\(A \cap \phi = \phi\)</td>
-<td></td>
-</tr>
-<tr>
-<td>\(A \cup B = B \cup A\)</td>
-<td>Commutative</td>
-</tr>
-<tr>
-<td>\(A \cap B = B \cap A\)</td>
-<td></td>
-</tr>
-<tr>
-<td>\(A \cup (B \cup C) = (A \cup B) \cup C\)</td>
-<td>Associative</td>
-</tr>
-<tr>
-<td>\(A \cap (B \cap C) = (A \cap B) \cap C\)</td>
-<td></td>
-</tr>
-<tr>
-<td>\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)</td>
-<td>Distributive</td>
-</tr>
-<tr>
-<td>\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</td>
-<td></td>
-</tr>
-<tr>
-<td>\(\overline{ A \cap B } = \overline A \cup \overline B \)</td>
-<td>De Morgan's laws</td>
-</tr>
-<tr>
-<td>\(\overline{ A \cup B } = \overline A \cap \overline B \)</td>
-<td></td>
-</tr>
-<tr>
-<td>\(A \cup (A \cap B) = A\)</td>
-<td>Absorption</td>
-</tr>
-<tr>
-<td>\(A \cap (A \cup B) = A\)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<h2 id="common-numbers-sets">Common numbers sets</h2>
+<ul>
+<li><span class="arithmatex">\(\mathbb{N} = \lbrace0, 1, 2, 3, ...\rbrace\)</span>, are called natural numbers.</li>
+<li><span class="arithmatex">\(\mathbb{Z} = \lbrace ..., -2, -1, 0, 1, 2, ...\rbrace\)</span>, are called integers.</li>
+<li><span class="arithmatex">\(\mathbb{Q} = \lbrace\dfrac{p}{q} \text{ where }p, q \in \mathbb{Z} \text{, and }q \not = 0\rbrace\)</span>, are called rational numbers.</li>
+<li><span class="arithmatex">\(\mathbb{R} - \mathbb{Q}\)</span>, are called irrational numbers.</li>
+</ul>
+<h2 id="rational-and-irrational-numbers">Rational and Irrational numbers</h2>
+<p>Rational numbers can be expressed as quotient or fraction <span class="arithmatex">\(\dfrac{p}{q}\)</span> of two integers, where the denominator is non-zero. Alternatively, rational numbers are real numbers whose decimal expansion either terminates after finite number of digits (e.g. <span class="arithmatex">\(1,2345\)</span>) or repeats a finite sequence (e.g. <span class="arithmatex">\(\dfrac{1}{7} = 0.\overline{142857}\)</span>).</p>
+<p>Irrational numbers are real numbers which cannot be expressed ratio of two integers. Alternatively, these are real numbers with non-terminating non-repeating decimal expansion. e.g. <span class="arithmatex">\(\sqrt 2, \sqrt 5, \pi\)</span> etc.</p>
+<h2 id="factors-primes">Factors &amp; Primes</h2>
+<ul>
+<li><span class="arithmatex">\(a, b \in \mathbb{N}\)</span> are called <em>factors</em> of <span class="arithmatex">\(ab\)</span>.</li>
+<li>If the only factors of a number <span class="arithmatex">\(a\)</span> are <span class="arithmatex">\(a\)</span> itself and <span class="arithmatex">\(1\)</span>, then <span class="arithmatex">\(a\)</span> is called a <em>prime number</em>, e.g. <span class="arithmatex">\(2, 3, 5, 7, 11, ...\)</span></li>
+<li>Every <span class="arithmatex">\(n \in \mathbb{N}\)</span> can be written as a product of prime factors, e.g. <span class="arithmatex">\(126 = 2 \times 3 \times 3 \times 7\)</span>.</li>
+<li>The <em>highest common factor</em> or <em>greatest common divisor</em> (GCD) of two natural number is the largest factor they have in common, e.g.</li>
+</ul>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+144 &amp; = 2 \times 2 \times 2 \times 2 \times 3 \times 3 \\
+66 &amp; = \hspace{5.2em} 2 \hspace{1.7em} \times 3 \times 11
+\end{alignat}
+\]</div>
+<ul>
+<li><em>Lowest common multiple</em> (LCM) of <span class="arithmatex">\(a, b \in \mathbb{N}\)</span> is the smallest natural number that can be divided into whole number by both <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>.</li>
+</ul>
+<div class="arithmatex">\[
+\text{lcm}(a, b) = \dfrac{|ab|}{\text{gcd}(a, b)}
+\]</div>
+<h2 id="fractions-and-ratios">Fractions and ratios</h2>
+<ul>
+<li><span class="arithmatex">\(\dfrac{a}{b}\)</span> is a <em>proper fraction</em> if <span class="arithmatex">\(a &lt; b\)</span>, otherwise its called an <em>improper fraction</em>.</li>
+<li><span class="arithmatex">\(6\dfrac{2}{3}\)</span> is an example of a mixed fraction.</li>
+<li>Two factors can only be added or subtracted if they share a <em>common denominator</em>, which is the LCM of the two denominator. e.g. <span class="arithmatex">\(\dfrac{1}{4} + \dfrac{2}{4} = \dfrac{3}{4}, \dfrac{2}{3} + \dfrac{1}{5} = \dfrac{10}{15} + \dfrac{3}{15} = \dfrac{13}{15}\)</span>.</li>
+<li>Ratio <em>one-to-two</em> is written <span class="arithmatex">\(1:2\)</span>, where <span class="arithmatex">\(a:b\)</span> is equivalent to fractions <span class="arithmatex">\((\dfrac{a}{a+b}, \dfrac{b}{a+b})\)</span>.</li>
+</ul>
 
 
 

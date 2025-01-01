@@ -73,6 +73,7 @@ nav:
           - Numbers: "maths/numbers.md"
           - Laws of arithmetics: "maths/arithmetic-laws.md"
           - Exponent and logarithmic identities: "maths/exponent-and-logarithmic-identities.md"
+          - Changing base: "maths/base-change.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
