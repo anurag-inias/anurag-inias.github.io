@@ -2,17 +2,13 @@
 
 <style>
 .md-logo img {
-  content: url('/ubuntu/ubuntu-light.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/ubuntu/ubuntu-dark.svg');
+  content: url('/ubuntu/ubuntu.svg');
 }
 </style>
 
 ## Background
 
-I want to mount an external HDD to my raspberry pi server on start. 
+I want to mount an external HDD to my raspberry pi server on start.
 
 ## Heads up
 

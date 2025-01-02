@@ -1,14 +1,20 @@
 # Fragments
 
+<style>
+.md-logo img {
+  content: url('/android/logo.svg');
+}
+</style>
+
 ## Intro
 
 [source](https://developer.android.com/guide/fragments)
 
 - Modular portion of the user interface within an activity.
-- Defines and manages its own layout, has its own lifecycle, and can handle its own input events. 
-- Must be hosted by an activity or another fragment. 
+- Defines and manages its own layout, has its own lifecycle, and can handle its own input events.
+- Must be hosted by an activity or another fragment.
 - The fragment’s view hierarchy becomes part of, or attaches to, the host’s view hierarchy.
-- Unlike activities, 
+- Unlike activities,
 
 ## Creating fragment
 
@@ -43,7 +49,7 @@ class ExampleFragment: Fragment() {
   android:id="@+id/fragment_container_view"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:name="com.example.ExampleFragment" /> 
+  android:name="com.example.ExampleFragment" />
 ```
 
 In declarative approach, `android:name` specifies the class name of the fragment to instantiate.
@@ -65,7 +71,6 @@ class ExampleActivity: AppCompatActivity(...) {
 ```
 
 In programatic approach, `android:name` is omitted. So no specific fragment is automatically instantiated. <br> <br> Note that fragment is automatically restored from the `savedState`.
-
 
 </div>
 
@@ -131,7 +136,7 @@ Commits the transaction to back stack so user can later reverse it. Reversal is 
 
 In split-view apps where app shows multiple sibling fragments on screen at same time, then one fragment must be designated the primary fragment to handle app's navigation.
 
-This fragment is first to receive `onBackPressed` and system will check if this fragment can handle it. 
+This fragment is first to receive `onBackPressed` and system will check if this fragment can handle it.
 
 This fragment is used by navigation component to resolve navigation actions.
 
@@ -157,7 +162,7 @@ class MyFragmentsFactory(val dep: MyDependency)
   : FragmentFactory() {
 
   override fun instantiate(
-    classLoader: ClassLoader, 
+    classLoader: ClassLoader,
     className: String
   ): Fragment = when(loadFragmentClass(classLoader, className)) {
     ExampleFragment::class.java -> ExampleFragment(dep)
@@ -185,38 +190,37 @@ add<ExampleFragment>(R.id.fragment_container)
 
 [source](https://developer.android.com/guide/fragments/transactions)
 
-Each set of fragment changes that we commit are called a transaction. 
+Each set of fragment changes that we commit are called a transaction.
 
 - `commit` is async. It schedules the transaction to run on main UI thread as soon as possible.
 
-- `commitNow` is synchronous, but it's incompatible with `addToBackStack`. 
+- `commitNow` is synchronous, but it's incompatible with `addToBackStack`.
 
 - We can use `commit` and then force immediate execution by `executePendingTransactions`.
 
-- Order of actions within a commit is important. 
+- Order of actions within a commit is important.
 
 ## Attaching and detaching fragments
 
-[source](https://stackoverflow.com/questions/9156406/whats-the-difference-between-detaching-a-fragment-and-removing-it#:~:text=To%20add%20to%20Rajdeep's%20answer,called%20(in%20that%20order).)
+[source](<https://stackoverflow.com/questions/9156406/whats-the-difference-between-detaching-a-fragment-and-removing-it#:~:text=To%20add%20to%20Rajdeep's%20answer,called%20(in%20that%20order).>)
 
 `detach` detaches a fragment from the UI, destroys its view hierarchy. However, fragment remains in `STOPPPED` state, same as being put in back stack and fragment manager continues to maintain its state. That is, it can be reused with `attach`.
 
-`remove` | `detach`
----------|----------
-view is destroyed but fragment itself is retained | both view and instance are destroyed
-`onDestroyView onStop onPause` | `+ onStop onDetach` 
+| `remove`                                          | `detach`                             |
+| ------------------------------------------------- | ------------------------------------ |
+| view is destroyed but fragment itself is retained | both view and instance are destroyed |
+| `onDestroyView onStop onPause`                    | `+ onStop onDetach`                  |
 
 equivalently:
 
-`add` | `attach`
-------|--------
-for adding a new fragment not already part of the activity | for reattaching a fragment that previously added then detached
-triggers full lifecycle `onAttach onCreate onCreateView onStart onResume` | skips `onAttach onCreate`
+| `add`                                                                     | `attach`                                                       |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| for adding a new fragment not already part of the activity                | for reattaching a fragment that previously added then detached |
+| triggers full lifecycle `onAttach onCreate onCreateView onStart onResume` | skips `onAttach onCreate`                                      |
 
 {==
 Note that `onAttach/onDetach` are poorly named.
 ==}
-
 
 ## Lifecycle
 
@@ -230,15 +234,15 @@ A fragment and its view have separate `Lifecycle`, managed independently. View's
 - `onAttach` is called when it is added to a `FragmentManager` and its host. It is now **active**. `findFragmentBy*` starts working here.
 - `onDetach` is called when fragment is remove from `FragmentManager`. It is no longer active and cannot be found with `findFragmentBy*`.
 
-Fragment | View | Notes
----------|------|---------
-`CREATED` | | added to `FragmentManager`. restore any saved state here.
-`CREATED` | `INITIALIZED` | `view` can now be retrieved. set up initiate state of the view in `onViewCreated` and start observing `LiveData`.
-`CREATED` | `CREATED` | any previous view state is restored.
-`STARTED` | `STARTED` | recommended to tie lifecycle-aware components to this state. safe to perform transactions on child fragment.
-`RESUMED` | `RESUMED` | Animations and transitions have finished. ready for interaction. ok to manually set focus.
-`CREATED` | `CREATED` | downwards, no longer visible. 
-`CREATED` | `DESTROYED` | exist animations and transitions done. fragment's view has been detached from the window.
+| Fragment  | View          | Notes                                                                                                             |
+| --------- | ------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `CREATED` |               | added to `FragmentManager`. restore any saved state here.                                                         |
+| `CREATED` | `INITIALIZED` | `view` can now be retrieved. set up initiate state of the view in `onViewCreated` and start observing `LiveData`. |
+| `CREATED` | `CREATED`     | any previous view state is restored.                                                                              |
+| `STARTED` | `STARTED`     | recommended to tie lifecycle-aware components to this state. safe to perform transactions on child fragment.      |
+| `RESUMED` | `RESUMED`     | Animations and transitions have finished. ready for interaction. ok to manually set focus.                        |
+| `CREATED` | `CREATED`     | downwards, no longer visible.                                                                                     |
+| `CREATED` | `DESTROYED`   | exist animations and transitions done. fragment's view has been detached from the window.                         |
 
 {==
 

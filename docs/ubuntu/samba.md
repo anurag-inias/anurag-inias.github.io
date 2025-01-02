@@ -2,12 +2,9 @@
 
 <style>
 .md-logo img {
-  content: url('/ubuntu/ubuntu-light.svg');
+  content: url('/ubuntu/ubuntu.svg');
 }
 
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/ubuntu/ubuntu-dark.svg');
-}
 </style>
 
 ## Share samba directory
@@ -23,4 +20,3 @@ directory mask = 0777
 guest ok = yes
 force user = johndoe
 ```
-

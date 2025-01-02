@@ -1,12 +1,17 @@
 # Navigation animations
 
+<style>
+.md-logo img {
+  content: url('/android/logo.svg');
+}
+</style>
+
 [source](https://developer.android.com/guide/fragments/animate)
 
 There are two mains ways to animation navigations:
 
 1. `Animation` + `Animator`
 2. Transitions framework
-
 
 ## Animation + Animator
 
@@ -74,7 +79,7 @@ supportFragmentManager.commit {
 
 ## Transition framework
 
-The alternative approach is to define within each fragment, their enter/exit transition. 
+The alternative approach is to define within each fragment, their enter/exit transition.
 
 <div class="grid" markdown>
 
@@ -113,4 +118,4 @@ class FragmentB : Fragment() {
 
 ## Extras:
 
-Read more about **postponing transitions** and sharing views between enter-exiting fragments on source page.  
+Read more about **postponing transitions** and sharing views between enter-exiting fragments on source page.

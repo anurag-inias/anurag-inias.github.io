@@ -1,12 +1,8 @@
-#  Coroutines
+# Coroutines
 
 <style>
 .md-logo img {
-  content: url('/kt/k-light.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/kt/k-dark.svg');
+  content: url('/kt/logo-kotlin.svg');
 }
 </style>
 
@@ -50,7 +46,7 @@ this prints `Hello World!`. Let's break it down:
 
 Another example:
 
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1"
 fun main() = runBlocking {
@@ -88,22 +84,22 @@ launch(Dispatchers.Default) {
 }
 ```
 
-*Dispatcher* determines what thread(s) the coroutine uses for its execution. Dispatchers are inherited by child corountines from their parents. Following dispatchers are available out of the box:
+_Dispatcher_ determines what thread(s) the coroutine uses for its execution. Dispatchers are inherited by child corountines from their parents. Following dispatchers are available out of the box:
 
-Dispatcher | Number of threads | Used for
------------|-------------------|----------
-`Dispatchers.Default` | Number of CPU cores | General purpose CPU-bound
-`Dispatchers.Main`    | One                 | UI work
-`Dispatchers.IO`      | Auto-scaling <br> \\(\text{max}(\text{CPU cores}, 64)\\)        | Blocking IO task 
-`Dispatchers.Unconfined` | Any               | Used for immediate scheduling
-`limitedParallelism(n)`  | `n`               | Custom scenarios
+| Dispatcher               | Number of threads                                        | Used for                      |
+| ------------------------ | -------------------------------------------------------- | ----------------------------- |
+| `Dispatchers.Default`    | Number of CPU cores                                      | General purpose CPU-bound     |
+| `Dispatchers.Main`       | One                                                      | UI work                       |
+| `Dispatchers.IO`         | Auto-scaling <br> \\(\text{max}(\text{CPU cores}, 64)\\) | Blocking IO task              |
+| `Dispatchers.Unconfined` | Any                                                      | Used for immediate scheduling |
+| `limitedParallelism(n)`  | `n`                                                      | Custom scenarios              |
 
 - `Unconfined` executes coroutine immediately on current thread and later resumes it whatever thread called `resume`.
-- `limitedParallelism(n)` creates a *view* of the current dispatcher but with guarantee that no more than `n` coroutines are executed at any time.
+- `limitedParallelism(n)` creates a _view_ of the current dispatcher but with guarantee that no more than `n` coroutines are executed at any time.
 
-### `launch` and `async` 
+### `launch` and `async`
 
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1"
 public fun CoroutineScope.launch(
@@ -166,7 +162,7 @@ fun main() {
 }
 ```
 
-P.S. `EmptyCoroutineContext` seen before has no elements, as the name implies.  
+P.S. `EmptyCoroutineContext` seen before has no elements, as the name implies.
 
 {==
 
@@ -222,7 +218,7 @@ fun main() = runBlocking {
       val childJob = childContext.job                 //  StandaloneCoroutine{Active}@4bcf3652
 
       println("${childContext == parentContext + childJob}") // true
-      println("${childJob.parent == scopeJob}")              // true 
+      println("${childJob.parent == scopeJob}")              // true
     }
   }
 }
@@ -240,7 +236,7 @@ It looks similar to `runBlocking`, but `runBlocking` **blocks** current thread w
 
 `coroutineScope` will fail if any of the child coroutine fail, resulting in cancellation of all other children. If you want other children to still complete regardless, use `supervisorScope`.
 
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1"
 fun main() = runBlocking {
@@ -275,8 +271,8 @@ fun main() = runBlocking {
 ```
 
 finishes in right away
- 
-finishes after 5 second 
+
+finishes after 5 second
 
 <hr>
 
@@ -288,7 +284,7 @@ finishes after 5 second
 
 [Kotlin in Action 2](https://www.manning.com/books/kotlin-in-action-second-edition)
 
-We can call `cancel` on both `Job` and `Deferred<T>` to cancel the coroutine ahead of its time. This is useful in avoiding unnecessary work and leaks. 
+We can call `cancel` on both `Job` and `Deferred<T>` to cancel the coroutine ahead of its time. This is useful in avoiding unnecessary work and leaks.
 
 Cancellation of parent cadcades through all children coroutines. Note that this is different thing from `coroutineScope/supervisorScope` which is about sibling cancellation.
 
@@ -317,8 +313,7 @@ this exits right after 1.5s.
 
 We can also use `withTimeout` and `withTimeoutOrNull` to automatically cancel a coroutine.
 
-
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1"
 fun main() = runBlocking {
@@ -358,7 +353,7 @@ Cancellation is implemented by throwing a special exception type `CancellationEx
 
 [source 1](https://kotlinlang.org/spec/asynchronous-programming-with-coroutines.html) and [2](https://kotlinlang.org/docs/cancellation-and-timeouts.html#asynchronous-timeout-and-resources).
 
-A suspending function is different from non-suspending functions by having zero or more *suspension points* - statements in the body where the function execution can be paused and resumed later. Usually that's the points at which the function calls other suspending functions. 
+A suspending function is different from non-suspending functions by having zero or more _suspension points_ - statements in the body where the function execution can be paused and resumed later. Usually that's the points at which the function calls other suspending functions.
 
 That's why non-suspending functions cannot call suspending ones, as they do not support suspension points. Also, suspending functions may call non-suspending functions knowing that it will not introduce a suspension point. [See function coloring](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
 
@@ -371,7 +366,7 @@ coroutineScope {
 }
 ```
 
-this code will either print `A` or `ABC`, but never `AB` as there are no suspension point between `B` and `C`. 
+this code will either print `A` or `ABC`, but never `AB` as there are no suspension point between `B` and `C`.
 
 Why are we talking about this? Consider the following example:
 
@@ -390,7 +385,7 @@ fun main() = runBlocking {
 
 Just using coroutines will not magically make our code concurrent. In the example above, `heavyCpuWork` has no suspension point. As a result, even when running on a coroutine, it will never suspend to let other coroutine have a go. The first corountine will finish to completion before second one gets a chance.
 
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1" hl_lines="4"
 fun heavyCpuWork(): Int {
@@ -423,7 +418,7 @@ The other approach is to explicitly check cancellation status.
 
 Basically `BlockingQueue` but instead of a blocking `put`, it has a suspending `send` and instead of a blocking `take`, it has a suspending `receive`.
 
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1"
 suspend fun produce(channel: Channel<Int>) {
@@ -486,7 +481,7 @@ We can optionally specify as capacity `Channel<T>(42)` which allows sender to se
 
 `Flow` is basically `Sequence` that also support suspending functions. And a sequence is like `Stream`, but more kotliny.
 
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1"
 fun produce() = sequence {
@@ -522,7 +517,7 @@ Does the same thing, but doesn't block the thread, just suspends it.
 
 Notice that the function is no longer marked `suspend`, why's that? See `suspend` makes sense when function is returning just one thing and that thing may take time to "cook". `Flow`, on the other hand, is a lightweight object that's available right away. The function will always return it immediately. So a `suspend foo(): Flow` is moot in the same manner `suspend foo(): ListenableFuture<T>` is moot.
 
-Once you got your hands on a flow, then sure it may take time to collect items from it. Which is why `collect` is still suspending function. 
+Once you got your hands on a flow, then sure it may take time to collect items from it. Which is why `collect` is still suspending function.
 
 Flows are **cold streams** similar to sequences, i.e. the builder does not run until the flow is `collect`ed. And you can do the same things to Flows as you can do with Sequences/Streams.
 
@@ -536,7 +531,7 @@ flow {
 
 <hr>
 
-<div class="grid" markdown>   
+<div class="grid" markdown>
 
 ```kotlin linenums="1"
 fun produce() = flow {
@@ -585,11 +580,11 @@ We can use `catch` before `collect` to grab exceptions thrown by the emitter. Ag
 
 ## Hot Flows
 
-Hot flows are useful when sharing emitted items across multiple collectors, this time called *subscribers*. Which is why it doesn't make sense for relying on a collector to start collecting. 
+Hot flows are useful when sharing emitted items across multiple collectors, this time called _subscribers_. Which is why it doesn't make sense for relying on a collector to start collecting.
 
 It's like broadcasting. A TV station or a twitch stream will broadcast, regardless of whether there are any viewers or not.
 
-Kotlin has two implementations of hot flows out of the box: *Shared flows* and *State flows*.
+Kotlin has two implementations of hot flows out of the box: _Shared flows_ and _State flows_.
 
 <div class="grid" markdown>
 
@@ -601,7 +596,7 @@ fun broadcast(scope: CoroutineScope) = scope.launch {
     delay(1000L)
     flow.emit("ping")
   }
-} 
+}
 ```
 
 ```kotlin title="subscriber" linenums="1"
@@ -618,7 +613,7 @@ A special case of hot flow is when you need to track state of a system right now
 
 ```kotlin linenums="1"
 private val viewWriter = MutableStateFlow(0) // inital views = 0
-private vale viewReader = viewWriter.asStateFlow() 
+private vale viewReader = viewWriter.asStateFlow()
 
 fun increment() {
   viewWriter.update { it + 1 }

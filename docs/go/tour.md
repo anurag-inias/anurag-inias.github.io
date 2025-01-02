@@ -2,7 +2,7 @@
 
 <style>
 .md-logo img {
-  content: url('/go/logo.svg');
+  content: url('/go/logo-go.svg');
 }
 </style>
 
