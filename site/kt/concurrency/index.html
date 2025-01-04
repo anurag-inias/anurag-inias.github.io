@@ -2970,11 +2970,7 @@
 <h1 id="coroutines">Coroutines</h1>
 <style>
 .md-logo img {
-  content: url('/kt/k-light.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/kt/k-dark.svg');
+  content: url('/kt/logo-kotlin.svg');
 }
 </style>
 
@@ -3190,7 +3186,7 @@
 </span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">  </span><span class="n">println</span><span class="p">((</span><span class="n">bar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">foo</span><span class="p">)</span><span class="o">[</span><span class="n">CoroutineName</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="c1">// CoroutineName(foo)</span>
 </span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<p>P.S. <code>EmptyCoroutineContext</code> seen before has no elements, as the name implies.  </p>
+<p>P.S. <code>EmptyCoroutineContext</code> seen before has no elements, as the name implies.</p>
 <mark class="critic block">
 <p>That is, coroutine context is a set of "elements". The main elements are <code>Job</code> and the dispatcher.</p>
 </mark>
@@ -3257,7 +3253,7 @@
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="nv">childJob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">childContext</span><span class="p">.</span><span class="na">job</span><span class="w">                 </span><span class="c1">//  StandaloneCoroutine{Active}@4bcf3652</span>
 </span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a>
 </span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">${</span><span class="n">childContext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">parentContext</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">childJob</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// true</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">${</span><span class="n">childJob</span><span class="p">.</span><span class="na">parent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">scopeJob</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w">              </span><span class="c1">// true </span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">${</span><span class="n">childJob</span><span class="p">.</span><span class="na">parent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">scopeJob</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w">              </span><span class="c1">// true</span>
 </span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="p">}</span>
@@ -3322,13 +3318,13 @@
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>finishes in right away</p>
-<p>finishes after 5 second </p>
+<p>finishes after 5 second</p>
 <hr>
 <hr>
 </div>
 <h3 id="cancelling-coroutines">Cancelling coroutines</h3>
 <p><a href="https://www.manning.com/books/kotlin-in-action-second-edition">Kotlin in Action 2</a></p>
-<p>We can call <code>cancel</code> on both <code>Job</code> and <code>Deferred&lt;T&gt;</code> to cancel the coroutine ahead of its time. This is useful in avoiding unnecessary work and leaks. </p>
+<p>We can call <code>cancel</code> on both <code>Job</code> and <code>Deferred&lt;T&gt;</code> to cancel the coroutine ahead of its time. This is useful in avoiding unnecessary work and leaks.</p>
 <p>Cancellation of parent cadcades through all children coroutines. Note that this is different thing from <code>coroutineScope/supervisorScope</code> which is about sibling cancellation.</p>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
@@ -3403,7 +3399,7 @@
 </mark>
 <h3 id="suspension-point">Suspension Point</h3>
 <p><a href="https://kotlinlang.org/spec/asynchronous-programming-with-coroutines.html">source 1</a> and <a href="https://kotlinlang.org/docs/cancellation-and-timeouts.html#asynchronous-timeout-and-resources">2</a>.</p>
-<p>A suspending function is different from non-suspending functions by having zero or more <em>suspension points</em> - statements in the body where the function execution can be paused and resumed later. Usually that's the points at which the function calls other suspending functions. </p>
+<p>A suspending function is different from non-suspending functions by having zero or more <em>suspension points</em> - statements in the body where the function execution can be paused and resumed later. Usually that's the points at which the function calls other suspending functions.</p>
 <p>That's why non-suspending functions cannot call suspending ones, as they do not support suspension points. Also, suspending functions may call non-suspending functions knowing that it will not introduce a suspension point. <a href="https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/">See function coloring</a>.</p>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
 <span class="normal"><a href="#__codelineno-17-2">2</a></span>
@@ -3417,7 +3413,7 @@
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<p>this code will either print <code>A</code> or <code>ABC</code>, but never <code>AB</code> as there are no suspension point between <code>B</code> and <code>C</code>. </p>
+<p>this code will either print <code>A</code> or <code>ABC</code>, but never <code>AB</code> as there are no suspension point between <code>B</code> and <code>C</code>.</p>
 <p>Why are we talking about this? Consider the following example:</p>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
@@ -3611,7 +3607,7 @@
 <p>Does the same thing, but doesn't block the thread, just suspends it.</p>
 </div>
 <p>Notice that the function is no longer marked <code>suspend</code>, why's that? See <code>suspend</code> makes sense when function is returning just one thing and that thing may take time to "cook". <code>Flow</code>, on the other hand, is a lightweight object that's available right away. The function will always return it immediately. So a <code>suspend foo(): Flow</code> is moot in the same manner <code>suspend foo(): ListenableFuture&lt;T&gt;</code> is moot.</p>
-<p>Once you got your hands on a flow, then sure it may take time to collect items from it. Which is why <code>collect</code> is still suspending function. </p>
+<p>Once you got your hands on a flow, then sure it may take time to collect items from it. Which is why <code>collect</code> is still suspending function.</p>
 <p>Flows are <strong>cold streams</strong> similar to sequences, i.e. the builder does not run until the flow is <code>collect</code>ed. And you can do the same things to Flows as you can do with Sequences/Streams.</p>
 <p>By default, code in <code>flow {...}</code> runs in the context that is provided by its collector. But it can be changed like this:</p>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
@@ -3687,7 +3683,7 @@
 <p>Similar to <code>buffer</code>, use <code>conflate</code> to skip intermediate steps when the collector is too slow and you want to drop in-between emitted values. For <code>xxx</code> operator like <code>collect</code>, there is a family of <code>xxxLatest</code> operators (e.g. <code>collectLatest</code>) that cancel their code on a new value.</p>
 <p>We can use <code>catch</code> before <code>collect</code> to grab exceptions thrown by the emitter. Again, note that the <code>collect</code> is not same as <code>collect</code> of <code>Stream</code>s. Without <code>collect</code>, a flow is cold, never emitting a value.</p>
 <h2 id="hot-flows">Hot Flows</h2>
-<p>Hot flows are useful when sharing emitted items across multiple collectors, this time called <em>subscribers</em>. Which is why it doesn't make sense for relying on a collector to start collecting. </p>
+<p>Hot flows are useful when sharing emitted items across multiple collectors, this time called <em>subscribers</em>. Which is why it doesn't make sense for relying on a collector to start collecting.</p>
 <p>It's like broadcasting. A TV station or a twitch stream will broadcast, regardless of whether there are any viewers or not.</p>
 <p>Kotlin has two implementations of hot flows out of the box: <em>Shared flows</em> and <em>State flows</em>.</p>
 <div class="grid">
@@ -3705,7 +3701,7 @@
 </span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
 </span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">    </span><span class="n">flow</span><span class="p">.</span><span class="na">emit</span><span class="p">(</span><span class="s">&quot;ping&quot;</span><span class="p">)</span>
 </span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">subscriber</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
 <span class="normal"><a href="#__codelineno-29-2">2</a></span>
@@ -3727,7 +3723,7 @@
 <span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-30-10">10</a></span>
 <span class="normal"><a href="#__codelineno-30-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">viewWriter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MutableStateFlow</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// inital views = 0</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="n">private</span><span class="w"> </span><span class="n">vale</span><span class="w"> </span><span class="n">viewReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewWriter</span><span class="p">.</span><span class="na">asStateFlow</span><span class="p">()</span><span class="w"> </span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="n">private</span><span class="w"> </span><span class="n">vale</span><span class="w"> </span><span class="n">viewReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewWriter</span><span class="p">.</span><span class="na">asStateFlow</span><span class="p">()</span>
 </span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3"></a>
 </span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="w">  </span><span class="n">viewWriter</span><span class="p">.</span><span class="na">update</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">}</span>

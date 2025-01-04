@@ -1,4 +1,4 @@
-# Tour
+# Structure
 
 <style>
 .md-logo img {
@@ -182,4 +182,56 @@ All of rhs expressions are evaluated before any of the variables on are updated.
 
 ```golang
 x, y = y, x
+```
+
+## Type Declaration
+
+$$
+\text{type } name \ underlying-type
+$$
+
+A type declaration defines a new _named type_ that has the same _underlying type_ as an existing type.
+
+This provides a way to distinguish uses of a same underlying type across different cases.
+
+```type
+type Celsius float64
+type Fahrenheit float64
+```
+
+this would ensure you can't accidently add Celsius and Fahrenheit values.
+
+```type
+var c Celsius
+var f Fahrenheit
+
+fmt.Println(c == 0) // true
+fmt.Println(f == c) // compile error
+```
+
+you type can be compared against its underlying type, but not its sibling.
+
+## Packages
+
+- Each package acts as a separate _namespace_ for its declarations.
+- Exported identifiers start with upper-case letter.
+
+## Package init
+
+```golang
+var a = b + c
+var b = f()
+var c = 1
+
+func f() int {return c + 1}
+```
+
+- `c` is initialized first.
+- `b` initialized second.
+- `a` initialized last.
+
+If you need some custom logic to initialize stuff in a package, declare an `init` function.
+
+```golang
+func init() { /* ... */ }
 ```

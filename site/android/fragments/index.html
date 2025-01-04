@@ -2980,14 +2980,20 @@
 
 
 <h1 id="fragments">Fragments</h1>
+<style>
+.md-logo img {
+  content: url('/android/logo.svg');
+}
+</style>
+
 <h2 id="intro">Intro</h2>
 <p><a href="https://developer.android.com/guide/fragments">source</a></p>
 <ul>
 <li>Modular portion of the user interface within an activity.</li>
-<li>Defines and manages its own layout, has its own lifecycle, and can handle its own input events. </li>
-<li>Must be hosted by an activity or another fragment. </li>
+<li>Defines and manages its own layout, has its own lifecycle, and can handle its own input events.</li>
+<li>Must be hosted by an activity or another fragment.</li>
 <li>The fragment’s view hierarchy becomes part of, or attaches to, the host’s view hierarchy.</li>
-<li>Unlike activities, </li>
+<li>Unlike activities,</li>
 </ul>
 <h2 id="creating-fragment">Creating fragment</h2>
 <div class="grid">
@@ -3026,7 +3032,7 @@
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="na">android:id=</span><span class="s">&quot;@+id/fragment_container_view&quot;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="na">android:name=</span><span class="s">&quot;com.example.ExampleFragment&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="na">android:name=</span><span class="s">&quot;com.example.ExampleFragment&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>In declarative approach, <code>android:name</code> specifies the class name of the fragment to instantiate.</p>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ExampleActivity.kt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
@@ -3109,7 +3115,7 @@
 </div>
 <h3 id="setprimarynavigationfragment"><code>setPrimaryNavigationFragment</code></h3>
 <p>In split-view apps where app shows multiple sibling fragments on screen at same time, then one fragment must be designated the primary fragment to handle app's navigation.</p>
-<p>This fragment is first to receive <code>onBackPressed</code> and system will check if this fragment can handle it. </p>
+<p>This fragment is first to receive <code>onBackPressed</code> and system will check if this fragment can handle it.</p>
 <p>This fragment is used by navigation component to resolve navigation actions.</p>
 <h3 id="class-vs-instance">Class vs instance</h3>
 <p><a href="https://developer.android.com/guide/fragments/fragmentmanager#dependencies">source</a></p>
@@ -3135,7 +3141,7 @@
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="n">FragmentFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">instantiate</span><span class="p">(</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="n">classLoader</span><span class="p">:</span><span class="w"> </span><span class="n">ClassLoader</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="n">classLoader</span><span class="p">:</span><span class="w"> </span><span class="n">ClassLoader</span><span class="p">,</span>
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="n">className</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="p">):</span><span class="w"> </span><span class="n">Fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="p">(</span><span class="n">loadFragmentClass</span><span class="p">(</span><span class="n">classLoader</span><span class="p">,</span><span class="w"> </span><span class="n">className</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="n">ExampleFragment</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ExampleFragment</span><span class="p">(</span><span class="n">dep</span><span class="p">)</span>
@@ -3157,23 +3163,23 @@
 </span></code></pre></div></td></tr></table></div>
 <h2 id="fragment-transaction">Fragment transaction</h2>
 <p><a href="https://developer.android.com/guide/fragments/transactions">source</a></p>
-<p>Each set of fragment changes that we commit are called a transaction. </p>
+<p>Each set of fragment changes that we commit are called a transaction.</p>
 <ul>
 <li>
 <p><code>commit</code> is async. It schedules the transaction to run on main UI thread as soon as possible.</p>
 </li>
 <li>
-<p><code>commitNow</code> is synchronous, but it's incompatible with <code>addToBackStack</code>. </p>
+<p><code>commitNow</code> is synchronous, but it's incompatible with <code>addToBackStack</code>.</p>
 </li>
 <li>
 <p>We can use <code>commit</code> and then force immediate execution by <code>executePendingTransactions</code>.</p>
 </li>
 <li>
-<p>Order of actions within a commit is important. </p>
+<p>Order of actions within a commit is important.</p>
 </li>
 </ul>
 <h2 id="attaching-and-detaching-fragments">Attaching and detaching fragments</h2>
-<p><a href="https://stackoverflow.com/questions/9156406/whats-the-difference-between-detaching-a-fragment-and-removing-it#:~:text=To%20add%20to%20Rajdeep's%20answer,called%20(in%20that%20order)">source</a>)</p>
+<p><a href="https://stackoverflow.com/questions/9156406/whats-the-difference-between-detaching-a-fragment-and-removing-it#:~:text=To%20add%20to%20Rajdeep's%20answer,called%20(in%20that%20order).">source</a></p>
 <p><code>detach</code> detaches a fragment from the UI, destroys its view hierarchy. However, fragment remains in <code>STOPPPED</code> state, same as being put in back stack and fragment manager continues to maintain its state. That is, it can be reused with <code>attach</code>.</p>
 <table>
 <thead>

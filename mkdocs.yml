@@ -123,7 +123,10 @@ nav:
   - Kotlin:
       - Concurrency: "kt/concurrency.md"
   - Go:
-      - Tour: "go/tour.md"
+      - Tour: "go/structure.md"
+      - Constants: "go/constants.md"
+      - Basic Types: "go/basic-types.md"
+      - Aggregate Types: "go/aggregate-types.md"
   - Android:
       - Activities: "android/activities.md"
       - Tasks: "android/tasks.md"

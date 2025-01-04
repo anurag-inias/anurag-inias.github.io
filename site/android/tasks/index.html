@@ -2788,6 +2788,12 @@
 
 
 <h1 id="tasks">Tasks</h1>
+<style>
+.md-logo img {
+  content: url('/android/logo.svg');
+}
+</style>
+
 <p><a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack#back-press-behavior">source</a></p>
 <mark class="critic block">
 <p>A collection of activities that user interact with when trying to do something in your app, arranged in a stack (i.e. <em>back stack</em>).</p>
@@ -2795,7 +2801,7 @@
 <ul>
 <li>Home screen is the starting place for most tasks. Tapping on an app icon creates a new task for that launcher activity if one is not already present.</li>
 <li>When currenct activity <code>A</code> starts another, <code>B</code>, then <code>B</code> is added to the task and pushed to the top of the back stack. <code>A</code> remains in stack but is stopped.
-    <a class="glightbox" href="https://developer.android.com/static/images/fundamentals/diagram_backstack.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://developer.android.com/static/images/fundamentals/diagram_backstack.png" /></a></li>
+  <a class="glightbox" href="https://developer.android.com/static/images/fundamentals/diagram_backstack.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://developer.android.com/static/images/fundamentals/diagram_backstack.png" /></a></li>
 <li>The <code>task</code> is a cohesive unit that can move the <em>background</em> as a whole when user starts another task or goes back to home screen.</li>
 <li>Activities in the start are never rearranged, and activities can only be added or removed from the top. So if <code>A</code> starts <code>B</code> and <code>B</code> starts <code>A</code>, system will not promote <code>A</code> to the top, instead it will be a new instance of <code>A</code> on top.<br />
 <a class="glightbox" href="https://developer.android.com/static/images/fundamentals/diagram_multiple_instances.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://developer.android.com/static/images/fundamentals/diagram_multiple_instances.png" /></a></li>
@@ -2806,8 +2812,8 @@
 <h3 id="attribute-in-manifest">Attribute in <code>manifest</code></h3>
 <ul>
 <li><code>android:taskAffinity</code>: activities with same affinity belong in same task, same "application" from user's perspective. By default, all activities in an application have same affinity. Use this attribute to group them differently. <code>""</code> is treated as no affinity, and instead it's inherited.</li>
-<li>
-<p><code>launchMode</code>: The values fall into two groups. First for normal launches, consider the task <code>[A B C D]</code> with a new intent arriving for <code>D</code> (which is at top):</p>
+<li><code>launchMode</code>: The values fall into two groups. First for normal launches, consider the task <code>[A B C D]</code> with a new intent arriving for <code>D</code> (which is at top):</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2860,8 +2866,6 @@
 </tbody>
 </table>
 <p>Let's say we have <code>[A B C]</code> in task and intent arrives for <code>A</code>. Both <code>singleTask</code> and <code>singleInstancePerTask</code> will finish <code>B</code> and <code>C</code>.</p>
-</li>
-</ul>
 <h3 id="launch-flags">Launch flags</h3>
 <ul>
 <li><code>FLAG_ACTIVITY_SINGLE_TOP</code> same as <code>singleTop</code>.</li>
