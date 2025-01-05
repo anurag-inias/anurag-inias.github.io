@@ -75,6 +75,7 @@ nav:
           - Exponent and logarithmic identities: "maths/exponent-and-logarithmic-identities.md"
           - Changing base: "maths/base-change.md"
           - Algebraic expressions: "maths/expressions.md"
+          - Modular arithmetic: "maths/modulo.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"

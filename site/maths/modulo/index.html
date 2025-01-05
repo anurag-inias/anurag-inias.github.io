@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../objects/">
+        <link rel="prev" href="../expressions/">
       
       
-        <link rel="next" href="../generators/">
+        <link rel="next" href="../../data-structures/numbers/representation/">
       
       
       <link rel="icon" href="../../assets/fatigue-dark.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Functions - listless 💤</title>
+        <title>Modular arithmetic - listless 💤</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-functions" class="md-skip">
+        <a href="#modular-arithmetic" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Functions
+              Modular arithmetic
             
           </span>
         </div>
@@ -364,17 +364,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -388,7 +390,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Maths
@@ -399,17 +401,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -423,7 +427,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Algebra
@@ -437,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/numbers/" class="md-nav__link">
+      <a href="../numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -458,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/arithmetic-laws/" class="md-nav__link">
+      <a href="../arithmetic-laws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/exponent-and-logarithmic-identities/" class="md-nav__link">
+      <a href="../exponent-and-logarithmic-identities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -500,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/base-change/" class="md-nav__link">
+      <a href="../base-change/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -521,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/expressions/" class="md-nav__link">
+      <a href="../expressions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -539,10 +543,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../maths/modulo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modular arithmetic
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -551,6 +575,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#addition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#division" class="md-nav__link">
+    <span class="md-ellipsis">
+      Division
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2475,19 +2555,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
         
           
           <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
@@ -2501,7 +2579,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             Python
@@ -2515,7 +2593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basics/" class="md-nav__link">
+      <a href="../../python/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2536,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
+      <a href="../../python/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2557,7 +2635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structure/" class="md-nav__link">
+      <a href="../../python/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2578,7 +2656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../objects/" class="md-nav__link">
+      <a href="../../python/objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2596,30 +2674,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Functions
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../python/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2628,80 +2686,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#lambda-expression" class="md-nav__link">
-    <span class="md-ellipsis">
-      lambda expression
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#closure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Closure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passing-arguments-to-callback" class="md-nav__link">
-    <span class="md-ellipsis">
-      Passing arguments to callback
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decorators" class="md-nav__link">
-    <span class="md-ellipsis">
-      Decorators
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#map-filter-reduce" class="md-nav__link">
-    <span class="md-ellipsis">
-      Map, Filter, Reduce
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Attributes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2714,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../generators/" class="md-nav__link">
+      <a href="../../python/generators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2735,7 +2719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/" class="md-nav__link">
+      <a href="../../python/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2972,54 +2956,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lambda-expression" class="md-nav__link">
+  <a href="#addition" class="md-nav__link">
     <span class="md-ellipsis">
-      lambda expression
+      Addition
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#closure" class="md-nav__link">
+  <a href="#multiplication" class="md-nav__link">
     <span class="md-ellipsis">
-      Closure
+      Multiplication
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#passing-arguments-to-callback" class="md-nav__link">
+  <a href="#exponent" class="md-nav__link">
     <span class="md-ellipsis">
-      Passing arguments to callback
+      Exponent
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decorators" class="md-nav__link">
+  <a href="#division" class="md-nav__link">
     <span class="md-ellipsis">
-      Decorators
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#map-filter-reduce" class="md-nav__link">
-    <span class="md-ellipsis">
-      Map, Filter, Reduce
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Attributes
+      Division
     </span>
   </a>
   
@@ -3040,129 +3006,97 @@
                   
 
 
-<h1 id="python-functions">Python – Functions</h1>
+<h1 id="modular-arithmetic">Modular arithmetic</h1>
 <style>
 .md-logo img {
-  content: url('/python/python.svg');
+  content: url('/maths/maths-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/python/python.svg');
+  content: url('/maths/maths-night.svg');
 }
 </style>
 
-<h2 id="lambda-expression">lambda expression</h2>
-<p>anonymous/unnamed functions</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">a</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 9</span>
-</span></code></pre></div>
-<p>lambda must use expression. Multiple statements, non-expression statments (e.g. <code>try</code>, <code>while</code>) cannot appear in lambda expressions.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 30</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 30</span>
-</span></code></pre></div>
-<p>lambdas don't capture free variables (variables not specifid in parameters) and pick them up at evaluation time. This is different from what we see in Java. Use default param to capture the values</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 20 </span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 30</span>
-</span></code></pre></div>
-<h2 id="closure">Closure</h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">greet</span><span class="p">()</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Piggy&#39;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="k">def</span> <span class="nf">sayHi</span><span class="p">():</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello;, name)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  <span class="n">sayHi</span><span class="p">()</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">greet</span><span class="p">()</span> <span class="c1"># &#39;Hello Piggy&#39;</span>
-</span></code></pre></div>
-<p>when function is passed as data, it implicitly carries information of its environment in which it was defined. </p>
-<p>A <em>closure</em> is a function along with an environment containing all of the variables needed to execute the function body.</p>
-<p>Closure points to <code>name</code> variable and the value that it was most recently assigned. So be careful as the value may get mutated.</p>
-<h2 id="passing-arguments-to-callback">Passing arguments to callback</h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">caller</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="n">func</span><span class="p">()</span>
-</span></code></pre></div>
-<p>how to pass arguments to <code>func</code>? We can wrap it up in lambda:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">caller</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</span></code></pre></div>
-<p>which is called a <em>thunk</em>, an expression that will be evaluated later when the zero-argument <code>func</code> param is eventually called. An alternative is <code>partial</code>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">caller</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</span></code></pre></div>
-<p><code>partial</code> evaluates the arguments and binds them at the time of definition, whereas a <em>thunk</em> would do so lazily.</p>
-<h2 id="decorators">Decorators</h2>
-<p>wrappers around functions to alter/enchance the behaviour.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@decorate</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  <span class="o">...</span>
-</span></code></pre></div>
-<p>which is shorthand for</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  <span class="o">...</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">func</span> <span class="o">=</span> <span class="n">decorate</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-</span></code></pre></div>
-<p>it's likely body snatching righ at the spawn. <code>decorate</code> returns an object that replaces the original <code>func</code>. Here is a real-life example:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@trace</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-</span></code></pre></div>
-<p>here <code>trace()</code> creates a wrapper that writes debugging output and then call the actual function. </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> <span class="c1"># special decorator to copy over original func metadata</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calling&#39;</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>      <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  <span class="k">return</span> <span class="n">call</span>
-</span></code></pre></div>
-<h2 id="map-filter-reduce">Map, Filter, Reduce</h2>
-<p>List comprehensions can do all these. If you want results lazily, use a generator expression:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># generator</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># or</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">squares</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># equivalent</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">sum</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># 6</span>
-</span></code></pre></div>
-<h2 id="function-attributes">Function Attributes</h2>
-<p>Functions are objects. We can inspect some of these key attributes:</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>__name__</code></td>
-<td>Function name</td>
-</tr>
-<tr>
-<td><code>__qualname__</code></td>
-<td>Fully qualified name</td>
-</tr>
-<tr>
-<td><code>__module__</code></td>
-<td>Name of the module in which it is defined</td>
-</tr>
-</tbody>
-</table>
-<p>and so on.</p>
+<p>It is a system for dealing with restricted ranges of integers. We define <span class="arithmatex">\(x \text{ (mod} \ N)\)</span> to be the remainder when <span class="arithmatex">\(x\)</span> is divided by <span class="arithmatex">\(N\)</span>. That is:</p>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+x \ (\text{mod} \ N) &amp; = r \\ \text{ where } x &amp; = qN + r \text{ with } 0 \le r &lt; N
+\end{alignat}
+\]</div>
+<p>In modular arithmetic, we have a new type of equivalence between numbers <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> called <em>congruent modulo <span class="arithmatex">\(N\)</span></em> if the numbers differ by multiples of <span class="arithmatex">\(N\)</span>.</p>
+<div class="arithmatex">\[
+x \equiv y \ (\text{mod} \ N) \Leftrightarrow N \text{ divides } (x - y)
+\]</div>
+<p>For example <code>13 % 60</code> and <code>253 % 60 = 13</code>, hence <span class="arithmatex">\(253 \equiv 13 \ (\text{mod} \ 60)\)</span>.</p>
+<h2 id="addition">Addition</h2>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a + b &amp; = c\\
+\Rightarrow a \text{ (mod} \ N) + b \text{ (mod} \ N) &amp; \equiv c \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a &amp; \equiv b \text{ (mod} \ N) \\
+\Rightarrow -a &amp; \equiv -b \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a &amp; \equiv b \text{ (mod} \ N) \\
+\Rightarrow a + k &amp; \equiv b + k \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a &amp; \equiv b \text{ (mod} \ N) \\
+c &amp; \equiv d \text{ (mod} \ N) \\
+\Rightarrow a + c &amp; \equiv b + d \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<h2 id="multiplication">Multiplication</h2>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a \cdot b &amp; = c\\
+\Rightarrow a \text{ (mod} \ N) \cdot b \text{ (mod} \ N) &amp; \equiv c \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a &amp; \equiv b \text{ (mod} \ N) \\
+\Rightarrow ka &amp; \equiv kb \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a &amp; \equiv b \text{ (mod} \ N) \\
+c &amp; \equiv d \text{ (mod} \ N) \\
+\Rightarrow ac &amp; \equiv bd \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<h2 id="exponent">Exponent</h2>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+a &amp; \equiv b \text{ (mod} \ N) \\
+\Rightarrow a^k &amp; \equiv b^k \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<h2 id="division">Division</h2>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+\text{gcd}(k, N) &amp; = 1 \\
+ka &amp; \equiv kb \text{ (mod} \ N) \\
+\Rightarrow a &amp; \equiv b \text{ (mod} \ N)
+\end{alignat}
+\]</div>
+<p>example</p>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+\text{gcd}(4, 7) &amp; = 1 \\
+12 &amp; \equiv 33 \text{ (mod} \ 7) \\
+\Rightarrow 4 &amp; \equiv 11 \text{ (mod} \ 7)
+\end{alignat}
+\]</div>
 
 
 
