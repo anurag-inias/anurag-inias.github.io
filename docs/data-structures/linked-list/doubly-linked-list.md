@@ -1126,3 +1126,402 @@ fun remove(index: Int): Int? {
             assert list.remove(index) is value
         assert list.empty is True
     ```
+
+=== "Go"
+
+    ```golang linenums="1"
+    package libs
+
+    import (
+      "fmt"
+      "strings"
+    )
+
+    type Node struct {
+      value      int
+      prev, next *Node
+    }
+
+    func create(value int, prev, next *Node) *Node {
+      n := Node{value, nil, nil}
+      n.setPrev(prev)
+      n.setNext(next)
+      return &n
+    }
+
+    func (n *Node) setNext(next *Node) *Node {
+      n.next = next
+      if next != nil {
+        next.prev = n
+      }
+      return n
+    }
+
+    func (n *Node) setPrev(prev *Node) *Node {
+      n.prev = prev
+      if prev != nil {
+        prev.next = n
+      }
+      return n
+    }
+
+    func (n *Node) String() string {
+      return fmt.Sprint(n.value)
+    }
+
+    type LinkedList struct {
+      sentinel *Node
+      size     int
+    }
+
+    func NewLinkedList() *LinkedList {
+      sentinel := create(0, nil, nil)
+      sentinel.setNext(sentinel)
+      return &LinkedList{sentinel, 0}
+    }
+
+    func (l *LinkedList) AddFront(values ...int) {
+      for _, v := range values {
+        l.size++
+        l.sentinel.next = create(v, l.sentinel, l.sentinel.next)
+      }
+    }
+
+    func (l *LinkedList) AddBack(values ...int) {
+      for _, v := range values {
+        l.size++
+        l.sentinel.prev = create(v, l.sentinel.prev, l.sentinel)
+      }
+    }
+
+    func (l *LinkedList) Add(index int, value int) bool {
+      if index < 0 || index > l.size {
+        return false
+      }
+      if index == 0 {
+        l.AddFront(value)
+        return true
+      }
+      if index == l.size {
+        l.AddBack(value)
+        return true
+      }
+      l.size++
+      pred, i := l.sentinel, 0
+      for i < index {
+        pred = pred.next
+        i++
+      }
+      pred.next = create(value, pred, pred.next)
+      return true
+    }
+
+    func (l *LinkedList) RemoveFront() (int, bool) {
+      if l.size == 0 {
+        return 0, false
+      }
+      l.size--
+      value := l.sentinel.next.value
+      l.sentinel.setNext(l.sentinel.next.next)
+      return value, true
+    }
+
+    func (l *LinkedList) RemoveBack() (int, bool) {
+      if l.size == 0 {
+        return 0, false
+      }
+      l.size--
+      value := l.sentinel.prev.value
+      l.sentinel.setPrev(l.sentinel.prev.prev)
+      return value, true
+    }
+
+    func (l *LinkedList) Remove(index int) (int, bool) {
+      if index < 0 || index >= l.size {
+        return 0, false
+      }
+      if index == 0 {
+        return l.RemoveFront()
+      }
+      if index == l.size-1 {
+        return l.RemoveBack()
+      }
+      pred, i := l.sentinel.next, 0
+      for i < index-1 {
+        pred = pred.next
+        i++
+      }
+      l.size--
+      value := pred.next.value
+      pred.setNext(pred.next.next)
+      return value, true
+    }
+
+    func (l *LinkedList) Get(index int) (int, bool) {
+      if index < 0 || index >= l.size {
+        return 0, false
+      }
+      if index == l.size-1 {
+        return l.sentinel.prev.value, true
+      }
+      cursor, i := l.sentinel, 0
+      for i < index {
+        cursor = cursor.next
+      }
+      return cursor.value, true
+    }
+
+    func (l *LinkedList) Set(index, value int) bool {
+      if index < 0 || index >= l.size {
+        return false
+      }
+      if index == l.size-1 {
+        l.sentinel.prev.value = value
+        return true
+      }
+      cursor, i := l.sentinel, 0
+      for i < index {
+        cursor = cursor.next
+      }
+      cursor.value = value
+      return true
+    }
+
+    func (l *LinkedList) Size() int {
+      return l.size
+    }
+
+    func (l *LinkedList) IsEmpty() bool {
+      return l.size == 0
+    }
+
+    func (l *LinkedList) Head() (int, bool) {
+      if l.size == 0 {
+        return 0, false
+      }
+      return l.sentinel.next.value, true
+    }
+
+    func (l *LinkedList) Tail() (int, bool) {
+      if l.size == 0 {
+        return 0, false
+      }
+      return l.sentinel.prev.value, true
+    }
+
+    func (l *LinkedList) String() string {
+      var sb strings.Builder
+      sb.WriteRune('[')
+      cursor := l.sentinel.next
+      for cursor != l.sentinel {
+        sb.WriteString(fmt.Sprintf("%d", cursor.value))
+        cursor = cursor.next
+        if cursor != l.sentinel {
+          sb.WriteString(" ")
+        }
+      }
+      sb.WriteRune(']')
+      return sb.String()
+    }
+    ```
+
+=== "Unit Tests"
+
+    ```golang linenums="1"
+    package libs
+
+    import (
+      "fmt"
+      rand2 "math/rand"
+      "slices"
+      "testing"
+    )
+
+    func TestEmpty(t *testing.T) {
+      list := NewLinkedList()
+      if !list.IsEmpty() {
+        t.Fatalf(`List should be empty`)
+      }
+      if list.Size() != 0 {
+        t.Fatalf(`List size should be 0 and not %d`, list.Size())
+      }
+      if head, ok := list.Head(); ok {
+        t.Fatalf(`head should be absent and not %d`, head)
+      }
+      if tail, ok := list.Tail(); ok {
+        t.Fatalf(`tail should be absent and not %d`, tail)
+      }
+      if list.String() != "[]" {
+        t.Fatalf(`String should be "[]" and not %s`, list.String())
+      }
+    }
+
+    func TestAddFirst(t *testing.T) {
+      list := NewLinkedList()
+      list.AddFront(1, 2, 3)
+      if list.IsEmpty() {
+        t.Fatalf(`List should not be empty`)
+      }
+      if list.Size() != 3 {
+        t.Fatalf(`List size should be 3 and not %d`, list.Size())
+      }
+      if head, ok := list.Head(); !ok || head != 3 {
+        t.Fatalf(`head should be 3 and not %d`, head)
+      }
+      if tail, ok := list.Tail(); !ok || tail != 1 {
+        t.Fatalf(`tail should be 1 and not %d`, tail)
+      }
+      if list.String() != "[3 2 1]" {
+        t.Fatalf(`String should be "[3 2 1]" and not %s`, list.String())
+      }
+    }
+
+    func TestAddBack(t *testing.T) {
+      list := NewLinkedList()
+      list.AddBack(1, 2, 3)
+      if list.IsEmpty() {
+        t.Fatalf(`List should not be empty`)
+      }
+      if list.Size() != 3 {
+        t.Fatalf(`List size should be 3 and not %d`, list.Size())
+      }
+      if head, ok := list.Head(); !ok || head != 1 {
+        t.Fatalf(`head should be 3 and not %d`, head)
+      }
+      if tail, ok := list.Tail(); !ok || tail != 3 {
+        t.Fatalf(`tail should be 1 and not %d`, tail)
+      }
+      if list.String() != "[1 2 3]" {
+        t.Fatalf(`String should be "[1 2 3]" and not %s`, list.String())
+      }
+    }
+
+    func TestAddMixed(t *testing.T) {
+      list := NewLinkedList()
+      list.AddFront(2)
+      list.AddBack(3)
+      list.AddFront(1)
+      list.AddBack(4)
+      if list.IsEmpty() {
+        t.Fatalf(`List should not be empty`)
+      }
+      if list.Size() != 4 {
+        t.Fatalf(`List size should be 4 and not %d`, list.Size())
+      }
+      if head, ok := list.Head(); !ok || head != 1 {
+        t.Fatalf(`head should be 1 and not %d`, head)
+      }
+      if tail, ok := list.Tail(); !ok || tail != 4 {
+        t.Fatalf(`tail should be 4 and not %d`, tail)
+      }
+      if list.String() != "[1 2 3 4]" {
+        t.Fatalf(`String should be "[1 2 3 4]" and not %s`, list.String())
+      }
+    }
+
+    func TestAddAt(t *testing.T) {
+      list := NewLinkedList()
+      list.Add(0, 1)
+      if list.String() != "[1]" {
+        t.Fatalf(`String should be "[1]" and not %s`, list.String())
+      }
+
+      if list.Add(-1, 2) == true {
+        t.Fatalf(`Add should fail for index -1`)
+      }
+      if list.Add(2, 2) == true {
+        t.Fatalf(`Add should fail for index 2`)
+      }
+
+      list.Add(1, 3)
+      if list.String() != "[1 3]" {
+        t.Fatalf(`String should be "[1 3]" and not %s`, list.String())
+      }
+
+      list.Add(1, 2)
+      if list.String() != "[1 2 3]" {
+        t.Fatalf(`String should be "[1 2 3]" and not %s`, list.String())
+      }
+    }
+
+    func TestAddFuzzy(t *testing.T) {
+      var ctrl []int
+      list := NewLinkedList()
+      rand := rand2.New(rand2.NewSource(10))
+
+      for i := 1; i <= 100; i++ {
+        index, value := rand.Intn(i), rand.Intn(10_000)
+        list.Add(index, value)
+        ctrl = slices.Insert(ctrl, index, value)
+
+        if list.String() != fmt.Sprint(ctrl) {
+          t.Fatalf(`String should be "%v", and not %s`, ctrl, list.String())
+        }
+      }
+    }
+
+    func TestRemoveFront(t *testing.T) {
+      list := NewLinkedList()
+      list.AddFront(2)
+      list.AddBack(3)
+      list.AddFront(1)
+      list.AddBack(4)
+
+      for i := 1; i <= 4; i++ {
+        if head, ok := list.RemoveFront(); !ok || head != i {
+          t.Fatalf(`head should be %d`, i)
+        }
+      }
+    }
+
+    func TestRemoveBack(t *testing.T) {
+      list := NewLinkedList()
+      list.AddFront(2)
+      list.AddBack(3)
+      list.AddFront(1)
+      list.AddBack(4)
+
+      for i := 4; i >= 1; i-- {
+        if tail, ok := list.RemoveBack(); !ok || tail != i {
+          t.Fatalf(`tail should be %d`, i)
+        }
+      }
+    }
+
+    func TestRemoveAt(t *testing.T) {
+      list := NewLinkedList()
+      list.AddBack(1, 2, 3, 4, 5)
+
+      if v, ok := list.Remove(2); !ok || v != 3 {
+        t.Fatalf(`value should be 3`)
+      }
+
+      if v, ok := list.Remove(2); !ok || v != 4 {
+        t.Fatalf(`value should be 4`)
+      }
+    }
+
+    func TestRemoveFuzzy(t *testing.T) {
+      var ctrl []int
+      list := NewLinkedList()
+      rand := rand2.New(rand2.NewSource(10))
+      for i := 1; i <= 100; i++ {
+        index, value := rand.Intn(i), rand.Intn(10_000)
+        list.Add(index, value)
+        ctrl = slices.Insert(ctrl, index, value)
+      }
+
+      for len(ctrl) > 0 {
+        index := rand.Intn(len(ctrl))
+        value := ctrl[index]
+        ctrl = append(ctrl[:index], ctrl[index+1:]...)
+
+        if v, ok := list.Remove(index); !ok || v != value {
+          t.Fatalf(`value should be %d`, value)
+        }
+        if list.String() != fmt.Sprint(ctrl) {
+          t.Fatalf(`String should be "%v", and not %s`, ctrl, list.String())
+        }
+      }
+    }
+    ```
