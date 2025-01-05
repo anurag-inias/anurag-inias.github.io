@@ -83,8 +83,54 @@ w.Radius = 5
 w.X = 6 // Skipped over
 ```
 
-<div/>
+</div>
 
 We say `Point` is _embedded_ within `Circle`.
 
-</div>
+!!! warning "Composition over inheritance"
+
+    Embedding is composition with some syntactic sugar. It's not inheritance, which is not supported by Go.
+
+## Objects
+
+$$
+type + method
+$$
+
+The type here can be anything, be it a basic type (boolean, int), an aggregate type (struct, array), or even a reference type (pointer, func, slice).
+
+```golang
+type Point struct {
+	X, Y float64
+}
+
+func (p Point) Distance(q Point) float64 {
+	return math.Sqrt(math.Pow(p.X-q.X, 2) + math.Pow(p.Y-q.Y, 2))
+}
+
+p := Point{1, 2}
+q := Point{4, 6}
+fmt.Println(p.Distance(q)) // 5
+
+f := p.Distance            // method value
+fmt.Println(f(q))          // 5
+```
+
+- Go doesn't use special names like `this` or `self` for the receiver.
+
+### Pointer as receiver
+
+Since Go passes arguments _by value_, if we need to update the receiver, we need to make the receiver a pointer.
+
+```golang
+func (p *Point) Distance(q Point) float64 {
+	return math.Sqrt(math.Pow(p.X-q.X, 2) + math.Pow(p.Y-q.Y, 2))
+}
+
+p := Point{1, 2}
+q := Point{4, 6}
+fmt.Println(p.Distance(q))           // 5
+fmt.Println(Point{1, 2}.Distance(q)) // compile error. Not addressable
+```
+
+compiler performs an implicit `&p`.

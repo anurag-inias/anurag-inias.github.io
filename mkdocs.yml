@@ -127,6 +127,11 @@ nav:
       - Constants: "go/constants.md"
       - Basic Types: "go/basic-types.md"
       - Aggregate Types: "go/aggregate-types.md"
+      - Reference Types:
+          - Pointers, Slices and, Map: "go/reference-types.md"
+          - Interfaces: "go/interfaces.md"
+          - Functions: "go/functions.md"
+      - Generics: "go/generics.md"
   - Android:
       - Activities: "android/activities.md"
       - Tasks: "android/tasks.md"

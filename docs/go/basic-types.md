@@ -10,8 +10,7 @@ There are 4 base categories of data types in Go:
 
 1. _basic types_: integers, strings, booleans.
 2. _aggregate types_: arrays and structs.
-3. _reference types_: pointers, slices, maps, functions, and channels.
-4. _interface types_
+3. _reference types_: pointers, slices, maps, functions, and channels, and interface.
 
 ## Integers
 
