@@ -3,6 +3,10 @@
   src: url("https://excalidraw.com/Virgil.woff2");
 }
 @font-face {
+  font-family: "Excalifont";
+  src: url("/assets/fonts/Excalifont-Regular.woff2");
+}
+@font-face {
   font-family: "Assistant";
   src: url("https://excalidraw.com/Assistant-Regular.woff2");
 }
