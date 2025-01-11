@@ -86,8 +86,10 @@ $$
 
 $$
 \begin{alignat}{1}
-& ^n\mathrm{C}_r = ^n\mathrm{C}_{n-r} \\
-& ^n\mathrm{C}_r + ^n\mathrm{C}_{r-1} = ^{n+1}\mathrm{C}_{r} \\
-& ^n\mathrm{C}_0 + ^n\mathrm{C}_1 + \dots + ^n\mathrm{C}_n = 2^n \\
+& {}^n\mathrm{C}_r = {}^n\mathrm{C}_{n-r} \\
+& {}^n\mathrm{C}_r + {}^n\mathrm{C}_{r-1} = {}^{n+1}\mathrm{C}_{r} \\
+\\
+& \sum_{k=0}^{n}{ ^n\mathrm{C}_k } = {}^n\mathrm{C}_0 + {}^n\mathrm{C}_1 + \dots + {}^n\mathrm{C}_n = (1+1)^n = 2^n \\
+& \sum_{k=0}^{n}{ (^n\mathrm{C}_k)^2 } = {}^{2n}\mathrm{C}_n \\
 \end{alignat}
 $$
