@@ -79,6 +79,7 @@ nav:
           - Changing base: "maths/base-change.md"
           - Algebraic expressions: "maths/expressions.md"
           - Modular arithmetic: "maths/modulo.md"
+      - Sets: "maths/sets.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
