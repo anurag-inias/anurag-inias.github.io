@@ -1,0 +1,7 @@
+placeholders:
+  YoutubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
+settings:
+  apply_change_on_focus_change: false
+  auto_placeholder_tables: false
+  inline_editors: true

@@ -129,6 +129,8 @@ i \text{ (mod} \ N)=
 \end{cases}
 $$
 
+Here $i \ {\scriptsize\%} \ N$ brings any large negative number in $[-N+1, 0]$ range. Adding $N$ rids of negative sign, moving the number in $[1, N]$ range. The last ${\scriptsize\%} \ N$ shift it back in $[0, N)$ range.
+
 $$
 \begin{array} {|r|r|}
 \hline i & i \ {\scriptsize\%} \ N & (N + i \ {\scriptsize\%} \ N) \ {\scriptsize\%} \ N \\

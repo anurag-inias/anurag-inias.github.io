@@ -26,6 +26,8 @@ theme:
         name: Switch to light mode
 plugins:
   - glightbox
+  - placeholder:
+      placeholder_file: placeholder-plugin.yaml
 
 markdown_extensions:
   - pymdownx.superfences
@@ -162,3 +164,4 @@ nav:
       - Samba: "ubuntu/samba.md"
   - Miscellaneous:
       - Display Upgrade: "misc/display.md"
+      - yt-dlp: "misc/yt-dlp.md"
