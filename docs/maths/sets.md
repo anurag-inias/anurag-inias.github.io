@@ -131,7 +131,7 @@ $$
 $$
 \begin{alignat}{1}
 |A \cup B| &= |A-B| + |B-A| + |A \cap B| \\
-&=  (|A| - |A \cap B|) + (|B| - |A \cap B|) + |A \cap B| \\
+&= \hspace{1em} |A| - |A \cap B| \\ & \hspace{1em} + |B| - |A \cap B| \\ & \hspace{3.5em} + |A \cap B| \\
 &= |A| + |B| - |A \cap B|
 \end{alignat}
 $$
