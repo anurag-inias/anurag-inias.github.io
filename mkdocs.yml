@@ -82,6 +82,14 @@ nav:
       - Sets: "maths/sets.md"
       - Combinatorics: "maths/combinatorics.md"
       - Series: "maths/series.md"
+  - Algorithms:
+      - Binary Search: "algorithms/search/binary.md"
+      - Partitioning: "algorithms/partition/partition.md"
+      - Sorting:
+          - Bubblesort: "algorithms/sort/bubble-sort.md"
+          - Quicksort: "algorithms/sort/quicksort.md"
+          - Mergesort: "algorithms/sort/mergesort.md"
+          - Counting Sort: "algorithms/sort/counting-sort.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
@@ -111,13 +119,6 @@ nav:
               - BFS: "data-structures/graph/bfs.md"
               - DFS: "data-structures/graph/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
-  - Algorithms:
-      - Binary Search: "algorithms/search/binary.md"
-      - Partitioning: "algorithms/partition/partition.md"
-      - Sorting:
-          - Quicksort: "algorithms/sort/quicksort.md"
-          - Mergesort: "algorithms/sort/mergesort.md"
-          - Counting Sort: "algorithms/sort/counting-sort.md"
   - Design Patterns:
       - Creational:
           - Singleton: "design-patterns/singleton.md"
