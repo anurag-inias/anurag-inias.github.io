@@ -818,6 +818,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../algorithms/sort/heapsort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heap sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../algorithms/sort/quicksort/" class="md-nav__link">
         
   
@@ -3184,10 +3205,10 @@
 
 <h2 id="priority-queue">Priority Queue</h2>
 <p>Before we talk about heaps, lets first talk about <strong>Priority queue</strong>. Priority queue is an abstract data type (ADT) that's a generalization of regular queue and stack ADT.</p>
-<p>Each element in a \(PQ\) has an associated priority. Elements with high priority are served before elements with lower priority. With this, we can think of a queue and stacks as specialization of \(PQ\):</p>
+<p>Each element in a \(PQ\) has an associated priority. Elements with higher priority are served before elements with lower priority. With this, we can think of a queue and stacks as specialization of \(PQ\):</p>
 <ul>
 <li>Queue: priority \(\propto \text{time in queue}\)</li>
-<li>Stack: priority \(\propto \frac{1}{\text{time in stack}}\)</li>
+<li>Stack: priority \(\propto \dfrac{1}{\text{time in stack}}\)</li>
 </ul>
 <h2 id="heap_1">Heap</h2>
 <p>Heap is a complete binary tree, i.e. a tree in which every level, except possibly the last, is completely filled. And all nodes in the last level are as far left as possible.</p>
@@ -3199,14 +3220,29 @@
 <h2 id="index-relation">Index relation</h2>
 <p>Heaps are usually implemented in arrays such that:</p>
 <ol>
-<li>every node has atmost \(d = 2\) children.</li>
-<li>a node at \(i^{th}\) index:<ul>
-<li>has its left child at index \(2i + 1\) and right child at \(2i + 2\).</li>
-<li>or in generalized term: \(\in [di+1, di + d]\). </li>
+<li>
+<p>every node has atmost \(d = 2\) children.</p>
+</li>
+<li>
+<p>a node at \(i^{th}\) index:</p>
+<ul>
+<li>
+<p>has its left child at index \(2i + 1\) and right child at \(2i + 2\).</p>
+</li>
+<li>
+<p>in generalized term: <span class="arithmatex">\(di+1, \ di+2, \dots, \ di + d\)</span>.</p>
+</li>
 </ul>
 </li>
-<li>a node at \(i^{th}\) index:<ul>
-<li>has its parent at index \(\frac{i-1}{d}\)</li>
+<li>
+<p>a node at \(i^{th}\) index:</p>
+<ul>
+<li>
+<p>has its parent at index \(\dfrac{i-1}{2}\)</p>
+</li>
+<li>
+<p>in generalized term \(\dfrac{i-1}{d}\)</p>
+</li>
 </ul>
 </li>
 </ol>

@@ -20,7 +20,7 @@
 
 4. Call `sink` on the heap's new root.
 
-5. Repeat step #1.
+5. Back to #2.
 
 ## Example
 

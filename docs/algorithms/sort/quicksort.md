@@ -2,7 +2,6 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-
 <style>
 .md-logo img {
   content: url('/algorithms/sort/sort-light.svg');
@@ -137,6 +136,152 @@ We start with the partitioning as [discussed previously](/partition/partition) a
         assertEquals(list, copy)
       }
 
+    }
+    ```
+
+=== "golang"
+
+    ```golang linenums="1" title="quicksort.go"
+    package libs
+
+    type intSlice []int
+
+    func (slice intSlice) Partition(pivot, start, end int) (int, int) {
+      l, c, r := start, start, end-1
+      for c <= r {
+        switch {
+        case slice[c] < pivot:
+          {
+            slice[l], slice[c] = slice[c], slice[l]
+            l++
+            c++
+          }
+        case slice[c] == pivot:
+          {
+            c++
+          }
+        default: // slice[c] > pivot
+          {
+            slice[c], slice[r] = slice[r], slice[c]
+            r--
+          }
+        }
+      }
+      return l, c
+    }
+
+    func (slice intSlice) quickSort(start, end int) {
+      if start >= end-1 {
+        return
+      }
+
+      pivot := slice[start]
+      l, c := slice.Partition(pivot, start, end)
+      slice.quickSort(start, l)
+      slice.quickSort(c, end)
+    }
+
+    func QuickSort(a []int) {
+      if len(a) == 0 {
+        return
+      }
+      intSlice(a).quickSort(0, len(a))
+    }
+    ```
+
+=== "tests"
+
+    ```golang linenums="1" title="sort_test.go"
+    package libs
+
+    import (
+      "fmt"
+      rand2 "math/rand"
+      "slices"
+      "testing"
+    )
+
+    type Suite struct {
+      input, expected []int
+    }
+
+    func TestEmpty(t *testing.T) {
+      var a []int
+      QuickSort(a)
+      if fmt.Sprintf("%v", a) != "[]" {
+        t.Fatalf("Expected an empty slice")
+      }
+    }
+
+    func TestSimple(t *testing.T) {
+      suite := []Suite{
+        {input: []int{}, expected: []int{}},
+        {input: []int{1}, expected: []int{1}},
+        {input: []int{1, 2}, expected: []int{1, 2}},
+        {input: []int{2, 1}, expected: []int{1, 2}},
+        {input: []int{1, 2, 3}, expected: []int{1, 2, 3}},
+        {input: []int{1, 3, 2}, expected: []int{1, 2, 3}},
+        {input: []int{2, 1, 3}, expected: []int{1, 2, 3}},
+        {input: []int{2, 3, 1}, expected: []int{1, 2, 3}},
+        {input: []int{3, 1, 2}, expected: []int{1, 2, 3}},
+        {input: []int{3, 2, 1}, expected: []int{1, 2, 3}},
+        {input: []int{1, 2, 3, 4}, expected: []int{1, 2, 3, 4}},
+        {input: []int{1, 2, 4, 3}, expected: []int{1, 2, 3, 4}},
+        {input: []int{1, 3, 2, 4}, expected: []int{1, 2, 3, 4}},
+        {input: []int{1, 3, 4, 2}, expected: []int{1, 2, 3, 4}},
+        {input: []int{1, 4, 2, 3}, expected: []int{1, 2, 3, 4}},
+        {input: []int{1, 4, 3, 2}, expected: []int{1, 2, 3, 4}},
+        {input: []int{2, 1, 3, 4}, expected: []int{1, 2, 3, 4}},
+        {input: []int{2, 1, 4, 3}, expected: []int{1, 2, 3, 4}},
+        {input: []int{2, 3, 1, 4}, expected: []int{1, 2, 3, 4}},
+        {input: []int{2, 3, 4, 1}, expected: []int{1, 2, 3, 4}},
+        {input: []int{2, 4, 1, 3}, expected: []int{1, 2, 3, 4}},
+        {input: []int{2, 4, 3, 1}, expected: []int{1, 2, 3, 4}},
+        {input: []int{3, 1, 2, 4}, expected: []int{1, 2, 3, 4}},
+        {input: []int{3, 1, 4, 2}, expected: []int{1, 2, 3, 4}},
+        {input: []int{3, 2, 1, 4}, expected: []int{1, 2, 3, 4}},
+        {input: []int{3, 2, 4, 1}, expected: []int{1, 2, 3, 4}},
+        {input: []int{3, 4, 1, 2}, expected: []int{1, 2, 3, 4}},
+        {input: []int{3, 4, 2, 1}, expected: []int{1, 2, 3, 4}},
+        {input: []int{4, 1, 2, 3}, expected: []int{1, 2, 3, 4}},
+        {input: []int{4, 1, 3, 2}, expected: []int{1, 2, 3, 4}},
+        {input: []int{4, 2, 1, 3}, expected: []int{1, 2, 3, 4}},
+        {input: []int{4, 2, 3, 1}, expected: []int{1, 2, 3, 4}},
+        {input: []int{4, 3, 1, 2}, expected: []int{1, 2, 3, 4}},
+        {input: []int{4, 3, 2, 1}, expected: []int{1, 2, 3, 4}},
+      }
+
+      for _, entry := range suite {
+        before := fmt.Sprintf("%v", entry.input)
+        QuickSort(entry.input)
+        result := fmt.Sprintf("%v", entry.input)
+        expected := fmt.Sprintf("%v", entry.expected)
+
+        if result != expected {
+          t.Fatalf("With %v expected %s, but got %s", before, expected, result)
+        }
+      }
+    }
+
+    func TestFuzzy(t *testing.T) {
+      var treat, ctrl []int
+      rand := rand2.New(rand2.NewSource(100))
+
+      for i := 0; i < 100; i++ {
+        value := rand.Intn(50)
+        treat = append(treat, value)
+        ctrl = append(ctrl, value)
+      }
+
+      slices.Sort(ctrl)
+      QuickSort(treat)
+
+      result := fmt.Sprintf("%v", treat)
+      expected := fmt.Sprintf("%v", ctrl)
+
+      if result != expected {
+        t.Fatalf("expected %s, but got %s", expected, result)
+      }
     }
     ```
 
