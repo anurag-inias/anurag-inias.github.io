@@ -44,10 +44,12 @@ $$
 
 $$
 \begin{alignat}{1}
-\dfrac{1}{0!} + \dfrac{1}{1!} + \dfrac{1}{2!} + \dots &= e \\
+1 + \dfrac{1}{2} + \dfrac{1}{2^2} + \dfrac{1}{2^3} + \dots &= 2
 \\
-1 + \dfrac{1}{2} + \dfrac{1}{4} + \dfrac{1}{8} + \dots &= 2
 \\
+1 + \dfrac{1}{1!} + \dfrac{1}{2!} + \dfrac{1}{3!} + \dots &= e \\
+\\
+1 + \dfrac{x}{1!} + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dots &= e^x \\
 \\
 {}^n\mathrm{C}_0 + {}^n\mathrm{C}_1 + {}^n\mathrm{C}_2 + \dots + {}^n\mathrm{C}_n &= 2^n \\
 &= (1 + 1)^n \\
