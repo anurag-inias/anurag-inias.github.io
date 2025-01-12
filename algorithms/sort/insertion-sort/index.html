@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../insertion-sort/">
+        <link rel="prev" href="../bubble-sort/">
       
       
-        <link rel="next" href="../heapsort/">
+        <link rel="next" href="../selection-sort/">
       
       
       <link rel="icon" href="../../../assets/fatigue-dark.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Selection sort - listless 💤</title>
+        <title>Insertion sort - listless 💤</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#selection-sort" class="md-skip">
+        <a href="#insertion-sort" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Selection sort
+              Insertion sort
             
           </span>
         </div>
@@ -798,27 +798,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../insertion-sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Insertion sort
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -835,7 +814,7 @@
           
   
   <span class="md-ellipsis">
-    Selection sort
+    Insertion sort
   </span>
   
 
@@ -846,7 +825,7 @@
         
   
   <span class="md-ellipsis">
-    Selection sort
+    Insertion sort
   </span>
   
 
@@ -886,9 +865,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optimization" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Optimization
+      Properties
     </span>
   </a>
   
@@ -898,6 +877,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selection-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection sort
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3156,9 +3156,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optimization" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Optimization
+      Properties
     </span>
   </a>
   
@@ -3179,7 +3179,7 @@
                   
 
 
-<h1 id="selection-sort">Selection Sort</h1>
+<h1 id="insertion-sort">Insertion Sort</h1>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <style>
@@ -3192,17 +3192,25 @@
 }
 </style>
 
-<ul>
-<li>Finds the smallest element in the array and swaps it to position <span class="arithmatex">\(0\)</span>.</li>
-<li>Then finds the second smallest element in the array and swaps it to position <span class="arithmatex">\(1\)</span>.</li>
-<li><span class="arithmatex">\(\dots\)</span></li>
-<li>Profit</li>
-</ul>
+<ol>
+<li>
+<p>Start with a subarray containing just the very first element of the array. The subarray is sorted by the virtue of containing just one element.</p>
+</li>
+<li>
+<p>Pick the element just right of the subarray and find an appropriate place within the sorted subarray to insert.</p>
+</li>
+<li>
+<p>Shuffle elements to the right to make place.</p>
+</li>
+<li>
+<p>Back to #2.</p>
+</li>
+</ol>
 <h2 id="implementation">Implementation</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Golang</label><label for="__tabbed_1_2">Unit tests</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-golang highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">selectionsort.go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="language-golang highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">insertionsort.go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -3219,28 +3227,44 @@
 <span class="normal"><a href="#__codelineno-0-15">15</a></span>
 <span class="normal"><a href="#__codelineno-0-16">16</a></span>
 <span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">SelectionSort</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="k">return</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="c1">// c = where to place the smallest number next found</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">c</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ▧▧▧▧▧□ last number will be the largest anyway</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="nx">minIndex</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// □▣▧▧▧▧ find the next smallest element in subarray to the right of c</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">minIndex</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="nx">minIndex</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">i</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">minIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">      </span><span class="nx">a</span><span class="p">[</span><span class="nx">minIndex</span><span class="p">],</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">c</span><span class="p">],</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">minIndex</span><span class="p">]</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">libs</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kd">func</span><span class="w"> </span><span class="nx">InsertionSort</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="k">return</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span><span class="w"> </span><span class="nx">e</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="nx">insert</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">e</span><span class="p">])</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1">// 012e</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1">// ▧▧▧▣□□□</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1">// □ not yet processed</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="c1">// ▣ element being inserted</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="c1">// ▧ elements already sorted</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="kd">func</span><span class="w"> </span><span class="nx">insert</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">  </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">      </span><span class="k">break</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">  </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">value</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
-<div class="language-golang highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">sort_test.go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<div class="language-golang highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">sort_tests.go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
@@ -3345,7 +3369,7 @@
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a>
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="kd">func</span><span class="w"> </span><span class="nx">TestEmpty</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span><span class="nx">SelectionSort</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span><span class="nx">InsertionSort</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;[]&quot;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="nx">t</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;Expected an empty slice&quot;</span><span class="p">)</span>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">  </span><span class="p">}</span>
@@ -3391,7 +3415,7 @@
 </span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59"></a>
 </span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">suite</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="w">    </span><span class="nx">before</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">entry</span><span class="p">.</span><span class="nx">input</span><span class="p">)</span>
-</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">    </span><span class="nx">SelectionSort</span><span class="p">(</span><span class="nx">entry</span><span class="p">.</span><span class="nx">input</span><span class="p">)</span>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">    </span><span class="nx">InsertionSort</span><span class="p">(</span><span class="nx">entry</span><span class="p">.</span><span class="nx">input</span><span class="p">)</span>
 </span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">entry</span><span class="p">.</span><span class="nx">input</span><span class="p">)</span>
 </span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="w">    </span><span class="nx">expected</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">entry</span><span class="p">.</span><span class="nx">expected</span><span class="p">)</span>
 </span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65"></a>
@@ -3412,7 +3436,7 @@
 </span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81"></a>
 </span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="w">  </span><span class="nx">slices</span><span class="p">.</span><span class="nx">Sort</span><span class="p">(</span><span class="nx">ctrl</span><span class="p">)</span>
-</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="w">  </span><span class="nx">SelectionSort</span><span class="p">(</span><span class="nx">treat</span><span class="p">)</span>
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="w">  </span><span class="nx">InsertionSort</span><span class="p">(</span><span class="nx">treat</span><span class="p">)</span>
 </span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84"></a>
 </span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85"></a><span class="w">  </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">treat</span><span class="p">)</span>
 </span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="w">  </span><span class="nx">expected</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">)</span>
@@ -3426,14 +3450,6 @@
 </div>
 </div>
 <h2 id="complexity">Complexity</h2>
-<p>The outermost loop has size <span class="arithmatex">\(n-1\)</span>. The inner loop performs <span class="arithmatex">\(n-1\)</span> iterations in first loop, <span class="arithmatex">\(n-2\)</span> in second loop, <span class="arithmatex">\(n-3\)</span> in third loop and so on.</p>
-<div class="arithmatex">\[
-\begin{alignat}{1}
-(n-1) + (n-2) + (n-3) + \dots + 1 &amp;= \text{sum of first }n-1\text{ natural numbers} \\
-&amp;= (n-1) \cdot \dfrac{1 + (n-1)}{2} \\
-&amp;= O(n^2)
-\end{alignat}
-\]</div>
 <table>
 <thead>
 <tr>
@@ -3446,23 +3462,25 @@
 <tr>
 <td>Worst</td>
 <td><span class="arithmatex">\(O(n^2)\)</span></td>
-<td><span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(n^2)\)</span></td>
 </tr>
 <tr>
 <td>Average</td>
 <td><span class="arithmatex">\(O(n^2)\)</span></td>
-<td><span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(n^2)\)</span></td>
 </tr>
 <tr>
 <td>Best</td>
-<td><span class="arithmatex">\(O(n^2)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 </tbody>
 </table>
-<h2 id="optimization">Optimization</h2>
-<p>Notice that in each inner loop is spent finding the next smallest number, and we haven't made use of any of previous searches.</p>
-<p><em>Heap sort</em> is the implementation of selection sort with the right data structure.</p>
+<h2 id="properties">Properties</h2>
+<ul>
+<li>In partially sorted and smaller arrays, insertion sort performs very well.</li>
+<li>In worst case scenario, insertion sort ends up doing too many writes due to the shuffling.</li>
+</ul>
 
 
 
