@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../partition/partition/">
+        <link rel="prev" href="../bubble-sort/">
       
       
-        <link rel="next" href="../selection-sort/">
+        <link rel="next" href="../quicksort/">
       
       
       <link rel="icon" href="../../../assets/fatigue-dark.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Bubble sort - listless 💤</title>
+        <title>Selection sort - listless 💤</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bubble-sort" class="md-skip">
+        <a href="#selection-sort" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bubble sort
+              Selection sort
             
           </span>
         </div>
@@ -777,6 +777,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../bubble-sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble sort
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -793,7 +814,7 @@
           
   
   <span class="md-ellipsis">
-    Bubble sort
+    Selection sort
   </span>
   
 
@@ -804,7 +825,7 @@
         
   
   <span class="md-ellipsis">
-    Bubble sort
+    Selection sort
   </span>
   
 
@@ -843,31 +864,19 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimization
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../selection-sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Selection sort
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -3104,6 +3113,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimization
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3119,7 +3137,7 @@
                   
 
 
-<h1 id="bubble-sort">Bubble Sort</h1>
+<h1 id="selection-sort">Selection Sort</h1>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <style>
@@ -3132,8 +3150,12 @@
 }
 </style>
 
-<p>Also known as <em>Sinking sort</em>. Works by repeatedly
-swapping adjacent elements that are out of order.</p>
+<ul>
+<li>Finds the smallest element in the array and swaps it to position <span class="arithmatex">\(0\)</span>.</li>
+<li>Then finds the second smallest element in the array and swaps it to position <span class="arithmatex">\(1\)</span>.</li>
+<li><span class="arithmatex">\(\dots\)</span></li>
+<li>Profit</li>
+</ul>
 <h2 id="implementation">Implementation</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Golang</label><label for="__tabbed_1_2">Unit tests</label></div>
 <div class="tabbed-content">
@@ -3153,22 +3175,26 @@ swapping adjacent elements that are out of order.</p>
 <span class="normal"><a href="#__codelineno-0-13">13</a></span>
 <span class="normal"><a href="#__codelineno-0-14">14</a></span>
 <span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">BubbleSort</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">SelectionSort</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="k">return</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="c1">// ▧ processed element</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="c1">// □ ignored element</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="c1">// ▣ cursored element (where i is at)</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ▧▧▧▧▧□ all but last</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// □▣▧▧▧▧ everything after i</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="p">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="c1">// c = where to place the smallest number next found</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">c</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ▧▧▧▧▧□ last number will be the largest anyway</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="nx">minIndex</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// □▣▧▧▧▧ find the next smallest element in subarray to the right of c</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">minIndex</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="nx">minIndex</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">i</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">minIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">      </span><span class="nx">a</span><span class="p">[</span><span class="nx">minIndex</span><span class="p">],</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">c</span><span class="p">],</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">minIndex</span><span class="p">]</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -3378,12 +3404,12 @@ swapping adjacent elements that are out of order.</p>
 <tr>
 <td>Worst</td>
 <td><span class="arithmatex">\(O(n^2)\)</span></td>
-<td><span class="arithmatex">\(O(n^2)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
 </tr>
 <tr>
 <td>Average</td>
 <td><span class="arithmatex">\(O(n^2)\)</span></td>
-<td><span class="arithmatex">\(O(n^2)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
 </tr>
 <tr>
 <td>Best</td>
@@ -3392,6 +3418,9 @@ swapping adjacent elements that are out of order.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="optimization">Optimization</h2>
+<p>Notice that in each inner loop is spent finding the next smallest number, and we haven't made use of any of previous searches.</p>
+<p><em>Heap sort</em> is the implementation of selection sort with the right data structure.</p>
 
 
 
