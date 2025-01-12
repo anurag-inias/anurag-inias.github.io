@@ -780,6 +780,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../comparison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparison Sorts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../bubble-sort/" class="md-nav__link">
         
   
@@ -847,7 +868,7 @@
         
   
   <span class="md-ellipsis">
-    Heap sort
+    Heapsort
   </span>
   
 
@@ -919,6 +940,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#benchmark" class="md-nav__link">
     <span class="md-ellipsis">
       Benchmark
@@ -947,7 +986,7 @@
         
   
   <span class="md-ellipsis">
-    Mergesort
+    Merge Sort
   </span>
   
 
@@ -3138,6 +3177,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#benchmark" class="md-nav__link">
     <span class="md-ellipsis">
       Benchmark
@@ -3676,6 +3733,33 @@
 </div>
 </div>
 </div>
+<h2 id="complexity">Complexity</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Comparisons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Worst</td>
+<td><span class="arithmatex">\(O(n^2)\)</span></td>
+</tr>
+<tr>
+<td>Average</td>
+<td><span class="arithmatex">\(O(n\log n)\)</span></td>
+</tr>
+<tr>
+<td>Best</td>
+<td><span class="arithmatex">\(O(n\log n)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Space complexity of <span class="arithmatex">\(O(n)\)</span> in naive implementation and <span class="arithmatex">\(O(\log n)\)</span> in Hoare's implementation.</p>
+<h2 id="properties">Properties</h2>
+<p>Quick sort implementation in real-world tend to use a number of heuristics to avoid worst case scenario, and at times use insertion sort for smaller / partially sorted arrays.</p>
+<p>It also has better <em>locality of reference</em> and tend to out perform <em>Heap sort</em> by <span class="arithmatex">\(2-3x\)</span> times. In places where a malicious input is a risk (e.g. Linux kernel), heap sort is preferred.</p>
 <h2 id="benchmark">Benchmark</h2>
 <div id="chart_short_range"></div>
 

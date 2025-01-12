@@ -82,6 +82,7 @@ nav:
       - Sets: "maths/sets.md"
       - Combinatorics: "maths/combinatorics.md"
       - Series: "maths/series.md"
+      - Probability: "maths/probability.md"
   - Algorithms:
       - Binary Search: "algorithms/search/binary.md"
       - Partitioning: "algorithms/partition/partition.md"
