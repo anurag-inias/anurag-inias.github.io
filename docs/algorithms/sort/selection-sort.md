@@ -1,4 +1,4 @@
-# Bubble Sort
+# Selection Sort
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -12,27 +12,31 @@
 }
 </style>
 
-Also known as _Sinking sort_. Works by repeatedly
-swapping adjacent elements that are out of order.
+- Finds the smallest element in the array and swaps it to position $0$.
+- Then finds the second smallest element in the array and swaps it to position $1$.
+- $\dots$
+- Profit
 
 ## Implementation
 
 === "Golang"
 
     ```golang linenums="1" title="bubblesort.go"
-    func BubbleSort(a []int) {
+    func SelectionSort(a []int) {
       if len(a) == 0 {
         return
       }
 
-      // ▧ processed element
-      // □ ignored element
-      // ▣ cursored element (where i is at)
-      for i := 0; i < len(a)-1; i++ { // ▧▧▧▧▧□ all but last
-        for j := i + 1; j < len(a); j++ { // □▣▧▧▧▧ everything after i
-          if a[i] > a[j] {
-            a[i], a[j] = a[j], a[i]
+      // c = where to place the smallest number next found
+      for c := 0; c < len(a)-1; c++ { // ▧▧▧▧▧□ last number will be the largest anyway
+        minIndex := c
+        for i := c + 1; i < len(a); i++ { // □▣▧▧▧▧ find the next smallest element in subarray to the right of c
+          if a[i] < a[minIndex] {
+            minIndex = i
           }
+        }
+        if minIndex != c {
+          a[minIndex], a[c] = a[c], a[minIndex]
         }
       }
     }
@@ -146,8 +150,14 @@ $$
 \end{alignat}
 $$
 
-| Scenario | Comparisons | Swaps    |
-| -------- | ----------- | -------- |
-| Worst    | $O(n^2)$    | $O(n^2)$ |
-| Average  | $O(n^2)$    | $O(n^2)$ |
-| Best     | $O(n^2)$    | $O(1)$   |
+| Scenario | Comparisons | Swaps  |
+| -------- | ----------- | ------ |
+| Worst    | $O(n^2)$    | $O(n)$ |
+| Average  | $O(n^2)$    | $O(n)$ |
+| Best     | $O(n^2)$    | $O(1)$ |
+
+## Optimization
+
+Notice that in each inner loop is spent finding the next smallest number, and we haven't made use of any of previous searches.
+
+_Heap sort_ is the implementation of selection sort with the right data structure.
