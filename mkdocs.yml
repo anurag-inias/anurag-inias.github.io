@@ -88,6 +88,7 @@ nav:
       - Sorting:
           - Bubble sort: "algorithms/sort/bubble-sort.md"
           - Selection sort: "algorithms/sort/selection-sort.md"
+          - Heap sort: "algorithms/sort/heapsort.md"
           - Quicksort: "algorithms/sort/quicksort.md"
           - Mergesort: "algorithms/sort/mergesort.md"
           - Counting Sort: "algorithms/sort/counting-sort.md"

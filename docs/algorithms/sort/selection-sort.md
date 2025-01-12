@@ -21,7 +21,7 @@
 
 === "Golang"
 
-    ```golang linenums="1" title="bubblesort.go"
+    ```golang linenums="1" title="selectionsort.go"
     func SelectionSort(a []int) {
       if len(a) == 0 {
         return
@@ -60,7 +60,7 @@
 
     func TestEmpty(t *testing.T) {
       var a []int
-      BubbleSort(a)
+      SelectionSort(a)
       if fmt.Sprintf("%v", a) != "[]" {
         t.Fatalf("Expected an empty slice")
       }
@@ -106,7 +106,7 @@
 
       for _, entry := range suite {
         before := fmt.Sprintf("%v", entry.input)
-        BubbleSort(entry.input)
+        SelectionSort(entry.input)
         result := fmt.Sprintf("%v", entry.input)
         expected := fmt.Sprintf("%v", entry.expected)
 
@@ -127,7 +127,7 @@
       }
 
       slices.Sort(ctrl)
-      BubbleSort(treat)
+      SelectionSort(treat)
 
       result := fmt.Sprintf("%v", treat)
       expected := fmt.Sprintf("%v", ctrl)

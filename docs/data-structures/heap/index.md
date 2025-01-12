@@ -14,10 +14,10 @@
 
 Before we talk about heaps, lets first talk about **Priority queue**. Priority queue is an abstract data type (ADT) that's a generalization of regular queue and stack ADT.
 
-Each element in a \\(PQ\\) has an associated priority. Elements with high priority are served before elements with lower priority. With this, we can think of a queue and stacks as specialization of \\(PQ\\):
+Each element in a \\(PQ\\) has an associated priority. Elements with higher priority are served before elements with lower priority. With this, we can think of a queue and stacks as specialization of \\(PQ\\):
 
 - Queue: priority \\(\propto \text{time in queue}\\)
-- Stack: priority \\(\propto \frac{1}{\text{time in stack}}\\)
+- Stack: priority \\(\propto \dfrac{1}{\text{time in stack}}\\)
 
 ## Heap
 
@@ -32,12 +32,19 @@ A heap then also satisfies the heap property:
 
 Heaps are usually implemented in arrays such that:
 
-1. every node has atmost \\(d = 2\\) children.
-2. a node at \\(i^{th}\\) index:
-     - has its left child at index \\(2i + 1\\) and right child at \\(2i + 2\\).
-     - or in generalized term: \\(\in [di+1, di + d]\\). 
-3. a node at \\(i^{th}\\) index:
-     - has its parent at index \\(\frac{i-1}{d}\\)
+1.  every node has atmost \\(d = 2\\) children.
+
+2.  a node at \\(i^{th}\\) index:
+
+    - has its left child at index \\(2i + 1\\) and right child at \\(2i + 2\\).
+
+    - in generalized term: $di+1, \ di+2, \dots, \ di + d$.
+
+3.  a node at \\(i^{th}\\) index:
+
+    - has its parent at index \\(\dfrac{i-1}{2}\\)
+
+    - in generalized term \\(\dfrac{i-1}{d}\\)
 
 ## Implementation
 
@@ -48,7 +55,7 @@ Heaps are usually implemented in arrays such that:
       while i < nums.size:
         l = 2i + 1
         r = 2i + 2
-        
+
         minIndex = indexOf(min(nums[i], nums[l], nums[r]))
         if minIndex == i:
           return
