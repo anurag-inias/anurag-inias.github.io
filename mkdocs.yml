@@ -86,12 +86,13 @@ nav:
       - Binary Search: "algorithms/search/binary.md"
       - Partitioning: "algorithms/partition/partition.md"
       - Sorting:
+          - Comparison Sorts: "algorithms/sort/comparison.md"
           - Bubble sort: "algorithms/sort/bubble-sort.md"
           - Insertion sort: "algorithms/sort/insertion-sort.md"
           - Selection sort: "algorithms/sort/selection-sort.md"
-          - Heap sort: "algorithms/sort/heapsort.md"
+          - Heapsort: "algorithms/sort/heapsort.md"
           - Quicksort: "algorithms/sort/quicksort.md"
-          - Mergesort: "algorithms/sort/mergesort.md"
+          - Merge Sort: "algorithms/sort/mergesort.md"
           - Counting Sort: "algorithms/sort/counting-sort.md"
   - Data Structures:
       - Numbers:

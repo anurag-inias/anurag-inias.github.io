@@ -187,6 +187,12 @@ $$
 
 And so the complexity of heap sort is $O(n + \log(n!))$, which is $O(n\log n)$.
 
+| Scenario | Comparisons  |
+| -------- | ------------ |
+| Worst    | $O(n\log n)$ |
+| Average  | $O(n\log n)$ |
+| Best     | $O(n\log n)$ |
+
 ## Properties
 
 - Heap sort has a simple non-recursive impelmentation.

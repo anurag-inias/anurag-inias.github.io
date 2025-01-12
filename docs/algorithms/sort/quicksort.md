@@ -285,6 +285,22 @@ We start with the partitioning as [discussed previously](/partition/partition) a
     }
     ```
 
+## Complexity
+
+| Scenario | Comparisons  |
+| -------- | ------------ |
+| Worst    | $O(n^2)$     |
+| Average  | $O(n\log n)$ |
+| Best     | $O(n\log n)$ |
+
+Space complexity of $O(n)$ in naive implementation and $O(\log n)$ in Hoare's implementation.
+
+## Properties
+
+Quick sort implementation in real-world tend to use a number of heuristics to avoid worst case scenario, and at times use insertion sort for smaller / partially sorted arrays.
+
+It also has better _locality of reference_ and tend to out perform _Heap sort_ by $2-3x$ times. In places where a malicious input is a risk (e.g. Linux kernel), heap sort is preferred.
+
 ## Benchmark
 
 <div id="chart_short_range"></div>
