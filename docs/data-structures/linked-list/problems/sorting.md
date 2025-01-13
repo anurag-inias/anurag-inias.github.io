@@ -30,7 +30,7 @@ Rearrange a linked list in increasing order, i.e. sort it in-place.
 
 ??? "Sorting a singly linked list"
 
-    ```kotlin linenums="1"
+    ```kotlin
     fun sort() {
       // head of the sorted linked list. Start with an empty one.
       var nHead: Node? = null
@@ -66,7 +66,7 @@ Rearrange a linked list in increasing order, i.e. sort it in-place.
 
 ??? "Sorting a circular doubly-linked list"
 
-    ```kotlin linenums="1"
+    ```kotlin
     fun sort() {
       val newSentinel = Node(0)                 // sentinel cannot be reused
       newSentinel.next = newSentinel

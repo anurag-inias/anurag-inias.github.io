@@ -10,32 +10,43 @@
 }
 </style>
 
-## Implementation
+## Problem
 
-Singly-linked list is not efficient for queue implementation. That's because `enqueue` can happen in \\(O(1)\\) at `head`, but then `dequeue` would require traversing the whole list till reaching the predecessor of `tail`. i.e. \\(O(n)\\).
+Create a queue from a linked list.
 
-```python linenums="1" title="queue.py"
-from linkedlist.list import LinkedList
+## Hint
+
+??? "Expand"
+
+    Singly-linked list is not efficient for queue implementation. That's because `enqueue` can happen in \\(O(1)\\) at `head`, but then `dequeue` would require traversing the whole list till reaching the predecessor of `tail`. i.e. \\(O(n)\\).
+
+    So use circular doubly-linked list.
+
+## Solution
+
+??? "Expand"
+
+    ```python title="queue.py"
+    from linkedlist.list import LinkedList
 
 
-class Queue:
+    class Queue:
 
-    def __init__(self):
-        self._list = LinkedList()
+        def __init__(self):
+            self._list = LinkedList()
 
-    @property
-    def empty(self): return self._list.empty
+        @property
+        def empty(self): return self._list.empty
 
-    @property
-    def peek(self): return self._list.head
+        @property
+        def peek(self): return self._list.head
 
-    def enqueue(self, data: int):
-        self._list.append(data)
+        def enqueue(self, data: int):
+            self._list.append(data)
 
-    def dequeue(self):
-        return self._list.remove_front()
-
-```
+        def dequeue(self):
+            return self._list.remove_front()
+    ```
 
 ## Unit tests
 

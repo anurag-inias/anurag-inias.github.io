@@ -10,21 +10,33 @@
 }
 </style>
 
-## Override `__eq__`
+## Problem
 
-```python linenums="1"
-def __eq__(self, other: 'LinkedList'):
-    if self is other:
-        return True
+Check if two given linked lists are identical.
 
-    cursor = self._sentinel.next
-    for e in other:
-        if e != cursor.value:
-            return False
-        cursor = cursor.next
+## Hint
 
-    return cursor is self._sentinel
-```
+??? "Expand"
+
+    Run two cursors, one in each linked list and compare the corresponding nodes.
+
+## Solution
+
+??? "Expand"
+
+    ```python
+    def __eq__(self, other: 'LinkedList'):
+        if self is other:
+            return True
+
+        cursor = self._sentinel.next
+        for e in other:
+            if e != cursor.value:
+                return False
+            cursor = cursor.next
+
+        return cursor is self._sentinel
+    ```
 
 ## Unit tests
 

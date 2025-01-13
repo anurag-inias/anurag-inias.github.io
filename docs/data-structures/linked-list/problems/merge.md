@@ -10,49 +10,62 @@
 }
 </style>
 
-## In-place merging of sorted linked lists
+## Problem
 
-```python linenums="1"
-def sorted_ingest(self, other: 'LinkedList'):
-    if self is other:
-        return
+In-place merge two sorted linked list such that the resultant linked list is sorted too.
 
-    new_sentinel = Node(0) # (1)!
-    cursor = new_sentinel
+## Hint
 
-    cursor_self = self._sentinel.next
-    cursor_other = other._sentinel.next
+??? "First hint"
 
-    while cursor_self is not self._sentinel and cursor_other is not other._sentinel: # (2)!
-        if cursor_self.value <= cursor_other.value:
-            cursor.next = cursor_self
-            cursor_self = cursor_self.next
-        else:
+    Run two cursors, one on each linked list. Snip the smallest node from its parent linked list and move to the resultant linked list.
+
+??? "Pseudocode"
+
+    1. Set up head for merged list
+    2. Merge until either list exhausts.
+    3. No need to loop here, we can just link the remaining list.
+    4. We don't need to find the `tail` of the remaining list. It'll be the `prev` of original sentinel.
+    5. Doing the same work as line 22 and 25.
+    6. Stitch the two ends of new list.
+    7. Leave the ingested list empty.
+
+## Solution
+
+??? "Expand"
+
+    ```python
+    def sorted_ingest(self, other: 'LinkedList'):
+        if self is other:
+            return
+
+        new_sentinel = Node(0) # (1)!
+        cursor = new_sentinel
+
+        cursor_self = self._sentinel.next
+        cursor_other = other._sentinel.next
+
+        while cursor_self is not self._sentinel and cursor_other is not other._sentinel: # (2)!
+            if cursor_self.value <= cursor_other.value:
+                cursor.next = cursor_self
+                cursor_self = cursor_self.next
+            else:
+                cursor.next = cursor_other
+                cursor_other = cursor_other.next
+            cursor = cursor.next
+
+        if cursor_self is not self._sentinel:
+            cursor.next = cursor_self # (3)!
+            new_sentinel.prev = self._sentinel.prev # (4)!
+        elif cursor_other is not other._sentinel:
             cursor.next = cursor_other
-            cursor_other = cursor_other.next
-        cursor = cursor.next
+            new_sentinel.prev = other._sentinel.prev
+        else:
+            new_sentinel.prev = cursor # (5)!
 
-    if cursor_self is not self._sentinel:
-        cursor.next = cursor_self # (3)!
-        new_sentinel.prev = self._sentinel.prev # (4)!
-    elif cursor_other is not other._sentinel:
-        cursor.next = cursor_other
-        new_sentinel.prev = other._sentinel.prev
-    else:
-        new_sentinel.prev = cursor # (5)!
-
-    self._sentinel = new_sentinel # (6)!
-    other._sentinel.next = other._sentinel # (7)!
-
-```
-
-1. Set up head for merged list
-2. Merge until either list exhausts. 
-3. No need to loop here, we can just link the remaining list.
-4. We don't need to find the `tail` of the remaining list. It'll be the `prev` of original sentinel.
-5. Doing the same work as line 22 and 25.
-6. Stitch the two ends of new list.
-7. Leave the ingested list empty.
+        self._sentinel = new_sentinel # (6)!
+        other._sentinel.next = other._sentinel # (7)!
+    ```
 
 ## Unit tests
 

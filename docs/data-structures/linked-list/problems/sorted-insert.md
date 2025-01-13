@@ -10,11 +10,21 @@
 }
 </style>
 
-Insert values in a linked list in sorted manner.
+## Problem
 
-=== "Singly linked list"
+Insert a node to its correct position in a sorted linked list.
 
-    ```kotlin linenums="1"
+## Hint
+
+??? "Expand"
+
+    Basically insertion sort.
+
+## Solution
+
+??? "Singly linked list"
+
+    ```kotlin
     fun sortedInsert(value: Int) {
       var cursor = _head
       var pred: Node? = null
@@ -34,9 +44,9 @@ Insert values in a linked list in sorted manner.
     }
     ```
 
-=== "Circular doubly-linked list"
+??? "Circular doubly-linked list"
 
-    ```kotlin linenums="1"
+    ```kotlin
     fun sortedInsert(value: Int) {
       var cursor = sentinel.next
       while (cursor != sentinel && cursor.value <= value) {

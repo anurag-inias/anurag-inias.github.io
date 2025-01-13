@@ -1,8 +1,28 @@
 # Iterable Linked List
 
-Read more about iterators [here](/java/iterators).
+<style>
+.md-logo img {
+  content: url('/data-structures/linked-list/polyline-light.svg');
+}
 
-=== "Singly Linked List"
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/data-structures/linked-list/polyline-night.svg');
+}
+</style>
+
+## Problem
+
+Turn a linked list [`Iterable`](/java/iterators). This will let us write `for-in` loops for the list.
+
+## Hint
+
+??? "Expand"
+
+    Use _closure_ to capture _cursor_ state.
+
+## Solution
+
+??? "Singly Linked List"
 
     ```kotlin linenums="1"
     class LinkedList : Iterable<Int> {
@@ -27,30 +47,40 @@ Read more about iterators [here](/java/iterators).
     }
     ```
 
-=== "Doubly Linked List"
+??? "Doubly Linked List"
 
-    ```kotlin linenums="1"
-    class LinkedList : Iterable<Int> {
+    === "Kotlin"
 
-      ...
+        ```kotlin linenums="1"
+        class LinkedList : Iterable<Int> {
+          // snippet
+          override fun iterator(): Iterator<Int> {
+            return object: Iterator<Int> {
 
-      override fun iterator(): Iterator<Int> {
-        return object: Iterator<Int> {
+              var cursor = sentinel.next
 
-          var cursor = sentinel.next
+              override fun hasNext(): Boolean = cursor != sentinel
 
-          override fun hasNext(): Boolean = cursor != sentinel
-
-          override fun next(): Int {
-            if (cursor == sentinel) throw NoSuchElementException()
-            return cursor.value.also {
-              cursor = cursor.next
+              override fun next(): Int {
+                if (cursor == sentinel) throw NoSuchElementException()
+                return cursor.value.also {
+                  cursor = cursor.next
+                }
+              }
             }
           }
         }
-      }
-    }
-    ```
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        def __iter__(self):
+          cursor = self._sentinel.next
+          while cursor is not self._sentinel:
+              yield cursor.value
+              cursor = cursor.next
+        ```
 
 === "Unit Tests"
 

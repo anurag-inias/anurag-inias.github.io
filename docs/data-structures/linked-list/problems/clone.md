@@ -10,15 +10,21 @@
 }
 </style>
 
-## Shallow copy
+## Problem
 
-```python linenums="1"
-def __copy__(self):
-    copy = LinkedList()
-    for e in self:
-        copy.append(e)
-    return copy
-```
+Create a method that creates a deep copy of a linked list.
+
+## Solution
+
+??? "Expand"
+
+    ```python
+    def __copy__(self):
+        copy = LinkedList()
+        for e in self:
+            copy.append(e)
+        return copy
+    ```
 
 ## Unit tests
 

@@ -10,37 +10,46 @@
 }
 </style>
 
-## Implementation
+## Problem
 
-This can be implemented even as a singly-linked list, with `push` and `pop` happening at `head`.
+Create a stack from a linked list.
 
-```python linenums="1" title="stack.py"
-from typing import Optional
+## Hint
 
-from linkedlist.list import LinkedList
+??? "Expand"
+
+    Insert and remove elements at the _head_ of a singly-linked list.
+
+## Solution
+
+??? "Python"
+
+    ```python linenums="1" title="stack.py"
+    from typing import Optional
+
+    from linkedlist.list import LinkedList
 
 
-class Stack:
+    class Stack:
 
-    def __init__(self):
-        self._list = LinkedList()
+        def __init__(self):
+            self._list = LinkedList()
 
-    @property
-    def empty(self): return self._list.empty
+        @property
+        def empty(self): return self._list.empty
 
-    @property
-    def top(self) -> Optional[int]:
-        return self._list.head
+        @property
+        def top(self) -> Optional[int]:
+            return self._list.head
 
-    def push(self, data: int):
-        self._list.prepend(data)
+        def push(self, data: int):
+            self._list.prepend(data)
 
-    def pop(self) -> Optional[int]:
-        if self.empty:
-            return None
-        return self._list.remove_front()
-
-```
+        def pop(self) -> Optional[int]:
+            if self.empty:
+                return None
+            return self._list.remove_front()
+    ```
 
 ## Unit tests
 
