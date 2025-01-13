@@ -113,9 +113,12 @@ nav:
               - Clone linked lists: "data-structures/linked-list/problems/clone.md"
               - Merge linked lists: "data-structures/linked-list/problems/merge.md"
               - Cycle detection: "data-structures/linked-list/problems/cycle-detection.md"
+              - Sorted insertion: "data-structures/linked-list/problems/sorted-insert.md"
+              - Sorting a linked list: "data-structures/linked-list/problems/sorting.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
       - Heap: "data-structures/heap/index.md"
+      - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
       - Graph:
           - Intro: "data-structures/graph/intro.md"

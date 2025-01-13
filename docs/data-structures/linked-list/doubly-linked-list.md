@@ -32,7 +32,7 @@ We can make two changes to vastly simplify our linked list implementation.
 We started with this implementation of the linked list `Node`:
 
 ```kotlin linenums="1"
-data class Node(var value: Int, var next: Node? = null) {
+class Node(var value: Int, var next: Node? = null) {
   override fun toString(): String = "$value"
 }
 ```
@@ -45,7 +45,7 @@ and make the following adjustments:
 - \\(next\\) and \\(prev\\) can now be non-nulls, since our list now is circular.
 
 ```diff linenums="1"
-private data class Node(var value: Int) {
+private class Node(var value: Int) {
 
 + private lateinit var _prev: Node
   private lateinit var _next: Node
@@ -354,7 +354,7 @@ fun remove(index: Int): Int? {
     ```kotlin linenums="1" title="LinkedList.kt"
     package com.example.linkedlist
 
-    private data class Node(var value: Int) {
+    private class Node(var value: Int) {
 
       private lateinit var _prev: Node
       private lateinit var _next: Node
