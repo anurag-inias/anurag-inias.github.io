@@ -174,3 +174,5 @@ $$
 13. [ ] Remove duplicates from sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/remove-duplicates-from-sorted-linked-list">:octicons-link-external-16:</a>
 14. [ ] Intersection of two sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/intersection-of-two-sorted-linked-list">:octicons-link-external-16:</a>
 15. [ ] Reverse every group of k nodes <a target="_blank" href="/data-structures/linked-list/problems/reverse-every-group-of-k-nodes">:octicons-link-external-16:</a>
+16. [ ] Get kth node from either end <a target="_blank" href="/data-structures/linked-list/problems/get-kth-node-from-either-end">:octicons-link-external-16:</a>
+17. [ ] Check if the content of a linked list is a palindrome <a target="_blank" href="/data-structures/linked-list/problems/check-if-the-content-of-a-linked-list-is-a-palindrome">:octicons-link-external-16:</a>
