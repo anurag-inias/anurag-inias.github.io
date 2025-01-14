@@ -124,6 +124,39 @@ while (cursor != null) {
 
 <hr>
 
+### Two pointer shuffle
+
+Out of two pointers, move the one which would get us closer to our goal. Variation of this techniques can be useful when dealing with sorted inputs.
+
+$$
+\begin{alignat}{1}
+&{} \fbox 1 \rightarrow 4 \rightarrow 7 \rightarrow 10 \ \text{ since 1 < 2, move this cursor} \\
+&{} \fbox 2 \rightarrow 4 \rightarrow 6 \rightarrow 8 \rightarrow 10 \\
+\\
+&{} 1 \rightarrow \fbox 4 \rightarrow 7 \rightarrow 10 \\
+&{} \fbox 2 \rightarrow 4 \rightarrow 6 \rightarrow 8 \rightarrow 10 \ \text{ since 2 < 4, move this cursor} \\
+\\
+&{} \text{ match! move both cursors} \\
+&{} 1 \rightarrow \fbox 4 \rightarrow 7 \rightarrow 10 \\
+&{}  2 \rightarrow \fbox 4 \rightarrow 6 \rightarrow 8 \rightarrow 10 \\
+\\
+&{} 1 \rightarrow 4 \rightarrow \fbox 7 \rightarrow 10 \\
+&{} 2 \rightarrow 4 \rightarrow \fbox 6 \rightarrow 8 \rightarrow 10 \ \text{ since 6 < 7, move this cursor} \\
+\\
+&{} 1 \rightarrow 4 \rightarrow \fbox 7 \rightarrow 10  \ \text{ since 7 < 8, move this cursor} \\
+&{} 2 \rightarrow 4 \rightarrow 6 \rightarrow \fbox 8 \rightarrow 10 \\
+\\
+&{} 1 \rightarrow 4 \rightarrow 7 \rightarrow \fbox{10} \\
+&{} 2 \rightarrow 4 \rightarrow 6 \rightarrow \fbox 8 \rightarrow 10 \ \text{ since 8 < 10, move this cursor} \\
+\\
+&{} \text{ match! move both cursors} \\
+&{} 1 \rightarrow 4 \rightarrow 7 \rightarrow \fbox{10} \\
+&{} 2 \rightarrow 4 \rightarrow 6 \rightarrow 8 \rightarrow \fbox{10} \\
+\end{alignat}
+$$
+
+<hr>
+
 ## Problems
 
 1. [ ] Turn a linked list Iterable <a target="_blank" href="/data-structures/linked-list/problems/turn-a-linked-list-iterable">:octicons-link-external-16:</a>
@@ -139,3 +172,4 @@ while (cursor != null) {
 11. [ ] In-place sort a linked list <a target="_blank" href="/data-structures/linked-list/problems/in-place-sort-a-linked-list">:octicons-link-external-16:</a>
 12. [ ] Split linked list in first and second halves <a target="_blank" href="/data-structures/linked-list/problems/split-linked-list-in-first-and-second-halves">:octicons-link-external-16:</a>
 13. [ ] Remove duplicates from sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/remove-duplicates-from-sorted-linked-list">:octicons-link-external-16:</a>
+14. [ ] Intersection of two sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/intersection-of-two-sorted-linked-list">:octicons-link-external-16:</a>
