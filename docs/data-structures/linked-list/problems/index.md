@@ -126,15 +126,16 @@ while (cursor != null) {
 
 ## Problems
 
-1. [ ] Turn a linked list Iterable <a target="_blank" href="/data-structures/linked-list/problems/iterable">:octicons-link-external-16:</a>
-2. [ ] Reverse a linked list in-place <a target="_blank" href="/data-structures/linked-list/problems/reverse">:octicons-link-external-16:</a>
-3. [ ] Create a stack from a linked list <a target="_blank" href="/data-structures/linked-list/problems/stack-as-linked-list">:octicons-link-external-16:</a>
-4. [ ] Create a queue from a linked list <a target="_blank" href="/data-structures/linked-list/problems/queue-as-linked-list">:octicons-link-external-16:</a>
-5. [ ] Check if two given linked lists are identical <a target="_blank" href="/data-structures/linked-list/problems/equality">:octicons-link-external-16:</a>
-6. [ ] Deep copy a linked list <a target="_blank" href="/data-structures/linked-list/problems/clone">:octicons-link-external-16:</a>
-7. [ ] In-place merge two sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/merge">:octicons-link-external-16:</a>
-8. [ ] Detect cycle a linked list <a target="_blank" href="/data-structures/linked-list/problems/cycle-detection">:octicons-link-external-16:</a>
-9. [ ] Insert a node in its correct place in a sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/sorted-insert">:octicons-link-external-16:</a>
-10. [ ] In-place sort a linked list <a target="_blank" href="/data-structures/linked-list/problems/sorting">:octicons-link-external-16:</a>
-11. [ ] Split linked list in first and second halves <a target="_blank" href="/data-structures/linked-list/problems/split-linked-list-in-halves">:octicons-link-external-16:</a>
-12. [ ] Remove duplicates from sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/remove-duplicates-from-sorted">:octicons-link-external-16:</a>
+1. [ ] Turn a linked list Iterable <a target="_blank" href="/data-structures/linked-list/problems/turn-a-linked-list-iterable">:octicons-link-external-16:</a>
+2. [ ] Reverse a linked list in-place <a target="_blank" href="/data-structures/linked-list/problems/reverse-a-linked-list-in-place">:octicons-link-external-16:</a>
+3. [ ] Create a stack from a linked list <a target="_blank" href="/data-structures/linked-list/problems/create-a-stack-from-a-linked-list">:octicons-link-external-16:</a>
+4. [ ] Create a queue from a linked list <a target="_blank" href="/data-structures/linked-list/problems/create-a-queue-from-a-linked-list">:octicons-link-external-16:</a>
+5. [ ] Check if two given linked lists are identical <a target="_blank" href="/data-structures/linked-list/problems/check-if-two-given-linked-lists-are-identical">:octicons-link-external-16:</a>
+6. [ ] Deep copy a linked list <a target="_blank" href="/data-structures/linked-list/problems/deep-copy-a-linked-list">:octicons-link-external-16:</a>
+7. [ ] In-place merge two sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/in-place-merge-two-sorted-linked-list">:octicons-link-external-16:</a>
+8. [ ] In-place merge arbitrary number of sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/in-place-merge-arbitrary-number-of-sorted-linked-list">:octicons-link-external-16:</a>
+9. [ ] Detect cycle in a linked list <a target="_blank" href="/data-structures/linked-list/problems/detect-cycle-in-a-linked-list">:octicons-link-external-16:</a>
+10. [ ] Insert a node in its correct place in a sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/insert-a-node-in-its-correct-place-in-a-sorted-linked-list">:octicons-link-external-16:</a>
+11. [ ] In-place sort a linked list <a target="_blank" href="/data-structures/linked-list/problems/in-place-sort-a-linked-list">:octicons-link-external-16:</a>
+12. [ ] Split linked list in first and second halves <a target="_blank" href="/data-structures/linked-list/problems/split-linked-list-in-first-and-second-halves">:octicons-link-external-16:</a>
+13. [ ] Remove duplicates from sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/remove-duplicates-from-sorted-linked-list">:octicons-link-external-16:</a>
