@@ -16,7 +16,7 @@
     
     
       
-        <title>Merge linked lists - listless 💤</title>
+        <title>In-place sort a linked list - listless 💤</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#merge-linked-lists" class="md-skip">
+        <a href="#in-place-sort-a-linked-list" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Merge linked lists
+              In-place sort a linked list
             
           </span>
         </div>
@@ -2903,9 +2903,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hint" class="md-nav__link">
+  <a href="#hints" class="md-nav__link">
     <span class="md-ellipsis">
-      Hint
+      Hints
     </span>
   </a>
   
@@ -2918,14 +2918,20 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#unit-tests" class="md-nav__link">
     <span class="md-ellipsis">
       Unit tests
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2944,7 +2950,7 @@
                   
 
 
-<h1 id="merge-linked-lists">Merge linked lists</h1>
+<h1 id="in-place-sort-a-linked-list">In-place sort a linked list</h1>
 <style>
 .md-logo img {
   content: url('/data-structures/linked-list/polyline-light.svg');
@@ -2956,273 +2962,134 @@
 </style>
 
 <h2 id="problem">Problem</h2>
-<p>In-place merge two sorted linked list such that the resultant linked list is sorted too.</p>
-<h2 id="hint">Hint</h2>
+<p>Rearrange a linked list in increasing order, i.e. sort it in-place.</p>
+<h2 id="hints">Hints</h2>
 <details>
-<summary>First hint</summary>
-<p>Run two cursors, one on each linked list. Snip the smallest node from its parent linked list and move to the resultant linked list.</p>
+<summary>First Hint</summary>
+<p>Use insertion sort</p>
 </details>
 <details>
-<summary>Pseudocode</summary>
-<ol>
-<li>Set up head for merged list</li>
-<li>Merge until either list exhausts.</li>
-<li>No need to loop here, we can just link the remaining list.</li>
-<li>We don't need to find the <code>tail</code> of the remaining list. It'll be the <code>prev</code> of original sentinel.</li>
-<li>Doing the same work as line 22 and 25.</li>
-<li>Stitch the two ends of new list.</li>
-<li>Leave the ingested list empty.</li>
-</ol>
+<summary>Second Hint</summary>
+<p>When processing a node to be inserted into sorted linked list, make sure to detach it from original linked list. For singly-linked list, this means setting <code>next = null</code>. Otherwise, you'll get stuck in infinite loop when inserting the node in next iteration.</p>
+<p>In case of circular linked list, make sure that the original linked list remains unbroken after detaching a node.</p>
 </details>
 <h2 id="solution">Solution</h2>
 <details>
-<summary>Expand</summary>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">sorted_ingest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;LinkedList&#39;</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">if</span> <span class="bp">self</span> <span class="ow">is</span> <span class="n">other</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="k">return</span>
+<summary>Sorting a singly linked list</summary>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">sort</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="c1">// head of the sorted linked list. Start with an empty one.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">nHead</span><span class="p">:</span><span class="w"> </span><span class="n">Node? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">new_sentinel</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># (1)!</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">cursor</span> <span class="o">=</span> <span class="n">new_sentinel</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">cursor_self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sentinel</span><span class="o">.</span><span class="n">next</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">cursor_other</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_sentinel</span><span class="o">.</span><span class="n">next</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">while</span> <span class="n">cursor_self</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sentinel</span> <span class="ow">and</span> <span class="n">cursor_other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">other</span><span class="o">.</span><span class="n">_sentinel</span><span class="p">:</span> <span class="c1"># (2)!</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="k">if</span> <span class="n">cursor_self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="n">cursor_other</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>            <span class="n">cursor</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">cursor_self</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="n">cursor_self</span> <span class="o">=</span> <span class="n">cursor_self</span><span class="o">.</span><span class="n">next</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>            <span class="n">cursor</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">cursor_other</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            <span class="n">cursor_other</span> <span class="o">=</span> <span class="n">cursor_other</span><span class="o">.</span><span class="n">next</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="n">cursor</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="k">if</span> <span class="n">cursor_self</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sentinel</span><span class="p">:</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">cursor_self</span> <span class="c1"># (3)!</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="n">new_sentinel</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sentinel</span><span class="o">.</span><span class="n">prev</span> <span class="c1"># (4)!</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="k">elif</span> <span class="n">cursor_other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">other</span><span class="o">.</span><span class="n">_sentinel</span><span class="p">:</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">cursor_other</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="n">new_sentinel</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_sentinel</span><span class="o">.</span><span class="n">prev</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        <span class="n">new_sentinel</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">cursor</span> <span class="c1"># (5)!</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_sentinel</span> <span class="o">=</span> <span class="n">new_sentinel</span> <span class="c1"># (6)!</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    <span class="n">other</span><span class="o">.</span><span class="n">_sentinel</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_sentinel</span> <span class="c1"># (7)!</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">candidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_head</span><span class="w">       </span><span class="c1">// Candidate to be inserted into sorted linked list.</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">candidate</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="c1">// Backup the next node.</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="w">     </span><span class="c1">// Detach insertion candidate from old linked list.</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="c1">// Find the right place to insert candidate</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">p</span><span class="p">:</span><span class="w"> </span><span class="n">Node? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="w">       </span><span class="c1">// predecessor of c.</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nHead</span><span class="w">             </span><span class="c1">// cursor in sorted linked.</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">candidate</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="c1">// candidate should be the new head of the sorted list.</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nHead</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="n">nHead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">      </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w">      </span><span class="c1">// candidate should be inserted somewhere in middle of the sorted list.</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span><span class="n">p</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">next</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// we&#39;ve exhausted the original list. time to assign new head and new tail.</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="n">_head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nHead</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="n">_tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="n">candidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="p">}</span>
 </span></code></pre></div>
 </details>
-<h2 id="unit-tests">Unit tests</h2>
-<div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">  1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">  2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">  3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">  4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">  5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">  6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">  7</a></span>
-<span class="normal"><a href="#__codelineno-1-8">  8</a></span>
-<span class="normal"><a href="#__codelineno-1-9">  9</a></span>
-<span class="normal"><a href="#__codelineno-1-10"> 10</a></span>
-<span class="normal"><a href="#__codelineno-1-11"> 11</a></span>
-<span class="normal"><a href="#__codelineno-1-12"> 12</a></span>
-<span class="normal"><a href="#__codelineno-1-13"> 13</a></span>
-<span class="normal"><a href="#__codelineno-1-14"> 14</a></span>
-<span class="normal"><a href="#__codelineno-1-15"> 15</a></span>
-<span class="normal"><a href="#__codelineno-1-16"> 16</a></span>
-<span class="normal"><a href="#__codelineno-1-17"> 17</a></span>
-<span class="normal"><a href="#__codelineno-1-18"> 18</a></span>
-<span class="normal"><a href="#__codelineno-1-19"> 19</a></span>
-<span class="normal"><a href="#__codelineno-1-20"> 20</a></span>
-<span class="normal"><a href="#__codelineno-1-21"> 21</a></span>
-<span class="normal"><a href="#__codelineno-1-22"> 22</a></span>
-<span class="normal"><a href="#__codelineno-1-23"> 23</a></span>
-<span class="normal"><a href="#__codelineno-1-24"> 24</a></span>
-<span class="normal"><a href="#__codelineno-1-25"> 25</a></span>
-<span class="normal"><a href="#__codelineno-1-26"> 26</a></span>
-<span class="normal"><a href="#__codelineno-1-27"> 27</a></span>
-<span class="normal"><a href="#__codelineno-1-28"> 28</a></span>
-<span class="normal"><a href="#__codelineno-1-29"> 29</a></span>
-<span class="normal"><a href="#__codelineno-1-30"> 30</a></span>
-<span class="normal"><a href="#__codelineno-1-31"> 31</a></span>
-<span class="normal"><a href="#__codelineno-1-32"> 32</a></span>
-<span class="normal"><a href="#__codelineno-1-33"> 33</a></span>
-<span class="normal"><a href="#__codelineno-1-34"> 34</a></span>
-<span class="normal"><a href="#__codelineno-1-35"> 35</a></span>
-<span class="normal"><a href="#__codelineno-1-36"> 36</a></span>
-<span class="normal"><a href="#__codelineno-1-37"> 37</a></span>
-<span class="normal"><a href="#__codelineno-1-38"> 38</a></span>
-<span class="normal"><a href="#__codelineno-1-39"> 39</a></span>
-<span class="normal"><a href="#__codelineno-1-40"> 40</a></span>
-<span class="normal"><a href="#__codelineno-1-41"> 41</a></span>
-<span class="normal"><a href="#__codelineno-1-42"> 42</a></span>
-<span class="normal"><a href="#__codelineno-1-43"> 43</a></span>
-<span class="normal"><a href="#__codelineno-1-44"> 44</a></span>
-<span class="normal"><a href="#__codelineno-1-45"> 45</a></span>
-<span class="normal"><a href="#__codelineno-1-46"> 46</a></span>
-<span class="normal"><a href="#__codelineno-1-47"> 47</a></span>
-<span class="normal"><a href="#__codelineno-1-48"> 48</a></span>
-<span class="normal"><a href="#__codelineno-1-49"> 49</a></span>
-<span class="normal"><a href="#__codelineno-1-50"> 50</a></span>
-<span class="normal"><a href="#__codelineno-1-51"> 51</a></span>
-<span class="normal"><a href="#__codelineno-1-52"> 52</a></span>
-<span class="normal"><a href="#__codelineno-1-53"> 53</a></span>
-<span class="normal"><a href="#__codelineno-1-54"> 54</a></span>
-<span class="normal"><a href="#__codelineno-1-55"> 55</a></span>
-<span class="normal"><a href="#__codelineno-1-56"> 56</a></span>
-<span class="normal"><a href="#__codelineno-1-57"> 57</a></span>
-<span class="normal"><a href="#__codelineno-1-58"> 58</a></span>
-<span class="normal"><a href="#__codelineno-1-59"> 59</a></span>
-<span class="normal"><a href="#__codelineno-1-60"> 60</a></span>
-<span class="normal"><a href="#__codelineno-1-61"> 61</a></span>
-<span class="normal"><a href="#__codelineno-1-62"> 62</a></span>
-<span class="normal"><a href="#__codelineno-1-63"> 63</a></span>
-<span class="normal"><a href="#__codelineno-1-64"> 64</a></span>
-<span class="normal"><a href="#__codelineno-1-65"> 65</a></span>
-<span class="normal"><a href="#__codelineno-1-66"> 66</a></span>
-<span class="normal"><a href="#__codelineno-1-67"> 67</a></span>
-<span class="normal"><a href="#__codelineno-1-68"> 68</a></span>
-<span class="normal"><a href="#__codelineno-1-69"> 69</a></span>
-<span class="normal"><a href="#__codelineno-1-70"> 70</a></span>
-<span class="normal"><a href="#__codelineno-1-71"> 71</a></span>
-<span class="normal"><a href="#__codelineno-1-72"> 72</a></span>
-<span class="normal"><a href="#__codelineno-1-73"> 73</a></span>
-<span class="normal"><a href="#__codelineno-1-74"> 74</a></span>
-<span class="normal"><a href="#__codelineno-1-75"> 75</a></span>
-<span class="normal"><a href="#__codelineno-1-76"> 76</a></span>
-<span class="normal"><a href="#__codelineno-1-77"> 77</a></span>
-<span class="normal"><a href="#__codelineno-1-78"> 78</a></span>
-<span class="normal"><a href="#__codelineno-1-79"> 79</a></span>
-<span class="normal"><a href="#__codelineno-1-80"> 80</a></span>
-<span class="normal"><a href="#__codelineno-1-81"> 81</a></span>
-<span class="normal"><a href="#__codelineno-1-82"> 82</a></span>
-<span class="normal"><a href="#__codelineno-1-83"> 83</a></span>
-<span class="normal"><a href="#__codelineno-1-84"> 84</a></span>
-<span class="normal"><a href="#__codelineno-1-85"> 85</a></span>
-<span class="normal"><a href="#__codelineno-1-86"> 86</a></span>
-<span class="normal"><a href="#__codelineno-1-87"> 87</a></span>
-<span class="normal"><a href="#__codelineno-1-88"> 88</a></span>
-<span class="normal"><a href="#__codelineno-1-89"> 89</a></span>
-<span class="normal"><a href="#__codelineno-1-90"> 90</a></span>
-<span class="normal"><a href="#__codelineno-1-91"> 91</a></span>
-<span class="normal"><a href="#__codelineno-1-92"> 92</a></span>
-<span class="normal"><a href="#__codelineno-1-93"> 93</a></span>
-<span class="normal"><a href="#__codelineno-1-94"> 94</a></span>
-<span class="normal"><a href="#__codelineno-1-95"> 95</a></span>
-<span class="normal"><a href="#__codelineno-1-96"> 96</a></span>
-<span class="normal"><a href="#__codelineno-1-97"> 97</a></span>
-<span class="normal"><a href="#__codelineno-1-98"> 98</a></span>
-<span class="normal"><a href="#__codelineno-1-99"> 99</a></span>
-<span class="normal"><a href="#__codelineno-1-100">100</a></span>
-<span class="normal"><a href="#__codelineno-1-101">101</a></span>
-<span class="normal"><a href="#__codelineno-1-102">102</a></span>
-<span class="normal"><a href="#__codelineno-1-103">103</a></span>
-<span class="normal"><a href="#__codelineno-1-104">104</a></span>
-<span class="normal"><a href="#__codelineno-1-105">105</a></span>
-<span class="normal"><a href="#__codelineno-1-106">106</a></span>
-<span class="normal"><a href="#__codelineno-1-107">107</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">def</span> <span class="nf">test_merge_empty</span><span class="p">():</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="n">a</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[]&quot;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="k">assert</span> <span class="n">b</span><span class="o">.</span><span class="n">empty</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">def</span> <span class="nf">test_merge_empty_in_single</span><span class="p">():</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="n">a</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a>    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[1]&quot;</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="k">assert</span> <span class="n">b</span><span class="o">.</span><span class="n">empty</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19"></a>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="k">def</span> <span class="nf">test_merge_single_in_empty</span><span class="p">():</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="n">a</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25"></a>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26"></a>    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[1]&quot;</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27"></a>    <span class="k">assert</span> <span class="n">b</span><span class="o">.</span><span class="n">empty</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28"></a>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29"></a>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="k">def</span> <span class="nf">test_merge_is_append</span><span class="p">():</span>
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39"></a>    <span class="n">a</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40"></a>
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41"></a>    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[1, 2, 3, 4, 5, 6]&quot;</span>
-</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42"></a>    <span class="k">assert</span> <span class="n">b</span><span class="o">.</span><span class="n">empty</span>
-</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43"></a>
-</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44"></a>
-</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="k">def</span> <span class="nf">test_merge_is_prepend</span><span class="p">():</span>
-</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54"></a>    <span class="n">b</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55"></a>
-</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56"></a>    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[1, 2, 3, 4, 5, 6]&quot;</span>
-</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57"></a>    <span class="k">assert</span> <span class="n">a</span><span class="o">.</span><span class="n">empty</span>
-</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58"></a>
-</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59"></a>
-</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60"></a><span class="k">def</span> <span class="nf">test_merge_is_interleave</span><span class="p">():</span>
-</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69"></a>    <span class="n">b</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70"></a>
-</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71"></a>    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[1, 2, 3, 4, 5, 6]&quot;</span>
-</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72"></a>    <span class="k">assert</span> <span class="n">a</span><span class="o">.</span><span class="n">empty</span>
-</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73"></a>
-</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74"></a>
-</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="k">def</span> <span class="nf">test_merge_is_interleave_uneven</span><span class="p">():</span>
-</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80"></a>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84"></a>    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85"></a>    <span class="n">b</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86"></a>
-</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87"></a>    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[1, 2, 3, 4, 5, 6, 10]&quot;</span>
-</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88"></a>    <span class="k">assert</span> <span class="n">a</span><span class="o">.</span><span class="n">empty</span>
-</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89"></a>
-</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90"></a>
-</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91"></a><span class="k">def</span> <span class="nf">test_merge_random</span><span class="p">():</span>
-</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92"></a>    <span class="n">a</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)])</span>
-</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93"></a>    <span class="n">b</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)])</span>
-</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94"></a>    <span class="n">c</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95"></a>
-</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97"></a>    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98"></a>        <span class="n">p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99"></a>
-</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100"></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101"></a>    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
-</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102"></a>        <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103"></a>
-</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104"></a>    <span class="n">p</span><span class="o">.</span><span class="n">sorted_ingest</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105"></a>
-</span><span id="__span-1-106"><a id="__codelineno-1-106" name="__codelineno-1-106"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-</span><span id="__span-1-107"><a id="__codelineno-1-107" name="__codelineno-1-107"></a>        <span class="k">assert</span> <span class="n">e</span> <span class="o">==</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<details>
+<summary>Sorting a circular doubly-linked list</summary>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">sort</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">newSentinel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w">                 </span><span class="c1">// sentinel cannot be reused</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="n">newSentinel</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newSentinel</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">candidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentinel</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">candidate</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">sentinel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Detach candidate from original linked list</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span><span class="p">.</span><span class="na">prev</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="n">prev</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="w">                       </span><span class="c1">// make sure original list remains unbroken</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newSentinel</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newSentinel</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">newSentinel</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">candidate</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">newSentinel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                </span><span class="c1">// new list is empty</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">      </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newSentinel</span><span class="p">.</span><span class="na">next</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="n">newSentinel</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">      </span><span class="n">candidate</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">      </span><span class="n">p</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candidate</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="n">candidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">  </span><span class="n">sentinel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newSentinel</span><span class="w">                  </span><span class="c1">// switch to new sentinel</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<h3 id="unit-tests">Unit tests</h3>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nd">@Test</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">sort</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="n">list</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="m">17</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">81</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">56</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="n">list</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="n">assertThat</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">toString</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;[0, 0, 0, 1, 5, 7, 7, 9, 17, 19, 21, 56, 81]&quot;</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="nd">@Test</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">sortFuzzy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">()</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">ctrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="n">list</span><span class="p">.</span><span class="na">sortedInsert</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="n">ctrl</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">  </span><span class="n">ctrl</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">  </span><span class="n">list</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">  </span><span class="n">assertThat</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">toString</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">ctrl</span><span class="p">.</span><span class="na">toString</span><span class="p">())</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 
 
