@@ -12,6 +12,16 @@ At times we may operate directly on the `Node` class for simplicity.
 
     ```kotlin
     class Node(var value: Int, var next: Node? = null) {
+
+      constructor(vararg values: Int): this(values.first()) {
+        var tail: Node? = this
+        for ((i, v) in values.withIndex()) {
+          if (i == 0) continue
+          tail?.next = Node(v)
+          tail = tail?.next
+        }
+      }
+
       override fun toString(): String {
         if (next == null) return "$value"
 
@@ -127,3 +137,4 @@ while (cursor != null) {
 9. [ ] Insert a node in its correct place in a sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/sorted-insert">:octicons-link-external-16:</a>
 10. [ ] In-place sort a linked list <a target="_blank" href="/data-structures/linked-list/problems/sorting">:octicons-link-external-16:</a>
 11. [ ] Split linked list in first and second halves <a target="_blank" href="/data-structures/linked-list/problems/split-linked-list-in-halves">:octicons-link-external-16:</a>
+12. [ ] Remove duplicates from sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/remove-duplicates-from-sorted">:octicons-link-external-16:</a>
