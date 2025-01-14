@@ -173,3 +173,4 @@ $$
 12. [ ] Split linked list in first and second halves <a target="_blank" href="/data-structures/linked-list/problems/split-linked-list-in-first-and-second-halves">:octicons-link-external-16:</a>
 13. [ ] Remove duplicates from sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/remove-duplicates-from-sorted-linked-list">:octicons-link-external-16:</a>
 14. [ ] Intersection of two sorted linked list <a target="_blank" href="/data-structures/linked-list/problems/intersection-of-two-sorted-linked-list">:octicons-link-external-16:</a>
+15. [ ] Reverse every group of k nodes <a target="_blank" href="/data-structures/linked-list/problems/reverse-every-group-of-k-nodes">:octicons-link-external-16:</a>
