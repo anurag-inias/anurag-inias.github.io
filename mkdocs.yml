@@ -105,9 +105,11 @@ nav:
       - Linked List:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
+          - Common Patterns: "data-structures/linked-list/patterns.md"
           - Problems: "data-structures/linked-list/problems/index.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
+          - Problems: "data-structures/stack/problems/index.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
