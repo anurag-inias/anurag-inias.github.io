@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../doubly-linked-list/">
+        <link rel="prev" href="../patterns/">
       
       
         <link rel="next" href="../../stack/basics/">
@@ -1178,6 +1178,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1225,48 +1246,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#predecessor-cursor-pair" class="md-nav__link">
-    <span class="md-ellipsis">
-      Predecessor-cursor pair
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#offset-cursor-with-textdeque" class="md-nav__link">
-    <span class="md-ellipsis">
-      Offset cursor with \(\text{Deque}\)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-pointer-shuffle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Two pointer shuffle
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#problems" class="md-nav__link">
@@ -1341,6 +1320,27 @@
   
   <span class="md-ellipsis">
     Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/problems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problems
   </span>
   
 
@@ -2993,48 +2993,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#predecessor-cursor-pair" class="md-nav__link">
-    <span class="md-ellipsis">
-      Predecessor-cursor pair
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#offset-cursor-with-textdeque" class="md-nav__link">
-    <span class="md-ellipsis">
-      Offset cursor with \(\text{Deque}\)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-pointer-shuffle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Two pointer shuffle
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#problems" class="md-nav__link">
     <span class="md-ellipsis">
       Problems
@@ -3093,120 +3051,6 @@
 </span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">}</span>
 </span></code></pre></div>
 </details>
-<h2 id="common-patterns">Common patterns</h2>
-<h3 id="predecessor-cursor-pair">Predecessor-cursor pair</h3>
-<p>A common requirement in linked list problems is the need to find a node through iteration, but then also having access to its predecssor so the list can be mutated.</p>
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">var</span><span class="w"> </span><span class="nv">pred</span><span class="p">:</span><span class="w"> </span><span class="n">Node? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">var</span><span class="w"> </span><span class="nv">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="cm">/* my condition */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">next</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">pred</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* do something */</span>
-</span></code></pre></div>
-<p>while obvious, this proves helpful a too many scenarios.</p>
-<hr>
-
-<h3 id="offset-cursor-with-textdeque">Offset cursor with <span class="arithmatex">\(\text{Deque}\)</span></h3>
-<div class="grid">
-<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">before</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">var</span><span class="w"> </span><span class="nv">cursor</span><span class="p">:</span><span class="w"> </span><span class="n">Node? </span><span class="o">=</span><span class="w"> </span><span class="k">this</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">next</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">after</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span>
-<span class="normal"><a href="#__codelineno-3-7">7</a></span>
-<span class="normal"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">dq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;</span><span class="n">Node?&gt;</span><span class="p">()</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="hll"><span class="n">dq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="c1">// move cursor behind by one step</span>
-</span></span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">dq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dq</span><span class="p">.</span><span class="na">removeFirst</span><span class="p">()</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="hll"><span class="w">  </span><span class="n">c</span><span class="o">?.</span><span class="na">next</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
-</span></span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">With no <code>dq.add(null)</code></label><label for="__tabbed_1_2">With one <code>dq.add(null)</code></label><label for="__tabbed_1_3">With two <code>dq.add(null)</code></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>before = 1, after = 1
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>before = 2, after = 2
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>before = 3, after = 3
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>before = 4, after = 4
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>before = 5, after = 5
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>before = 6, after = 6
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>before = 7, after = 7
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>before = 8, after = 8
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>before = 1, after = null
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>before = 2, after = 1
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>before = 3, after = 2
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>before = 4, after = 3
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>before = 5, after = 4
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>before = 6, after = 5
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>before = 7, after = 6
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>before = 8, after = 7
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>before = 1, after = null
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>before = 2, after = null
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>before = 3, after = 1
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>before = 4, after = 2
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>before = 5, after = 3
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>before = 6, after = 4
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>before = 7, after = 5
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>before = 8, after = 6
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<hr>
-
-<h3 id="two-pointer-shuffle">Two pointer shuffle</h3>
-<p>Out of two pointers, move the one which would get us closer to our goal. Variation of this techniques can be useful when dealing with sorted inputs.</p>
-<div class="arithmatex">\[
-\begin{alignat}{1}
-&amp;{} \fbox 1 \rightarrow 4 \rightarrow 7 \rightarrow 10 \ \text{ since 1 &lt; 2, move this cursor} \\
-&amp;{} \fbox 2 \rightarrow 4 \rightarrow 6 \rightarrow 8 \rightarrow 10 \\
-\\
-&amp;{} 1 \rightarrow \fbox 4 \rightarrow 7 \rightarrow 10 \\
-&amp;{} \fbox 2 \rightarrow 4 \rightarrow 6 \rightarrow 8 \rightarrow 10 \ \text{ since 2 &lt; 4, move this cursor} \\
-\\
-&amp;{} \text{ match! move both cursors} \\
-&amp;{} 1 \rightarrow \fbox 4 \rightarrow 7 \rightarrow 10 \\
-&amp;{}  2 \rightarrow \fbox 4 \rightarrow 6 \rightarrow 8 \rightarrow 10 \\
-\\
-&amp;{} 1 \rightarrow 4 \rightarrow \fbox 7 \rightarrow 10 \\
-&amp;{} 2 \rightarrow 4 \rightarrow \fbox 6 \rightarrow 8 \rightarrow 10 \ \text{ since 6 &lt; 7, move this cursor} \\
-\\
-&amp;{} 1 \rightarrow 4 \rightarrow \fbox 7 \rightarrow 10  \ \text{ since 7 &lt; 8, move this cursor} \\
-&amp;{} 2 \rightarrow 4 \rightarrow 6 \rightarrow \fbox 8 \rightarrow 10 \\
-\\
-&amp;{} 1 \rightarrow 4 \rightarrow 7 \rightarrow \fbox{10} \\
-&amp;{} 2 \rightarrow 4 \rightarrow 6 \rightarrow \fbox 8 \rightarrow 10 \ \text{ since 8 &lt; 10, move this cursor} \\
-\\
-&amp;{} \text{ match! move both cursors} \\
-&amp;{} 1 \rightarrow 4 \rightarrow 7 \rightarrow \fbox{10} \\
-&amp;{} 2 \rightarrow 4 \rightarrow 6 \rightarrow 8 \rightarrow \fbox{10} \\
-\end{alignat}
-\]</div>
-<hr>
-
 <h2 id="problems">Problems</h2>
 <ol class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Turn a linked list Iterable <a target="_blank" href="/data-structures/linked-list/problems/turn-a-linked-list-iterable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></a></li>
