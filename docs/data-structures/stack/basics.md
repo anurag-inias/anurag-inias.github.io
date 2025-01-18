@@ -204,6 +204,50 @@ $$
     }
     ```
 
+=== "Golang generic"
+
+    ```golang linenums="1"
+    type any interface{} // so we don't have to type `interface{}` again and again
+
+    type Stack[T any] struct {
+      elements []T
+    }
+
+    func NewStack[T any]() *Stack[T] {
+      return &Stack[T]{}
+    }
+
+    func (s *Stack[T]) IsEmpty() bool {
+      return len(s.elements) == 0
+    }
+
+    func (s *Stack[T]) Size() int {
+      return len(s.elements)
+    }
+
+    func (s *Stack[T]) Push(v T) {
+      s.elements = append(s.elements, v)
+    }
+
+    func (s *Stack[T]) Pop() (T, bool) {
+      if s.IsEmpty() {
+        var identity T // default value for type T
+        return identity, false
+      }
+      top := s.elements[len(s.elements)-1]
+      s.elements = s.elements[:len(s.elements)-1]
+      return top, true
+    }
+
+    func (s *Stack[T]) Peek() (T, bool) {
+      if s.IsEmpty() {
+        var identity T
+        return identity, false
+      }
+      return s.elements[len(s.elements)-1], true
+    }
+    ```
+
 === "Kotlin"
 
     We can use ${removeLast}$ to pop the last element from the underlying `ArrayList`, as it internally uses `fastRemove`.
