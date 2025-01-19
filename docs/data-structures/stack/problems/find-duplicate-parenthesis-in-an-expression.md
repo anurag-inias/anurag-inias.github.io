@@ -79,12 +79,12 @@ type example struct {
 
 func TestHasDuplicateParenthesis(t *testing.T) {
 	examples := []example{
-		example{"(x+y)", false},
-		example{"((x+y))", true},
-		example{"(z)", false},
-		example{"((z))", true},
-		example{"((x+y)+z)", false},
-		example{"(((x+y))+z)", true},
+		{"(x+y)", false},
+		{"((x+y))", true},
+		{"(z)", false},
+		{"((z))", true},
+		{"((x+y)+z)", false},
+		{"(((x+y))+z)", true},
 	}
 	for _, ex := range examples {
 		if HasDuplicateParenthesis(ex.expression) != ex.hasDuplicate {
