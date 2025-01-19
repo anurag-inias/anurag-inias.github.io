@@ -35,7 +35,11 @@ class Node(val value: Int, val left: Node? = null, val right: Node? = null) {
 
 ## Hint
 
-??? "Expand"
+??? "First"
+
+    Follow the example diagram.
+
+??? "Second"
 
     How will you ensure that right child is popped off stack before left child?
 

@@ -15,4 +15,5 @@
 3. [ ] Evaluate postfix expression <a target="_blank" href="/data-structures/stack/problems/evaluate-postfix-expression">:octicons-link-external-16:</a>
 4. [ ] Decode increment-decrement sequence <a target="_blank" href="/data-structures/stack/problems/decode-increment-decrement-sequence">:octicons-link-external-16:</a>
 5. [ ] Inorder tree traversal <a target="_blank" href="/data-structures/stack/problems/inorder-tree-traversal">:octicons-link-external-16:</a>
-6. [ ] Postorder tree traversal <a target="_blank" href="/data-structures/stack/problems/postorder-tree-traversal">:octicons-link-external-16:</a>
+6. [ ] Preorder tree traversal <a target="_blank" href="/data-structures/stack/problems/preorder-tree-traversal">:octicons-link-external-16:</a>
+7. [ ] Postorder tree traversal <a target="_blank" href="/data-structures/stack/problems/postorder-tree-traversal">:octicons-link-external-16:</a>

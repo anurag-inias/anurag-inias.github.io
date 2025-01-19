@@ -20,7 +20,7 @@ Inorder traverse a binary tree iteratively. That is:
 
 ## Example
 
-![](/data-structures/stack/problems/inorder-example-dark.png){width=400}
+![](/data-structures/stack/problems/inorder-example.png){width=400}
 
 ## Minimum setup
 
@@ -35,7 +35,11 @@ class Node(val value: Int, val left: Node? = null, val right: Node? = null) {
 
 ## Hint
 
-??? "Expand"
+??? "First"
+
+    Follow the example diagram.
+
+??? "Second"
 
     process first left-diagonal, then second, and so on.
 
