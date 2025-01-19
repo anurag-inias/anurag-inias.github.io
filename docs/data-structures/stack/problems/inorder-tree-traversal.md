@@ -12,7 +12,11 @@
 
 ## Problem
 
-Inorder traverse a binary tree iteratively.
+Inorder traverse a binary tree iteratively. That is:
+
+1. visit current node's left subtree
+2. visit currect root
+3. visit current node's right subtree
 
 ## Example
 
