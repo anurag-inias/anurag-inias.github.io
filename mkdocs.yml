@@ -76,16 +76,17 @@ nav:
           - The Hobbit: "blog/books/the-hobbit.md"
   - Maths:
       - Algebra:
-          - Numbers: "maths/numbers.md"
-          - Laws of arithmetics: "maths/arithmetic-laws.md"
-          - Exponent and logarithmic identities: "maths/exponent-and-logarithmic-identities.md"
-          - Changing base: "maths/base-change.md"
-          - Algebraic expressions: "maths/expressions.md"
-          - Modular arithmetic: "maths/modulo.md"
-      - Sets: "maths/sets.md"
-      - Combinatorics: "maths/combinatorics.md"
+          - Numbers: "maths/algebra/numbers.md"
+          - Laws of arithmetics: "maths/algebra/arithmetic-laws.md"
+          - Exponent and logarithmic identities: "maths/algebra/exponent-and-logarithmic-identities.md"
+          - Changing base: "maths/algebra/base-change.md"
+          - Algebraic expressions: "maths/algebra/expressions.md"
+          - Modular arithmetic: "maths/algebra/modulo.md"
+      - Combinatorics:
+          - Sets: "maths/combinatorics/sets.md"
+          - Permutation and Combination: "maths/combinatorics/p-and-c.md"
+          - Probability: "maths/combinatorics/probability.md"
       - Series: "maths/series.md"
-      - Probability: "maths/probability.md"
   - Algorithms:
       - Binary Search: "algorithms/search/binary.md"
       - Partitioning: "algorithms/partition/partition.md"

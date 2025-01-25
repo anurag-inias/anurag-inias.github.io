@@ -25,7 +25,7 @@ $$
 
 </div>
 
-![](/maths/set-union.png){ width="200" }
+![](/maths/combinatorics/set-union.png){ width="200" }
 
 </div>
 
@@ -42,7 +42,7 @@ $$
 
 </div>
 
-![](/maths/set-intersection.png){ width="200" }
+![](/maths/combinatorics/set-intersection.png){ width="200" }
 
 </div>
 
@@ -59,8 +59,8 @@ $$
 
 </div>
 
-![](/maths/set-difference-light.png#only-light){ width="200" }
-![](/maths/set-difference-night.png#only-dark){ width="200" }
+![](/maths/combinatorics/set-difference-light.png#only-light){ width="200" }
+![](/maths/combinatorics/set-difference-night.png#only-dark){ width="200" }
 
 </div>
 
@@ -80,8 +80,8 @@ $$
 
 </div>
 
-![](/maths/set-complement-light.png#only-light){ width="200" }
-![](/maths/set-complement-night.png#only-dark){ width="200" }
+![](/maths/combinatorics/set-complement-light.png#only-light){ width="200" }
+![](/maths/combinatorics/set-complement-night.png#only-dark){ width="200" }
 
 </div>
 
@@ -138,8 +138,8 @@ $$
 </div>
 
 <div markdown>
-![](/maths/set-size-ab-light.png#only-light)
-![](/maths/set-size-ab-night.png#only-dark)
+![](/maths/combinatorics/set-size-ab-light.png#only-light)
+![](/maths/combinatorics/set-size-ab-night.png#only-dark)
 </div>
 
 </div>
