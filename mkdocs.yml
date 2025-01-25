@@ -77,11 +77,13 @@ nav:
   - Maths:
       - Algebra:
           - Numbers: "maths/algebra/numbers.md"
+          - Proof √2 is irrational: "maths/algebra/sqrt-2-irrational.md"
           - Laws of arithmetics: "maths/algebra/arithmetic-laws.md"
           - Exponent and logarithmic identities: "maths/algebra/exponent-and-logarithmic-identities.md"
           - Changing base: "maths/algebra/base-change.md"
           - Algebraic expressions: "maths/algebra/expressions.md"
           - Modular arithmetic: "maths/algebra/modulo.md"
+          - Complex numbers: "maths/algebra/complex.md"
       - Combinatorics:
           - Sets: "maths/combinatorics/sets.md"
           - Permutation and Combination: "maths/combinatorics/p-and-c.md"
@@ -121,6 +123,7 @@ nav:
               - BFS: "data-structures/graph/bfs.md"
               - DFS: "data-structures/graph/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
+  - Practice: "practice/index.md"
   - Design Patterns:
       - Creational:
           - Singleton: "design-patterns/singleton.md"

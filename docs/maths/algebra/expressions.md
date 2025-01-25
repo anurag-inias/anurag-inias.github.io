@@ -72,11 +72,17 @@ $$
 
 is the closed-form expression describing the solutions of a quadratic equation.
 
-Given a general quadratic equation $ax^2 + bx + c$ and $a \not = 0$, the roots (aka _zeros_) of the equation are:
+Given a general quadratic equation $P(x) = ax^2 + bx + c$ and $a \not = 0$, the roots (aka _zeros_) of the equation are:
 
 $$
 x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 $$
+
+$P(x)$ has:
+
+1. two distinct real roots, if $b^2 - 4ac > 0$.
+2. two equal roots, if $b^2 - 4ac = 0$.
+3. no real roots, if $b^2 - 4ac < 0$.
 
 ### Derivation
 
