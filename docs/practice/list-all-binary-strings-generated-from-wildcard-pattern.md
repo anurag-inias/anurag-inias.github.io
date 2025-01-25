@@ -36,11 +36,32 @@ Given a binary string with random wildcard placements, generate all unique binar
 
 ??? "Expand"
 
-    Recursion.
+    There is no choice to be made for $0$ and $1$.
+
+    $$
+    \begin{alignat}{1}
+    0 & \rightarrow 0 \\
+    1 & \rightarrow 1
+    \end{alignat}
+    $$
+
+    But for $?$, we branch (double up).
+
+    $$
+    ? =
+    \begin{cases}
+    0 \\
+    1
+    \end{cases}
+    $$
 
 ## Solution
 
-??? "Expand"
+??? "Recursion"
+
+    At each index $i$, ask recursively to build all the strings from the sequence $i+1$ onwards. If the character at $i$ is either $0$ or $1$, just prefix it as is.
+
+    For $?$, duplidate the result from the recursion on $i+1$. In one copy prefix $0$, and in other prefix $1$.
 
     ```kotlin linenums="1"
     fun wildcardBinary(
@@ -66,6 +87,38 @@ Given a binary string with random wildcard placements, generate all unique binar
       } else {
         return remaining.map { b -> b.append(pattern[startIndex]) }
       }
+    }
+    ```
+
+??? "Iterative"
+
+    Start the result with `[StringBuilder()]`. For $0$ and $1$, we just go over the whole `result` and append the characater in all strings.
+
+    For $?$, make two copies of all strings in `result`. In first, append `0` and append `1` in the second.
+
+    ```kotlin linenums="1"
+    fun wildcardBinary(pattern: String): List<String> {
+      var result = ArrayList<StringBuilder>() // order of insertion matters not
+      result.add(StringBuilder())
+
+      for (c in pattern) {
+        when(c) {
+          '0', '1' -> {
+            result.forEach{ it.append(c) }
+          }
+          else -> {
+            val updated = ArrayList<StringBuilder>()
+            while (result.isNotEmpty()) {
+              val b = result.removeLast()
+              updated.add(StringBuilder(b).append('0'))
+              updated.add(b.append('1'))
+            }
+            result = updated
+          }
+        }
+      }
+
+      return result.map { it.toString() }
     }
     ```
 
