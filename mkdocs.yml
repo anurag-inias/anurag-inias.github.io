@@ -172,6 +172,8 @@ nav:
       - NTFS mount: "ubuntu/ntfs-mount.md"
       - Transmission: "ubuntu/transmission.md"
       - Samba: "ubuntu/samba.md"
+  - How To:
+      - Use 3p ink with Brother printer: "howto/printer-3p-ink.md"
   - Miscellaneous:
       - Display Upgrade: "misc/display.md"
       - yt-dlp: "misc/yt-dlp.md"
