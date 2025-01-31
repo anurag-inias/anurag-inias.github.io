@@ -1,5 +1,7 @@
 # Addition
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <style>
 .md-logo img {
   content: url('/data-structures/numbers/binary-light.svg');
@@ -9,18 +11,6 @@
   content: url('/data-structures/numbers/binary-dark.svg');
 }
 </style>
-
-## Addition
-
-```
-carry     1 1              1 1
-          1 2 3            9 9 5
-        + 7 8 9          + 6 7 9
-        -------          -------
-          9 1 2          1 6 7 4
-```
-
-carry will always be $0$ or $1$.
 
 ## Addition
 
@@ -198,5 +188,99 @@ fun subtract() {
     val b = rand.nextInt(-10_0000, 10_0000)
     assertThat(subtract(a.toString(), b.toString())).isEqualTo((a - b).toString())
   }
+}
+
+@Test
+fun random() {
+  for (n in listOf(100, 200, 500)) {
+    val first = generateBigIntegerString(n)
+    val second = generateBigIntegerString(n)
+    assertThat(add(first, second)).isEqualTo(BigInteger(first).add(BigInteger(second)).toString())
+    assertThat(subtract(first, second)).isEqualTo(BigInteger(first).subtract(BigInteger(second)).toString())
+  }
+}
+```
+
+## Benchmark
+
+How does it compare against `BigInt`?
+
+<div id="addition_chart"></div>
+
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawAdditionChart);
+
+function drawAdditionChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['n', 'control', 'treatment'],
+    [100, 719.82, 440818.27],
+    [1000, 2431.91, 151863.55],
+    [10000, 20730.91, 626371.09],
+    [20000, 38113.64, 331640.00],
+    [50000, 50697.27, 772840.82],
+    [100000, 54072.09, 840162.82],
+  ]);
+
+  var options = {
+    title: 'BigInt vs Custom',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('addition_chart'));
+
+  chart.draw(data, options);
+} 
+
+</script>
+
+Oof! There are a whole bunch of optimizations possible here, but I don't quite care about it.
+
+### Setup
+
+```kotlin linenums="1"
+@Test
+fun benchmark() {
+  println("['n', 'control', 'treatment'],")
+  for (n in listOf(100, 1000, 10_000, 20_000, 50_000, 100_000)) {
+    val control = addLargeNumberControl(n)
+    val treatment = addLargeNumberTreat(n)
+    println("[$n, %.2f, %.2f],".format(control, treatment))
+  }
+}
+
+fun addLargeNumberControl(n: Int): Double {
+  val diffs = mutableListOf<Long>()
+  for (i in 0..10) {
+    val first = BigInteger(generateBigIntegerString(n))
+    val second = BigInteger(generateBigIntegerString(n))
+    val before = System.nanoTime()
+    first.add(second)
+    diffs.add(System.nanoTime() - before)
+  }
+  return diffs.average()
+}
+
+fun addLargeNumberTreat(n: Int): Double {
+  val diffs = mutableListOf<Long>()
+  for (i in 0..10) {
+    val first = generateBigIntegerString(n)
+    val second = generateBigIntegerString(n)
+    val before = System.nanoTime()
+    add(first, second)
+    diffs.add(System.nanoTime() - before)
+  }
+  return diffs.average()
+}
+
+fun generateBigIntegerString(n: Int): String {
+  val rand = ThreadLocalRandom.current()
+  val sb = StringBuilder().append(rand.nextInt(1, 10)) // [1, 9]
+
+  for (i in 1..<n) {
+    sb.append(rand.nextInt(0, 10)) // [0, 9]
+  }
+  return sb.toString()
 }
 ```
