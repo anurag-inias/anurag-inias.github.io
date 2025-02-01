@@ -101,6 +101,8 @@ nav:
           - Quicksort: "algorithms/sort/quicksort.md"
           - Merge Sort: "algorithms/sort/mergesort.md"
           - Counting Sort: "algorithms/sort/counting-sort.md"
+      - Divide & Conquer:
+          - The Master Method: "algorithms/divide-and-conquer/master-method.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
