@@ -1,5 +1,15 @@
 # The Master Method
 
+<style>
+.md-logo img {
+  content: url('/algorithms/divide-and-conquer/logo-light.png');
+}
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/algorithms/divide-and-conquer/logo-dark.png');
+}
+</style>
+
 <div markdown style="text-align: center">
 [![](/algorithms/divide-and-conquer/one.gif){width=200}]("I couldn't resist")
 </div>

@@ -19,7 +19,7 @@ Dynamic problem is like a generalization of divide-and-conquer strategy.
 | subproblems | disjoint         | overlapping     |
 | memoization | no               | yes             |
 
-In divide-and-conquer, the subproblem are disjoint and can be solved just once. In DP, the subproblems overlap which results in wasteful calculations if the results are saved.
+In divide-and-conquer, the subproblem are disjoint and can be solved just once. In DP, the subproblems overlap which results in wasteful calculations if the results are not saved.
 
 ## DP vs Greedy
 
