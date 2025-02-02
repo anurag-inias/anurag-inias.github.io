@@ -103,6 +103,9 @@ nav:
           - Counting Sort: "algorithms/sort/counting-sort.md"
       - Divide & Conquer:
           - The Master Method: "algorithms/divide-and-conquer/master-method.md"
+      - Dynamic Programming:
+          - Intro: "algorithms/dynamic-programming/intro.md"
+          - Rod cutting: "algorithms/dynamic-programming/rod-cutting.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
