@@ -40,6 +40,14 @@ S_n = \sum_{i=0}^{n-1}{ar^i} &= a + ar + ar^2 + \dots + ar^{n-1} \\
 \end{alignat}
 $$
 
+### Special case
+
+When $|r| < 1$ and $n \to \infty$, the $r^n$ term vanishes and leaves a simplified sum:
+
+$$
+\dfrac{a}{1-r}
+$$
+
 ## Common sums
 
 $$

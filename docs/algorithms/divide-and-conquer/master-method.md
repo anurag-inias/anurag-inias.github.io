@@ -72,7 +72,7 @@ At any given level $i$, we have $a^i$ subproblems, each of input size $\dfrac{n}
 
 $$
 \begin{alignat}{1}
-\text{work per subproblem} &= \text{constant} \cdot {\Large(}\dfrac{n}{b^i}{\Large)}^d \\
+c \cdot {\Large(}\dfrac{n}{b^i}{\Large)}^d &= \text{work per subproblem} \\
 \text{number of subproblems} &= a^i \\
 \Rightarrow \text{work done at level } i &= a^i \cdot {\Large(}\dfrac{n}{b^i}{\Large)}^d \\
 &= n^d \cdot {\Large(} \dfrac{a}{b^d} {\Large)}^i
@@ -81,5 +81,41 @@ $$
 
 This is where our ratio $\dfrac{a}{b^d}$ coming from. $a$ is factor with which the number of subproblems explode, and $b^d$ is the factor with which the input for these subproblems shrinks.
 
-- When $a < b^d$, the subproblem size shrink rapidly, making the _combine step_ the most expensive operation, leading to $O(n^d)$ time complexity.
-- When $a > b^d$, the complexity becomes $O(a^{\log_b n}) = O(n^{\log_b a})$.
+### case: $a = b^d$
+
+Work done in each level simplifies to $n^d$, with a total of $\log_bn$ levels. This gives us the run time of $O(n^d \log_bn)$.
+
+### case: $a < b^d$
+
+We have at our hand a geometric progression of length $\log_bn$ and common ratio $\dfrac{a}{b^d}$. Recall the special case for geometric progression we previously covered [here](/maths/series). This gives us the time complexity of:
+
+$$
+\begin{alignat}{1}
+T(n) &= \dfrac{n^d}{1 - \dfrac{a}{b^d}} \\
+&= c \cdot n^d \text{ where } c = \dfrac{b^d}{b^d - a} \\
+&= O(n^d)
+\end{alignat}
+$$
+
+### case: $a > b^d$
+
+Again from the geometric series sum, we have:
+
+$$
+\begin{alignat}{1}
+T(n) &= n^d \cdot \dfrac{{\Large(}\dfrac{a}{b^d}{\Large)}^{\log_bn} - 1}{\dfrac{a}{b^d} - 1} \\
+\\
+&= n^d \cdot \dfrac{n^{\log_b{\frac{a}{b^d}}} - 1}{\dfrac{a}{b^d} - 1} \\
+\\
+&= n^d \cdot \dfrac{\dfrac{n^{\log_ba}}{n^d} - 1}{\dfrac{a}{b^d} - 1}
+\\
+\\
+&= \dfrac{n^{\log_ba} - n^d}{\dfrac{a}{b^d} - 1}
+\end{alignat} \\
+$$
+
+Since $a > b^d \Rightarrow \log_ba > \log_bb^d \Rightarrow \log_ba > d$, we can say that in the numerator, $n^{\log_ba}$ is the dominant term. Also since the denominator is a constant term, this gives us the run time of
+
+$$
+O(n^{\log_ba})
+$$
