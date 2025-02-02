@@ -1200,6 +1200,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-bd" class="md-nav__link">
+    <span class="md-ellipsis">
+      case: \(a = b^d\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-a-bd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case: \(a &lt; b^d\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-a-bd_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case: \(a &gt; b^d\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3354,6 +3387,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-bd" class="md-nav__link">
+    <span class="md-ellipsis">
+      case: \(a = b^d\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-a-bd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case: \(a &lt; b^d\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-a-bd_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case: \(a &gt; b^d\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3425,17 +3491,42 @@ b^d &amp;= 2^0 = 1 \\
 <p>At any given level <span class="arithmatex">\(i\)</span>, we have <span class="arithmatex">\(a^i\)</span> subproblems, each of input size <span class="arithmatex">\(\dfrac{n}{b}\)</span>.</p>
 <div class="arithmatex">\[
 \begin{alignat}{1}
-\text{work per subproblem} &amp;= \text{constant} \cdot {\Large(}\dfrac{n}{b^i}{\Large)}^d \\
+c \cdot {\Large(}\dfrac{n}{b^i}{\Large)}^d &amp;= \text{work per subproblem} \\
 \text{number of subproblems} &amp;= a^i \\
 \Rightarrow \text{work done at level } i &amp;= a^i \cdot {\Large(}\dfrac{n}{b^i}{\Large)}^d \\
 &amp;= n^d \cdot {\Large(} \dfrac{a}{b^d} {\Large)}^i
 \end{alignat}
 \]</div>
 <p>This is where our ratio <span class="arithmatex">\(\dfrac{a}{b^d}\)</span> coming from. <span class="arithmatex">\(a\)</span> is factor with which the number of subproblems explode, and <span class="arithmatex">\(b^d\)</span> is the factor with which the input for these subproblems shrinks.</p>
-<ul>
-<li>When <span class="arithmatex">\(a &lt; b^d\)</span>, the subproblem size shrink rapidly, making the <em>combine step</em> the most expensive operation, leading to <span class="arithmatex">\(O(n^d)\)</span> time complexity.</li>
-<li>When <span class="arithmatex">\(a &gt; b^d\)</span>, the complexity becomes <span class="arithmatex">\(O(a^{\log_b n}) = O(n^{\log_b a})\)</span>.</li>
-</ul>
+<h3 id="case-a-bd">case: <span class="arithmatex">\(a = b^d\)</span></h3>
+<p>Work done in each level simplifies to <span class="arithmatex">\(n^d\)</span>, with a total of <span class="arithmatex">\(\log_bn\)</span> levels. This gives us the run time of <span class="arithmatex">\(O(n^d \log_bn)\)</span>.</p>
+<h3 id="case-a-bd_1">case: <span class="arithmatex">\(a &lt; b^d\)</span></h3>
+<p>We have at our hand a geometric progression of length <span class="arithmatex">\(\log_bn\)</span> and common ratio <span class="arithmatex">\(\dfrac{a}{b^d}\)</span>. Recall the special case for geometric progression we previously covered <a href="/maths/series">here</a>. This gives us the time complexity of:</p>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+T(n) &amp;= \dfrac{n^d}{1 - \dfrac{a}{b^d}} \\
+&amp;= c \cdot n^d \text{ where } c = \dfrac{b^d}{b^d - a} \\
+&amp;= O(n^d)
+\end{alignat}
+\]</div>
+<h3 id="case-a-bd_2">case: <span class="arithmatex">\(a &gt; b^d\)</span></h3>
+<p>Again from the geometric series sum, we have:</p>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+T(n) &amp;= n^d \cdot \dfrac{{\Large(}\dfrac{a}{b^d}{\Large)}^{\log_bn} - 1}{\dfrac{a}{b^d} - 1} \\
+\\
+&amp;= n^d \cdot \dfrac{n^{\log_b{\frac{a}{b^d}}} - 1}{\dfrac{a}{b^d} - 1} \\
+\\
+&amp;= n^d \cdot \dfrac{\dfrac{n^{\log_ba}}{n^d} - 1}{\dfrac{a}{b^d} - 1}
+\\
+\\
+&amp;= \dfrac{n^{\log_ba} - n^d}{\dfrac{a}{b^d} - 1}
+\end{alignat} \\
+\]</div>
+<p>Since <span class="arithmatex">\(a &gt; b^d \Rightarrow \log_ba &gt; \log_bb^d \Rightarrow \log_ba &gt; d\)</span>, we can say that in the numerator, <span class="arithmatex">\(n^{\log_ba}\)</span> is the dominant term. Also since the denominator is a constant term, this gives us the run time of</p>
+<div class="arithmatex">\[
+O(n^{\log_ba})
+\]</div>
 
 
 
