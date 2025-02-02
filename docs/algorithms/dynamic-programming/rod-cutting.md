@@ -84,7 +84,7 @@ But as we can see with $4m$ rod example, the correct answer was picking a worse 
 
 ## Greedy is still viable
 
-As we'll show later, an actual correct answer with DP will be $O(n^2)$ in time complexity and $O(n)$ in space complexity. Our greedy approach outperforms it with $O(n \log n)4 time and $O(1)$ space complexity (we can actually skip the rates table).
+As we'll show later, an actual correct answer with DP will be $O(n^2)$ in time complexity and $O(n)$ in space complexity. Our greedy approach outperforms it with $O(n \log n)$ time and $O(1)$ space complexity (we can actually skip the rates table).
 
 In real world, a solution that's 99% times correct may be desirable than a 100% correct one depending on the economics.
 
