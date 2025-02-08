@@ -150,3 +150,82 @@ $$
       A & 1 & 2 & 2 & 3 & 3 & 4 & 4 \\
     \end{array}
     $$
+
+    ![](/algorithms/dynamic-programming/lcs-construction.png)
+
+??? "Implementation"
+
+    ```golang linenums="1"
+    func LCS(row, column string) string {
+      // If one of the string is empty, then there
+      // is no longest common subsequence to return.
+      if len(row) == 0 {
+        return ""
+      }
+      if len(column) == 0 {
+        return ""
+      }
+      memoization := make([][]int, len(row))
+      // Method to handle invalid indices gracefully.
+      // i.e. trying to get memoization value at
+      // (-1, -1), (-1, 0) and (0, -1).
+      get := func(r, c int) int {
+        if r < 0 || c < 0 {
+          return 0
+        }
+        return memoization[r][c]
+      }
+
+      // Populate memoization table with our solution
+      // formula.
+      for r, x := range row {
+        memoization[r] = make([]int, len(column))
+
+        for c, y := range column {
+          memoization[r][c], _ = max(get(r-1, c-1), get(r-1, c), get(r, c-1))
+          if x == y {
+            memoization[r][c]++
+          }
+        }
+      }
+
+      // We have the length of the LCS.
+      // Now work backwords to get the actual string.
+      result := make([]rune, memoization[len(row)-1][len(column)-1])
+      i := len(result) - 1
+      for r, c := len(row)-1, len(column)-1; r >= 0 && c >= 0; {
+        a, b := row[r], column[c]
+        if a == b {
+          result[i], i, r, c = rune(a), i-1, r-1, c-1
+        } else {
+          _, direction := max(get(r-1, c-1), get(r-1, c), get(r, c-1))
+          switch direction {
+          case 0:
+            r, c = r-1, c-1
+          case 1:
+            r--
+          case 2:
+            c--
+          }
+        }
+      }
+
+      slices.Reverse(result)
+      return string(result)
+    }
+
+    // Helper method to get the maximum of given number
+    // as well as index of that max number.
+    func max(nums ...int) (int, int) {
+      if len(nums) == 0 {
+        return 0, -1
+      }
+      m, mi := nums[0], 0
+      for i := 1; i < len(nums); i++ {
+        if nums[i] > m {
+          m, mi = nums[i], i
+        }
+      }
+      return m, mi
+    }
+    ```
