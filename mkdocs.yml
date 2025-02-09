@@ -107,6 +107,7 @@ nav:
           - Intro: "algorithms/dynamic-programming/intro.md"
           - Rod cutting: "algorithms/dynamic-programming/rod-cutting.md"
           - Longest common subsequence: "algorithms/dynamic-programming/longest-common-subsequence.md"
+          - Longest common substring: "algorithms/dynamic-programming/longest-common-substring.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
