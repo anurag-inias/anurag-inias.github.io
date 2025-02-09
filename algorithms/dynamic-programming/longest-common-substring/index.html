@@ -3479,14 +3479,22 @@ LCS &amp;= BABC
 <h2 id="solution">Solution</h2>
 <details>
 <summary>Expand</summary>
-<p>Let consider a subproblem where our two strings be <span class="arithmatex">\(X_i\)</span> and <span class="arithmatex">\(Y_j\)</span>, ending at <span class="arithmatex">\(i^{th}\)</span> and <span class="arithmatex">\(j^{th}\)</span> indices respectively.</p>
+<p>Lets consider a subproblem where our two strings be <span class="arithmatex">\(X_i\)</span> and <span class="arithmatex">\(Y_j\)</span>, ending at <span class="arithmatex">\(i^{th}\)</span> index of <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(j^{th}\)</span> index of <span class="arithmatex">\(Y\)</span> respectively.</p>
 <div class="arithmatex">\[
 \begin{alignat}{1}
 X_i &amp;= \fbox{ $\dots$ x} \\
 Y_j &amp;= \fbox{ $\dots$ y} \\
 \end{alignat}
 \]</div>
-<p>if <span class="arithmatex">\(x = y\)</span>, then <span class="arithmatex">\(L_{ij} = 1 + L_{(i-1)(j-1)}\)</span>, but that's all. <span class="arithmatex">\(L_{(i-1) \ j}\)</span> and <span class="arithmatex">\(L_{i \ (j-1)}\)</span> are not subproblem to <span class="arithmatex">\(L_{ij}\)</span>.</p>
+<p>if <span class="arithmatex">\(x = y\)</span>, then <span class="arithmatex">\(L_{ij} = 1 + L_{(i-1)(j-1)}\)</span>. But note that <span class="arithmatex">\(L_{(i-1) \ j}\)</span> and <span class="arithmatex">\(L_{i \ (j-1)}\)</span> are not subproblem to <span class="arithmatex">\(L_{ij}\)</span>.</p>
+<div class="arithmatex">\[
+L_{ij} =
+\begin{cases}
+    L_{(i-1)(j-1)} &amp; \text{ if } x = y\\
+    \\
+    0 &amp; \text{ otherwise}
+\end{cases}
+\]</div>
 <div class="arithmatex">\[
 \begin{array}
   {r | r r}
