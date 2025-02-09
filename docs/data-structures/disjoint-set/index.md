@@ -22,6 +22,302 @@ _Disjoint-Set_ / _Union-Find_ is a data structure that stores a collection of di
 
 ## High-level implementation
 
-Disjoint is essentially an inverted tree. Instead of a parent node maintaining references to its children, it's children node maintaining reference to their parent.
+Disjoint Set is essentially an inverted tree. Instead of a parent node maintaining references to its children, it's children node maintaining reference to their parent.
 
-However, we don't care about the exact _parent-child_ relationship, and only the root of each set. That's where _path compression_ comes in.
+```kotlin linenums="1"
+class DisjointSet {
+
+  private val parent = HashMap<Int, Int>()
+  private val size = HashMap<Int, Int>()
+
+  ...
+}
+```
+
+If that was all then Disjoint Set would've $O(h)$ lookup where $h$ is the average height of a tree in the forest.
+
+But the crux of Disjoint Set performance is that we don't care about the exact _parent-child_ relationship, only the root of each set. That's where the **first optimization _path compression_** comes in.
+
+### add
+
+Adding a new node in the Disjoint Set is straightforward. Each new node is considered a new _root_.
+
+```kotlin linenums="1"
+// Returns false if node is already a member.
+fun add(node: Int): Boolean {
+  if (node !in parent) {
+    parent[node] = node
+    size[node] = 1
+    return true
+  }
+  return false
+}
+```
+
+### find
+
+During $find$ call, we recursively compress the tree, so as to bring nodes in the tree into leaf nodes and turn them direct children of their root.
+
+```kotlin linenums="1"
+fun find(node: Int): Int? {
+  // Node must be added prior to this.
+  val p = parent[node] ?: return null
+
+  if (p == node) return node
+  parent[node] = find(p)!! // compression
+  return parent[node]
+}
+```
+
+### join
+
+The **second optimization** is **_merge by size_**. That is, we always merge the smaller set into the larger set.
+
+```kotlin linenums="1"
+// Use `first` and `second` as argument names instead.
+// We are using `bigger` and `smaller` for our own ease
+// of understanding.
+fun join(bigger: Int, smaller: Int) {
+  // Both nodes must be added prior to this.
+  val parentBigger = find(bigger) ?: return
+  val parentSmaller = find(smaller) ?: return
+
+  when {
+    parentBigger == parentSmaller -> return
+    size[parentBigger]!! < size[parentSmaller]!! -> join(smaller, bigger)
+    else -> {
+      // merge by size.
+      parent[parentSmaller] = parentBigger
+      size[parentBigger] = size[parentBigger]!! + size[parentSmaller]!!
+    }
+  }
+}
+```
+
+## Helper methods
+
+Following are two helper methods not part of the Disjoint Set interface, but rather meant for debugging and unit testing purpose.
+
+```kotlin linenums="1"
+// Only for testing.
+fun roots(): HashSet<Int> {
+  val r = HashSet<Int>()
+  parent.keys.forEach { r.add(find(it)!!) }
+  return r
+}
+
+// Only for testing.
+fun sets(): List<HashSet<Int>> {
+  val s = ArrayList<HashSet<Int>>()
+  roots().forEach{
+    val i = HashSet<Int>()
+    i.add(it)
+    s.add(i)
+  }
+  parent.keys.forEach { n -> s[s.indexOfFirst { find(n) in it }].add(n) }
+  return s
+}
+```
+
+## Full Implementation
+
+```kotlin linenums="1"
+package com.example.ds
+
+import java.util.stream.Collectors
+
+class DisjointSet {
+
+  private val parent = HashMap<Int, Int>()
+  private val size = HashMap<Int, Int>()
+
+  fun add(node: Int): Boolean {
+    if (node !in parent) {
+      parent[node] = node
+      size[node] = 1
+      return true
+    }
+    return false
+  }
+
+  fun find(node: Int): Int? {
+    // Node must be added prior to this.
+    val p = parent[node] ?: return null
+
+    if (p == node) return node
+    parent[node] = find(p)!! // compression
+    return parent[node]
+  }
+
+  fun join(bigger: Int, smaller: Int) {
+    // Both nodes must be added prior to this.
+    val parentBigger = find(bigger) ?: return
+    val parentSmaller = find(smaller) ?: return
+
+    when {
+      parentBigger == parentSmaller -> return
+      size[parentBigger]!! < size[parentSmaller]!! -> join(smaller, bigger)
+      else -> { // merge by size.
+        parent[parentSmaller] = parentBigger
+        size[parentBigger] = size[parentBigger]!! + size[parentSmaller]!!
+      }
+    }
+  }
+
+  // Only for testing.
+  fun roots(): HashSet<Int> {
+    val r = HashSet<Int>()
+    parent.keys.forEach { r.add(find(it)!!) }
+    return r
+  }
+
+  // Only for testing.
+  fun sets(): List<HashSet<Int>> {
+    val s = ArrayList<HashSet<Int>>()
+    roots().forEach{
+      val i = HashSet<Int>()
+      i.add(it)
+      s.add(i)
+    }
+    parent.keys.forEach { n -> s[s.indexOfFirst { find(n) in it }].add(n) }
+    return s
+  }
+}
+```
+
+## Runtime
+
+### $add$
+
+$$
+O(1)
+$$
+
+### $find$ (amortized)
+
+$$
+\begin{alignat}{1}
+& O(\alpha (n)) \text{ where } \alpha(n) < 4 \text{ for } n < 10^{600} \\
+= \ & O(1)
+\end{alignat}
+$$
+
+## Unit tests
+
+??? "Expand"
+
+    ```kotlin linenums="1"
+    import org.assertj.core.api.Assertions.assertThat
+    import org.junit.jupiter.api.BeforeEach
+    import org.junit.jupiter.api.Test
+
+    class DisjointSetTest {
+
+      private lateinit var ds: DisjointSet
+
+      @BeforeEach
+      fun setup() {
+        ds = DisjointSet()
+      }
+
+      @Test
+      fun add_disjoint() {
+        assertThat(ds.roots()).isEmpty()
+        assertThat(ds.sets()).isEmpty()
+
+        ds.add(1)
+        assertThat(ds.roots()).containsOnly(1)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1))
+
+        ds.add(2)
+        assertThat(ds.roots()).containsOnly(1, 2)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1), hashSetOf(2))
+
+        ds.add(3)
+        assertThat(ds.roots()).containsOnly(1, 2, 3)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1), hashSetOf(2), hashSetOf(3))
+      }
+
+      @Test
+      fun join_compression() {
+        ds.add(1)
+        ds.add(2)
+        ds.add(3)
+        ds.add(4)
+        assertThat(ds.find(1)).isEqualTo(1)
+        assertThat(ds.find(2)).isEqualTo(2)
+        assertThat(ds.find(3)).isEqualTo(3)
+        assertThat(ds.find(4)).isEqualTo(4)
+
+        ds.join(1, 2)
+        assertThat(ds.find(2)).isEqualTo(1)
+
+        ds.join(3, 2)
+        assertThat(ds.find(2)).isEqualTo(1)
+
+        ds.join(4, 3)
+        assertThat(ds.find(4)).isEqualTo(1)
+      }
+
+      @Test
+      fun join() {
+        ds.add(1)
+        ds.add(2)
+        ds.add(3)
+        ds.add(4)
+        ds.add(5)
+        assertThat(ds.roots()).containsOnly(1, 2, 3, 4, 5)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1), hashSetOf(2), hashSetOf(3), hashSetOf(4), hashSetOf(5))
+
+        ds.join(1, 3)
+        assertThat(ds.roots()).containsOnly(1, 2, 4, 5)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1, 3), hashSetOf(2), hashSetOf(4), hashSetOf(5))
+
+        ds.join(2, 5)
+        assertThat(ds.roots()).containsOnly(1, 2, 4)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1, 3), hashSetOf(2, 5), hashSetOf(4))
+
+        ds.join(3, 4)
+        assertThat(ds.roots()).containsOnly(1, 2)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1, 3, 4), hashSetOf(2, 5))
+
+        ds.join(5, 4)
+        assertThat(ds.roots()).containsOnly(1)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1, 2, 3, 4, 5))
+      }
+
+      @Test
+      fun join_smaller_in_bigger() {
+        ds.add(1)
+        ds.add(2)
+        ds.add(3)
+        ds.join(1, 2)
+        ds.join(1, 3)
+
+        ds.add(4)
+        ds.add(5)
+        ds.join(5, 4)
+
+        ds.join(5, 1)
+        assertThat(ds.roots()).containsOnly(1)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1, 2, 3, 4, 5))
+      }
+
+      @Test
+      fun join_bigger_in_smaller() {
+        ds.add(1)
+        ds.add(2)
+        ds.add(3)
+        ds.join(1, 2)
+        ds.join(1, 3)
+
+        ds.add(4)
+        ds.add(5)
+        ds.join(5, 4)
+
+        ds.join(1, 5)
+        assertThat(ds.roots()).containsOnly(1)
+        assertThat(ds.sets()).containsOnly(hashSetOf(1, 2, 3, 4, 5))
+      }
+    }
+    ```
