@@ -34,7 +34,7 @@ $$
 
 ??? "Expand"
 
-    Let consider a subproblem where our two strings be $X_i$ and $Y_j$, ending at $i^{th}$ and $j^{th}$ indices respectively.
+    Lets consider a subproblem where our two strings be $X_i$ and $Y_j$, ending at $i^{th}$ index of $X$ and $j^{th}$ index of $Y$ respectively.
 
     $$
     \begin{alignat}{1}
@@ -43,7 +43,16 @@ $$
     \end{alignat}
     $$
 
-    if $x = y$, then $L_{ij} = 1 + L_{(i-1)(j-1)}$, but that's all. $L_{(i-1) \ j}$ and $L_{i \ (j-1)}$ are not subproblem to $L_{ij}$.
+    if $x = y$, then $L_{ij} = 1 + L_{(i-1)(j-1)}$. But note that $L_{(i-1) \ j}$ and $L_{i \ (j-1)}$ are not subproblem to $L_{ij}$.
+
+    $$
+    L_{ij} =
+    \begin{cases}
+        L_{(i-1)(j-1)} & \text{ if } x = y\\
+        \\
+        0 & \text{ otherwise}
+    \end{cases}
+    $$
 
     $$
     \begin{array}
