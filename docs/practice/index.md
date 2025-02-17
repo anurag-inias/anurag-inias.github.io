@@ -14,3 +14,4 @@
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1.     | <a target="_blank" href="/practice/list-all-binary-strings-generated-from-wildcard-pattern">List all binary strings generated from wildcard pattern</a> |
 | 2.     | <a target="_blank" href="/practice/merge-overlapping-intervals">Merge overlapping intervals</a>                                                         |
+| 3.     | <a target="_blank" href="/practice/longest-common-prefix">Longest common prefix</a>                                                                     |
