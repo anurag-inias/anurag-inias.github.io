@@ -4,6 +4,10 @@
 .md-logo img {
   content: url('/data-structures/tree/logo.svg');
 }
+
+:root [data-md-color-scheme=slate] .md-logo img  {
+  content: url('/data-structures/tree/logo.svg');
+}
 </style>
 
 ## Goal
@@ -12,7 +16,7 @@ Given a binary tree, print its nodes level by level.
 
 ## Example
 
-![](/data-structures/tree/level-traversal.png){width=300}
+![](./level-traversal.png){width=300}
 
 ## Implementation
 

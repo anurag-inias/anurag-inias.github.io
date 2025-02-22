@@ -126,7 +126,9 @@ nav:
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
       - Tree:
-          - Level order traversal: "data-structures/tree/level-traversal.md"
+          - Traversal:
+              - Inorder traversal: "data-structures/tree/traversal/inorder-tree-traversal.md"
+              - Level order traversal: "data-structures/tree/traversal/level-traversal.md"
       - Graph:
           - Intro: "data-structures/graph/intro.md"
           - Traversal:
