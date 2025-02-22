@@ -47,3 +47,21 @@ fun levelOrderTraversal(root: TreeNode) {
 
 - `LinkedList` performs better than an `ArrayList` when used as a queue.
 - First `while` loop acts over each layer, and the nested `while` loops nodes in that layer.
+
+## BFS
+
+Breadth-first search is lot more straightforward.
+
+```kotlin linenums="1"
+fun bfsTraversal(root: TreeNode) {
+  val queue = LinkedList<TreeNode>()
+  queue.offer(root)
+
+  while (queue.isNotEmpty()) {
+    val n = queue.poll()
+    println(n.`val`)
+    n.left?.let { queue.add(it) }
+    n.right?.let { queue.add(it) }
+  }
+}
+```
