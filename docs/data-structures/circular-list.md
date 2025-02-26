@@ -1,5 +1,10 @@
 # Circular list
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+</script>
+
 ## Overview
 
 - Built on top of a regular array.
@@ -15,7 +20,7 @@ We maintain two pointers, `head` which points to the first element of the list a
 
 ### Appending
 
-To add an element to the end of the list, we place it at `tail`.  We then increment `tail` to `(tail + 1) % capacity`.
+To add an element to the end of the list, we place it at `tail`. We then increment `tail` to `(tail + 1) % capacity`.
 
 ### Prepending
 
@@ -40,7 +45,7 @@ The underlying array has to be iterated on via abstracted indices (i.e. 0, 1, 2,
 ```kotlin linenums="1"
 for i in 0..<size
   new[i] = old[i]   // wrong. DON'T DO THIS
-  new[i] = this[i]  // right. "this" uses the "get" operator mentioned previously. 
+  new[i] = this[i]  // right. "this" uses the "get" operator mentioned previously.
 ```
 
 ## Implementation
@@ -309,3 +314,60 @@ for i in 0..<size
       }
     }
     ```
+
+## Benchmark
+
+`CircularArray` outperforms everything when it comes to `prepend` operations while giving comparable performance for `append`.
+
+<div id="append"></div>
+
+<div id="prepend"></div>
+
+<script type="text/javascript">
+  function appendChart() {
+    var data = google.visualization.arrayToDataTable(
+      [
+        ['Size', 'ArrayList', 'LinkedList', 'ArrayDeque', 'CircularArray'],
+        [100, 34416, 40292, 11166, 15208],
+        [1000, 50209, 121792, 61541, 109542],
+        [10000, 473458, 409292, 474375, 301167],
+        [50000, 866125, 848875, 810833, 460792],
+        [100000, 1457667, 1377666, 1568000, 617416],
+        [200000, 587750, 1208791, 1106375, 1278375],
+        [500000, 2533917, 1435709, 1695500, 2893083],
+      ]
+    );
+
+    var options = {
+      title: 'Append time',
+      curveType: 'function',
+    };
+
+    const chart = new google.visualization.LineChart(document.getElementById('append'));
+    chart.draw(data, options);
+  };
+  google.charts.setOnLoadCallback(appendChart);
+
+  function prependChart() {
+    var data = google.visualization.arrayToDataTable(
+      [
+        ['Size', 'ArrayList', 'LinkedList', 'ArrayDeque', 'CircularArray'],
+        [100, 57875, 39208, 23083, 15542],
+        [1000, 91709, 95625, 59666, 87208],
+        [10000, 4212708, 368958, 495542, 308375],
+        [50000, 97548167, 862542, 871000, 378791],
+        [100000, 394018334, 1315250, 1470709, 469917],
+        [200000, 1602793083, 1012500, 1071917, 857042],
+      ]
+    );
+
+    var options = {
+      title: 'Prepend time',
+      curveType: 'function',
+    };
+
+    const chart = new google.visualization.LineChart(document.getElementById('prepend'));
+    chart.draw(data, options);
+  };
+  google.charts.setOnLoadCallback(prependChart);
+</script>
