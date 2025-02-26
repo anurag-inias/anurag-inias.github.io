@@ -1797,6 +1797,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmark
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3751,6 +3760,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmark
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3767,6 +3785,11 @@
 
 
 <h1 id="circular-list">Circular list</h1>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+</script>
+
 <h2 id="overview">Overview</h2>
 <ul>
 <li>Built on top of a regular array.</li>
@@ -3778,7 +3801,7 @@
 <h3 id="pointers">Pointers</h3>
 <p>We maintain two pointers, <code>head</code> which points to the first element of the list and <code>tail</code> which points to the index where next element is to be added (i.e. exclusive).</p>
 <h3 id="appending">Appending</h3>
-<p>To add an element to the end of the list, we place it at <code>tail</code>.  We then increment <code>tail</code> to <code>(tail + 1) % capacity</code>.</p>
+<p>To add an element to the end of the list, we place it at <code>tail</code>. We then increment <code>tail</code> to <code>(tail + 1) % capacity</code>.</p>
 <h3 id="prepending">Prepending</h3>
 <p>Current front of the element is at index <code>head</code>, so a new element must be added at <code>head-1</code>. In modular arithmetic, that means <code>(head - 1 + capacity) % capacity</code>.</p>
 <h3 id="indexing-or">Indexing or <code>[]</code></h3>
@@ -3793,7 +3816,7 @@
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">size</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="n">new</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">old</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w">   </span><span class="c1">// wrong. DON&#39;T DO THIS</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="n">new</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w">  </span><span class="c1">// right. &quot;this&quot; uses the &quot;get&quot; operator mentioned previously. </span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="n">new</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w">  </span><span class="c1">// right. &quot;this&quot; uses the &quot;get&quot; operator mentioned previously.</span>
 </span></code></pre></div></td></tr></table></div>
 <h2 id="implementation">Implementation</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Kotlin</label><label for="__tabbed_1_2">Test</label></div>
@@ -4314,6 +4337,60 @@
 </div>
 </div>
 </div>
+<h2 id="benchmark">Benchmark</h2>
+<p><code>CircularArray</code> outperforms everything when it comes to <code>prepend</code> operations while giving comparable performance for <code>append</code>.</p>
+<div id="append"></div>
+
+<div id="prepend"></div>
+
+<script type="text/javascript">
+  function appendChart() {
+    var data = google.visualization.arrayToDataTable(
+      [
+        ['Size', 'ArrayList', 'LinkedList', 'ArrayDeque', 'CircularArray'],
+        [100, 34416, 40292, 11166, 15208],
+        [1000, 50209, 121792, 61541, 109542],
+        [10000, 473458, 409292, 474375, 301167],
+        [50000, 866125, 848875, 810833, 460792],
+        [100000, 1457667, 1377666, 1568000, 617416],
+        [200000, 587750, 1208791, 1106375, 1278375],
+        [500000, 2533917, 1435709, 1695500, 2893083],
+      ]
+    );
+
+    var options = {
+      title: 'Append time',
+      curveType: 'function',
+    };
+
+    const chart = new google.visualization.LineChart(document.getElementById('append'));
+    chart.draw(data, options);
+  };
+  google.charts.setOnLoadCallback(appendChart);
+
+  function prependChart() {
+    var data = google.visualization.arrayToDataTable(
+      [
+        ['Size', 'ArrayList', 'LinkedList', 'ArrayDeque', 'CircularArray'],
+        [100, 57875, 39208, 23083, 15542],
+        [1000, 91709, 95625, 59666, 87208],
+        [10000, 4212708, 368958, 495542, 308375],
+        [50000, 97548167, 862542, 871000, 378791],
+        [100000, 394018334, 1315250, 1470709, 469917],
+        [200000, 1602793083, 1012500, 1071917, 857042],
+      ]
+    );
+
+    var options = {
+      title: 'Prepend time',
+      curveType: 'function',
+    };
+
+    const chart = new google.visualization.LineChart(document.getElementById('prepend'));
+    chart.draw(data, options);
+  };
+  google.charts.setOnLoadCallback(prependChart);
+</script>
 
 
 
