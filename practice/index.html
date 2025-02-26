@@ -2113,6 +2113,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Practice
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2122,6 +2133,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learnings-from-online-judges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learnings from Online Judges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learnings from Online Judges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkedlist-vs-arraylist" class="md-nav__link">
+    <span class="md-ellipsis">
+      LinkedList vs ArrayList
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursion-vs-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursion vs Iteration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3557,6 +3620,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learnings-from-online-judges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learnings from Online Judges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learnings from Online Judges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkedlist-vs-arraylist" class="md-nav__link">
+    <span class="md-ellipsis">
+      LinkedList vs ArrayList
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursion-vs-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursion vs Iteration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3603,6 +3707,19 @@
 </tr>
 </tbody>
 </table>
+<h2 id="learnings-from-online-judges">Learnings from Online Judges</h2>
+<h3 id="linkedlist-vs-arraylist"><code>LinkedList</code> vs <code>ArrayList</code></h3>
+<p>By all accounts, <code>ArrayList</code> should be much faster than <code>LinkedList</code> as both stack and queue. Yet I've noticed significant time improvements with <code>LinkedList</code>.</p>
+<p>The rationale behind it is that an online judge consideres the time it took for your solution to execute and not how long it'll subsequently take to use the answer to use in real life programs.</p>
+<p>So <code>LinkedList</code> can be way faster than <code>ArrayList</code>, allocating memory for individual items, as opposed to allocating for larger and larger contiguous blocks.</p>
+<h3 id="recursion-vs-iteration">Recursion vs Iteration</h3>
+<p>Conventional wisdom is that iterative algorithms is just going to be faster than recursion. Yet with online judges I can see the opposite. Recursive algorithms are not online faster, they take less memory too, even without tail recursion.</p>
+<p>There could be a number of explanation behind it:</p>
+<ul>
+<li>an explicit stack could be an overhead in itself compared to an implicit frame which could be optimized a lot by the compiler or by hardware level instructions.</li>
+<li>branch predicition for recursion could be outperforming those for iteration.</li>
+</ul>
+<p>So, don't be hasty. Write first the natural solution (i.e. recursion) and then profile it against an iterative solution. Or in other words, don't just write off recursive solutions as slow.</p>
 
 
 
