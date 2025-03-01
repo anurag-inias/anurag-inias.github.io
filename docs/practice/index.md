@@ -16,6 +16,7 @@
 | 2.     | <a target="_blank" href="/practice/merge-overlapping-intervals">Merge overlapping intervals</a>                                                         |
 | 3.     | <a target="_blank" href="/practice/longest-common-prefix">Longest common prefix</a>                                                                     |
 | 4.     | <a target="_blank" href="/practice/generate-pascals-triangle-row">Generate Specified Row of Pascal's Triangle</a>                                       |
+| 5.     | <a target="_blank" href="./find-the-only-non-duplicate">Find the only non-duplicate number in an array</a>                                              |
 
 ## Learnings from Online Judges
 

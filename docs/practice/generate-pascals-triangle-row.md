@@ -23,7 +23,7 @@ $$
 \end{alignat}
 $$
 
-Given row index $i$, generate the that row.
+Given row index $i$, generate that row.
 
 ## Example
 
