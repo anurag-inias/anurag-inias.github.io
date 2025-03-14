@@ -114,6 +114,8 @@ nav:
           - Representation: "data-structures/numbers/representation.md"
           - Arithmetic: "data-structures/numbers/arithmetic.md"
           - Addition Subtraction: "data-structures/numbers/addition.md"
+          - Problems:
+              - Count the number of set bits: "data-structures/numbers/problems/count-the-number-of-set-bits.md"
       - Linked List:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
