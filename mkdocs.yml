@@ -118,6 +118,7 @@ nav:
               - Count the number of set bits: "data-structures/numbers/problems/count-the-number-of-set-bits.md"
               - Computing the parity of a word: "data-structures/numbers/problems/compute-parity.md"
               - Swap bits: "data-structures/numbers/problems/swap-bits.md"
+              - Closest integer with same number of set bits: "data-structures/numbers/problems/closest-integer-with-same-bit-count.md"
       - Linked List:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
