@@ -119,6 +119,8 @@ nav:
               - Computing the parity of a word: "data-structures/numbers/problems/compute-parity.md"
               - Swap bits: "data-structures/numbers/problems/swap-bits.md"
               - Closest integer with same number of set bits: "data-structures/numbers/problems/closest-integer-with-same-bit-count.md"
+              - Add two integers without arithmetic operators: "data-structures/numbers/problems/add-two-integers-without-arithmetic-operator.md"
+              - Multiply two integers without arithmetic operators: "data-structures/numbers/problems/multiply-two-integers-without-arithmetic-operator.md"
       - Linked List:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
