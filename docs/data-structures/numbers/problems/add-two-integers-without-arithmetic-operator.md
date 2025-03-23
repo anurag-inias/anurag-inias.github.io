@@ -8,7 +8,11 @@ Given two numbers, add them with bit operations.
 
 ??? "Notes"
 
+    ![](./addition-sum-carry-table.png){width=400px}
+
     $a + b + carry$, then the $carry$ will be non-zero if out of these three, at least two are non-zero. And the sum will be $\oplus$ of the three.
+
+    ![](./addition.png){width=400px}
 
 ??? "Expand"
 

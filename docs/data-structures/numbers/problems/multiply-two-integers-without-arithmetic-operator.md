@@ -16,6 +16,8 @@ Given two numbers, multiply them with bit operations.
 
     Unlike multiplication in any other base, multiplication in binary is much more straightforward. $a \times 0$ is a row skipped. $a \times 1$ is a row added.
 
+    ![](./multiplication.png){width=300px}
+
 ??? "Expand"
 
     ```kotlin linenums="1"
