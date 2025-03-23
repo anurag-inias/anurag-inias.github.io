@@ -112,7 +112,7 @@ nav:
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
-          - Arithmetic: "data-structures/numbers/arithmetic.md"
+          - Bit tricks: "data-structures/numbers/bit-tricks.md"
           - Addition Subtraction: "data-structures/numbers/addition.md"
           - Problems:
               - Count the number of set bits: "data-structures/numbers/problems/count-the-number-of-set-bits.md"
@@ -122,6 +122,7 @@ nav:
               - Add two integers without arithmetic operators: "data-structures/numbers/problems/add-two-integers-without-arithmetic-operator.md"
               - Multiply two integers without arithmetic operators: "data-structures/numbers/problems/multiply-two-integers-without-arithmetic-operator.md"
               - Divide two integers without arithmetic operators: "data-structures/numbers/problems/divide-two-integers-without-arithmetic-operator.md"
+              - Rotate an integer: "data-structures/numbers/problems/rotate-an-integer.md"
       - Linked List:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"

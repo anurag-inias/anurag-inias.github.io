@@ -12,7 +12,7 @@
         <link rel="prev" href="../add-two-integers-without-arithmetic-operator/">
       
       
-        <link rel="next" href="../../../linked-list/singly-linked-list/">
+        <link rel="next" href="../divide-two-integers-without-arithmetic-operator/">
       
       
       <link rel="icon" href="../../../../assets/fatigue-dark.svg">
@@ -1647,6 +1647,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Divide two integers without arithmetic operators
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3943,8 +3964,8 @@
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">()</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">()</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">()</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="o">-</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="o">-</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="n">assertThat</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span><span class="p">}</span>
