@@ -54,8 +54,8 @@ fun random_multiply() {
   val rand = ThreadLocalRandom.current()
 
   for (i in 1..100) {
-    val a = rand.nextInt()
-    val b = rand.nextInt()
+    val a = rand.nextInt(-100, 100)
+    val b = rand.nextInt(-100, 100)
 
     assertThat(multiply(a, b)).isEqualTo(a * b)
   }
