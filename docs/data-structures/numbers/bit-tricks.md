@@ -1,4 +1,4 @@
-# Bit arithmetic
+# Bit tricks
 
 <style>
 .md-logo img {

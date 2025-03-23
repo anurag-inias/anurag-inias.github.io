@@ -122,6 +122,7 @@ nav:
               - Add two integers without arithmetic operators: "data-structures/numbers/problems/add-two-integers-without-arithmetic-operator.md"
               - Multiply two integers without arithmetic operators: "data-structures/numbers/problems/multiply-two-integers-without-arithmetic-operator.md"
               - Divide two integers without arithmetic operators: "data-structures/numbers/problems/divide-two-integers-without-arithmetic-operator.md"
+              - Calculate exponent of an integer: "data-structures/numbers/problems/calculate-exponent-of-an-integer.md"
               - Rotate an integer: "data-structures/numbers/problems/rotate-an-integer.md"
       - Linked List:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
