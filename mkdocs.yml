@@ -124,6 +124,7 @@ nav:
               - Divide two integers without arithmetic operators: "data-structures/numbers/problems/divide-two-integers-without-arithmetic-operator.md"
               - Calculate exponent of an integer: "data-structures/numbers/problems/calculate-exponent-of-an-integer.md"
               - Rotate an integer: "data-structures/numbers/problems/rotate-an-integer.md"
+              - Generate random numbers: "data-structures/numbers/problems/random-number-generation"
       - Linked List:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
