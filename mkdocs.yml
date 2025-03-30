@@ -118,7 +118,6 @@ nav:
           - Singly Linked List: "data-structures/linked-list/singly-linked-list.md"
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
           - Common Patterns: "data-structures/linked-list/patterns.md"
-          - Problems: "data-structures/linked-list/problems/index.md"
       - Array:
           - Problems:
               - "The Dutch National Flag Problem": "data-structures/array/problems/dutch-national-flag.md"
@@ -170,7 +169,24 @@ nav:
           - Rotate an integer: "practice/bits/rotate-an-integer.md"
           - Generate random numbers: "practice/bits/random-number-generation.md"
       - Linked List:
+          - Check if the content of a linked list is a palindrome: "practice/linked-list/check-if-the-content-of-a-linked-list-is-a-palindrome.md"
+          - Check if two given linked lists are identical: "practice/linked-list/check-if-two-given-linked-lists-are-identical.md"
+          - Create a queue from a linked list: "practice/linked-list/create-a-queue-from-a-linked-list.md"
+          - Create a stack from a linked list: "practice/linked-list/create-a-stack-from-a-linked-list.md"
+          - Deep copy a linked list: "practice/linked-list/deep-copy-a-linked-list.md"
+          - Detect cycle in a linked list: "practice/linked-list/detect-cycle-in-a-linked-list.md"
+          - Get kth node from either end: "practice/linked-list/get-kth-node-from-either-end.md"
+          - In-place merge two sorted linked list: "practice/linked-list/in-place-merge-two-sorted-linked-list.md"
+          - In-place merge arbitrary number of sorted linked list: "practice/linked-list/in-place-merge-arbitrary-number-of-sorted-linked-list.md"
+          - In-place sort a linked list: "practice/linked-list/in-place-sort-a-linked-list.md"
+          - Insert a node in its correct place in a sorted linked list: "practice/linked-list/insert-a-node-in-its-correct-place-in-a-sorted-linked-list.md"
+          - Intersection of two sorted linked list: "practice/linked-list/intersection-of-two-sorted-linked-list.md"
           - Intersection of two linked lists: "practice/linked-list/intersection-of-linked-lists.md"
+          - Remove duplicates from sorted linked list: "practice/linked-list/remove-duplicates-from-sorted-linked-list.md"
+          - Reverse a linked list in-place: "practice/linked-list/reverse-a-linked-list-in-place.md"
+          - Reverse every group of k nodes: "practice/linked-list/reverse-every-group-of-k-nodes.md"
+          - Split linked list in first and second halves: "practice/linked-list/split-linked-list-in-first-and-second-halves.md"
+          - Turn a linked list Iterable: "practice/linked-list/turn-a-linked-list-iterable.md"
       - Sorting:
           - Merge overlapping intervals: "practice/sorting/merge-overlapping-intervals.md"
       - String:
