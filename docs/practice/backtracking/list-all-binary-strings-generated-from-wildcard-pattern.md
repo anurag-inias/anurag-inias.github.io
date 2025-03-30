@@ -1,15 +1,5 @@
 # List all binary strings generated from wildcard pattern
 
-<style>
-.md-logo img {
-  content: url('/practice/practice-light.png');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/practice/practice-dark.png');
-}
-</style>
-
 ## Problem
 
 Given a binary string with random wildcard placements, generate all unique binary strings.

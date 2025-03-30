@@ -1,15 +1,5 @@
 # Longest Common Prefix
 
-<style>
-.md-logo img {
-  content: url('/practice/practice-light.png');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/practice/practice-dark.png');
-}
-</style>
-
 ## Problem
 
 Given a list of strings, find the longest string that's prefix to them all.

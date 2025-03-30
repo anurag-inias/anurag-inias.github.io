@@ -1,15 +1,5 @@
 # Find the only non-duplicate number in an array
 
-<style>
-.md-logo img {
-  content: url('/practice/practice-light.png');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/practice/practice-dark.png');
-}
-</style>
-
 ## Problem
 
 Given an array where all but one element appear twice, find the single element.

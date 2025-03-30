@@ -1,24 +1,5 @@
 # Practice
 
-<style>
-.md-logo img {
-  content: url('/practice/practice-light.png');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/practice/practice-dark.png');
-}
-</style>
-
-| Serial | Description                                                                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.     | <a target="_blank" href="/practice/list-all-binary-strings-generated-from-wildcard-pattern">List all binary strings generated from wildcard pattern</a> |
-| 2.     | <a target="_blank" href="/practice/merge-overlapping-intervals">Merge overlapping intervals</a>                                                         |
-| 3.     | <a target="_blank" href="/practice/longest-common-prefix">Longest common prefix</a>                                                                     |
-| 4.     | <a target="_blank" href="/practice/generate-pascals-triangle-row">Generate Specified Row of Pascal's Triangle</a>                                       |
-| 5.     | <a target="_blank" href="./find-the-only-non-duplicate">Find the only non-duplicate number in an array</a>                                              |
-| 6.     | <a target="_blank" href="./intersection-of-linked-lists">Intersection of two linked lists</a>                                                           |
-
 ## Learnings from Online Judges
 
 ### `LinkedList` vs `ArrayList`

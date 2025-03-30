@@ -1,15 +1,5 @@
 # Merge overlapping intervals
 
-<style>
-.md-logo img {
-  content: url('/practice/practice-light.png');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/practice/practice-dark.png');
-}
-</style>
-
 ## Problem
 
 Given a set of intervals, merge all overlapping intervals until all remaining intervals are strictly disjoint.

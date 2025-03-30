@@ -56,7 +56,7 @@ fun simple() {
 
 @Test
 fun random() {
-  val original = ThreadLocalRandom.current().ints(0, 100, 1000).toArray()
+  val original = ThreadLocalRandom.current().ints(1000, 0, 100).toArray()
 
   for (pivot in original) {
     val copy = original.copyOf()

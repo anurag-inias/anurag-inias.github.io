@@ -130,6 +130,9 @@ nav:
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
           - Common Patterns: "data-structures/linked-list/patterns.md"
           - Problems: "data-structures/linked-list/problems/index.md"
+      - Array:
+          - Problems:
+              - "The Dutch National Flag Problem": "data-structures/array/problems/dutch-national-flag.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
           - Problems: "data-structures/stack/problems/index.md"
@@ -150,10 +153,22 @@ nav:
               - BFS: "data-structures/graph/bfs.md"
               - DFS: "data-structures/graph/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
-      - Array:
-          - Problems:
-              - "The Dutch National Flag Problem": "data-structures/array/problems/dutch-national-flag.md"
-  - Practice: "practice/index.md"
+  - Practice:
+      - Learnings: "practice/index.md"
+      - Greedy:
+          - Activity selection: "practice/greedy/activity-selection.md"
+      - Backtracking:
+          - List all binary strings generated from wildcard pattern: "practice/backtracking/list-all-binary-strings-generated-from-wildcard-pattern.md"
+      - Bits:
+          - Find the only non-duplicate number in an array: "practice/bits/find-the-only-non-duplicate.md"
+      - Linked List:
+          - Intersection of two linked lists: "practice/linked-list/intersection-of-linked-lists.md"
+      - Sorting:
+          - Merge overlapping intervals: "practice/sorting/merge-overlapping-intervals.md"
+      - String:
+          - Longest Common Prefix: "practice/string/longest-common-prefix.md"
+      - Miscellaneous:
+          - Generate Specified Row of Pascal's Triangle: "practice/misc/generate-pascals-triangle-row.md"
   - Design Patterns:
       - Creational:
           - Singleton: "design-patterns/singleton.md"

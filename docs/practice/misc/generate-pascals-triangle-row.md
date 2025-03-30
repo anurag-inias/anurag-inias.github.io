@@ -1,15 +1,5 @@
 # Generate Specified Row of Pascal's Triangle
 
-<style>
-.md-logo img {
-  content: url('/practice/practice-light.png');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/practice/practice-dark.png');
-}
-</style>
-
 ## Problem
 
 Recall [Pascal's Triangle](/maths/combinatorics/p-and-c).

@@ -1,15 +1,5 @@
 # Intersection of two linked lists
 
-<style>
-.md-logo img {
-  content: url('/practice/practice-light.png');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/practice/practice-dark.png');
-}
-</style>
-
 ## Problem
 
 Given two linked lists, find the node at which they intersect (if they do).
