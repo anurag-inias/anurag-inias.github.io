@@ -150,6 +150,9 @@ nav:
               - BFS: "data-structures/graph/bfs.md"
               - DFS: "data-structures/graph/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
+      - Array:
+          - Problems:
+              - "The Dutch National Flag Problem": "data-structures/array/problems/dutch-national-flag.md"
   - Practice: "practice/index.md"
   - Design Patterns:
       - Creational:
