@@ -65,7 +65,7 @@ Given a linked list, split it in the middle.
 
     We could've used a `slow` pointer and a `pred` pointer which is always a step behind `slow`. Instead we are using a deque to mimic `slow` with a `-1` offset.
 
-    See more details [in here](/data-structures/linked-list/problems/#__tabbed_1_2).
+    See more details [in here](../patterns.md#__tabbed_1_2).
 
     ```kotlin
     fun split(): Node? {

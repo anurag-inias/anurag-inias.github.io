@@ -19,7 +19,7 @@ Preorder traverse a binary tree iteratively. That is:
 
 ## Example
 
-![](./preorder-example.png){width=400}
+![](preorder-example.png){width=400}
 
 ## Minimum setup
 

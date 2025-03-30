@@ -11,7 +11,7 @@
 </style>
 
 <div markdown style="text-align: center">
-[![](/algorithms/divide-and-conquer/one.gif){width=200}]("I couldn't resist")
+[![](one.gif){width=200}]("I couldn't resist")
 </div>
 
 The master method is a "black-box" method to determine the running time of a recursive algorithm.
@@ -76,7 +76,7 @@ Leading to $T(n) = O(\log n)$.
 
 ## Explanation
 
-![](/algorithms/divide-and-conquer/subproblem-graph.png)
+![](subproblem-graph.png)
 
 At any given level $i$, we have $a^i$ subproblems, each of input size $\dfrac{n}{b}$.
 
@@ -97,7 +97,7 @@ Work done in each level simplifies to $n^d$, with a total of $\log_bn$ levels. T
 
 ### case: $a < b^d$
 
-We have at our hand a geometric progression of length $\log_bn$ and common ratio $\dfrac{a}{b^d}$. Recall the special case for geometric progression we previously covered [here](/maths/series). This gives us the time complexity of:
+We have at our hand a geometric progression of length $\log_bn$ and common ratio $\dfrac{a}{b^d}$. Recall the special case for geometric progression we previously covered [here](../../maths/series.md). This gives us the time complexity of:
 
 $$
 \begin{alignat}{1}

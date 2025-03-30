@@ -29,7 +29,7 @@ $$
 
 ??? "Expand"
 
-    Not all operators are [commutativity](/maths/arithmetic-laws).
+    Not all operators are [commutativity](../../../maths/algebra/arithmetic-laws.md).
 
 ## Solution
 

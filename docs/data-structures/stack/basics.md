@@ -35,8 +35,8 @@ $$
 
 === "Golang"
 
-    ![](/data-structures/stack/go-pop-light.png#only-light){width=300}
-    ![](/data-structures/stack/go-pop-dark.png#only-dark){width=300}
+    ![](go-pop-light.png#only-light){width=300}
+    ![](go-pop-dark.png#only-dark){width=300}
 
     A neat trick we can do with Go *slices*s is popping an element by changing the region of the underlying array that the slice is projecting $\text{slice} \leftarrow \text{slice}(0 \dots length-1)$. Since the new slice keeps pointing to the same underlying array, we can update our bounds without having to keep a separate `top` pointer.
 

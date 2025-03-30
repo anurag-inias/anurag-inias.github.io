@@ -45,7 +45,7 @@ In strict mode, aforementioned behaviour is disabled.
 var name = "piggy";
 
 function greet() {
-  'use strict';
+  "use strict";
   console.log(`${this.name}`);
 }
 
@@ -56,7 +56,7 @@ greet(); // TypeError: Cannot read properties of undefined
 
 ## 2. Implicit binding
 
-When a function is invoked as a method (i.e. member) of an object, that object is treated as `this`. 
+When a function is invoked as a method (i.e. member) of an object, that object is treated as `this`.
 
 <hr>
 
@@ -64,10 +64,10 @@ When a function is invoked as a method (i.e. member) of an object, that object i
 
 ```javascript
 let james = {
-  name: 'James',
+  name: "James",
   greet() {
     console.log(`${this.name}`);
-  }
+  },
 };
 
 james.greet(); // James
@@ -81,8 +81,8 @@ function sayHi() {
 }
 
 let james = {
-  name: 'James',
-  greet: sayHi
+  name: "James",
+  greet: sayHi,
 };
 
 james.greet(); // James
@@ -92,15 +92,15 @@ Doesn't matter if the function was first declared in the object or later added a
 
 ```javascript
 let james = {
-  name: 'James',
+  name: "James",
   greet() {
     console.log(`${this.name}`);
-  }
+  },
 };
 
-james.greet()        // James
+james.greet(); // James
 let g = james.greet;
-g();                 // undefined
+g(); // undefined
 ```
 
 Functions and methods in JS are the same thing. There is no implied ownership.
@@ -131,17 +131,11 @@ function greet(age) {
 <div class="grid" markdown>
 
 ```javascript hl_lines="3"
-greet.call(
-  { name: 'foo' }, 
-  5
-); // 'foo is 5 years old'
+greet.call({ name: "foo" }, 5); // 'foo is 5 years old'
 ```
 
 ```javascript hl_lines="3"
-greet.apply(
-  { name: 'foo' }, 
-  [5]
-); // 'foo is 5 years old'
+greet.apply({ name: "foo" }, [5]); // 'foo is 5 years old'
 ```
 
 `call` invokes the function with supplied `this` and arguments provided individually.
@@ -156,33 +150,33 @@ greet.apply(
 
 ```javascript
 function bind(func, context) {
-  return function() {
+  return function () {
     return func.apply(context, arguments);
-  }
+  };
 }
 
 function greet() {
   console.log(`${this.name}`);
 }
 
-let j = bind(greet, { name: 'james' })
-j();                       // james
+let j = bind(greet, { name: "james" });
+j(); // james
 
-j.call({ name: 'games' }); // james
+j.call({ name: "games" }); // james
 ```
 
-This pattern has been standardized in ES5 as `Function.prototype.bind`.  One thing to note: `null` and `undefined` is ignored as context and JS fallsback to standalone function call.
+This pattern has been standardized in ES5 as `Function.prototype.bind`. One thing to note: `null` and `undefined` is ignored as context and JS fallsback to standalone function call.
 
 ## 4. new operator
 
-[As discussed previously](/js/objects/basics/#2-with-new-operator), there is no such thing as constructor in JS. Instead, there is a constructor operator called by prefixing `new` to a function call.
+[As discussed previously](basics.md#2-with-new-operator), there is no such thing as constructor in JS. Instead, there is a constructor operator called by prefixing `new` to a function call.
 
 `new` hijacks the behaviour of the function, implicitly creating a new object and binding it as `this`.
 
 <div class="grid" markdown>
 
 ```javascript
-var name = 'piggy'
+var name = "piggy";
 
 function greet() {
   console.log(`${this.name}`);
@@ -192,7 +186,7 @@ greet(); // piggy
 ```
 
 ```javascript
-var name = 'piggy'
+var name = "piggy";
 
 function greet() {
   // this = {}
@@ -227,39 +221,38 @@ Combining all four of these rules in the order of precedence gets us:
 The arrow-functions capture `this` from surrounding scope and it cannot be overridden, even with `new`.
 
 ```javascript
-var name = 'james';
+var name = "james";
 
 function greet() {
   // this: depends on call site.
-	console.log(`${this.name}`);
+  console.log(`${this.name}`);
 }
 
-let	meet = () => {
+let meet = () => {
   // this: inherited and stickied from enclosing scope.
-	console.log(`${this.name}`);
-}
+  console.log(`${this.name}`);
+};
 
-greet();                       // james
-greet.call({ name: 'games' }); // games
-meet.call({ name: 'games' });  // james
+greet(); // james
+greet.call({ name: "games" }); // games
+meet.call({ name: "games" }); // james
 ```
 
 See another example below. Even with an arrow-function you can end up having call-site dependent `this` if the surrounding scope is an old school function.
 
 ```javascript
-var name = 'james';
+var name = "james";
 
 function foo() {
   // this: depends on call site
-	let bar = () => {
+  let bar = () => {
     // this: inherited and stickied from enclosing scope.
     //     : ends up depending on call site.
-		console.log(`${this.name}`);
-	};
-	bar();
+    console.log(`${this.name}`);
+  };
+  bar();
 }
 
-foo();                       // 'james'
-foo.call({ name: 'games' }); // 'games'
+foo(); // 'james'
+foo.call({ name: "games" }); // 'games'
 ```
-

@@ -12,7 +12,7 @@
 
 ## Problem
 
-Same as [longest common subsequence](/algorithms/dynamic-programming/longest-common-subsequence), but now we are interested in finding the contiguous subsequence (substring).
+Same as [longest common subsequence](longest-common-subsequence.md), but now we are interested in finding the contiguous subsequence (substring).
 
 ## Example
 

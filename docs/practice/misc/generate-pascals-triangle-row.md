@@ -2,7 +2,7 @@
 
 ## Problem
 
-Recall [Pascal's Triangle](/maths/combinatorics/p-and-c).
+Recall [Pascal's Triangle](../../maths/combinatorics/p-and-c.md).
 
 $$
 \begin{alignat}{1}

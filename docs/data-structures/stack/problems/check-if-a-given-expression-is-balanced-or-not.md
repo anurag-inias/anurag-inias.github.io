@@ -65,5 +65,5 @@ Given a string made up of parentheses `()`, brackets `[]`, and braces `{}`, see 
 
 ??? "Expand"
 
-    ![](/data-structures/stack/problems/screenshots/problem-1-light.png#only-light){width=300}
-    ![](/data-structures/stack/problems/screenshots/problem-1-dark.png#only-dark){width=300}
+    ![](screenshots/problem-1-light.png#only-light){width=300}
+    ![](screenshots/problem-1-dark.png#only-dark){width=300}

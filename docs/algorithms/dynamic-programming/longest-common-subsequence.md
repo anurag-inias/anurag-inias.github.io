@@ -151,7 +151,7 @@ $$
     \end{array}
     $$
 
-    [![](/algorithms/dynamic-programming/lcs-construction.png)](https://excalidraw.com/#json=TeuoCKnNQoHbqIx_BgH4q,Ohp3RoZjmnUyQfWxxBHt7Q)
+    [![](lcs-construction.png)](https://excalidraw.com/#json=TeuoCKnNQoHbqIx_BgH4q,Ohp3RoZjmnUyQfWxxBHt7Q)
 
 ??? "Implementation"
 

@@ -8,7 +8,7 @@ Given an array of numbers $a$ and a number $p$, rearrange the element such that 
 
 ??? "Approach"
 
-    See [Partition](/algorithms/partition/partition) docs.
+    See [Partition](../../../algorithms/partition/partition.md) docs.
 
 ??? "Implementation"
 

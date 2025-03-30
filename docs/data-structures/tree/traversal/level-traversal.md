@@ -16,7 +16,7 @@ Given a binary tree, print its nodes level by level.
 
 ## Example
 
-![](./level-traversal.png){width=300}
+![](level-traversal.png){width=300}
 
 ## Implementation
 

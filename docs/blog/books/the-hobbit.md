@@ -1,6 +1,6 @@
 # The Hobbit
 
-| ![](/blog/books/the-hobbit.jpg){width=140px}                                                     |
+| ![](the-hobbit.jpg){width=140px}                                                                 |
 | ------------------------------------------------------------------------------------------------ |
 | Finished :material-star: :material-star: :material-star: :material-star: :material-star-outline: |
 

@@ -20,7 +20,7 @@ Preorder traverse a binary tree iteratively. That is:
 
 ## Example
 
-![](/data-structures/stack/problems/preorder-example.png){width=400}
+![](preorder-example.png){width=400}
 
 ## Minimum setup
 

@@ -12,7 +12,7 @@
 
 ## Problem
 
-Turn a linked list [`Iterable`](/java/iterators). This will let us write `for-in` loops for the list.
+Turn a linked list [`Iterable`](../../../java/iterators.md). This will let us write `for-in` loops for the list.
 
 ## Hint
 

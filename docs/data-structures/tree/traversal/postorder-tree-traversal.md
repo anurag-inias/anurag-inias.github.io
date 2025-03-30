@@ -19,7 +19,7 @@ Postorder traverse a binary tree iteratively. That is:
 
 ## Example
 
-![](./postorder-example.png){width=400}
+![](postorder-example.png){width=400}
 
 ## Minimum setup
 

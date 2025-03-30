@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
 <script src="https://tikzjax.com/v1/tikzjax.js"></script>
 
-We previously saw the [singly-linked implementation of a linked list](/data-structures/linked-list/singly-linked-list), and one major shortcoming is immediately apparent: almost every operation has check for boundary conditions.
+We previously saw the [singly-linked implementation of a linked list](singly-linked-list.md), and one major shortcoming is immediately apparent: almost every operation has check for boundary conditions.
 
 ## Sentinel
 

@@ -19,7 +19,7 @@ Inorder traverse a binary tree iteratively. That is:
 
 ## Example
 
-![](./inorder-example.png){width=400}
+![](inorder-example.png){width=400}
 
 ## Minimum setup
 
@@ -42,7 +42,7 @@ class Node(val value: Int, val left: Node? = null, val right: Node? = null) {
 
     process first left-diagonal, then second, and so on.
 
-    ![](./inorder-hint.png){width=300}
+    ![](inorder-hint.png){width=300}
 
 ## Solution
 
