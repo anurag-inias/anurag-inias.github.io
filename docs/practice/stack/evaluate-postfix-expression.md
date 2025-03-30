@@ -1,15 +1,5 @@
 # Evaluate postfix expression
 
-<style>
-.md-logo img {
-  content: url('/data-structures/stack/stack.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/data-structures/stack/stack.svg');
-}
-</style>
-
 ## Problem
 
 Given an expression in postfix notation, evaluate its value.
@@ -29,7 +19,7 @@ $$
 
 ??? "Expand"
 
-    Not all operators are [commutativity](../../../maths/algebra/arithmetic-laws.md).
+    Not all operators are [commutativity](../../maths/algebra/arithmetic-laws.md).
 
 ## Solution
 

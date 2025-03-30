@@ -1,15 +1,5 @@
 # Convert infix expression to postfix
 
-<style>
-.md-logo img {
-  content: url('/data-structures/stack/stack.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/data-structures/stack/stack.svg');
-}
-</style>
-
 ## Problem
 
 Convert a given infix expression to a postfix expression

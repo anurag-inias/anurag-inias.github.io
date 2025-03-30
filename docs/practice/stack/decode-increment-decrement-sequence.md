@@ -1,15 +1,5 @@
 # Decode increment decrement sequence
 
-<style>
-.md-logo img {
-  content: url('/data-structures/stack/stack.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/data-structures/stack/stack.svg');
-}
-</style>
-
 ## Problem
 
 Given a sequence of `I` and `D`, where `I` requires increasing the sequence and `D` requires decreasing it; decode the this sequence into a number that's as minimum as possible such that no digit is repeated.

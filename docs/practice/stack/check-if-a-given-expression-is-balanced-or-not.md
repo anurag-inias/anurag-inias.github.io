@@ -1,15 +1,5 @@
 # Check if a given expression is balanced or not
 
-<style>
-.md-logo img {
-  content: url('/data-structures/stack/stack.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/data-structures/stack/stack.svg');
-}
-</style>
-
 ## Problem
 
 Given a string made up of parentheses `()`, brackets `[]`, and braces `{}`, see if makes a valid expression.

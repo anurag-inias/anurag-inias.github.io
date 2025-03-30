@@ -1,15 +1,5 @@
 # Design a stack that supports peeking minimum element
 
-<style>
-.md-logo img {
-  content: url('/data-structures/stack/stack.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/data-structures/stack/stack.svg');
-}
-</style>
-
 ## Problem
 
 Build a stack which can be queried for $minimum$ element in an efficient manner.

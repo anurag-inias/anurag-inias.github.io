@@ -124,7 +124,6 @@ nav:
               - "The Dutch National Flag Problem": "data-structures/array/problems/dutch-national-flag.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
-          - Problems: "data-structures/stack/problems/index.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
@@ -148,6 +147,16 @@ nav:
           - Activity selection: "practice/greedy/activity-selection.md"
       - Backtracking:
           - List all binary strings generated from wildcard pattern: "practice/backtracking/list-all-binary-strings-generated-from-wildcard-pattern.md"
+      - Stack:
+          - Check if a given expression is balanced or not: "practice/stack/check-if-a-given-expression-is-balanced-or-not.md"
+          - Convert infix expression to postfix: "practice/stack/convert-infix-expression-to-postfix.md"
+          - Decode increment decrement sequence: "practice/stack/decode-increment-decrement-sequence.md"
+          - Design a stack that supports peeking minimum element: "practice/stack/design-a-stack-that-supports-peeking-minimum-element.md"
+          - Evaluate postfix expression: "practice/stack/evaluate-postfix-expression.md"
+          - Find duplicate parenthesis in an expression: "practice/stack/find-duplicate-parenthesis-in-an-expression.md"
+          - Inorder tree traversal: "practice/stack/inorder-tree-traversal.md"
+          - Postorder tree traversal: "practice/stack/postorder-tree-traversal.md"
+          - Preorder tree traversal: "practice/stack/preorder-tree-traversal.md"
       - Bits:
           - Find the only non-duplicate number in an array: "practice/bits/find-the-only-non-duplicate.md"
           - Count the number of set bits: "practice/bits/count-the-number-of-set-bits.md"
