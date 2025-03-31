@@ -109,6 +109,8 @@ nav:
           - Longest common subsequence: "algorithms/dynamic-programming/longest-common-subsequence.md"
           - Longest common substring: "algorithms/dynamic-programming/longest-common-substring.md"
           - Longest palindromic subsequence: "algorithms/dynamic-programming/longest-palindromic-subsequence.md"
+      - Greedy:
+          - Huffman coding: "algorithms/greedy/huffman-coding.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
