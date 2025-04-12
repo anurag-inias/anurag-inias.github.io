@@ -3,14 +3,6 @@
 ## Example
 
 ```
-                                                root
-                  ┌─────────┬─────────────────────┼─────────┬───────────┐
-                first    second                 third    fourth       fifth
-     ┌────────────┤                  ┌────────────┤                     |
-first-first first-second        third-first third-second           fifth-first
-                                                                        |
-                                                                first-first-first
-
                                                               Once_upon_a_midnight_dreary_while_I_pondered_weak_and_weary
                                 ┌─────────────────────────────────────────────────────────────────┤
                       Over_many_a_quaint                                                     and_curious
