@@ -10,6 +10,16 @@
 first-first first-second        third-first third-second           fifth-first
                                                                         |
                                                                 first-first-first
+
+                                                              Once_upon_a_midnight_dreary_while_I_pondered_weak_and_weary
+                                ┌─────────────────────────────────────────────────────────────────┤
+                      Over_many_a_quaint                                                     and_curious
+            ┌───────────────────┤                                           ┌─────────────────────┤
+volume_of_forgotten_lore While_I_nodded                              nearly_napping suddenly_there_came_a_tapping
+                                                ┌───────────────────────────┤
+                                          As_of_some_one              gently_rapping
+                                                              ┌─────────────┤
+                                                        rapping_at_my chamber_door
 ```
 
 ## Implementation
@@ -41,7 +51,21 @@ object TreePrinter {
 
   fun print(root: PrintableNode): String {
     val tree = printHelper(root)
+    val trim = trimSize(tree)
     return tree.rows.joinToString(separator = "\n")
+  }
+
+  private fun trimSize(subtree: PrintedSubtree): Int {
+    fun leftPadding(str: CharSequence): Int {
+      var padding = 0
+      for (c in str) {
+        if (c != ' ') break
+        padding++
+      }
+      return padding
+    }
+
+    return subtree.rows.minOf { leftPadding(it) }
   }
 
   /**
@@ -513,6 +537,42 @@ first second third fourth                 fifth
       111-111-111 333
            |
           222
+    """.trimIndent()
+    )
+  }
+
+  @Test
+  fun edgar_allen_poe() {
+    val root = TextNode("Once_upon_a_midnight_dreary_while_I_pondered_weak_and_weary")
+      .addChild(
+        TextNode("Over_many_a_quaint")
+          .addChild(TextNode("volume_of_forgotten_lore"))
+          .addChild(TextNode("While_I_nodded"))
+      )
+      .addChild(
+        TextNode("and_curious")
+          .addChild(
+            TextNode("nearly_napping")
+              .addChild(TextNode("As_of_some_one"))
+              .addChild(
+                TextNode("gently_rapping")
+                  .addChild(TextNode("rapping_at_my"))
+                  .addChild(TextNode("chamber_door"))
+              )
+          )
+          .addChild(TextNode("suddenly_there_came_a_tapping"))
+      )
+    assertThat(TreePrinter.print(root)).isEqualTo(
+      """
+                                                                      Once_upon_a_midnight_dreary_while_I_pondered_weak_and_weary
+                                        ┌─────────────────────────────────────────────────────────────────┤
+                              Over_many_a_quaint                                                     and_curious
+                    ┌───────────────────┤                                           ┌─────────────────────┤
+        volume_of_forgotten_lore While_I_nodded                              nearly_napping suddenly_there_came_a_tapping
+                                                        ┌───────────────────────────┤
+                                                 As_of_some_one              gently_rapping
+                                                                      ┌─────────────┤
+                                                                rapping_at_my chamber_door
     """.trimIndent()
     )
   }
