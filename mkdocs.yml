@@ -198,6 +198,7 @@ nav:
           - Generate Specified Row of Pascal's Triangle: "practice/misc/generate-pascals-triangle-row.md"
   - Labs:
       - Tree Printer: "labs/tree-printer.md"
+      - Tree Printer v2: "labs/tree-printer-2.md"
   - Design Patterns:
       - Creational:
           - Singleton: "design-patterns/singleton.md"
