@@ -3,10 +3,10 @@
 ## Example
 
 ```
-                                               Once_upon_a_midnight_dreary
-                         ┌──────────────────────────────────┴────────────────────┐
-                 while_I_pondered                                          weak_and_weary
-         ┌───────────────┼───────────────┐                                         └──────────────┬───────────────┐
+                                                  Once_upon_a_midnight_dreary
+                         ┌─────────────────────────────────────┴────────────────────┐
+                 while_I_pondered                                             weak_and_weary
+         ┌───────────────┼───────────────┐                                           └──────────────┬───────────────┐
 Over_many_a_quaint       and        curious_volume                                          of_forgotten_lore While_I_nodded
 ```
 
@@ -86,7 +86,7 @@ private fun printSubtree(node: PrintableNode): PrintedSubtree {
     .append(" ".repeat(merged.plumbAt - n / 2))
     .append(node.content())
 
-  val rightPadding = w - merged.plumbAt - 1 - n / 2
+  val rightPadding = w - merged.plumbAt - 1 - (n - n / 2)
   if (rightPadding < 0) {
     rootRow.append(" ".repeat(-rightPadding))
     for (row in merged.rows) {
@@ -97,7 +97,21 @@ private fun printSubtree(node: PrintableNode): PrintedSubtree {
   }
 
   merged.rows.addFirst(rootRow)
+  trim(merged)
   return PrintedSubtree(merged.plumbAt, merged.rows)
+}
+
+private fun trim(subtree: PrintedSubtree) {
+  val start = subtree.rows.minOf { row -> row.indexOfFirst { it != ' ' } }
+  val end = subtree.rows.maxOf { row -> row.indexOfLast { it != ' ' } }
+
+  for ((r, row) in subtree.rows.withIndex()) {
+    val offset = end - start + 1 - row.length
+    if (offset > 0) {
+      row.append(" ".repeat(offset))
+    }
+    subtree.rows[r] = StringBuilder(row.subSequence(start..end))
+  }
 }
 
 private fun columnsPlumbing(parentWidth: Int, subtrees: List<PrintedSubtree>, left: IntRange, below: Int?, right: IntRange): StringBuilder {
@@ -394,8 +408,8 @@ bonjour
     root.children.first().children.first().content = "hello"
     assertThat(print(root)).isEqualTo(
       """
-        bonjour
-      ┌────┘
+       bonjour
+      ┌───┘
      hi
   ┌───┘
 hello
@@ -643,9 +657,9 @@ root
     root.children.first().right = 2..<3
     assertThat(print(root)).isEqualTo(
       """
-                                   root
-                 ┌───────────────────┼────┐
-               first               second third
+                                     root
+                 ┌─────────────────────┼────┐
+               first                 second third
      ┌───────────┼──────────┐
 first-first first-second first-third
     """.trimIndent()
@@ -656,9 +670,9 @@ first-first first-second first-third
     root.children.first().right = 1..<3
     assertThat(print(root)).isEqualTo(
       """
-                                   root
-     ┌───────────────────────────────┼────┐
-   first                           second third
+                                     root
+     ┌─────────────────────────────────┼────┐
+   first                             second third
      ├───────────┬──────────┐
 first-first first-second first-third
     """.trimIndent()
@@ -669,9 +683,9 @@ first-first first-second first-third
     root.children.first().right = 0..<3
     assertThat(print(root)).isEqualTo(
       """
-                                        root
-  ┌───────────────────────────────────────┼────┐
-first                                   second third
+                                          root
+  ┌─────────────────────────────────────────┼────┐
+first                                     second third
   └───────┬───────────┬──────────┐
      first-first first-second first-third
     """.trimIndent()
@@ -683,8 +697,8 @@ first                                   second third
     assertThat(print(root)).isEqualTo(
       """
 root
-  ├───────────────────────────────────────┬────┐
-first                                   second third
+  ├─────────────────────────────────────────┬────┐
+first                                     second third
   └───────┬───────────┬──────────┐
      first-first first-second first-third
     """.trimIndent()
@@ -696,8 +710,8 @@ first                                   second third
     assertThat(print(root)).isEqualTo(
       """
 root
-  └───┬───────────────────────────────────────┬────┐
-    first                                   second third
+  └───┬─────────────────────────────────────────┬────┐
+    first                                     second third
       └───────┬───────────┬──────────┐
          first-first first-second first-third
     """.trimIndent()
@@ -722,8 +736,8 @@ root
     assertThat(print(root)).isEqualTo(
       """
                      root
-  ┌────────────────────┼───────────────────┐
-first                second                third
+  ┌────────────────────┼──────────────────────┐
+first                second                   third
            ┌───────────┼────────────┐
      second-first second-second second-third
     """.trimIndent()
@@ -735,8 +749,8 @@ first                second                third
     assertThat(print(root)).isEqualTo(
       """
          root
-  ┌────────┼───────────────────────────────┐
-first    second                            third
+  ┌────────┼──────────────────────────────────┐
+first    second                               third
            ├───────────┬────────────┐
      second-first second-second second-third
     """.trimIndent()
@@ -748,8 +762,8 @@ first    second                            third
     assertThat(print(root)).isEqualTo(
       """
       root
-  ┌─────┼────────────────────────────────────────┐
-first second                                     third
+  ┌─────┼───────────────────────────────────────────┐
+first second                                        third
         └────────┬───────────┬────────────┐
            second-first second-second second-third
     """.trimIndent()
@@ -761,8 +775,8 @@ first second                                     third
     assertThat(print(root)).isEqualTo(
       """
                   root
-  ┌─────────────────┼────────────────────────────┐
-first             second                         third
+  ┌─────────────────┼───────────────────────────────┐
+first             second                            third
            ┌────────┴────────┬────────────┐
      second-first       second-second second-third
     """.trimIndent()
@@ -774,8 +788,8 @@ first             second                         third
     assertThat(print(root)).isEqualTo(
       """
 root
-  ├─────────────────┬────────────────────────────┐
-first             second                         third
+  ├─────────────────┬───────────────────────────────┐
+first             second                            third
            ┌────────┴────────┬────────────┐
      second-first       second-second second-third
     """.trimIndent()
@@ -787,8 +801,8 @@ first             second                         third
     assertThat(print(root)).isEqualTo(
       """
 root
-  └───┬─────────────────┬────────────────────────────┐
-    first             second                         third
+  └───┬─────────────────┬───────────────────────────────┐
+    first             second                            third
                ┌────────┴────────┬────────────┐
          second-first       second-second second-third
     """.trimIndent()
@@ -815,10 +829,10 @@ root
     root.children.last().below = null
     root.children.last().right = 0..<2
     assertThat(print(root)).isEqualTo("""
-                                               Once_upon_a_midnight_dreary
-                         ┌──────────────────────────────────┴────────────────────┐
-                 while_I_pondered                                          weak_and_weary
-         ┌───────────────┼───────────────┐                                         └──────────────┬───────────────┐
+                                                  Once_upon_a_midnight_dreary
+                         ┌─────────────────────────────────────┴────────────────────┐
+                 while_I_pondered                                             weak_and_weary
+         ┌───────────────┼───────────────┐                                           └──────────────┬───────────────┐
 Over_many_a_quaint       and        curious_volume                                          of_forgotten_lore While_I_nodded
     """.trimIndent())
   }
