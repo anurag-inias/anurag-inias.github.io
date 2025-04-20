@@ -83,7 +83,7 @@ private fun printSubtree(node: PrintableNode): PrintedSubtree {
   val n = node.content().length
   val w = merged.width
   rootRow
-    .append(" ".repeat(merged.plumbAt - n / 2))
+    .append(" ".repeat(max(0, merged.plumbAt - n / 2)))
     .append(node.content())
 
   val rightPadding = w - merged.plumbAt - 1 - (n - n / 2)

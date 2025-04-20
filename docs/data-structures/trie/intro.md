@@ -80,6 +80,10 @@ l(planet)         l(plant)
 
 </div>
 
+## Limitation
+
+The examples we consider here do not allow any _prefixes_. For that, see the follow-up page on compressed trie.
+
 ## Example
 
 ### Search
@@ -145,6 +149,10 @@ Searching `271-10-2529` leads us to a leaf node. Since the key doesn't match wha
     ![](trie-example-5b.png)
 
 </div>
+
+<hr>
+
+<hr>
 
 <div markdown>
 
