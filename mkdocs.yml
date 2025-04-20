@@ -50,6 +50,7 @@ markdown_extensions:
   - pymdownx.tilde
   - attr_list
   - md_in_html
+  - def_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -135,6 +136,8 @@ nav:
                   - Preorder: "data-structures/tree/traversal/preorder-tree-traversal.md"
                   - Postorder: "data-structures/tree/traversal/postorder-tree-traversal.md"
               - BFS / level-order: "data-structures/tree/traversal/level-traversal.md"
+      - Trie:
+          - Introduction: "data-structures/trie/intro.md"
       - Graph:
           - Intro: "data-structures/graph/intro.md"
           - Traversal:
