@@ -339,13 +339,15 @@ class Trie {
   private fun insertInBranch(node: BranchNode, key: String, keyRemaining: Int): Node {
     // Case 1: depth < node.digit
     if (keyRemaining < node.digit) {
-      val otherKey = anyKey(node) ?: ""
-      val mismatch = mismatchAt(key, otherKey) ?: return node
+      val otherKey = anyKey(node)
+      val mismatch = mismatchAt(key, otherKey ?: "") ?: return node
       // Case 1b: inserting a key lexicographically distant key.
       if (mismatch < node.digit) {
         val branch = BranchNode(digit = mismatch)
         branch[key] = LeafNode(key)
-        branch[otherKey] = node
+        if (otherKey != null) {
+          branch[otherKey] = node
+        }
         return branch
       }
       // inserting a lexicographically neighbouring key.
@@ -391,6 +393,67 @@ class Trie {
       is BranchNode -> node.branches.values.firstNotNullOfOrNull { anyKey(it) }
       else -> null
     }
+  }
+
+  fun remove(key: String) {
+    val trace = LinkedList<Node>()
+    if (!internalSearch(root, key, trace)) return
+
+    while (trace.isNotEmpty()) {
+      val node = trace.poll()
+      // Delete node from parent and propagate deletion up the chain.
+      if (node is LeafNode) {
+        val parent = (trace.poll() ?: continue) as IsBranch
+        parent[node.key] = null
+        continue
+      }
+      // We'd be here only if in some previous iteration a leaf node was deleted.
+      if (node is BranchNode) {
+        if (node.branches.isNotEmpty()) continue
+        val parent = (trace.poll() ?: return) as IsBranch
+        for ((k, v) in parent.branches) {
+          if (v == node) {
+            parent.branches.remove(k)
+            break
+          }
+        }
+        continue
+      }
+      if (node is PrefixNode) {
+        val parent = (trace.poll() ?: continue) as IsBranch
+        val branch = BranchNode(node.digit)
+        branch.branches.putAll(node.branches)
+        for ((k, v) in parent.branches) {
+          if (v == node) {
+            parent.branches[k] = branch
+            break
+          }
+        }
+      }
+    }
+    root = compress(root) ?: root
+  }
+
+  private fun compress(node: Node): Node? {
+    if (node is LeafNode) return node
+    if (node is IsBranch) {
+      val iter = node.branches.iterator()
+      while (iter.hasNext()) {
+        val (k, v) = iter.next()
+        with(compress(v)) {
+          if (this == null) iter.remove()
+          else node.branches[k] = this
+        }
+      }
+    }
+    if (node is PrefixNode) return node
+    if (node is BranchNode) {
+      if (node.branches.isEmpty()) return null
+      if (node.branches.size > 1) return node
+      val onlyChild = node.branches.values.first()
+      if (onlyChild is BranchNode) return onlyChild
+    }
+    return node
   }
 
   override fun toString(): String {
@@ -655,6 +718,103 @@ class TrieTest {
     assertThat(trie.search("951-94-1654")).isTrue()
     assertThat(trie.search("987-26-1615")).isTrue()
     assertThat(trie.search("958-36-4194")).isTrue()
+  }
+
+  @Test
+  fun remove() {
+    trie.insert("562-44-2169")
+    trie.insert("271-16-3624")
+    trie.insert("278-49-1515")
+    trie.insert("951-23-7625")
+    trie.insert("951-94-1654")
+    trie.insert("987-26-1615")
+    trie.insert("958-36-4194")
+    assertThat(trie.toString()).isEqualTo("""
+                                             b(1▹2,5,9)
+                        ┌─────────────────────────┼──────────────────────────────────────────────────────────────────────┐
+                    b(3▹1,8)                l(562-44-2169)                                                             b(2▹5,8)
+             ┌──────────┴──────────┐                                                               ┌──────────────────────┴──────────┐
+      l(271-16-3624)         l(278-49-1515)                                                    b(3▹1,8)                        l(987-26-1615)
+                                                                           ┌──────────────────────┴──────────┐
+                                                                       b(5▹2,9)                        l(958-36-4194)
+                                                                ┌──────────┴──────────┐
+                                                         l(951-23-7625)         l(951-94-1654)
+    """.trimIndent())
+
+    trie.remove("562-44-2169")
+    assertThat(trie.toString()).isEqualTo("""
+                                           b(1▹2,9)
+                        ┌──────────────────────┴───────────────────────────────────────────────────────────────────┐
+                    b(3▹1,8)                                                                                    b(2▹5,8)
+             ┌──────────┴──────────┐                                                         ┌──────────────────────┴──────────┐
+      l(271-16-3624)         l(278-49-1515)                                              b(3▹1,8)                        l(987-26-1615)
+                                                                     ┌──────────────────────┴──────────┐
+                                                                 b(5▹2,9)                        l(958-36-4194)
+                                                          ┌──────────┴──────────┐
+                                                   l(951-23-7625)         l(951-94-1654)
+    """.trimIndent())
+
+    trie.remove("958-36-4194")
+    assertThat(trie.toString()).isEqualTo("""
+                                           b(1▹2,9)
+                        ┌──────────────────────┴────────────────────────────────────────────┐
+                    b(3▹1,8)                                                             b(2▹5,8)
+             ┌──────────┴──────────┐                                  ┌──────────────────────┴──────────┐
+      l(271-16-3624)         l(278-49-1515)                       b(5▹2,9)                        l(987-26-1615)
+                                                          ┌──────────┴──────────┐
+                                                   l(951-23-7625)         l(951-94-1654)
+    """.trimIndent())
+
+    trie.remove("987-26-1615")
+    assertThat(trie.toString()).isEqualTo("""
+                                           b(1▹2,9)
+                        ┌──────────────────────┴─────────────────────┐
+                    b(3▹1,8)                                      b(5▹2,9)
+             ┌──────────┴──────────┐                       ┌──────────┴──────────┐
+      l(271-16-3624)         l(278-49-1515)         l(951-23-7625)         l(951-94-1654)
+    """.trimIndent())
+
+    trie.remove("271-16-3624")
+    assertThat(trie.toString()).isEqualTo("""
+                    b(1▹2,9)
+             ┌──────────┴─────────────────────┐
+          b(3▹8)                           b(5▹2,9)
+             |                      ┌──────────┴──────────┐
+      l(278-49-1515)         l(951-23-7625)         l(951-94-1654)
+    """.trimIndent())
+
+    trie.remove("951-94-1654")
+    assertThat(trie.toString()).isEqualTo("""
+                    b(1▹2,9)
+             ┌──────────┴──────────┐
+          b(3▹8)                 b(5▹2)
+             |                      |
+      l(278-49-1515)         l(951-23-7625)
+    """.trimIndent())
+
+    trie.remove("278-49-1515")
+    assertThat(trie.toString()).isEqualTo("""
+          b(5▹2)
+             |
+      l(951-23-7625)
+    """.trimIndent())
+
+    trie.remove("951-23-7625")
+    assertThat(trie.toString()).isEqualTo("b(5▹)")
+
+    trie.insert("278-49-1515")
+    assertThat(trie.toString()).isEqualTo("""
+          b(1▹2)
+             |
+      l(278-49-1515)
+    """.trimIndent())
+
+    trie.insert("271-16-3624")
+    assertThat(trie.toString()).isEqualTo("""
+                    b(3▹1,8)
+             ┌──────────┴──────────┐
+      l(271-16-3624)         l(278-49-1515)
+    """.trimIndent())
   }
 
 }
