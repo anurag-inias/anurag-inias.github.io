@@ -278,6 +278,25 @@ private class PrefixNode(override val key: String, override val digit: Int) : Ha
 class Trie {
   private var root: Node = BranchNode(digit = 0)
 
+  fun search(key: String): Boolean {
+    return internalSearch(root, key, LinkedList())
+  }
+
+  private fun internalSearch(node: Node?, key: String, trace: MutableList<Node>): Boolean {
+    if (node == null) return false
+
+    trace.addFirst(node)
+    if (node is LeafNode) return key == node.key
+    if (node is PrefixNode) {
+      if (key == node.key) return true
+      return internalSearch(node[key], key, trace)
+    }
+    if (node is BranchNode) {
+      return internalSearch(node[key], key, trace)
+    }
+    return false
+  }
+
   fun insert(key: String) {
     root = insert(root, key, keyRemaining = 0)
   }
@@ -426,6 +445,8 @@ class TrieTest {
           |
       l(hello)
     """.trimIndent())
+
+    assertThat(trie.search("hello")).isTrue()
   }
 
   @Test
@@ -438,6 +459,10 @@ class TrieTest {
           ┌────────┼────────┐
       l(aloha) l(bonjour) l(hello)
     """.trimIndent())
+
+    assertThat(trie.search("hello")).isTrue()
+    assertThat(trie.search("aloha")).isTrue()
+    assertThat(trie.search("bonjour")).isTrue()
   }
 
   @Test
@@ -453,6 +478,11 @@ class TrieTest {
                             ┌───────┴──────┐
                         l(hello)         l(hola)
     """.trimIndent())
+
+    assertThat(trie.search("hello")).isTrue()
+    assertThat(trie.search("hola")).isTrue()
+    assertThat(trie.search("aloha")).isTrue()
+    assertThat(trie.search("bonjour")).isTrue()
   }
 
   @Test
@@ -464,6 +494,9 @@ class TrieTest {
           ┌────────┴───────┐
       l(planet)         l(plant)
     """.trimIndent())
+
+    assertThat(trie.search("plant")).isTrue()
+    assertThat(trie.search("planet")).isTrue()
   }
 
   @Test
@@ -504,6 +537,12 @@ class TrieTest {
                             ┌────────┴───────┐
                         l(planet)         l(plant)
     """.trimIndent())
+
+    assertThat(trie.search("alert")).isTrue()
+    assertThat(trie.search("plant")).isTrue()
+    assertThat(trie.search("planet")).isTrue()
+    assertThat(trie.search("plywood")).isTrue()
+    assertThat(trie.search("plenty")).isTrue()
   }
 
   @Test
@@ -561,6 +600,13 @@ class TrieTest {
                                                |
                                            l(159688)
     """.trimIndent())
+
+    assertThat(trie.search("1588")).isTrue()
+    assertThat(trie.search("159")).isTrue()
+    assertThat(trie.search("1596")).isTrue()
+    assertThat(trie.search("15962")).isTrue()
+    assertThat(trie.search("15968")).isTrue()
+    assertThat(trie.search("159688")).isTrue()
   }
 
   @Test
@@ -601,6 +647,14 @@ class TrieTest {
                                                                 ┌──────────┴──────────┐
                                                          l(951-23-7625)         l(951-94-1654)
     """.trimIndent())
+
+    assertThat(trie.search("271-16-3624")).isTrue()
+    assertThat(trie.search("562-44-2169")).isTrue()
+    assertThat(trie.search("278-49-1515")).isTrue()
+    assertThat(trie.search("951-23-7625")).isTrue()
+    assertThat(trie.search("951-94-1654")).isTrue()
+    assertThat(trie.search("987-26-1615")).isTrue()
+    assertThat(trie.search("958-36-4194")).isTrue()
   }
 
 }
