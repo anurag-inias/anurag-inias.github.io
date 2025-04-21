@@ -10,6 +10,22 @@
 }
 </style>
 
+## Demo
+
+```
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    b(1▹A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,Y,Z,w)
+                                                                                                      +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------------------------------------------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+-----------------------------------------------------------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------+-------------------------------+-----------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------+---------------------+------------------+-------------------+
+                                                                                              b(2▹f,l,n,r,u,z)                                                                                                                                                                                                      b(2▹a,e,h,o,r,u)                                                                                                                                                                                                                    b(2▹a,h,o,r,u,y,z)                                                            b(2▹e,j,o)                                             b(2▹c,g,r,s,t,u)                                                                                b(2▹i,r)                                                                            b(2▹a,e,h,i,r,u)                                                                                                                                              b(2▹a,o,u)                                                                           b(2▹c,n,r,s,t)                                                      b(2▹a,e,o)                                              b(2▹a,e,i,o,u,y)                                                                                          b(2▹a,e,i,u)                                                                                                                                                                                                                                   b(2▹a,e,i,o)                                                                                                                                                                                    b(2▹a,e,i,o)                                            l(Oman)                                                                b(2▹a,e,h,o)                                             l(Qatar)                      b(2▹o,u,w,é)                                                                                                             b(2▹a,e,i,l,o,p,u,w,y)                                                                                                                                                b(2▹a,h,i,o,u,ü)                                                                                                 b(2▹g,k,r,z)                                     b(2▹a,e,i)             l(Yemen)           b(2▹a,i)            l(world)
+       +----------------------+-----------------------------+-----------------------------------------+-------------------------+-------------------------------+--------------------+                                           +-------------------------------------------------------+--------------------+-------------+----------------------+-----------------------------+-----------------------------+                                                  +-------------------------+---------------------------------------------+----------------------+---------------------+------------------+----------+          +----------+-----------+           +---------+---------+-------------+----------------------+--------------------+----------+                 +------------------+-------+                  +----------------------------+------------------+------------+-------------+-----------------------+---------------------------------------------------------------------+                                    +---------+-----------+          +------------------+--------------------------------------------+------------------+---------+                   +----------------+---------+           +-----------+---------+--------------+-----------+---------+-----------+                   +----------------------------+--------------------+-----------------------------------------+---------------------------+                                                                                                  +---------------------------------------------------------+-----------+-----------+----------------------------------------------------------------------------------+                                             +-------------------------+------------------------+------------------------+------------------+                                        +------------------------------+----------+------------+---------------------+                             +---------+-----------+---------+----------+         +-------------------+-------------------------+----------------------+-------------------------+---------------+-----------------+-----------------------------+----------------------+                    +------------------------+-------------+---------------+--------------------+--------------------------------+-----------------------+         +----------+-----------+----------+-----------+            +-----------+-----------+                  +---------+--------+
+l(Afghanistan)            b(3▹b,g)                      b(3▹d,g)                                                           b(3▹g,m,u)                       b(6▹a,i)           l(Azerbaijan)                                b(3▹h,n,r)                                              b(3▹l,n,r)            l(Bhutan)                            b(3▹l,t)                      b(3▹a,u)                      b(3▹l,r)                                           b(3▹m,n)                  b(3▹a,i)                                      b(3▹l,m)              l(Croatia)             b(3▹b,r)           l(Cyprus) l(Czechia) l(Denmark) l(Djibouti) l(Dominica) l(Ecuador) l(Egypt) l(Eritrea)                            b(3▹t,w)            l(Ethiopia) l(Europe)         b(3▹j,n)                   l(France)          b(3▹b,m)                     b(3▹o,r)           l(Ghana)                 l(Gibraltar)              b(4▹e,n)                                                            b(3▹a,e,i,y)                           l(Haiti) l(Honduras) l(Hungary) l(Iceland)          b(4▹i,o)                                     b(3▹a,e)           l(Israel) l(Italy)            b(3▹m,p)         l(Jersey) l(Jordan) l(Kazakhstan) l(Kenya) l(Kiribati)                 l(Kosovo) l(Kuwait) l(Kyrgyzstan)         b(3▹o,t)                     b(3▹b,s)                                                      b(3▹b,e,t)                 l(Luxembourg)                                                                                     b(3▹d,l,r,u,y)                                               l(Mexico)             l(Micronesia)                                                                      b(3▹l,n,r,z)                                    b(3▹m,u)                  b(3▹p,t)                                         b(3▹c,g,u)          l(Norway)                              b(3▹k,l,n,r)                      l(Peru)             l(Philippines)           b(3▹l,r)                     l(Romania) l(Russia)             l(Rwanda) l(Réunion) l(Samoa)           b(3▹n,r,y)               l(Singapore)             b(5▹a,e)                 l(Somalia)       l(Spain)          b(3▹d,r)                      b(3▹e,i)               l(Syria)            b(3▹i,j,n)               l(Thailand) l(Timor-Leste)                         b(3▹g,k,n)                       b(3▹n,r,v)              l(Türkiye) l(Uganda) l(Ukraine)             l(Uruguay) l(Uzbekistan) l(Vanuatu) l(Venezuela) l(Vietnam)          l(Zambia)         l(Zimbabwe)
+                    +---------+--------+          +---------+-----------------+                                     +-----------+---------+          +----------+--------+                                  +--------------------+------------+                      +-------------------+----------+                                    +---------+--------+          +---------+-------+          +----------+--------+                     +-------------------+-------+        +--------+----------------+                 +----------+--------+                          +--------+--------+                                                                                                                 +---------+--------+                               +--------+--------+                           +--------+-------+          +---------+--------+                                                 +----------+--------+                       +-----------------------+------------+-------------+------------+                                                    +--------+---------+                  +---------------+--------+                             +---------+-------+                                                                                                                +--------+-------+          +---------+--------+                                +--------------------+--------------+                          +-------------------------------------------------------+----------------------------+-------------------------+---------------------+                                              +--------------------+------------------------------------------------+----------+-----------+            +---------+-------+        +--------+----------+                         +------------+---------+                           +----------+----------+---------+----------+                                             +---------+--------+                                                                                   +---------+-----------+                         +----------+--------+                                         +--------+--------+          +---------+----------+                    +-----------+------------+                                                    +---------+---------+         +------------+------------+
+               l(Albania)         l(Algeria) l(Andorra)                   b(4▹o,u)                            l(Argentina) l(Armenia) l(Aruba) l(Australia)         l(Austria)                          b(4▹a,r)           l(Bangladesh) l(Barbados)            b(4▹a,g,i)           l(Benin)  l(Bermuda)                           l(Bolivia)         l(Botswana) l(Brazil)         l(Brunei) l(Bulgaria)         l(Burundi)             b(4▹b,e)                    l(Canada) l(Chad)                  b(4▹l,n)         l(Colombia)         l(Comoros)                   l(Cuba)         l(Curaçao)                                                                                                        l(Estonia)         l(Eswatini)                       l(Fiji)         l(Finland)                   l(Gabon)         l(Gambia) l(Georgia)         l(Germany)                                       l(Greenland)         l(Grenada)              b(4▹d,m,t)              l(Guernsey)               p(7▹Guinea|-)  l(Guyana)                                            l(India)         l(Indonesia)         b(4▹n,q)                l(Ireland)                    l(Jamaica)         l(Japan)                                                                                                          l(Laos)         l(Latvia) l(Lebanon)         l(Lesotho)                        b(4▹e,y)         l(Liechtenstein) l(Lithuania)               l(Madagascar)                                           b(4▹a,d,i,t)                 l(Martinique)               b(7▹a,i)             l(Mayotte)                                     l(Moldova)           b(4▹a,g,t)                                                  l(Morocco) l(Mozambique) l(Namibia)         l(Nauru) l(Nepal)         l(Netherlands)             l(Nicaragua) p(6▹Niger|i) l(Niue)                   l(Pakistan) l(Palau)             l(Panama) l(Paraguay)                                    l(Poland)         l(Portugal)                                                                         l(Senegal) l(Serbia) l(Seychelles)              l(Slovakia)         l(Slovenia)                                l(Sudan)         l(Suriname) l(Sweden)         l(Switzerland)          l(Taiwan) l(Tajikistan) l(Tanzania)                                            l(Togo) l(Tokelau) l(Tonga) l(Tunisia) l(Turkmenistan) l(Tuvalu)
+                                                                    +---------+--------+                                                                                                          +---------+--------+                                    +----------+---------+                                                                                                                                                   +----------+--------+                                            +--------+-------+                                                                                                                                                                                                                                                                                                                                                                                                                              +-----------+-----------+                                      |                                                                                              +--------+------+                                                                                                                                                                                                                                                        +---------+-------+                                                                            +--------------------+------------+--------+--------+                        +-----------+---------+                                                                    +----------+------------------------+                                                                                                                                                 |
+                                                                l(Angola)         l(Anguilla)                                                                                                l(Bahamas)         l(Bahrain)                           l(Belarus) l(Belgium) l(Belize)                                                                                                                                          l(Cambodia)         l(Cameroon)                                   l(Chile)         l(China)                                                                                                                                                                                                                                                                                                                                                                                                                     l(Guadeloupe)  l(Guam)  l(Guatemala)                         l(Guinea-Bissau)                                                                                    l(Iran)         l(Iraq)                                                                                                                                                                                                                                                l(Liberia)         l(Libya)                                                                     b(5▹w,y)            l(Maldives)             l(Mali) l(Malta)               l(Mauritania)         l(Mauritius)                                                           l(Monaco) l(Mongolia)               b(5▹e,s)                                                                                                                                         l(Nigeria)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                +---------+--------+                                                                                                                                                                                      +-----------+---------+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            l(Malawi)         l(Malaysia)                                                                                                                                                                           l(Montenegro)         l(Montserrat)
+```
+
 Let's go back to our example trie and consider the highlighted branch nodes.
 
 ![](trie-example-7.png){width=600px}
@@ -239,6 +255,7 @@ package com.example.trie
 
 import com.example.tree.PrintableNode
 import com.example.tree.print
+import java.util.LinkedList
 import java.util.TreeMap
 
 private interface Node : PrintableNode
@@ -277,6 +294,67 @@ private class PrefixNode(override val key: String, override val digit: Int) : Ha
 
 class Trie {
   private var root: Node = BranchNode(digit = 0)
+
+  fun remove(key: String) {
+    val trace = LinkedList<Node>()
+    if (!internalSearch(root, key, trace)) return
+
+    while (trace.isNotEmpty()) {
+      val node = trace.poll()
+      // Delete node from parent and propagate deletion up the chain.
+      if (node is LeafNode) {
+        val parent = (trace.poll() ?: continue) as IsBranch
+        parent[node.key] = null
+        continue
+      }
+      // We'd be here only if in some previous iteration a leaf node was deleted.
+      if (node is BranchNode) {
+        if (node.branches.isNotEmpty()) continue
+        val parent = (trace.poll() ?: return) as IsBranch
+        for ((k, v) in parent.branches) {
+          if (v == node) {
+            parent.branches.remove(k)
+            break
+          }
+        }
+        continue
+      }
+      if (node is PrefixNode) {
+        val parent = (trace.poll() ?: continue) as IsBranch
+        val branch = BranchNode(node.digit)
+        branch.branches.putAll(node.branches)
+        for ((k, v) in parent.branches) {
+          if (v == node) {
+            parent.branches[k] = branch
+            break
+          }
+        }
+      }
+    }
+    root = compress(root) ?: root
+  }
+
+  private fun compress(node: Node): Node? {
+    if (node is LeafNode) return node
+    if (node is IsBranch) {
+      val iter = node.branches.iterator()
+      while (iter.hasNext()) {
+        val (k, v) = iter.next()
+        with(compress(v)) {
+          if (this == null) iter.remove()
+          else node.branches[k] = this
+        }
+      }
+    }
+    if (node is PrefixNode) return node
+    if (node is BranchNode) {
+      if (node.branches.isEmpty()) return null
+      if (node.branches.size > 1) return node
+      val onlyChild = node.branches.values.first()
+      if (onlyChild is BranchNode) return onlyChild
+    }
+    return node
+  }
 
   fun search(key: String): Boolean {
     return internalSearch(root, key, LinkedList())
@@ -395,67 +473,6 @@ class Trie {
     }
   }
 
-  fun remove(key: String) {
-    val trace = LinkedList<Node>()
-    if (!internalSearch(root, key, trace)) return
-
-    while (trace.isNotEmpty()) {
-      val node = trace.poll()
-      // Delete node from parent and propagate deletion up the chain.
-      if (node is LeafNode) {
-        val parent = (trace.poll() ?: continue) as IsBranch
-        parent[node.key] = null
-        continue
-      }
-      // We'd be here only if in some previous iteration a leaf node was deleted.
-      if (node is BranchNode) {
-        if (node.branches.isNotEmpty()) continue
-        val parent = (trace.poll() ?: return) as IsBranch
-        for ((k, v) in parent.branches) {
-          if (v == node) {
-            parent.branches.remove(k)
-            break
-          }
-        }
-        continue
-      }
-      if (node is PrefixNode) {
-        val parent = (trace.poll() ?: continue) as IsBranch
-        val branch = BranchNode(node.digit)
-        branch.branches.putAll(node.branches)
-        for ((k, v) in parent.branches) {
-          if (v == node) {
-            parent.branches[k] = branch
-            break
-          }
-        }
-      }
-    }
-    root = compress(root) ?: root
-  }
-
-  private fun compress(node: Node): Node? {
-    if (node is LeafNode) return node
-    if (node is IsBranch) {
-      val iter = node.branches.iterator()
-      while (iter.hasNext()) {
-        val (k, v) = iter.next()
-        with(compress(v)) {
-          if (this == null) iter.remove()
-          else node.branches[k] = this
-        }
-      }
-    }
-    if (node is PrefixNode) return node
-    if (node is BranchNode) {
-      if (node.branches.isEmpty()) return null
-      if (node.branches.size > 1) return node
-      val onlyChild = node.branches.values.first()
-      if (onlyChild is BranchNode) return onlyChild
-    }
-    return node
-  }
-
   override fun toString(): String {
     return print(root)
   }
@@ -485,6 +502,7 @@ package com.example.trie
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.util.*
 
 class TrieTest {
 
@@ -503,11 +521,13 @@ class TrieTest {
   @Test
   fun singleKey() {
     trie.insert("hello")
-    assertThat(trie.toString()).isEqualTo("""
+    assertThat(trie.toString()).isEqualTo(
+      """
        b(1▹h)
           |
       l(hello)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     assertThat(trie.search("hello")).isTrue()
   }
@@ -517,11 +537,13 @@ class TrieTest {
     trie.insert("hello")
     trie.insert("aloha")
     trie.insert("bonjour")
-    assertThat(trie.toString()).isEqualTo("""
-              b(1▹a,b,h)
-          ┌────────┼────────┐
-      l(aloha) l(bonjour) l(hello)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+             b(1▹a,b,h)
+        +---------+---------+
+    l(aloha) l(bonjour) l(hello)
+    """.trimIndent()
+    )
 
     assertThat(trie.search("hello")).isTrue()
     assertThat(trie.search("aloha")).isTrue()
@@ -534,13 +556,15 @@ class TrieTest {
     trie.insert("hola")
     trie.insert("aloha")
     trie.insert("bonjour")
-    assertThat(trie.toString()).isEqualTo("""
-              b(1▹a,b,h)
-          ┌────────┼────────────────┐
-      l(aloha) l(bonjour)         b(2▹e,o)
-                            ┌───────┴──────┐
-                        l(hello)         l(hola)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+               b(1▹a,b,h)
+          +---------+------------------+
+      l(aloha) l(bonjour)          b(2▹e,o)
+                              +--------+------+
+                          l(hello)         l(hola)
+    """.trimIndent()
+    )
 
     assertThat(trie.search("hello")).isTrue()
     assertThat(trie.search("hola")).isTrue()
@@ -552,11 +576,13 @@ class TrieTest {
   fun branchCompression() {
     trie.insert("plant")
     trie.insert("planet")
-    assertThat(trie.toString()).isEqualTo("""
-               b(5▹e,t)
-          ┌────────┴───────┐
+    assertThat(trie.toString()).isEqualTo(
+      """
+                b(5▹e,t)
+          +---------+-------+
       l(planet)         l(plant)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     assertThat(trie.search("plant")).isTrue()
     assertThat(trie.search("planet")).isTrue()
@@ -566,40 +592,48 @@ class TrieTest {
   fun branchDecompression() {
     trie.insert("plant")
     trie.insert("planet")
-    assertThat(trie.toString()).isEqualTo("""
-               b(5▹e,t)
-          ┌────────┴───────┐
-      l(planet)         l(plant)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+              b(5▹e,t)
+        +---------+-------+
+    l(planet)         l(plant)
+    """.trimIndent()
+    )
 
     trie.insert("plywood")
-    assertThat(trie.toString()).isEqualTo("""
-                                b(3▹a,y)
-                   ┌────────────────┴────────┐
-               b(5▹e,t)                  l(plywood)
-          ┌────────┴───────┐
-      l(planet)         l(plant)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                               b(3▹a,y)
+                  +----------------+--------+
+              b(5▹e,t)                 l(plywood)
+        +---------+-------+
+    l(planet)         l(plant)
+    """.trimIndent()
+    )
 
     trie.insert("plenty")
-    assertThat(trie.toString()).isEqualTo("""
-                               b(3▹a,e,y)
-                   ┌────────────────┼──────────┐
-               b(5▹e,t)          l(plenty)  l(plywood)
-          ┌────────┴───────┐
-      l(planet)         l(plant)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                              b(3▹a,e,y)
+                  +----------------+----------+
+              b(5▹e,t)         l(plenty) l(plywood)
+        +---------+-------+
+    l(planet)         l(plant)
+    """.trimIndent()
+    )
 
     trie.insert("alert")
-    assertThat(trie.toString()).isEqualTo("""
-                b(1▹a,p)
-            ┌───────┴─────────────────────────────────┐
-        l(alert)                                  b(3▹a,e,y)
-                                     ┌────────────────┼──────────┐
-                                 b(5▹e,t)          l(plenty)  l(plywood)
-                            ┌────────┴───────┐
-                        l(planet)         l(plant)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+             b(1▹a,p)
+        +--------+----------------------------------+
+    l(alert)                                   b(3▹a,e,y)
+                                   +----------------+----------+
+                               b(5▹e,t)         l(plenty) l(plywood)
+                         +---------+-------+
+                     l(planet)         l(plant)
+    """.trimIndent()
+    )
 
     assertThat(trie.search("alert")).isTrue()
     assertThat(trie.search("plant")).isTrue()
@@ -611,58 +645,68 @@ class TrieTest {
   @Test
   fun prefix() {
     trie.insert("1596")
-    assertThat(trie.toString()).isEqualTo("""
+    assertThat(trie.toString()).isEqualTo(
+      """
       b(1▹1)
          |
       l(1596)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     trie.insert("15962")
     trie.insert("15968")
-    assertThat(trie.toString()).isEqualTo("""
-                 b(1▹1)
-                    |
-              p(5▹1596|2,8)
-          ┌─────────┴──────────┐
-      l(15962)              l(15968)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                b(1▹1)
+                   |
+             p(5▹1596|2,8)
+        +----------+----------+
+    l(15962)              l(15968)
+    """.trimIndent()
+    )
 
     trie.insert("159688")
-    assertThat(trie.toString()).isEqualTo("""
-                 b(1▹1)
-                    |
-              p(5▹1596|2,8)
-          ┌─────────┴───────────┐
-      l(15962)              p(6▹15968|8)
-                                |
-                            l(159688)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                b(1▹1)
+                   |
+             p(5▹1596|2,8)
+        +----------+-------------+
+    l(15962)              p(6▹15968|8)
+                               |
+                           l(159688)
+    """.trimIndent()
+    )
 
     trie.insert("159")
-    assertThat(trie.toString()).isEqualTo("""
-                 b(1▹1)
-                    |
-               p(4▹159|6)
-                    |
-              p(5▹1596|2,8)
-          ┌─────────┴───────────┐
-      l(15962)              p(6▹15968|8)
-                                |
-                            l(159688)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                b(1▹1)
+                   |
+              p(4▹159|6)
+                   |
+             p(5▹1596|2,8)
+        +----------+-------------+
+    l(15962)              p(6▹15968|8)
+                               |
+                           l(159688)
+    """.trimIndent()
+    )
 
     trie.insert("1588")
-    assertThat(trie.toString()).isEqualTo("""
-             b(3▹8,9)
-         ┌───────┴─────────────────┐
-      l(1588)                  p(4▹159|6)
+    assertThat(trie.toString()).isEqualTo(
+      """
+            b(3▹8,9)
+       +--------+------------------+
+    l(1588)                   p(4▹159|6)
                                    |
                              p(5▹1596|2,8)
-                         ┌─────────┴───────────┐
-                     l(15962)              p(6▹15968|8)
+                        +----------+-------------+
+                    l(15962)              p(6▹15968|8)
                                                |
                                            l(159688)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     assertThat(trie.search("1588")).isTrue()
     assertThat(trie.search("159")).isTrue()
@@ -679,37 +723,43 @@ class TrieTest {
     trie.insert("278-49-1515")
     trie.insert("951-23-7625")
     trie.insert("951-94-1654")
-    assertThat(trie.toString()).isEqualTo("""
-                                             b(1▹2,5,9)
-                        ┌─────────────────────────┼────────────────────────┐
-                    b(3▹1,8)                l(562-44-2169)               b(5▹2,9)
-             ┌──────────┴──────────┐                             ┌──────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)               l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                                            b(1▹2,5,9)
+                       +-------------------------+--------------------------+
+                   b(3▹1,8)               l(562-44-2169)                b(5▹2,9)
+           +-----------+----------+                             +-----------+----------+
+    l(271-16-3624)         l(278-49-1515)                l(951-23-7625)         l(951-94-1654)
+    """.trimIndent()
+    )
 
     trie.insert("987-26-1615")
-    assertThat(trie.toString()).isEqualTo("""
-                                             b(1▹2,5,9)
-                        ┌─────────────────────────┼───────────────────────────────────────────────┐
-                    b(3▹1,8)                l(562-44-2169)                                      b(2▹5,8)
-             ┌──────────┴──────────┐                                        ┌──────────────────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)                             b(5▹2,9)                        l(987-26-1615)
-                                                                ┌──────────┴──────────┐
+    assertThat(trie.toString()).isEqualTo(
+      """
+                                            b(1▹2,5,9)
+                       +-------------------------+-------------------------------------------------+
+                   b(3▹1,8)               l(562-44-2169)                                       b(2▹5,8)
+           +-----------+----------+                                         +----------------------+----------+
+    l(271-16-3624)         l(278-49-1515)                               b(5▹2,9)                       l(987-26-1615)
+                                                                +-----------+----------+
                                                          l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     trie.insert("958-36-4194")
-    assertThat(trie.toString()).isEqualTo("""
-                                             b(1▹2,5,9)
-                        ┌─────────────────────────┼──────────────────────────────────────────────────────────────────────┐
-                    b(3▹1,8)                l(562-44-2169)                                                             b(2▹5,8)
-             ┌──────────┴──────────┐                                                               ┌──────────────────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)                                                    b(3▹1,8)                        l(987-26-1615)
-                                                                           ┌──────────────────────┴──────────┐
-                                                                       b(5▹2,9)                        l(958-36-4194)
-                                                                ┌──────────┴──────────┐
+    assertThat(trie.toString()).isEqualTo(
+      """
+                                            b(1▹2,5,9)
+                       +-------------------------+------------------------------------------------------------------------+
+                   b(3▹1,8)               l(562-44-2169)                                                              b(2▹5,8)
+           +-----------+----------+                                                                +----------------------+----------+
+    l(271-16-3624)         l(278-49-1515)                                                      b(3▹1,8)                       l(987-26-1615)
+                                                                            +----------------------+----------+
+                                                                        b(5▹2,9)                       l(958-36-4194)
+                                                                +-----------+----------+
                                                          l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     assertThat(trie.search("271-16-3624")).isTrue()
     assertThat(trie.search("562-44-2169")).isTrue()
@@ -729,91 +779,131 @@ class TrieTest {
     trie.insert("951-94-1654")
     trie.insert("987-26-1615")
     trie.insert("958-36-4194")
-    assertThat(trie.toString()).isEqualTo("""
-                                             b(1▹2,5,9)
-                        ┌─────────────────────────┼──────────────────────────────────────────────────────────────────────┐
-                    b(3▹1,8)                l(562-44-2169)                                                             b(2▹5,8)
-             ┌──────────┴──────────┐                                                               ┌──────────────────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)                                                    b(3▹1,8)                        l(987-26-1615)
-                                                                           ┌──────────────────────┴──────────┐
-                                                                       b(5▹2,9)                        l(958-36-4194)
-                                                                ┌──────────┴──────────┐
+    assertThat(trie.toString()).isEqualTo(
+      """
+                                            b(1▹2,5,9)
+                       +-------------------------+------------------------------------------------------------------------+
+                   b(3▹1,8)               l(562-44-2169)                                                              b(2▹5,8)
+           +-----------+----------+                                                                +----------------------+----------+
+    l(271-16-3624)         l(278-49-1515)                                                      b(3▹1,8)                       l(987-26-1615)
+                                                                            +----------------------+----------+
+                                                                        b(5▹2,9)                       l(958-36-4194)
+                                                                +-----------+----------+
                                                          l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     trie.remove("562-44-2169")
-    assertThat(trie.toString()).isEqualTo("""
-                                           b(1▹2,9)
-                        ┌──────────────────────┴───────────────────────────────────────────────────────────────────┐
-                    b(3▹1,8)                                                                                    b(2▹5,8)
-             ┌──────────┴──────────┐                                                         ┌──────────────────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)                                              b(3▹1,8)                        l(987-26-1615)
-                                                                     ┌──────────────────────┴──────────┐
-                                                                 b(5▹2,9)                        l(958-36-4194)
-                                                          ┌──────────┴──────────┐
-                                                   l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                                          b(1▹2,9)
+                       +----------------------+--------------------------------------------------------------------+
+                   b(3▹1,8)                                                                                    b(2▹5,8)
+           +-----------+----------+                                                         +----------------------+----------+
+    l(271-16-3624)         l(278-49-1515)                                               b(3▹1,8)                       l(987-26-1615)
+                                                                     +----------------------+----------+
+                                                                 b(5▹2,9)                       l(958-36-4194)
+                                                         +-----------+----------+
+                                                  l(951-23-7625)         l(951-94-1654)
+    """.trimIndent()
+    )
 
     trie.remove("958-36-4194")
-    assertThat(trie.toString()).isEqualTo("""
-                                           b(1▹2,9)
-                        ┌──────────────────────┴────────────────────────────────────────────┐
-                    b(3▹1,8)                                                             b(2▹5,8)
-             ┌──────────┴──────────┐                                  ┌──────────────────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)                       b(5▹2,9)                        l(987-26-1615)
-                                                          ┌──────────┴──────────┐
-                                                   l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                                          b(1▹2,9)
+                       +----------------------+---------------------------------------------+
+                   b(3▹1,8)                                                             b(2▹5,8)
+           +-----------+----------+                                  +----------------------+----------+
+    l(271-16-3624)         l(278-49-1515)                        b(5▹2,9)                       l(987-26-1615)
+                                                         +-----------+----------+
+                                                  l(951-23-7625)         l(951-94-1654)
+    """.trimIndent()
+    )
 
     trie.remove("987-26-1615")
-    assertThat(trie.toString()).isEqualTo("""
-                                           b(1▹2,9)
-                        ┌──────────────────────┴─────────────────────┐
-                    b(3▹1,8)                                      b(5▹2,9)
-             ┌──────────┴──────────┐                       ┌──────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)         l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                                          b(1▹2,9)
+                       +----------------------+----------------------+
+                   b(3▹1,8)                                      b(5▹2,9)
+           +-----------+----------+                      +-----------+----------+
+    l(271-16-3624)         l(278-49-1515)         l(951-23-7625)         l(951-94-1654)
+    """.trimIndent()
+    )
 
     trie.remove("271-16-3624")
-    assertThat(trie.toString()).isEqualTo("""
-                    b(1▹2,9)
-             ┌──────────┴─────────────────────┐
-          b(3▹8)                           b(5▹2,9)
-             |                      ┌──────────┴──────────┐
-      l(278-49-1515)         l(951-23-7625)         l(951-94-1654)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                   b(1▹2,9)
+           +-----------+----------------------+
+        b(3▹8)                            b(5▹2,9)
+           |                      +-----------+----------+
+    l(278-49-1515)         l(951-23-7625)         l(951-94-1654)
+    """.trimIndent()
+    )
 
     trie.remove("951-94-1654")
-    assertThat(trie.toString()).isEqualTo("""
-                    b(1▹2,9)
-             ┌──────────┴──────────┐
-          b(3▹8)                 b(5▹2)
-             |                      |
-      l(278-49-1515)         l(951-23-7625)
-    """.trimIndent())
+    assertThat(trie.toString()).isEqualTo(
+      """
+                   b(1▹2,9)
+           +-----------+----------+
+        b(3▹8)                 b(5▹2)
+           |                      |
+    l(278-49-1515)         l(951-23-7625)
+    """.trimIndent()
+    )
 
     trie.remove("278-49-1515")
-    assertThat(trie.toString()).isEqualTo("""
+    assertThat(trie.toString()).isEqualTo(
+      """
           b(5▹2)
              |
       l(951-23-7625)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     trie.remove("951-23-7625")
     assertThat(trie.toString()).isEqualTo("b(5▹)")
 
     trie.insert("278-49-1515")
-    assertThat(trie.toString()).isEqualTo("""
+    assertThat(trie.toString()).isEqualTo(
+      """
           b(1▹2)
              |
       l(278-49-1515)
-    """.trimIndent())
+    """.trimIndent()
+    )
 
     trie.insert("271-16-3624")
+    assertThat(trie.toString()).isEqualTo(
+      """
+                   b(3▹1,8)
+           +-----------+----------+
+    l(271-16-3624)         l(278-49-1515)
+    """.trimIndent()
+    )
+  }
+
+  @Test
+  fun countries() {
+    for (locale in Locale.getAvailableLocales()) {
+      if (locale.displayCountry.isEmpty()) continue
+      if (locale.displayCountry.contains(" ")) continue
+      trie.insert(locale.displayCountry)
+    }
     assertThat(trie.toString()).isEqualTo("""
-                    b(3▹1,8)
-             ┌──────────┴──────────┐
-      l(271-16-3624)         l(278-49-1515)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    b(1▹A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,Y,Z,w)
+                                                                                                      +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------------------------------------------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+-----------------------------------------------------------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------+-------------------------------+-----------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------+---------------------+------------------+-------------------+
+                                                                                              b(2▹f,l,n,r,u,z)                                                                                                                                                                                                      b(2▹a,e,h,o,r,u)                                                                                                                                                                                                                    b(2▹a,h,o,r,u,y,z)                                                            b(2▹e,j,o)                                             b(2▹c,g,r,s,t,u)                                                                                b(2▹i,r)                                                                            b(2▹a,e,h,i,r,u)                                                                                                                                              b(2▹a,o,u)                                                                           b(2▹c,n,r,s,t)                                                      b(2▹a,e,o)                                              b(2▹a,e,i,o,u,y)                                                                                          b(2▹a,e,i,u)                                                                                                                                                                                                                                   b(2▹a,e,i,o)                                                                                                                                                                                    b(2▹a,e,i,o)                                            l(Oman)                                                                b(2▹a,e,h,o)                                             l(Qatar)                      b(2▹o,u,w,é)                                                                                                             b(2▹a,e,i,l,o,p,u,w,y)                                                                                                                                                b(2▹a,h,i,o,u,ü)                                                                                                 b(2▹g,k,r,z)                                     b(2▹a,e,i)             l(Yemen)           b(2▹a,i)            l(world)
+       +----------------------+-----------------------------+-----------------------------------------+-------------------------+-------------------------------+--------------------+                                           +-------------------------------------------------------+--------------------+-------------+----------------------+-----------------------------+-----------------------------+                                                  +-------------------------+---------------------------------------------+----------------------+---------------------+------------------+----------+          +----------+-----------+           +---------+---------+-------------+----------------------+--------------------+----------+                 +------------------+-------+                  +----------------------------+------------------+------------+-------------+-----------------------+---------------------------------------------------------------------+                                    +---------+-----------+          +------------------+--------------------------------------------+------------------+---------+                   +----------------+---------+           +-----------+---------+--------------+-----------+---------+-----------+                   +----------------------------+--------------------+-----------------------------------------+---------------------------+                                                                                                  +---------------------------------------------------------+-----------+-----------+----------------------------------------------------------------------------------+                                             +-------------------------+------------------------+------------------------+------------------+                                        +------------------------------+----------+------------+---------------------+                             +---------+-----------+---------+----------+         +-------------------+-------------------------+----------------------+-------------------------+---------------+-----------------+-----------------------------+----------------------+                    +------------------------+-------------+---------------+--------------------+--------------------------------+-----------------------+         +----------+-----------+----------+-----------+            +-----------+-----------+                  +---------+--------+
+l(Afghanistan)            b(3▹b,g)                      b(3▹d,g)                                                           b(3▹g,m,u)                       b(6▹a,i)           l(Azerbaijan)                                b(3▹h,n,r)                                              b(3▹l,n,r)            l(Bhutan)                            b(3▹l,t)                      b(3▹a,u)                      b(3▹l,r)                                           b(3▹m,n)                  b(3▹a,i)                                      b(3▹l,m)              l(Croatia)             b(3▹b,r)           l(Cyprus) l(Czechia) l(Denmark) l(Djibouti) l(Dominica) l(Ecuador) l(Egypt) l(Eritrea)                            b(3▹t,w)            l(Ethiopia) l(Europe)         b(3▹j,n)                   l(France)          b(3▹b,m)                     b(3▹o,r)           l(Ghana)                 l(Gibraltar)              b(4▹e,n)                                                            b(3▹a,e,i,y)                           l(Haiti) l(Honduras) l(Hungary) l(Iceland)          b(4▹i,o)                                     b(3▹a,e)           l(Israel) l(Italy)            b(3▹m,p)         l(Jersey) l(Jordan) l(Kazakhstan) l(Kenya) l(Kiribati)                 l(Kosovo) l(Kuwait) l(Kyrgyzstan)         b(3▹o,t)                     b(3▹b,s)                                                      b(3▹b,e,t)                 l(Luxembourg)                                                                                     b(3▹d,l,r,u,y)                                               l(Mexico)             l(Micronesia)                                                                      b(3▹l,n,r,z)                                    b(3▹m,u)                  b(3▹p,t)                                         b(3▹c,g,u)          l(Norway)                              b(3▹k,l,n,r)                      l(Peru)             l(Philippines)           b(3▹l,r)                     l(Romania) l(Russia)             l(Rwanda) l(Réunion) l(Samoa)           b(3▹n,r,y)               l(Singapore)             b(5▹a,e)                 l(Somalia)       l(Spain)          b(3▹d,r)                      b(3▹e,i)               l(Syria)            b(3▹i,j,n)               l(Thailand) l(Timor-Leste)                         b(3▹g,k,n)                       b(3▹n,r,v)              l(Türkiye) l(Uganda) l(Ukraine)             l(Uruguay) l(Uzbekistan) l(Vanuatu) l(Venezuela) l(Vietnam)          l(Zambia)         l(Zimbabwe)
+                    +---------+--------+          +---------+-----------------+                                     +-----------+---------+          +----------+--------+                                  +--------------------+------------+                      +-------------------+----------+                                    +---------+--------+          +---------+-------+          +----------+--------+                     +-------------------+-------+        +--------+----------------+                 +----------+--------+                          +--------+--------+                                                                                                                 +---------+--------+                               +--------+--------+                           +--------+-------+          +---------+--------+                                                 +----------+--------+                       +-----------------------+------------+-------------+------------+                                                    +--------+---------+                  +---------------+--------+                             +---------+-------+                                                                                                                +--------+-------+          +---------+--------+                                +--------------------+--------------+                          +-------------------------------------------------------+----------------------------+-------------------------+---------------------+                                              +--------------------+------------------------------------------------+----------+-----------+            +---------+-------+        +--------+----------+                         +------------+---------+                           +----------+----------+---------+----------+                                             +---------+--------+                                                                                   +---------+-----------+                         +----------+--------+                                         +--------+--------+          +---------+----------+                    +-----------+------------+                                                    +---------+---------+         +------------+------------+
+               l(Albania)         l(Algeria) l(Andorra)                   b(4▹o,u)                            l(Argentina) l(Armenia) l(Aruba) l(Australia)         l(Austria)                          b(4▹a,r)           l(Bangladesh) l(Barbados)            b(4▹a,g,i)           l(Benin)  l(Bermuda)                           l(Bolivia)         l(Botswana) l(Brazil)         l(Brunei) l(Bulgaria)         l(Burundi)             b(4▹b,e)                    l(Canada) l(Chad)                  b(4▹l,n)         l(Colombia)         l(Comoros)                   l(Cuba)         l(Curaçao)                                                                                                        l(Estonia)         l(Eswatini)                       l(Fiji)         l(Finland)                   l(Gabon)         l(Gambia) l(Georgia)         l(Germany)                                       l(Greenland)         l(Grenada)              b(4▹d,m,t)              l(Guernsey)               p(7▹Guinea|-)  l(Guyana)                                            l(India)         l(Indonesia)         b(4▹n,q)                l(Ireland)                    l(Jamaica)         l(Japan)                                                                                                          l(Laos)         l(Latvia) l(Lebanon)         l(Lesotho)                        b(4▹e,y)         l(Liechtenstein) l(Lithuania)               l(Madagascar)                                           b(4▹a,d,i,t)                 l(Martinique)               b(7▹a,i)             l(Mayotte)                                     l(Moldova)           b(4▹a,g,t)                                                  l(Morocco) l(Mozambique) l(Namibia)         l(Nauru) l(Nepal)         l(Netherlands)             l(Nicaragua) p(6▹Niger|i) l(Niue)                   l(Pakistan) l(Palau)             l(Panama) l(Paraguay)                                    l(Poland)         l(Portugal)                                                                         l(Senegal) l(Serbia) l(Seychelles)              l(Slovakia)         l(Slovenia)                                l(Sudan)         l(Suriname) l(Sweden)         l(Switzerland)          l(Taiwan) l(Tajikistan) l(Tanzania)                                            l(Togo) l(Tokelau) l(Tonga) l(Tunisia) l(Turkmenistan) l(Tuvalu)
+                                                                    +---------+--------+                                                                                                          +---------+--------+                                    +----------+---------+                                                                                                                                                   +----------+--------+                                            +--------+-------+                                                                                                                                                                                                                                                                                                                                                                                                                              +-----------+-----------+                                      |                                                                                              +--------+------+                                                                                                                                                                                                                                                        +---------+-------+                                                                            +--------------------+------------+--------+--------+                        +-----------+---------+                                                                    +----------+------------------------+                                                                                                                                                 |
+                                                                l(Angola)         l(Anguilla)                                                                                                l(Bahamas)         l(Bahrain)                           l(Belarus) l(Belgium) l(Belize)                                                                                                                                          l(Cambodia)         l(Cameroon)                                   l(Chile)         l(China)                                                                                                                                                                                                                                                                                                                                                                                                                     l(Guadeloupe)  l(Guam)  l(Guatemala)                         l(Guinea-Bissau)                                                                                    l(Iran)         l(Iraq)                                                                                                                                                                                                                                                l(Liberia)         l(Libya)                                                                     b(5▹w,y)            l(Maldives)             l(Mali) l(Malta)               l(Mauritania)         l(Mauritius)                                                           l(Monaco) l(Mongolia)               b(5▹e,s)                                                                                                                                         l(Nigeria)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                +---------+--------+                                                                                                                                                                                      +-----------+---------+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            l(Malawi)         l(Malaysia)                                                                                                                                                                           l(Montenegro)         l(Montserrat)
     """.trimIndent())
   }
 

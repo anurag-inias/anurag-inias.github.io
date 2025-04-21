@@ -4,10 +4,10 @@
 
 ```
                                                   Once_upon_a_midnight_dreary
-                         ┌─────────────────────────────────────┴────────────────────┐
-                 while_I_pondered                                             weak_and_weary
-         ┌───────────────┼───────────────┐                                           └──────────────┬───────────────┐
-Over_many_a_quaint       and        curious_volume                                          of_forgotten_lore While_I_nodded
+                          +------------------------------------+--------------------+
+                  while_I_pondered                                           weak_and_weary
+         +----------------+---------------+                                         +--------------+----------------+
+Over_many_a_quaint       and       curious_volume                                          of_forgotten_lore While_I_nodded
 ```
 
 ## About
@@ -82,18 +82,21 @@ private fun printSubtree(node: PrintableNode): PrintedSubtree {
   val rootRow = StringBuilder()
   val n = node.content().length
   val w = merged.width
+  val leftPadding = merged.plumbAt - n / 2
+  val rightPadding = w - merged.plumbAt - 1 - (n - n / 2)
+
+  if (leftPadding < 0) {
+    padding(-leftPadding, right = 0, merged)
+  }
   rootRow
-    .append(" ".repeat(max(0, merged.plumbAt - n / 2)))
+    .append("$SPACE".repeat(merged.plumbAt - n / 2))
     .append(node.content())
 
-  val rightPadding = w - merged.plumbAt - 1 - (n - n / 2)
   if (rightPadding < 0) {
-    rootRow.append(" ".repeat(-rightPadding))
-    for (row in merged.rows) {
-      row.append(" ".repeat(-rightPadding))
-    }
+    rootRow.append("$SPACE".repeat(-rightPadding))
+    padding(left = 0, -rightPadding, merged)
   } else {
-    rootRow.append(" ".repeat(rightPadding))
+    rootRow.append("$SPACE".repeat(rightPadding))
   }
 
   merged.rows.addFirst(rootRow)
@@ -101,14 +104,23 @@ private fun printSubtree(node: PrintableNode): PrintedSubtree {
   return PrintedSubtree(merged.plumbAt, merged.rows)
 }
 
-private fun trim(subtree: PrintedSubtree) {
-  val start = subtree.rows.minOf { row -> row.indexOfFirst { it != ' ' } }
-  val end = subtree.rows.maxOf { row -> row.indexOfLast { it != ' ' } }
+private fun padding(left: Int, right: Int, subtree: PrintedSubtree) {
+  for ((r, row) in subtree.rows.withIndex()) {
+    subtree.plumbAt += left
+    subtree.rows[r] = StringBuilder("$SPACE".repeat(left))
+      .append(row)
+      .append("$SPACE".repeat(right))
+  }
+}
 
+private fun trim(subtree: PrintedSubtree) {
+  val start = subtree.rows.minOf { row -> row.indexOfFirst { it != SPACE } }
+  val end = subtree.rows.maxOf { row -> row.indexOfLast { it != SPACE } }
+  if (start < 0) return
   for ((r, row) in subtree.rows.withIndex()) {
     val offset = end - start + 1 - row.length
     if (offset > 0) {
-      row.append(" ".repeat(offset))
+      row.append("$SPACE".repeat(offset))
     }
     subtree.rows[r] = StringBuilder(row.subSequence(start..end))
   }
@@ -122,26 +134,26 @@ private fun columnsPlumbing(parentWidth: Int, subtrees: List<PrintedSubtree>, le
     val column = subtrees[index]
     val w = column.width
     row
-      .append((if (columns > 1 && index > 0) "─" else " ").repeat(column.plumbAt))
-      .append((if (columns > 1 && index > 0) '┬' else '┌'))
-      .append("─".repeat(w - column.plumbAt - 1))
+      .append((if (columns > 1 && index > 0) "$DASH" else "$SPACE").repeat(column.plumbAt))
+      .append((if (columns > 1 && index > 0) M_JOINT else L_JOINT))
+      .append("$DASH".repeat(w - column.plumbAt - 1))
   }
   if (below == null) {
     if (left.isEmpty()) {
       row
-        .append(" ".repeat(parentWidth/2))
-        .append('└')
-        .append("─".repeat(parentWidth - 1 - parentWidth / 2))
+        .append("$SPACE".repeat(parentWidth/2))
+        .append(R_ONLY_JOINT)
+        .append("$DASH".repeat(parentWidth - 1 - parentWidth / 2))
     } else if (right.isEmpty()) {
       row
-        .append("─".repeat(parentWidth/2))
-        .append('┘')
-        .append(" ".repeat(parentWidth - 1 - parentWidth / 2))
+        .append("$DASH".repeat(parentWidth/2))
+        .append(L_ONLY_JOINT)
+        .append("$SPACE".repeat(parentWidth - 1 - parentWidth / 2))
     } else {
       row
-        .append("─".repeat(parentWidth/2))
-        .append('┴')
-        .append("─".repeat(parentWidth - 1 - parentWidth / 2))
+        .append("$DASH".repeat(parentWidth/2))
+        .append(L_AND_R_JOINT)
+        .append("$DASH".repeat(parentWidth - 1 - parentWidth / 2))
     }
   } else {
     val column = subtrees[below]
@@ -149,33 +161,33 @@ private fun columnsPlumbing(parentWidth: Int, subtrees: List<PrintedSubtree>, le
     if (padding < 0) padding = 0
     if (left.isEmpty() && right.isEmpty()) {
       row
-        .append(" ".repeat(column.plumbAt + padding / 2))
-        .append('|')
-        .append(" ".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
+        .append("$SPACE".repeat(column.plumbAt + padding / 2))
+        .append(B_ONLY_JOINT)
+        .append("$SPACE".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
     } else if (left.isEmpty()) {
       row
-        .append(" ".repeat(column.plumbAt + padding / 2))
-        .append('├')
-        .append("─".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
+        .append("$SPACE".repeat(column.plumbAt + padding / 2))
+        .append(B_AND_R_JOINT)
+        .append("$DASH".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
     } else if (right.isEmpty()) {
       row
-        .append("─".repeat(column.plumbAt + padding / 2))
-        .append('┤')
-        .append(" ".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
+        .append("$DASH".repeat(column.plumbAt + padding / 2))
+        .append(B_AND_L_JOINT)
+        .append("$SPACE".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
     } else {
       row
-        .append("─".repeat(column.plumbAt + padding / 2))
-        .append('┼')
-        .append("─".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
+        .append("$DASH".repeat(column.plumbAt + padding / 2))
+        .append(ALL_JOINT)
+        .append("$DASH".repeat(column.width - column.plumbAt - 1 + padding - (padding / 2)))
     }
   }
   for (index in right) {
     val column = subtrees[index]
     val w = column.width
     row
-      .append("─".repeat(column.plumbAt))
-      .append((if (columns > 1 && index < columns - 1) '┬' else '┐'))
-      .append((if (columns > 1 && index < columns - 1) "─" else " ").repeat(w - column.plumbAt - 1))
+      .append("$DASH".repeat(column.plumbAt))
+      .append((if (columns > 1 && index < columns - 1) M_JOINT else R_JOINT))
+      .append((if (columns > 1 && index < columns - 1) "$DASH" else "$SPACE").repeat(w - column.plumbAt - 1))
   }
   return row
 }
@@ -189,7 +201,7 @@ private fun addColumnGutter(subtrees: List<PrintedSubtree>) {
   for ((c, column) in subtrees.withIndex()) {
     if (c == subtrees.size - 1) continue
     for (row in column.rows) {
-      row.append(' ')
+      row.append(SPACE)
     }
   }
 }
@@ -225,7 +237,7 @@ private fun mergeColumns(parentWidth: Int, subtrees: List<PrintedSubtree>, left:
       width += subtrees[i].width
     }
     if (below == null) {
-      row.append(" ".repeat(parentWidth))
+      row.append("$SPACE".repeat(parentWidth))
       if (plumbAt == null) plumbAt = width + parentWidth / 2
     } else {
       val padding = parentWidth - subtrees[below].width
@@ -234,14 +246,15 @@ private fun mergeColumns(parentWidth: Int, subtrees: List<PrintedSubtree>, left:
         if (plumbAt == null) plumbAt = width + subtrees[below].plumbAt
       } else {
         row
-          .append(" ".repeat(padding / 2))
+          .append("$SPACE".repeat( padding / 2))
           .append(subtrees[below].rows[r])
-          .append(" ".repeat(padding - padding / 2))
-        if (plumbAt == null) plumbAt = width + padding / 2 + subtrees[below].plumbAt
+          .append("$SPACE".repeat(padding - padding / 2))
+        if (plumbAt == null) plumbAt = width + (padding / 2) + subtrees[below].plumbAt
       }
     }
     for (i in right) {
       row.append(subtrees[i].rows[r])
+      // Don't need width adjustment here.
     }
     rows.add(row)
   }
@@ -250,22 +263,37 @@ private fun mergeColumns(parentWidth: Int, subtrees: List<PrintedSubtree>, left:
 }
 
 private data class PrintedSubtree(
-  val plumbAt: Int = -1,
+  var plumbAt: Int = -1,
   val rows: MutableList<StringBuilder> = mutableListOf()
 ) {
-  val width = rows.firstOrNull()?.length ?: 0
+  val width: Int
+    get() = rows.firstOrNull()?.length ?: 0
 
   var height: Int
     get() = rows.size
     set(value) {
       while (rows.size < value) {
-        rows.add(StringBuilder(" ".repeat(width)))
+        rows.add(StringBuilder("$SPACE".repeat(width)))
       }
     }
 }
 
 private val PrintableNode.width: Int
   get() = content().length
+
+private const val SPACE = ' '
+// ─ causes alignment issues when rendered.
+private const val DASH = '-'
+private const val L_JOINT = '+' // '┌'
+private const val R_JOINT = '+' // '┐'
+private const val M_JOINT = '+' // '┬'
+private const val L_ONLY_JOINT = '+' // '┘'
+private const val R_ONLY_JOINT = '+' // '└'
+private const val B_ONLY_JOINT = '|'
+private const val L_AND_R_JOINT = '+' // '┴'
+private const val B_AND_R_JOINT = '+' // '├'
+private const val B_AND_L_JOINT = '+' // '┤'
+private const val ALL_JOINT = '+' // '┼'
 ```
 
 ## Unit tests
@@ -291,9 +319,9 @@ class TreePrinterTest {
     root.left = 0..<1
     assertThat(print(root)).isEqualTo(
       """
-   abc
- ┌──┘
-prq
+       abc
+     +--+
+    prq
     """.trimIndent()
     )
 
@@ -301,9 +329,9 @@ prq
     root.children.first().content = "hola"
     assertThat(print(root)).isEqualTo(
       """
-    hello
-  ┌───┘
-hola
+        hello
+      +---+
+    hola
     """.trimIndent()
     )
 
@@ -311,9 +339,9 @@ hola
     root.children.first().content = "bonjour"
     assertThat(print(root)).isEqualTo(
       """
-       hola
-   ┌─────┘
-bonjour
+           hola
+       +-----+
+    bonjour
     """.trimIndent()
     )
   }
@@ -325,9 +353,9 @@ bonjour
     root.below = 0
     assertThat(print(root)).isEqualTo(
       """
-abc
- |
-pqr
+    abc
+     |
+    pqr
     """.trimIndent()
     )
 
@@ -335,9 +363,9 @@ pqr
     root.children.first().content = "bonjour"
     assertThat(print(root)).isEqualTo(
       """
-  hi
-   |
-bonjour
+      hi
+       |
+    bonjour
     """.trimIndent()
     )
 
@@ -345,9 +373,9 @@ bonjour
     root.children.first().content = "hi"
     assertThat(print(root)).isEqualTo(
       """
-bonjour
-   |
-  hi
+    bonjour
+       |
+      hi
     """.trimIndent()
     )
   }
@@ -359,9 +387,9 @@ bonjour
     root.right = 0..<1
     assertThat(print(root)).isEqualTo(
       """
-        abc
-         └──┐
-           pqr
+    abc
+     +--+
+       pqr
     """.trimIndent()
     )
 
@@ -369,9 +397,9 @@ bonjour
     root.children.first().content = "bonjour"
     assertThat(print(root)).isEqualTo(
       """
-hi
- └───┐
-  bonjour
+    hi
+     +---+
+      bonjour
     """.trimIndent()
     )
 
@@ -379,9 +407,9 @@ hi
     root.children.first().content = "hi"
     assertThat(print(root)).isEqualTo(
       """
-bonjour
-   └────┐
-       hi
+    bonjour
+       +----+
+           hi
     """.trimIndent()
     )
   }
@@ -395,11 +423,11 @@ bonjour
     root.children.first().left = 0..<1
     assertThat(print(root)).isEqualTo(
       """
-            abc
-          ┌──┘
-         pqr
-       ┌──┘
-      xyz
+          abc
+        +--+
+       pqr
+     +--+
+    xyz
     """.trimIndent()
     )
 
@@ -408,11 +436,11 @@ bonjour
     root.children.first().children.first().content = "hello"
     assertThat(print(root)).isEqualTo(
       """
-       bonjour
-      ┌───┘
-     hi
-  ┌───┘
-hello
+           bonjour
+          +---+
+         hi
+      +---+
+    hello
     """.trimIndent()
     )
   }
@@ -426,11 +454,11 @@ hello
     root.children.first().right = 0..<1
     assertThat(print(root)).isEqualTo(
       """
-      abc
-       └──┐
-         pqr
-          └──┐
-            xyz
+    abc
+     +--+
+       pqr
+        +--+
+          xyz
     """.trimIndent()
     )
 
@@ -439,11 +467,11 @@ hello
     root.children.first().children.first().content = "hello"
     assertThat(print(root)).isEqualTo(
       """
-bonjour
-   └────┐
-       hi
-        └──┐
-         hello
+    bonjour
+       +----+
+           hi
+            +--+
+             hello
     """.trimIndent()
     )
   }
@@ -488,9 +516,9 @@ bonjour
     root.right = 1..<2
     assertThat(print(root)).isEqualTo(
       """
-     hi
-  ┌───┴───┐
-hello   bonjour
+          hi
+      +----+---+
+    hello   bonjour
     """.trimIndent()
     )
 
@@ -499,9 +527,9 @@ hello   bonjour
     root.children.last().content = "hi"
     assertThat(print(root)).isEqualTo(
       """
-     bonjour
-  ┌─────┴────┐
-hello        hi
+          bonjour
+      +------+----+
+    hello        hi
     """.trimIndent()
     )
 
@@ -510,9 +538,9 @@ hello        hi
     root.children.last().content = "hi"
     assertThat(print(root)).isEqualTo(
       """
-       hello
-   ┌─────┴───┐
-bonjour      hi
+            hello
+       +------+---+
+    bonjour      hi
     """.trimIndent()
     )
   }
@@ -526,9 +554,9 @@ bonjour      hi
     root.below = 1
     assertThat(print(root)).isEqualTo(
       """
-       hi
-  ┌─────┤
-hello bonjour
+            hi
+      +------+
+    hello bonjour
     """.trimIndent()
     )
 
@@ -537,9 +565,9 @@ hello bonjour
     root.children.last().content = "hello"
     assertThat(print(root)).isEqualTo(
       """
-  bonjour
- ┌───┤
-hi  hello
+       bonjour
+     +----+
+    hi  hello
     """.trimIndent()
     )
 
@@ -548,9 +576,9 @@ hi  hello
     root.children.last().content = "hi"
     assertThat(print(root)).isEqualTo(
       """
-       hello
-   ┌─────┤
-bonjour  hi
+            hello
+       +------+
+    bonjour  hi
     """.trimIndent()
     )
   }
@@ -564,9 +592,9 @@ bonjour  hi
     root.right = 1..<2
     assertThat(print(root)).isEqualTo(
       """
- hi
-  ├─────┐
-hello bonjour
+     hi
+      +------+
+    hello bonjour
     """.trimIndent()
     )
 
@@ -575,9 +603,9 @@ hello bonjour
     root.children.last().content = "hello"
     assertThat(print(root)).isEqualTo(
       """
-bonjour
-   ├─────┐
-  hi    hello
+    bonjour
+       +-----+
+      hi   hello
     """.trimIndent()
     )
 
@@ -586,9 +614,9 @@ bonjour
     root.children.last().content = "hi"
     assertThat(print(root)).isEqualTo(
       """
- hello
-   ├────┐
-bonjour hi
+     hello
+       +-----+
+    bonjour hi
     """.trimIndent()
     )
   }
@@ -606,11 +634,11 @@ bonjour hi
     root.children.first().left = 0..<1
     assertThat(print(root)).isEqualTo(
       """
-                 root
-             ┌─────┼────┐
-           first second third
-     ┌───────┘
-first-first
+                      root
+                 +------+-----+
+               first second third
+         +-------+
+    first-first
     """.trimIndent()
     )
 
@@ -619,11 +647,11 @@ first-first
     root.right = 1..<3
     assertThat(print(root)).isEqualTo(
       """
-           root
-             ├─────┬────┐
-           first second third
-     ┌───────┘
-first-first
+               root
+                 +------+-----+
+               first second third
+         +-------+
+    first-first
     """.trimIndent()
     )
 
@@ -631,11 +659,11 @@ first-first
     root.right = 0..<3
     assertThat(print(root)).isEqualTo(
       """
-root
-  └──────────────┬─────┬────┐
-               first second third
-         ┌───────┘
-    first-first
+    root
+      +--------------+------+-----+
+                   first second third
+             +-------+
+        first-first
     """.trimIndent()
     )
   }
@@ -657,11 +685,11 @@ root
     root.children.first().right = 2..<3
     assertThat(print(root)).isEqualTo(
       """
-                                     root
-                 ┌─────────────────────┼────┐
-               first                 second third
-     ┌───────────┼──────────┐
-first-first first-second first-third
+                                          root
+                      +---------------------+-----+
+                    first                second third
+         +------------+-----------+
+    first-first first-second first-third
     """.trimIndent()
     )
 
@@ -670,11 +698,11 @@ first-first first-second first-third
     root.children.first().right = 1..<3
     assertThat(print(root)).isEqualTo(
       """
-                                     root
-     ┌─────────────────────────────────┼────┐
-   first                             second third
-     ├───────────┬──────────┐
-first-first first-second first-third
+                                          root
+         +----------------------------------+-----+
+       first                             second third
+         +------------+-----------+
+    first-first first-second first-third
     """.trimIndent()
     )
 
@@ -683,11 +711,11 @@ first-first first-second first-third
     root.children.first().right = 0..<3
     assertThat(print(root)).isEqualTo(
       """
-                                          root
-  ┌─────────────────────────────────────────┼────┐
-first                                     second third
-  └───────┬───────────┬──────────┐
-     first-first first-second first-third
+                                               root
+      +------------------------------------------+-----+
+    first                                     second third
+      +-------+------------+-----------+
+         first-first first-second first-third
     """.trimIndent()
     )
 
@@ -696,11 +724,11 @@ first                                     second third
     root.right = 1..<3
     assertThat(print(root)).isEqualTo(
       """
-root
-  ├─────────────────────────────────────────┬────┐
-first                                     second third
-  └───────┬───────────┬──────────┐
-     first-first first-second first-third
+    root
+      +------------------------------------------+-----+
+    first                                     second third
+      +-------+------------+-----------+
+         first-first first-second first-third
     """.trimIndent()
     )
 
@@ -709,11 +737,11 @@ first                                     second third
     root.right = 0..<3
     assertThat(print(root)).isEqualTo(
       """
-root
-  └───┬─────────────────────────────────────────┬────┐
-    first                                     second third
-      └───────┬───────────┬──────────┐
-         first-first first-second first-third
+    root
+      +---+------------------------------------------+-----+
+        first                                     second third
+          +-------+------------+-----------+
+             first-first first-second first-third
     """.trimIndent()
     )
   }
@@ -735,11 +763,11 @@ root
     root.children[1].right = 2..<3
     assertThat(print(root)).isEqualTo(
       """
-                     root
-  ┌────────────────────┼──────────────────────┐
-first                second                   third
-           ┌───────────┼────────────┐
-     second-first second-second second-third
+                           root
+      +----------------------+----------------------+
+    first                 second                  third
+                +------------+-------------+
+          second-first second-second second-third
     """.trimIndent()
     )
 
@@ -748,11 +776,11 @@ first                second                   third
     root.children[1].right = 1..<3
     assertThat(print(root)).isEqualTo(
       """
-         root
-  ┌────────┼──────────────────────────────────┐
-first    second                               third
-           ├───────────┬────────────┐
-     second-first second-second second-third
+              root
+      +---------+-----------------------------------+
+    first    second                               third
+                +------------+-------------+
+          second-first second-second second-third
     """.trimIndent()
     )
 
@@ -761,11 +789,11 @@ first    second                               third
     root.children[1].right = 0..<3
     assertThat(print(root)).isEqualTo(
       """
-      root
-  ┌─────┼───────────────────────────────────────────┐
-first second                                        third
-        └────────┬───────────┬────────────┐
-           second-first second-second second-third
+           root
+      +------+--------------------------------------------+
+    first second                                        third
+             +--------+------------+-------------+
+                second-first second-second second-third
     """.trimIndent()
     )
 
@@ -774,11 +802,11 @@ first second                                        third
     root.children[1].right = 1..<3
     assertThat(print(root)).isEqualTo(
       """
-                  root
-  ┌─────────────────┼───────────────────────────────┐
-first             second                            third
-           ┌────────┴────────┬────────────┐
-     second-first       second-second second-third
+                        root
+      +-------------------+-------------------------------+
+    first              second                           third
+                +---------+--------+-------------+
+          second-first       second-second second-third
     """.trimIndent()
     )
 
@@ -787,11 +815,11 @@ first             second                            third
     root.right = 1..<3
     assertThat(print(root)).isEqualTo(
       """
-root
-  ├─────────────────┬───────────────────────────────┐
-first             second                            third
-           ┌────────┴────────┬────────────┐
-     second-first       second-second second-third
+    root
+      +-------------------+-------------------------------+
+    first              second                           third
+                +---------+--------+-------------+
+          second-first       second-second second-third
     """.trimIndent()
     )
 
@@ -800,11 +828,11 @@ first             second                            third
     root.right = 0..<3
     assertThat(print(root)).isEqualTo(
       """
-root
-  └───┬─────────────────┬───────────────────────────────┐
-    first             second                            third
-               ┌────────┴────────┬────────────┐
-         second-first       second-second second-third
+    root
+      +---+-------------------+-------------------------------+
+        first              second                           third
+                    +---------+--------+-------------+
+              second-first       second-second second-third
     """.trimIndent()
     )
   }
@@ -829,14 +857,32 @@ root
     root.children.last().below = null
     root.children.last().right = 0..<2
     assertThat(print(root)).isEqualTo("""
-                                                  Once_upon_a_midnight_dreary
-                         ┌─────────────────────────────────────┴────────────────────┐
-                 while_I_pondered                                             weak_and_weary
-         ┌───────────────┼───────────────┐                                           └──────────────┬───────────────┐
-Over_many_a_quaint       and        curious_volume                                          of_forgotten_lore While_I_nodded
+                                                      Once_upon_a_midnight_dreary
+                              +------------------------------------+--------------------+
+                      while_I_pondered                                           weak_and_weary
+             +----------------+---------------+                                         +--------------+----------------+
+    Over_many_a_quaint       and       curious_volume                                          of_forgotten_lore While_I_nodded
     """.trimIndent())
   }
 
+  @Test
+  fun countries() {
+    val root = TextNode("countries")
+    root.children.add(TextNode("Bahrain"))
+    root.children.add(TextNode("Belgium"))
+    root.children.add(TextNode("Bhutan"))
+    root.children.add(TextNode("Bolivia"))
+    root.children.add(TextNode("Brunei"))
+    root.children.add(TextNode("Burundi"))
+    //root.left = 0..2
+    root.below = null
+    root.right = 0..5
+    assertThat(print(root)).isEqualTo("""
+    countries
+        +-------+-------+-------+------+-------+------+
+             Bahrain Belgium Bhutan Bolivia Brunei Burundi
+    """.trimIndent())
+  }
 }
 
 class TextNode(
