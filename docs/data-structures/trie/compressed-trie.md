@@ -953,8 +953,6 @@ l(Afghanistan)            b(3▹b,g)                      b(3▹d,g)            
 }
 ```
 
-## Benchmark
-
 <script type="text/javascript">
   function chart() {
     var data = google.visualization.arrayToDataTable(
