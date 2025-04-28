@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../js/objects/this/">
+        <link rel="prev" href="../../ubuntu/samba/">
       
       
-        <link rel="next" href="../relative-units/">
+        <link rel="next" href="../../howto/printer-3p-ink/">
       
       
       <link rel="icon" href="../../assets/fatigue-dark.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Box Model - listless 💤</title>
+        <title>gradle - listless 💤</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#box-model" class="md-skip">
+        <a href="#gradle-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Box Model
+              gradle
             
           </span>
         </div>
@@ -4594,19 +4594,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
         
           
           <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
@@ -4620,7 +4618,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
             CSS
@@ -4631,19 +4629,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../css/box-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4652,7 +4641,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -4665,7 +4653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../relative-units/" class="md-nav__link">
+      <a href="../../css/relative-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5005,17 +4993,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" checked>
         
           
           <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
@@ -5029,7 +5019,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_18">
             <span class="md-nav__icon md-icon"></span>
             Snippets
@@ -5040,10 +5030,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../snippets/gradle/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -5052,6 +5051,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -5244,33 +5244,154 @@
                   
 
 
-<h1 id="box-model">Box Model</h1>
-<style>
-.md-logo img {
-  content: url('/css/css.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/css/css.svg');
-}
-</style>
-
-<div class="grid">
-<div>
-<p><code>box-sizing: content-box;</code></p>
-<p>By <strong>default in CSS</strong> box model, the <code>width</code> and <code>height</code> assigned to an element is only applied to its content box. Any padding, border, and margin are added on top of that.</p>
+<h1 id="gradle-configuration">Gradle configuration</h1>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">build.gradle.kts</label><label for="__tabbed_1_2">app/build.gradle.kts</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// Top-level build file where you can add configuration options common to all sub-projects/modules.
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>plugins {
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  alias(libs.plugins.android.application) apply false
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  alias(libs.plugins.kotlin.android) apply false
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  alias(libs.plugins.hilt.gradle) apply false
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  alias(libs.plugins.protobuf) apply false
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  // Need to be exact same version as Kotlin
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  // https://mvnrepository.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  id(&quot;com.google.devtools.ksp&quot;) version &quot;2.0.0-1.0.24&quot;
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>}
+</span></code></pre></div>
 </div>
-<div>
-<p><a class="glightbox" href="../content-box-light.svg#only-light" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../content-box-light.svg#only-light" /></a>
-<a class="glightbox" href="../content-box-night.svg#only-dark" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../content-box-night.svg#only-dark" /></a></p>
+<div class="tabbed-block">
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>import com.google.protobuf.gradle.id
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>import org.gradle.configurationcache.extensions.capitalized
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>plugins {
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  alias(libs.plugins.android.application)
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  alias(libs.plugins.kotlin.android)
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  alias(libs.plugins.compose.compiler)
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  alias(libs.plugins.hilt.gradle)
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  alias(libs.plugins.protobuf)
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  id(&quot;com.google.devtools.ksp&quot;)
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>}
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>android {
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  namespace = &quot;dev.listless.example&quot;
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>  compileSdk = 35
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>  defaultConfig {
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    applicationId = &quot;dev.listless.example&quot;
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    minSdk = 34
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    targetSdk = 34
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    versionCode = 1
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    versionName = &quot;1.0&quot;
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    testInstrumentationRunner = &quot;androidx.test.runner.AndroidJUnitRunner&quot;
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    vectorDrawables {
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>      useSupportLibrary = true
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    }
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>  }
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>  buildTypes {
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    release {
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>      isMinifyEnabled = false
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>      proguardFiles(
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>        getDefaultProguardFile(&quot;proguard-android-optimize.txt&quot;),
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>        &quot;proguard-rules.pro&quot;
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>      )
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    }
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>  }
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>  compileOptions {
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    sourceCompatibility = JavaVersion.VERSION_1_8
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    targetCompatibility = JavaVersion.VERSION_1_8
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>  }
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>  kotlinOptions {
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>    jvmTarget = &quot;1.8&quot;
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>  }
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>  buildFeatures {
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>    compose = true
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>  }
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>  composeOptions {
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>    kotlinCompilerExtensionVersion = &quot;1.5.1&quot;
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>  }
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>  packaging {
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>    resources {
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>      excludes += &quot;/META-INF/{AL2.0,LGPL2.1}&quot;
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>    }
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>  }
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>}
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>hilt {
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>  enableAggregatingTask = true
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>}
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>protobuf {
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>  protoc {
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>    artifact = &quot;com.google.protobuf:protoc:4.28.3&quot;
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>  }
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>  generateProtoTasks {
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>    all().forEach { task -&gt;
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>      task.plugins {
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>        id(&quot;java&quot;) {
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a>          option(&quot;lite&quot;)
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>        }
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>      }
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a>      task.builtins {
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a>        id(&quot;kotlin&quot;) {
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a>          option(&quot;lite&quot;)
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a>        }
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>      }
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a>    }
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>  }
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a>}
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>androidComponents {
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>  onVariants(selector().all()) { variant -&gt;
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a>    afterEvaluate {
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>      val capName = variant.name.capitalized()
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a>      tasks.getByName&lt;KotlinCompile&gt;(&quot;ksp${capName}Kotlin&quot;) {
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>        setSource(tasks.getByName(&quot;generate${capName}Proto&quot;).outputs)
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a>      }
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>    }
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a>  }
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>}
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a>
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a>dependencies {
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a>
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a>  implementation(libs.androidx.core.ktx)
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a>  implementation(libs.androidx.lifecycle.runtime.ktx)
+</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a>  implementation(libs.androidx.activity.compose)
+</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a>  implementation(platform(libs.androidx.compose.bom))
+</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a>  implementation(libs.androidx.ui)
+</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a>  implementation(libs.androidx.ui.graphics)
+</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a>  implementation(libs.androidx.ui.tooling.preview)
+</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a>  implementation(libs.androidx.material3)
+</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a>  testImplementation(libs.junit)
+</span><span id="__span-1-106"><a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a>  androidTestImplementation(libs.androidx.junit)
+</span><span id="__span-1-107"><a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a>  androidTestImplementation(libs.androidx.espresso.core)
+</span><span id="__span-1-108"><a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a>  androidTestImplementation(platform(libs.androidx.compose.bom))
+</span><span id="__span-1-109"><a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a>  androidTestImplementation(libs.androidx.ui.test.junit4)
+</span><span id="__span-1-110"><a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a>  debugImplementation(libs.androidx.ui.tooling)
+</span><span id="__span-1-111"><a id="__codelineno-1-111" name="__codelineno-1-111" href="#__codelineno-1-111"></a>  debugImplementation(libs.androidx.ui.test.manifest)
+</span><span id="__span-1-112"><a id="__codelineno-1-112" name="__codelineno-1-112" href="#__codelineno-1-112"></a>
+</span><span id="__span-1-113"><a id="__codelineno-1-113" name="__codelineno-1-113" href="#__codelineno-1-113"></a>  // Hilt
+</span><span id="__span-1-114"><a id="__codelineno-1-114" name="__codelineno-1-114" href="#__codelineno-1-114"></a>  implementation(libs.hilt.android)
+</span><span id="__span-1-115"><a id="__codelineno-1-115" name="__codelineno-1-115" href="#__codelineno-1-115"></a>  ksp(libs.hilt.compiler)
+</span><span id="__span-1-116"><a id="__codelineno-1-116" name="__codelineno-1-116" href="#__codelineno-1-116"></a>  // For instrumentation tests
+</span><span id="__span-1-117"><a id="__codelineno-1-117" name="__codelineno-1-117" href="#__codelineno-1-117"></a>  androidTestImplementation(libs.hilt.android.testing)
+</span><span id="__span-1-118"><a id="__codelineno-1-118" name="__codelineno-1-118" href="#__codelineno-1-118"></a>  kspAndroidTest(libs.hilt.compiler)
+</span><span id="__span-1-119"><a id="__codelineno-1-119" name="__codelineno-1-119" href="#__codelineno-1-119"></a>  // For local unit tests
+</span><span id="__span-1-120"><a id="__codelineno-1-120" name="__codelineno-1-120" href="#__codelineno-1-120"></a>  testImplementation(libs.hilt.android.testing)
+</span><span id="__span-1-121"><a id="__codelineno-1-121" name="__codelineno-1-121" href="#__codelineno-1-121"></a>  kspTest(libs.hilt.compiler)
+</span><span id="__span-1-122"><a id="__codelineno-1-122" name="__codelineno-1-122" href="#__codelineno-1-122"></a>
+</span><span id="__span-1-123"><a id="__codelineno-1-123" name="__codelineno-1-123" href="#__codelineno-1-123"></a>  // Protobuf
+</span><span id="__span-1-124"><a id="__codelineno-1-124" name="__codelineno-1-124" href="#__codelineno-1-124"></a>  implementation(libs.protobuf.kotlin.lite)
+</span><span id="__span-1-125"><a id="__codelineno-1-125" name="__codelineno-1-125" href="#__codelineno-1-125"></a>  implementation(libs.protobuf.java.lite)
+</span><span id="__span-1-126"><a id="__codelineno-1-126" name="__codelineno-1-126" href="#__codelineno-1-126"></a>
+</span><span id="__span-1-127"><a id="__codelineno-1-127" name="__codelineno-1-127" href="#__codelineno-1-127"></a>  // Proto Datastore
+</span><span id="__span-1-128"><a id="__codelineno-1-128" name="__codelineno-1-128" href="#__codelineno-1-128"></a>  implementation(libs.androidx.datastore)
+</span><span id="__span-1-129"><a id="__codelineno-1-129" name="__codelineno-1-129" href="#__codelineno-1-129"></a>}
+</span></code></pre></div>
 </div>
-<div>
-<p><code>box-sizing: border-box;</code></p>
-<p>This tells the browser to account for padding and border in the specified <code>width</code> and <code>height</code>.</p>
-</div>
-<div>
-<p><a class="glightbox" href="../border-box-light.svg#only-light" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../border-box-light.svg#only-light" /></a>
-<a class="glightbox" href="../border-box-night.svg#only-dark" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../border-box-night.svg#only-dark" /></a></p>
 </div>
 </div>
 
