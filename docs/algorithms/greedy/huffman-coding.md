@@ -2,9 +2,7 @@
 
 ## About
 
-Huffman coding is optimal prefix code for lossless data compression.
-
-## Details
+Huffman coding is optimal prefix code for lossless data compression. See [demo](../../labs/huffman-encoding/index.md).
 
 <div markdown class="grid">
 
