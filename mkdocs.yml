@@ -203,6 +203,7 @@ nav:
   - Labs:
       - Tree Printer: "labs/tree-printer.md"
       - Tree Printer v2: "labs/tree-printer-2.md"
+      - Huffman Encoder: "labs/huffman-encoding/index.md"
   - Design Patterns:
       - Creational:
           - Singleton: "design-patterns/singleton.md"
