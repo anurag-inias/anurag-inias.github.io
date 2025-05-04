@@ -151,6 +151,7 @@ nav:
       - Greedy:
           - Activity selection: "practice/greedy/activity-selection.md"
           - Job sequencing: "practice/greedy/job-sequencing.md"
+          - Shortest Superstring: "practice/greedy/shortest-superstring.md"
       - Backtracking:
           - List all binary strings generated from wildcard pattern: "practice/backtracking/list-all-binary-strings-generated-from-wildcard-pattern.md"
       - Stack:
