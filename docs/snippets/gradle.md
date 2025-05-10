@@ -6,12 +6,12 @@
     // Top-level build file where you can add configuration options common to all sub-projects/modules.
     plugins {
       alias(libs.plugins.android.application) apply false
-      alias(libs.plugins.kotlin.android) apply false
-      alias(libs.plugins.hilt.gradle) apply false
+      alias(libs.plugins.org.jetbrains.kotlin.android) apply false
+      alias(libs.plugins.compose.compiler) apply false
       alias(libs.plugins.protobuf) apply false
       // Need to be exact same version as Kotlin
       // https://mvnrepository.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin
-      id("com.google.devtools.ksp") version "2.0.0-1.0.24"
+      id("com.google.devtools.ksp") version "2.1.20-2.0.0"
     }
     ```
 
@@ -24,7 +24,7 @@
 
     plugins {
       alias(libs.plugins.android.application)
-      alias(libs.plugins.kotlin.android)
+      alias(libs.plugins.org.jetbrains.kotlin.android)
       alias(libs.plugins.compose.compiler)
       alias(libs.plugins.hilt.gradle)
       alias(libs.plugins.protobuf)
@@ -32,13 +32,13 @@
     }
 
     android {
-      namespace = "dev.listless.example"
+      namespace = "dev.listless.taskhopper"
       compileSdk = 35
 
       defaultConfig {
-        applicationId = "dev.listless.example"
-        minSdk = 34
-        targetSdk = 34
+        applicationId = "dev.listless.taskhopper"
+        minSdk = 33
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -83,7 +83,8 @@
 
     protobuf {
       protoc {
-        artifact = "com.google.protobuf:protoc:4.28.3"
+        // https://mvnrepository.com/artifact/com.google.protobuf/protoc
+        artifact = "com.google.protobuf:protoc:4.30.2"
       }
       generateProtoTasks {
         all().forEach { task ->
@@ -105,9 +106,12 @@
       onVariants(selector().all()) { variant ->
         afterEvaluate {
           val capName = variant.name.capitalized()
-          tasks.getByName<KotlinCompile>("ksp${capName}Kotlin") {
-            setSource(tasks.getByName("generate${capName}Proto").outputs)
-          }
+          val kspTask = tasks.named("ksp${capName}Kotlin")
+          val kspOutput = kspTask.map { it.outputs.files }
+
+          kotlin.sourceSets.findByName(variant.name)?.kotlin?.srcDirs(kspOutput)
+          kotlin.sourceSets.findByName("${variant.name}UnitTest")?.kotlin?.srcDirs(kspOutput)
+          kotlin.sourceSets.findByName("${variant.name}AndroidTest")?.kotlin?.srcDirs(kspOutput)
         }
       }
     }
@@ -143,7 +147,6 @@
       // Protobuf
       implementation(libs.protobuf.kotlin.lite)
       implementation(libs.protobuf.java.lite)
-
       // Proto Datastore
       implementation(libs.androidx.datastore)
     }
@@ -154,17 +157,17 @@
     ```toml
     [versions]
     agp = "8.6.1"
-    kotlin = "2.0.0"
-    coreKtx = "1.15.0"
+    kotlin = "2.1.20"
+    coreKtx = "1.16.0"
     junit = "4.13.2"
     junitVersion = "1.2.1"
     espressoCore = "3.6.1"
     lifecycleRuntimeKtx = "2.8.7"
-    activityCompose = "1.9.3"
-    composeBom = "2024.10.01"
-    hiltAndroid = "2.52"
-    datastore = "1.1.1"
-    protobufLite = "4.28.3"
+    activityCompose = "1.10.1"
+    composeBom = "2025.04.01"
+    hiltAndroid = "2.56.2"
+    datastore = "1.1.5"
+    protobufLite = "4.30.2"
     protobufGradlePlugin = "0.9.4"
 
     [libraries]
@@ -182,16 +185,18 @@
     androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
     androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
     androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-    androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
     hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
     hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hiltAndroid" }
     hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
+    # https://mvnrepository.com/artifact/com.google.protobuf/protobuf-kotlin-lite
     protobuf-kotlin-lite = { module = "com.google.protobuf:protobuf-kotlin-lite", version.ref = "protobufLite" }
+    # https://mvnrepository.com/artifact/com.google.protobuf/protobuf-javalite
     protobuf-java-lite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobufLite" }
+    androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 
     [plugins]
     android-application = { id = "com.android.application", version.ref = "agp" }
-    kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+    org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
     compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
     hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
     protobuf = { id = "com.google.protobuf", version.ref = "protobufGradlePlugin" }
