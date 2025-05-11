@@ -21,22 +21,28 @@ BFS is a graph traversal and search algorithm. It explores the vertices of a gra
 
 ## Pseudocode
 
-$\ \ \ \ \ \ \ \underline{\text{BFS}(s)}$ <br>
-${\small 1} \ \ \ \ \ \text{mark }s\text{ as explored, all other vertices as unexplored}$ <br>
-${\small 2} \ \ \ \ \ Q := \{s\} \text{ initialize a queue data structure with } s$ <br>
-${\small 3} \ \ \ \ \ \textbf{while } Q \text{ is not empty} \textbf{ do}$ <br>
-${\small 4} \ \ \ \ \ \ \ \ \ \ \ v := Q.\text{poll()}$ <br>
-${\small 5} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}$ <br>
-${\small 6} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored }\textbf{ then}$ <br>
-${\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}$ <br>
-${\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q.\text{offer}(w)$ <br>
+$\ \ \ \ \ \ \ \ \underline{\text{BFS}()}$ <br>
+${\small \ \ 1} \ \ \ \ \ \text{mark all vertices as unexplored}$ <br>
+${\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}$ <br>
+${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is unexplored}\textbf{ then}$ <br>
+${\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{bfs}(s)$ <br>
+${\small \ \ 5}$ <br>
+${\small \ \ 6} \ \ \ \ \ \underline{\text{bfs}(s)}$ <br>
+${\small \ \ 7} \ \ \ \ \ \text{mark }s\text{ as explored}$ <br>
+${\small \ \ 8} \ \ \ \ \ Q := \{s\} \text{ initialize a queue data structure with } s$ <br>
+${\small \ \ 9} \ \ \ \ \ \textbf{while } Q \text{ is not empty} \textbf{ do}$ <br>
+${\small 10} \ \ \ \ \ \ \ \ \ \ \ v := Q.\text{poll()}$ <br>
+${\small 11} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}$ <br>
+${\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored}\textbf{ then}$ <br>
+${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}$ <br>
+${\small 14} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q.\text{offer}(w)$ <br>
 
 ## Highlights
 
-- BFS is similar to iterative DFS but differs in two ways:
+- BFS is similar to iterative DFS, which we will cover next. But in short:
 
       1. It uses a queue instead of a stack.
-      2. _explored_ check is done before enqueuing the vertex and as opposed to delaying it to dequeuing time.
+      2. We postpone the check of whether a vertex is $\text{explored}$ after getting it out of the _bag_, as opposed to before putting it in the bag.
 
 - It finds the path with least hops (shortest path) in unweighted graphs.
 - It has the running time of \\(O(V+E)\\).

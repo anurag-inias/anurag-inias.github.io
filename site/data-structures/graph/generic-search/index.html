@@ -2272,9 +2272,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pseudo-code" class="md-nav__link">
+  <a href="#pseudocode" class="md-nav__link">
     <span class="md-ellipsis">
-      Pseudo-code
+      Pseudocode
     </span>
   </a>
   
@@ -5350,9 +5350,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pseudo-code" class="md-nav__link">
+  <a href="#pseudocode" class="md-nav__link">
     <span class="md-ellipsis">
-      Pseudo-code
+      Pseudocode
     </span>
   </a>
   
@@ -5395,29 +5395,36 @@
 
 <h2 id="about">About</h2>
 <p>The algorithms we explore later are all specialiazation of this generic search algorithm.</p>
-<h2 id="pseudo-code">Pseudo-code</h2>
-<div class="language-ruby highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GenericSearch(G, s)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">bag</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">while</span><span class="w"> </span><span class="n">bag</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">empty</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bag</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ss">visited</span><span class="p">:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="n">mark</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">visited</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="ss">G</span><span class="p">:</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">      </span><span class="n">bag</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<p>where <em>bag</em> is a placeholder ADT.</p>
+<h2 id="pseudocode">Pseudocode</h2>
+<p><span class="arithmatex">\(\ \ \ \ \ \ \ \ \underline{\text{GenericSearch}()}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 1} \ \ \ \ \ \text{mark all vertices as unexplored}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is unexplored}\textbf{ then}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{search}(s)\)</span> <br>
+<span class="arithmatex">\({\small \ \ 5}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 6} \ \ \ \ \ \underline{\text{search}(s)}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 7} \ \ \ \ \ \text{mark }s\text{ as explored}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 9} \ \ \ \ \ \textbf{while } \text{there is an edge } (u, v) \in E \text{ with } u \text{ explored and } v \text{ unexplored} \textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small 10} \ \ \ \ \ \ \ \ \ \ \ \text{choose some such edge }(u, v) \ \ \ \ {\small\text{// unspecified}}\)</span> <br>
+<span class="arithmatex">\({\small 11} \ \ \ \ \ \ \ \ \ \ \ \text{mark }v\text{ as explored}\)</span> <br></p>
 <h2 id="variants">Variants</h2>
+<p>By giving an order to edges to process at line number <span class="arithmatex">\(10\)</span> we get different concrete implementations of the generic search algorithm:</p>
 <ol>
-<li>Stack: using a stack as "bag" gives us DFS. This spits out a depth-first spanning tree, which in general is going to be thin and deep.</li>
-<li>Queue: this gives us BFS. The spanning tree from this will be wide and shallow.</li>
-<li>Priority queue: this is basically a family of algorithm on its own.<ul>
-<li>Edge weights as priority gives an algorithm for discovering Minimum spanning tree, roughly Prim's algorithm.</li>
-<li>Vertex distance as priority gives shortest-path algorithm in weighted graphs, roughly Dijkstra's algorithm.</li>
+<li>
+<p>BFS: use a <span class="arithmatex">\(\text{queue}\)</span> to pick edges in first come first serve (LIFO) order.</p>
+</li>
+<li>
+<p>DFS: use a <span class="arithmatex">\(\text{stack}\)</span> to pick edges in last come first serve (FIFO) order.</p>
+</li>
+<li>
+<p>Priority queue: this is basically a family of algorithm on its own.</p>
+<ul>
+<li>
+<p>Edge weights as priority gives an algorithm for discovering Minimum spanning tree, roughly Prim's algorithm.</p>
+</li>
+<li>
+<p>Vertex distance as priority gives shortest-path algorithm in weighted graphs, roughly Dijkstra's algorithm.</p>
+</li>
 </ul>
 </li>
 </ol>

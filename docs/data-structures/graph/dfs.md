@@ -27,6 +27,12 @@
   border-bottom: 1px #d4e4ed solid;
   width: 100%;
 }
+.box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-bottom: -2px;
+}
 </style>
 
 ## Intro
@@ -44,71 +50,88 @@ It's helpful to consider DFS in contrast to its sibling BFS. Where BFS is the ca
 <div class="grid" markdown>
 
 <div markdown>
-$\ \ \ \ \ \ \ \text{Recursive } \underline{\text{DFS}(s)}$ <br>
-${\small 1} \ \ \ \ \ \text{mark }s \text{ as explored}$ <br>
-${\small 2} \ \ \ \ \ \textbf{for }\text{each edge }(s, u) \in E\textbf{ do}$ <br>
-${\small 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }u \text{ is unexplored }\textbf{ then}$ <br>
-${\small 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{DFS}(u)$
+$\ \ \ \ \ \ \ \text{Recursive } \underline{\text{DFS}()}$ <br>
+${\small \ \ 1} \ \ \ \ \ \text{mark all vertices as unexplored}$ <br>
+${\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}$ <br>
+${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is unexplored}\textbf{ then}$ <br>
+${\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{dfs}(s)$ <br>
+${\small \ \ 5}$ <br>
+${\small \ \ 6} \ \ \ \ \ \underline{\text{dfs}(s)}$ <br>
+${\small \ \ 7} \ \ \ \ \ \text{mark }s \text{ as explored}$ <br>
+${\small \ \ 8} \ \ \ \ \ \textbf{for }\text{each edge }(s, u) \in E\textbf{ do}$ <br>
+${\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }u \text{ is unexplored}\textbf{ then}$ <br>
+${\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{DFS}(u)$
 
 </div>
 
 <div markdown>
-$\ \ \ \ \ \ \ \text{Iterative } \underline{\text{DFS}(s)}$ <br>
-${\small 1} \ \ \ \ \ \text{mark all vertices as unexplored}$ <br>
-${\small 2} \ \ \ \ \ S := \{s\}$ <br>
-${\small 3} \ \ \ \ \ \textbf{while } S \text{ is not empty} \textbf{ do}$ <br>
-${\small 4} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{poll()}$ <br>
-${\small 5} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored }\textbf{ then}$  <br>
-${\small 6} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}$
-${\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}$ <br>
-${\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)$ <br>
+$\ \ \ \ \ \ \ \ \text{Iterative } \underline{\text{DFS}()}$ <br>
+${\small \ \ 1} \ \ \ \ \ \text{mark all vertices as unexplored}$ <br>
+${\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}$ <br>
+${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is unexplored}\textbf{ then}$ <br>
+${\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{dfs}(s)$ <br>
+${\small \ \ 5}$ <br>
+${\small \ \ 6} \ \ \ \ \ \underline{\text{dfs}(s)}$ <br>
+${\small \ \ 7} \ \ \ \ \ S := \{s\}$ <br>
+${\small \ \ 8} \ \ \ \ \ \textbf{while } S \text{ is not empty} \textbf{ do}$ <br>
+${\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{poll()}$ <br>
+${\small 10} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored }\textbf{ then}$  <br>
+${\small 11} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}$
+${\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}$ <br>
+${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)$ <br>
 
 </div>
 
+<div markdown>
+
 ### Difference from BFS
+
+<span class="box" style="background-color: #faafa8;"></span> are deleted lines. <span class="box" style="background-color: #d4e4ed;"></span> are shifted lines.
+
+</div>
 
 <span/>
 
 <div markdown class="opaque">
-$\ \ \ \ \ \ \ \underline{\text{BFS}(s)}$ <br>
-${\small 1} \ \ \ \ \ \text{mark all vertices as unexplored}$ <br>
-<span class="deleted">${\small 2} \ \ \ \ \ \text{mark }s\text{ as explored}$</span> <br>
-${\small 3} \ \ \ \ \ Q := \{s\}$ <br>
-${\small 4} \ \ \ \ \ \text{while } Q \text{ is not empty} \text{ do}$ <br>
-<span class="elevation-target">${\small 5} \ \ \ \ \ \ \ \ \ \ \ v := Q.\text{poll()}$ </span> <br>
-${\small 6} \ \ \ \ \ \ \ \ \ \ \ \text{for }\text{each edge }(v, w) \in E\text{ do} \ \ \ \ \ \ \ \ \ \uparrow$ <br>
-<span class="elevated">${\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{if }w \text{ is unexplored }\text{ then}$ </span> <br>
-<span class="elevated">${\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}$ </span> <br>
-${\small 9} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q.\text{offer}(w)$ <br>
+$\ \ \ \ \ \ \ \underline{\text{bfs}(s)}$ <br>
+<span class="deleted">${\small 1} \ \ \ \ \ \text{mark }s\text{ as explored}$</span> <br>
+${\small 2} \ \ \ \ \ Q := \{s\}$ <br>
+${\small 3} \ \ \ \ \ \text{while } Q \text{ is not empty} \text{ do}$ <br>
+<span class="elevation-target">${\small 4} \ \ \ \ \ \ \ \ \ \ \ v := Q.\text{poll()}$ </span> <br>
+${\small 5} \ \ \ \ \ \ \ \ \ \ \ \text{for }\text{each edge }(v, w) \in E\text{ do} \ \ \ \ \ \ \ \ \ \uparrow$ <br>
+<span class="elevated">${\small 6} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{if }w \text{ is unexplored }\text{ then}$ </span> <br>
+<span class="elevated">${\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}$ </span> <br>
+${\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q.\text{offer}(w) \ \ {\Tiny\text{// has pre-check}}$<br>
 </div>
 
 <div markdown>
-$\ \ \ \ \ \ \ \underline{\text{DFS}(s)}$ <br>
-${\small 1} \ \ \ \ \ \text{mark all vertices as unexplored}$ <br>
-<br>
+$\ \ \ \ \ \ \ \underline{\text{dfs}(s)}$ <br>
+${\small 1}$<br>
 ${\small 2} \ \ \ \ \ S := \{s\}$ <br>
 ${\small 3} \ \ \ \ \ \textbf{while } S \text{ is not empty} \textbf{ do}$ <br>
-${\small 4} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{poll()}$ <br>
+${\small 4} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{pop()} \ \ {\Tiny\text{// has post-check}}$ <br>
 <span class="elevated">${\small 5} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored }\textbf{ then}$ </span> <br>
 <span class="elevated">${\small 6} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}$ </span>
 ${\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}$ <br>
-${\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)$ <br>
+${\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{push}(w)$ <br>
 
 </div>
 
 <div markdown>
 1. Uses a $\text{queue}$ as the $\text{bag}$.
 2. Checks if a vertex is $\text{explored}$ before bagging it.
+3. Consequently, $Q$ always has $\text{explored}$ vertices.
 </div>
 
 <div markdown>
 1. Uses a $\textbf{stack}$ as the $\text{bag}$.
 2. Checks if a vertex is $\text{explored}$ **after unbagging** it.
+3. Consequently, $s$ should not be marked $\text{explored}$ at the start of the subroutine.
 </div>
 
 </div>
 
-### Explanation
+### Why postpone $\text{explored}$ check?
 
 <div class="grid" markdown>
 
@@ -125,6 +148,10 @@ The right approach then is to postpone marking vertices visited. This gives us t
 </div>
 
 i.e. Give multiple edges: \\(a \rightarrow t, b \rightarrow t, c \rightarrow t\\) leading to the same destination vertex \\(t\\); the incomplete version of DFS (i.e. just BFS with stack) takes the first encountered edge \\(a \rightarrow t\\) to \\(t\\). The complete solution is to pick the last encountered edge \\(c \rightarrow t\\).
+
+## Highlights
+
+- It has the running time of \\(O(V+E)\\).
 
 ## DFS tree
 
