@@ -2333,9 +2333,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
+  <a href="#why-postpone-textexplored-check" class="md-nav__link">
     <span class="md-ellipsis">
-      Explanation
+      Why postpone \(\text{explored}\) check?
     </span>
   </a>
   
@@ -2343,6 +2343,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
   
 </li>
       
@@ -5426,9 +5435,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
+  <a href="#why-postpone-textexplored-check" class="md-nav__link">
     <span class="md-ellipsis">
-      Explanation
+      Why postpone \(\text{explored}\) check?
     </span>
   </a>
   
@@ -5436,6 +5445,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
   
 </li>
       
@@ -5524,6 +5542,12 @@
   border-bottom: 1px #d4e4ed solid;
   width: 100%;
 }
+.box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-bottom: -2px;
+}
 </style>
 
 <h2 id="intro">Intro</h2>
@@ -5534,63 +5558,77 @@
 <h2 id="pseudocode">Pseudocode</h2>
 <div class="grid">
 <div>
-<p><span class="arithmatex">\(\ \ \ \ \ \ \ \text{Recursive } \underline{\text{DFS}(s)}\)</span> <br>
-<span class="arithmatex">\({\small 1} \ \ \ \ \ \text{mark }s \text{ as explored}\)</span> <br>
-<span class="arithmatex">\({\small 2} \ \ \ \ \ \textbf{for }\text{each edge }(s, u) \in E\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }u \text{ is unexplored }\textbf{ then}\)</span> <br>
-<span class="arithmatex">\({\small 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{DFS}(u)\)</span></p>
+<p><span class="arithmatex">\(\ \ \ \ \ \ \ \text{Recursive } \underline{\text{DFS}()}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 1} \ \ \ \ \ \text{mark all vertices as unexplored}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is unexplored}\textbf{ then}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{dfs}(s)\)</span> <br>
+<span class="arithmatex">\({\small \ \ 5}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 6} \ \ \ \ \ \underline{\text{dfs}(s)}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 7} \ \ \ \ \ \text{mark }s \text{ as explored}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 8} \ \ \ \ \ \textbf{for }\text{each edge }(s, u) \in E\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }u \text{ is unexplored}\textbf{ then}\)</span> <br>
+<span class="arithmatex">\({\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{DFS}(u)\)</span></p>
 </div>
 <div>
-<p><span class="arithmatex">\(\ \ \ \ \ \ \ \text{Iterative } \underline{\text{DFS}(s)}\)</span> <br>
-<span class="arithmatex">\({\small 1} \ \ \ \ \ \text{mark all vertices as unexplored}\)</span> <br>
-<span class="arithmatex">\({\small 2} \ \ \ \ \ S := \{s\}\)</span> <br>
-<span class="arithmatex">\({\small 3} \ \ \ \ \ \textbf{while } S \text{ is not empty} \textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 4} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{poll()}\)</span> <br>
-<span class="arithmatex">\({\small 5} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored }\textbf{ then}\)</span>  <br>
-<span class="arithmatex">\({\small 6} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}\)</span>
-<span class="arithmatex">\({\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)\)</span> <br></p>
+<p><span class="arithmatex">\(\ \ \ \ \ \ \ \ \text{Iterative } \underline{\text{DFS}()}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 1} \ \ \ \ \ \text{mark all vertices as unexplored}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is unexplored}\textbf{ then}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{dfs}(s)\)</span> <br>
+<span class="arithmatex">\({\small \ \ 5}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 6} \ \ \ \ \ \underline{\text{dfs}(s)}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 7} \ \ \ \ \ S := \{s\}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 8} \ \ \ \ \ \textbf{while } S \text{ is not empty} \textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{poll()}\)</span> <br>
+<span class="arithmatex">\({\small 10} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored }\textbf{ then}\)</span>  <br>
+<span class="arithmatex">\({\small 11} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}\)</span>
+<span class="arithmatex">\({\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)\)</span> <br></p>
 </div>
+<div>
 <h3 id="difference-from-bfs">Difference from BFS</h3>
+<p><span class="box" style="background-color: #faafa8;"></span> are deleted lines. <span class="box" style="background-color: #d4e4ed;"></span> are shifted lines.</p>
+</div>
 <p><span/></p>
 <div class="opaque">
-<p><span class="arithmatex">\(\ \ \ \ \ \ \ \underline{\text{BFS}(s)}\)</span> <br>
-<span class="arithmatex">\({\small 1} \ \ \ \ \ \text{mark all vertices as unexplored}\)</span> <br>
-<span class="deleted"><span class="arithmatex">\({\small 2} \ \ \ \ \ \text{mark }s\text{ as explored}\)</span></span> <br>
-<span class="arithmatex">\({\small 3} \ \ \ \ \ Q := \{s\}\)</span> <br>
-<span class="arithmatex">\({\small 4} \ \ \ \ \ \text{while } Q \text{ is not empty} \text{ do}\)</span> <br>
-<span class="elevation-target"><span class="arithmatex">\({\small 5} \ \ \ \ \ \ \ \ \ \ \ v := Q.\text{poll()}\)</span> </span> <br>
-<span class="arithmatex">\({\small 6} \ \ \ \ \ \ \ \ \ \ \ \text{for }\text{each edge }(v, w) \in E\text{ do} \ \ \ \ \ \ \ \ \ \uparrow\)</span> <br>
-<span class="elevated"><span class="arithmatex">\({\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{if }w \text{ is unexplored }\text{ then}\)</span> </span> <br>
-<span class="elevated"><span class="arithmatex">\({\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}\)</span> </span> <br>
-<span class="arithmatex">\({\small 9} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q.\text{offer}(w)\)</span> <br></p>
+<p><span class="arithmatex">\(\ \ \ \ \ \ \ \underline{\text{bfs}(s)}\)</span> <br>
+<span class="deleted"><span class="arithmatex">\({\small 1} \ \ \ \ \ \text{mark }s\text{ as explored}\)</span></span> <br>
+<span class="arithmatex">\({\small 2} \ \ \ \ \ Q := \{s\}\)</span> <br>
+<span class="arithmatex">\({\small 3} \ \ \ \ \ \text{while } Q \text{ is not empty} \text{ do}\)</span> <br>
+<span class="elevation-target"><span class="arithmatex">\({\small 4} \ \ \ \ \ \ \ \ \ \ \ v := Q.\text{poll()}\)</span> </span> <br>
+<span class="arithmatex">\({\small 5} \ \ \ \ \ \ \ \ \ \ \ \text{for }\text{each edge }(v, w) \in E\text{ do} \ \ \ \ \ \ \ \ \ \uparrow\)</span> <br>
+<span class="elevated"><span class="arithmatex">\({\small 6} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{if }w \text{ is unexplored }\text{ then}\)</span> </span> <br>
+<span class="elevated"><span class="arithmatex">\({\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}\)</span> </span> <br>
+<span class="arithmatex">\({\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q.\text{offer}(w) \ \ {\Tiny\text{// has pre-check}}\)</span><br></p>
 </div>
 <div>
-<p><span class="arithmatex">\(\ \ \ \ \ \ \ \underline{\text{DFS}(s)}\)</span> <br>
-<span class="arithmatex">\({\small 1} \ \ \ \ \ \text{mark all vertices as unexplored}\)</span> <br>
-<br>
+<p><span class="arithmatex">\(\ \ \ \ \ \ \ \underline{\text{dfs}(s)}\)</span> <br>
+<span class="arithmatex">\({\small 1}\)</span><br>
 <span class="arithmatex">\({\small 2} \ \ \ \ \ S := \{s\}\)</span> <br>
 <span class="arithmatex">\({\small 3} \ \ \ \ \ \textbf{while } S \text{ is not empty} \textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 4} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{poll()}\)</span> <br>
+<span class="arithmatex">\({\small 4} \ \ \ \ \ \ \ \ \ \ \ v := S.\text{pop()} \ \ {\Tiny\text{// has post-check}}\)</span> <br>
 <span class="elevated"><span class="arithmatex">\({\small 5} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }w \text{ is unexplored }\textbf{ then}\)</span> </span> <br>
 <span class="elevated"><span class="arithmatex">\({\small 6} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{mark }w\text{ as explored}\)</span> </span>
 <span class="arithmatex">\({\small 7} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(v, w) \in E\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)\)</span> <br></p>
+<span class="arithmatex">\({\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{push}(w)\)</span> <br></p>
 </div>
 <div>
 <ol>
 <li>Uses a <span class="arithmatex">\(\text{queue}\)</span> as the <span class="arithmatex">\(\text{bag}\)</span>.</li>
 <li>Checks if a vertex is <span class="arithmatex">\(\text{explored}\)</span> before bagging it.</li>
+<li>Consequently, <span class="arithmatex">\(Q\)</span> always has <span class="arithmatex">\(\text{explored}\)</span> vertices.</li>
 </ol>
 </div>
 <div>
 <ol>
 <li>Uses a <span class="arithmatex">\(\textbf{stack}\)</span> as the <span class="arithmatex">\(\text{bag}\)</span>.</li>
 <li>Checks if a vertex is <span class="arithmatex">\(\text{explored}\)</span> <strong>after unbagging</strong> it.</li>
+<li>Consequently, <span class="arithmatex">\(s\)</span> should not be marked <span class="arithmatex">\(\text{explored}\)</span> at the start of the subroutine.</li>
 </ol>
 </div>
 </div>
-<h3 id="explanation">Explanation</h3>
+<h3 id="why-postpone-textexplored-check">Why postpone <span class="arithmatex">\(\text{explored}\)</span> check?</h3>
 <div class="grid">
 <p>If we just replace queue with stack in BFS, that would not be enough for it to be DFS. <code>DFS(G, 2)</code> would spit out <code>2, 3, 1, 4</code>. The strategy of "carry on" exploring a path gets disrupted when the next vertex on said path is already marked visited.</p>
 <p><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244.9398193359375 242.1428985595703" height="200">
@@ -5600,6 +5638,10 @@
   <g transform="translate(67.1429443359375 10) rotate(0 2.7099990844726562 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g transform="translate(64.8614730834961 85.642822265625) rotate(0 7.1199951171875 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g transform="translate(25.29003143310547 149.2142791748047) rotate(0 6.80999755859375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g transform="translate(112.1900634765625 147.78565979003906) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">4</text></g><g stroke-linecap="round"><g transform="translate(47.14291381835943 161.29454441711863) rotate(0 28.57145690917966 -0.6854106107120685)"><path d="M0 0 C9.52 -0.23, 47.62 -1.14, 57.14 -1.37 M0 0 C9.52 -0.23, 47.62 -1.14, 57.14 -1.37" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(63.71429443359375 105.19053641329424) rotate(0 -13.322925765192053 18.404754681536474)"><path d="M0 0 C-4.44 6.13, -22.2 30.67, -26.65 36.81 M0 0 C-4.44 6.13, -22.2 30.67, -26.65 36.81" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(81.4285888671875 105.65413369214286) rotate(0 15.852669093809425 19.03005748254185)"><path d="M0 0 C5.28 6.34, 26.42 31.72, 31.71 38.06 M0 0 C5.28 6.34, 26.42 31.72, 31.71 38.06" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(70.35662956109286 38.571441650390625) rotate(0 -0.34173385564980663 20.285690307617188)"><path d="M0 0 C-0.11 6.76, -0.57 33.81, -0.68 40.57 M0 0 C-0.11 6.76, -0.57 33.81, -0.68 40.57" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(50.571533203125 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M0 0 C-6.76 8.95, -33.81 44.76, -40.57 53.71 M0 0 C-6.76 8.95, -33.81 44.76, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(50.571533203125 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M-33.24 29.81 C-36.11 39.18, -38.99 48.55, -40.57 53.71 M-33.24 29.81 C-34.9 35.23, -36.56 40.64, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(50.571533203125 90.00003051757812) rotate(0 -20.2857666015625 26.85712432861328)"><path d="M-19.59 40.12 C-27.81 45.45, -36.04 50.78, -40.57 53.71 M-19.59 40.12 C-24.34 43.2, -29.09 46.28, -40.57 53.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(39.92324445803911 184.8088534473485) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M0 0 C15.05 -0.1, 75.24 -0.48, 90.29 -0.57 M0 0 C15.05 -0.1, 75.24 -0.48, 90.29 -0.57" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(39.92324445803911 184.8088534473485) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M66.85 8.13 C71.84 6.27, 76.84 4.42, 90.29 -0.57 M66.85 8.13 C76.12 4.69, 85.4 1.24, 90.29 -0.57" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(39.92324445803911 184.8088534473485) rotate(0 45.14288330078125 -0.2857208251953125)"><path d="M66.74 -8.97 C71.76 -7.18, 76.77 -5.39, 90.29 -0.57 M66.74 -8.97 C76.06 -5.65, 85.37 -2.32, 90.29 -0.57" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(90.00009155273438 89.4285888671875) rotate(0 -0.5714263916015625 -32.857154846191406)"><path d="M0 0 C-0.19 -10.95, -0.95 -54.76, -1.14 -65.71 M0 0 C-0.19 -10.95, -0.95 -54.76, -1.14 -65.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(90.00009155273438 89.4285888671875) rotate(0 -0.5714263916015625 -32.857154846191406)"><path d="M7.81 -42.37 C5.57 -48.22, 3.32 -54.07, -1.14 -65.71 M7.81 -42.37 C5.69 -47.92, 3.56 -53.46, -1.14 -65.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g><g transform="translate(90.00009155273438 89.4285888671875) rotate(0 -0.5714263916015625 -32.857154846191406)"><path d="M-9.28 -42.08 C-7.24 -48, -5.2 -53.93, -1.14 -65.71 M-9.28 -42.08 C-7.35 -47.69, -5.42 -53.3, -1.14 -65.71" stroke="#2f9e44" stroke-width="2" fill="none"></path></g></g><mask></mask></svg></p>
 </div>
 <p>i.e. Give multiple edges: \(a \rightarrow t, b \rightarrow t, c \rightarrow t\) leading to the same destination vertex \(t\); the incomplete version of DFS (i.e. just BFS with stack) takes the first encountered edge \(a \rightarrow t\) to \(t\). The complete solution is to pick the last encountered edge \(c \rightarrow t\).</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>It has the running time of \(O(V+E)\).</li>
+</ul>
 <h2 id="dfs-tree">DFS tree</h2>
 <p>If we are to trace the above DFS algorithm running on a graph, it'd lead us to a tree structure. Let's call it <span class="arithmatex">\(G_{\pi}\)</span>. It will have all the vertices of \(G\), meaning it'll be a spanning tree (or forest if there are multiple connected components). However, not all the edges of \(G\) will be present in <span class="arithmatex">\(G_{\pi}\)</span>. We classify edges of \(G\) in following manner:</p>
 <ol>
