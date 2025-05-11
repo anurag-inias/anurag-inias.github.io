@@ -76,16 +76,17 @@ DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.
     ${\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}$ <br>
     ${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is WHITE}\textbf{ then}$ <br>
     ${\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{sort}(s)$ <br>
-    ${\small \ \ 5}$ <br>
-    ${\small \ \ 6} \ \ \ \ \ \underline{\text{sort}(s)}$ <br>
-    ${\small \ \ 7} \ \ \ \ \ \text{mark }s \text{ as GRAY}$ <br>
-    ${\small \ \ 8} \ \ \ \ \ \textbf{for }\text{each edge }(s, u) \in E\textbf{ do}$ <br>
-    ${\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }u \text{ is WHITE}\textbf{ then}$ <br>
-    ${\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{sort}(u)$ <br>
-    ${\small 11} \ \ \ \ \ \ \ \ \ \ \ \textbf{else if }u \text{ is GRAY}\textbf{ then}$ <br>
-    ${\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{cycle found})$ <br>
-    ${\small 13} \ \ \ \ \ \text{mark }s \text{ as BLACK}$ <br>
-    <span class="added">${\small 14} \ \ \ \ \ sorting := [s] + sorting$ </span> <br>
+    <span class="added">${\small \ \ 5} \ \ \ \ \ \text{return } sorting$ </span><br>
+    ${\small \ \ 6}$ <br>
+    ${\small \ \ 7} \ \ \ \ \ \underline{\text{sort}(s)}$ <br>
+    ${\small \ \ 8} \ \ \ \ \ \text{mark }s \text{ as GRAY}$ <br>
+    ${\small \ \ 9} \ \ \ \ \ \textbf{for }\text{each edge }(s, u) \in E\textbf{ do}$ <br>
+    ${\small 10} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }u \text{ is WHITE}\textbf{ then}$ <br>
+    ${\small 11} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{sort}(u)$ <br>
+    ${\small 12} \ \ \ \ \ \ \ \ \ \ \ \textbf{else if }u \text{ is GRAY}\textbf{ then}$ <br>
+    ${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{cycle found})$ <br>
+    ${\small 14} \ \ \ \ \ \text{mark }s \text{ as BLACK}$ <br>
+    <span class="added">${\small 15} \ \ \ \ \ sorting := [s] + sorting$ </span> <br>
 
     </div>
 
@@ -141,24 +142,25 @@ The general idea behind this solution is that topological ordering will place so
 
 === "pseudocode"
 
-    ```ruby linenums="1"
-    result = []
-    queue = list of all source vertices # in-degree = 0
-
-    while queue is not empty:
-      u = queue.any() # order doesn't matter
-      result.add(u)
-
-      # Derive the new set of "source" vertices
-      for (u, v) in G:
-        remove (u, v) from G
-        if --v.indegree is 0:
-          queue.add(v)
-
-    if G has edges:
-      error "graph has cycle(s)"
-    return result
-    ```
+    <div markdown>
+    $\ \ \ \ \ \ \ \ \underline{\text{TopologicalSort}()}$ <br>
+    ${\small \ \ 1} \ \ \ \ \ sorting := []$ <br>
+    ${\small \ \ 2} \ \ \ \ \ sources := \{v \in V \ | \ v.\text{indegree} = 0\}$ <br>
+    ${\small \ \ 3}$ <br>
+    ${\small \ \ 3} \ \ \ \ \ \textbf{while }sources \text{ is not empty}\textbf{ do}$ <br>
+    ${\small \ \ 4} \ \ \ \ \ \ \ \ \ \ u := sources.\text{poll()}$ <br>
+    ${\small \ \ 5} \ \ \ \ \ \ \ \ \ \ sorting.\text{offer}(u)$ <br>
+    ${\small \ \ 5}$ <br>
+    ${\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \textbf{for}\text{ each edge } (u, v) \in E\textbf{ do}$ <br>
+    ${\small \ \ 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{remove }(u, v) \text{ from } E$ <br>
+    ${\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v.\text{indegree} := v.\text{indegree} - 1$ <br>
+    ${\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }v.\text{indegree} = 0\textbf{ do}$ <br>
+    ${\small 11} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sources.\text{offer}(v)$ <br>
+    ${\small 12}$ <br>
+    ${\small 13} \ \ \ \ \ \textbf{if } |E| > 0 \textbf{ do}$ <br>
+    ${\small 14} \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{cycle found})$ <br>
+    ${\small 15} \ \ \ \ \ \text{return } sorting$ <br>
+    </div>
 
 === "kotlin"
 
