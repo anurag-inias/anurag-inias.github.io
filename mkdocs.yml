@@ -142,10 +142,12 @@ nav:
       - Graph:
           - Intro: "data-structures/graph/intro.md"
           - Traversal:
-              - Generic Search: "data-structures/graph/generic-search.md"
-              - BFS: "data-structures/graph/bfs.md"
-              - DFS: "data-structures/graph/dfs.md"
+              - Generic Search: "data-structures/graph/traversal/generic-search.md"
+              - BFS: "data-structures/graph/traversal/bfs.md"
+              - DFS: "data-structures/graph/traversal/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
+          - Shortest Paths:
+              - Single-Source Shortest Paths: "data-structures/graph/shortest-paths/single-source.md"
   - Practice:
       - Learnings: "practice/index.md"
       - Greedy:
