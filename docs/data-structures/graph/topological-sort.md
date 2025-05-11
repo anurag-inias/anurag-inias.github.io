@@ -8,6 +8,19 @@
 :root [data-md-color-scheme=slate] .md-logo img  {
   content: url('/data-structures/graph/network-dark.svg');
 }
+
+.added {
+  background-color: #e2f6d3;
+  display: inline-block;
+  width: 100%;
+}
+
+.box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-bottom: -2px;
+}
 </style>
 
 ## About
@@ -20,7 +33,7 @@ Such an ordering is only possible if there are no cycles in the graph, i.e. it's
 
 <div class="grid" markdown>
 
-``` title="Valid topological sortings"
+```title="Valid topological sortings"
 1 2 3 4 5
 1 2 3 5 4
 ```
@@ -30,7 +43,7 @@ Such an ordering is only possible if there are no cycles in the graph, i.e. it's
 
 <hr><hr>
 
-``` title="Valid topological sortings"
+```title="Valid topological sortings"
 5 6 1 4 2 3
 6 5 4 2 3 1
 ```
@@ -38,7 +51,7 @@ Such an ordering is only possible if there are no cycles in the graph, i.e. it's
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213.97858428955078 136.57138061523438" width="150">
   <g transform="translate(77.4242935180664 53.35723876953125) rotate(0 2.7099990844726562 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">1</text></g><g transform="translate(10 10) rotate(0 6.17999267578125 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">5</text></g><g transform="translate(16.999969482421875 101.57138061523438) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">6</text></g><g transform="translate(141.99996948242188 10.42852783203125) rotate(0 6.80999755859375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">3</text></g><g transform="translate(143 98.99993896484375) rotate(0 6.399993896484375 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">4</text></g><g stroke-linecap="round"><g transform="translate(28.68720245361328 20.432248236706357) rotate(0 54.082794189453125 0.36779604665616716)"><path d="M0 0 C18.03 0.12, 90.14 0.61, 108.17 0.74 M0 0 C18.03 0.12, 90.14 0.61, 108.17 0.74" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(28.68720245361328 20.432248236706357) rotate(0 54.082794189453125 0.36779604665616716)"><path d="M84.62 9.13 C93.15 6.09, 101.68 3.05, 108.17 0.74 M84.62 9.13 C92.36 6.37, 100.11 3.61, 108.17 0.74" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(28.68720245361328 20.432248236706357) rotate(0 54.082794189453125 0.36779604665616716)"><path d="M84.73 -7.97 C93.22 -4.82, 101.71 -1.66, 108.17 0.74 M84.73 -7.97 C92.44 -5.11, 100.15 -2.24, 108.17 0.74" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(34.318580627441406 112.30219416050033) rotate(0 49.5528564453125 -1.1293781698070973)"><path d="M0 0 C16.52 -0.38, 82.59 -1.88, 99.11 -2.26 M0 0 C16.52 -0.38, 82.59 -1.88, 99.11 -2.26" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(34.318580627441406 112.30219416050033) rotate(0 49.5528564453125 -1.1293781698070973)"><path d="M75.81 6.82 C82.36 4.27, 88.9 1.72, 99.11 -2.26 M75.81 6.82 C84.98 3.25, 94.15 -0.33, 99.11 -2.26" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(34.318580627441406 112.30219416050033) rotate(0 49.5528564453125 -1.1293781698070973)"><path d="M75.42 -10.27 C82.08 -8.02, 88.73 -5.77, 99.11 -2.26 M75.42 -10.27 C84.75 -7.12, 94.07 -3.96, 99.11 -2.26" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(72.55852508544922 65.25602958419341) rotate(0 -22.538460310850837 -13.856112895468897)"><path d="M0 0 C-7.51 -4.62, -37.56 -23.09, -45.08 -27.71 M0 0 C-7.51 -4.62, -37.56 -23.09, -45.08 -27.71" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(72.55852508544922 65.25602958419341) rotate(0 -22.538460310850837 -13.856112895468897)"><path d="M-24.49 -5.02 C-18.3 -3.75, -12.11 -2.48, 0 0 M-24.49 -5.02 C-18.63 -3.82, -12.78 -2.62, 0 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(72.55852508544922 65.25602958419341) rotate(0 -22.538460310850837 -13.856112895468897)"><path d="M-15.53 -19.59 C-11.61 -14.64, -7.68 -9.68, 0 0 M-15.53 -19.59 C-11.82 -14.9, -8.1 -10.22, 0 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(71.98714447021484 68.45533902972295) rotate(0 -18.12571679605432 15.3182188048238)"><path d="M0 0 C-6.04 5.11, -30.21 25.53, -36.25 30.64 M0 0 C-6.04 5.11, -30.21 25.53, -36.25 30.64" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(71.98714447021484 68.45533902972295) rotate(0 -18.12571679605432 15.3182188048238)"><path d="M-11.79 20.59 C-7.15 12.49, -2.52 4.39, 0 0 M-11.79 20.59 C-7.77 13.57, -3.75 6.54, 0 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(71.98714447021484 68.45533902972295) rotate(0 -18.12571679605432 15.3182188048238)"><path d="M-22.27 8.2 C-13.51 4.97, -4.75 1.75, 0 0 M-22.27 8.2 C-14.67 5.4, -7.08 2.6, 0 0" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g transform="translate(189.73859405517578 53.714263916015625) rotate(0 7.1199951171875 12.5)"><text x="0" y="17.52" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="var(--md-code-fg-color)" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">2</text></g><g stroke-linecap="round"><g transform="translate(164.28144073486328 106.5) rotate(0 14 -14.5714111328125)"><path d="M0 0 C4.67 -4.86, 23.33 -24.29, 28 -29.14 M0 0 C4.67 -4.86, 23.33 -24.29, 28 -29.14" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(164.28144073486328 106.5) rotate(0 14 -14.5714111328125)"><path d="M19.83 -10.66 C21.86 -15.26, 23.9 -19.86, 28 -29.14 M19.83 -10.66 C22.44 -16.58, 25.06 -22.49, 28 -29.14" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(164.28144073486328 106.5) rotate(0 14 -14.5714111328125)"><path d="M9.86 -20.24 C14.37 -22.45, 18.89 -24.67, 28 -29.14 M9.86 -20.24 C15.67 -23.09, 21.47 -25.94, 28 -29.14" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(191.70996856689453 53.928558349609375) rotate(0 -17.428573608398438 -9.714263916015625)"><path d="M0 0 C-5.81 -3.24, -29.05 -16.19, -34.86 -19.43 M0 0 C-5.81 -3.24, -29.05 -16.19, -34.86 -19.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(191.70996856689453 53.928558349609375) rotate(0 -17.428573608398438 -9.714263916015625)"><path d="M-15.16 -16.26 C-20.14 -17.06, -25.12 -17.86, -34.86 -19.43 M-15.16 -16.26 C-20.37 -17.1, -25.58 -17.94, -34.86 -19.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g><g transform="translate(191.70996856689453 53.928558349609375) rotate(0 -17.428573608398438 -9.714263916015625)"><path d="M-21.8 -4.34 C-25.1 -8.15, -28.4 -11.97, -34.86 -19.43 M-21.8 -4.34 C-25.26 -8.33, -28.71 -12.32, -34.86 -19.43" stroke="var(--md-code-fg-color)" stroke-width="2" fill="none"></path></g></g><mask></mask></svg>
 
-``` title="Valid topological sorting"
+```title="Valid topological sorting"
 10 13 6 7 5 9 14 15 11 12 16 8 4 3 1 2
 1 5 6 10 2 7 13 9 14 15 11 12 8 16 4 3
 ```
@@ -50,30 +63,31 @@ Such an ordering is only possible if there are no cycles in the graph, i.e. it's
 
 ## DFS based algorithm
 
-DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.e. \\(p_{post} \gt u_{post}\\). That is, root vertices will have the highest `post` and leaf vertices will have the lowest `post`. So laying out vertices in the descending order of \\(\text{post}\\) time will give us their topological ordering. Additionally, if we keep track of each vertex's color, we can also detect cycles (i.e. edge to a `GRAY` neighbour) and know when topological ordering is not possible.
+DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.e. \\(p*{post} \gt u*{post}\\). That is, root vertices will have the highest `post` and leaf vertices will have the lowest `post`. So laying out vertices in the descending order of \\(\text{post}\\) time will give us their topological ordering. Additionally, if we keep track of each vertex's color, we can also detect cycles (i.e. edge to a `GRAY` neighbour) and know when topological ordering is not possible.
 
 === "pseudocode"
 
-    ```ruby linenums="1"
-    topologicalSort(G):
-      out = []
-      for u in G:
-        if u is not visited:
-          DFS(G, u)
-      return out
+    <span class="box" style="background-color: #e2f6d3;"></span> are lines added on top of standard DFS.
 
-    DFS(G, u):
-      u.color = GRAY
-      
-      for each edge (u, v):
-        if v.color is WHITE:
-          DFS(G, v)
-        else if v.color is GRAY:
-          error "graph has cycle(s)"
+    <div markdown>
+    $\ \ \ \ \ \ \ \ \underline{\text{TopologicalSort}()}$ <br>
+    ${\small \ \ 1} \ \ \ \ \ \text{mark all vertices as WHITE}$ <br>
+    <span class="added">${\small \ \ 1} \ \ \ \ \ sorting := []$ </span><br>
+    ${\small \ \ 2} \ \ \ \ \ \textbf{for }s \in V \textbf{ do}$ <br>
+    ${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }s \text{ is WHITE}\textbf{ then}$ <br>
+    ${\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{sort}(s)$ <br>
+    ${\small \ \ 5}$ <br>
+    ${\small \ \ 6} \ \ \ \ \ \underline{\text{sort}(s)}$ <br>
+    ${\small \ \ 7} \ \ \ \ \ \text{mark }s \text{ as GRAY}$ <br>
+    ${\small \ \ 8} \ \ \ \ \ \textbf{for }\text{each edge }(s, u) \in E\textbf{ do}$ <br>
+    ${\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ \textbf{if }u \text{ is WHITE}\textbf{ then}$ <br>
+    ${\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{sort}(u)$ <br>
+    ${\small 11} \ \ \ \ \ \ \ \ \ \ \ \textbf{else if }u \text{ is GRAY}\textbf{ then}$ <br>
+    ${\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{cycle found})$ <br>
+    ${\small 13} \ \ \ \ \ \text{mark }s \text{ as BLACK}$ <br>
+    <span class="added">${\small 14} \ \ \ \ \ sorting := [s] + sorting$ </span> <br>
 
-      u.color = BLACK
-      out = [u, ...out] # prepend
-    ```
+    </div>
 
 === "kotlin"
 
@@ -123,7 +137,7 @@ DFS will _finish_ processing a vertex \\(u\\) before its predecessor \\(p\\), i.
 
 ## Kahn's algorithm
 
-The general idea behind this solution is that topological ordering will place source vertices before sink vertices. So we begin by listing all source vertices first (i.e. \\(\text{in-degree} = 0\\)), followed by their neighbours, followed by their neighbour's neighbours and so on. 
+The general idea behind this solution is that topological ordering will place source vertices before sink vertices. So we begin by listing all source vertices first (i.e. \\(\text{in-degree} = 0\\)), followed by their neighbours, followed by their neighbour's neighbours and so on.
 
 === "pseudocode"
 

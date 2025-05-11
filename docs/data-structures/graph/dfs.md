@@ -265,21 +265,21 @@ Introduce a third state after _visited_, called _explored_ to mark vertices whos
           DFS(G, u)
 
     DFS(G, s):
-      S.push({∅, s, false})
+      S.push(<∅, s, false>)
       while S is not empty:
-        p, u, explored = S.pop()
-        if explored:
+        p, u, black = S.pop()
+        if black:
           u.color = BLACK
           continue
 
-        print p -> u
+        print "p -> u"
 
         switch(u.color):
           WHITE:
             u.color = GRAY
-            S.push({p, u, true}) # to later mark u as explored
+            S.push(<p, u, true>) # to later mark u as explored
             for (u, v) in G:
-              S.push({u, v})
+              S.push(<u, v, false>)
           GRAY:  # p -> u is back edge
           BLACK: # p -> u is forward/cross edge
     ```
