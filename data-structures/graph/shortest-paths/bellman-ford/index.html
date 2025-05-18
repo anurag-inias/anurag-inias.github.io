@@ -2438,6 +2438,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implementation" class="md-nav__link">
     <span class="md-ellipsis">
       Implementation
@@ -2485,6 +2494,27 @@
   
   <span class="md-ellipsis">
     Dijkstra's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSSP in DAG
   </span>
   
 
@@ -5501,6 +5531,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implementation" class="md-nav__link">
     <span class="md-ellipsis">
       Implementation
@@ -5553,6 +5592,7 @@
 }
 </style>
 
+<p>We start with the most general purpose algorithm for single-source shortest paths problem with the fewest restrictions placed on it.</p>
 <h2 id="about">About</h2>
 <p>Bellman-Ford algorithm solves the single-source shortest paths problem for directed weighted graph, as long as <strong>no negative-weight cycle is reachable from the <span class="arithmatex">\(\textbf{source}\)</span></strong>.</p>
 <h2 id="pseudocode">Pseudocode</h2>
@@ -5570,6 +5610,8 @@
 <h2 id="in-english-please">In English Please</h2>
 <p>Loop over all edges in the graph and try and <em>relax</em> them. After <span class="arithmatex">\(V-1\)</span> such loops, all the edges should be relaxed, and we should've ended up with shortest distance calculated for all vertices.</p>
 <p>If we can still relax any edge after this, then there is a negative-weight cycle is reachable from the specified <span class="arithmatex">\(source\)</span>.</p>
+<h2 id="runtime">Runtime</h2>
+<p><span class="arithmatex">\(O(V^2+VE)\)</span></p>
 <h2 id="implementation">Implementation</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Graph</label><label for="__tabbed_1_2">SingleSourceShortestPaths</label><label for="__tabbed_1_3">Bellman-Ford</label></div>
 <div class="tabbed-content">

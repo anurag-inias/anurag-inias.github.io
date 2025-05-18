@@ -12,7 +12,7 @@
         <link rel="prev" href="../bellman-ford/">
       
       
-        <link rel="next" href="../../../../practice/">
+        <link rel="next" href="../dag/">
       
       
       <link rel="icon" href="../../../../assets/fatigue-dark.svg">
@@ -2450,9 +2450,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implementation" class="md-nav__link">
     <span class="md-ellipsis">
       Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
     </span>
   </a>
   
@@ -2471,6 +2489,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSSP in DAG
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5474,9 +5513,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implementation" class="md-nav__link">
     <span class="md-ellipsis">
       Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
     </span>
   </a>
   
@@ -5517,6 +5574,7 @@
 }
 </style>
 
+<p>Moving on from Bellman-Ford algorithm, we add a restriction on the graph weights as described below.</p>
 <h2 id="about">About</h2>
 <p>Dijkstra's algorithm solves the single-source shortest paths problem for directed weighted graph, but requires <strong>all edge weights to be non-negative</strong>.</p>
 <h2 id="pseudocode">Pseudocode</h2>
@@ -5531,6 +5589,8 @@
 <span class="arithmatex">\({\small \ \ 8} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}\)</span> <br>
 <span class="arithmatex">\({\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{Relax}(u, v, w_{uv}) = {\small \text{ TRUE }} \textbf{ do}\)</span> <br>
 <span class="arithmatex">\({\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ H.\text{update}(v, u.d + w_{uv})\)</span> <br></p>
+<h2 id="runtime">Runtime</h2>
+<p><span class="arithmatex">\(O(V^2+E) = O(V^2)\)</span></p>
 <h2 id="implementation">Implementation</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Graph</label><label for="__tabbed_1_2">SingleSourceShortestPaths</label><label for="__tabbed_1_3">MinHeap</label><label for="__tabbed_1_4">Dijkstra's algorithm</label></div>
 <div class="tabbed-content">
@@ -5906,6 +5966,8 @@
 </div>
 </div>
 </div>
+<h2 id="example">Example</h2>
+<p><a class="glightbox" href="../dijkstra-example.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../dijkstra-example.png" /></a></p>
 <h2 id="unit-tests">Unit tests</h2>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
