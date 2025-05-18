@@ -5557,15 +5557,15 @@
 <p>Bellman-Ford algorithm solves the single-source shortest paths problem for directed weighted graph, as long as <strong>no negative-weight cycle is reachable from the <span class="arithmatex">\(\textbf{source}\)</span></strong>.</p>
 <h2 id="pseudocode">Pseudocode</h2>
 <p><span class="arithmatex">\(\ \ \ \ \ \ \ \ \underline{\text{BellmanFord}(G, s)}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 1} \ \ \ \ \ \text{InitializeSingleSource}(s)\)</span> <br>
-<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \textbf{for }1 \dots (V - 1)\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Relax}(u, v, w_{uv})\)</span> <br>
-<span class="arithmatex">\({\small \ \ 5}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 6} \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{Relax}(u, v, w_{uv}) = {\small \text{ TRUE}}\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{negative-weight cycle reachable from } s)\)</span> <br>
-<span class="arithmatex">\({\small \ \ 9} \ \ \ \ \ \text{return}{\small \text{ TRUE}}\)</span> <br></p>
+<span class="arithmatex">\({\small 1} \ \ \ \ \ \text{InitializeSingleSource}(s)\)</span> <br>
+<span class="arithmatex">\({\small 2} \ \ \ \ \ \textbf{for }1 \dots (V - 1)\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Relax}(u, v, w_{uv})\)</span> <br>
+<span class="arithmatex">\({\small 5}\)</span> <br>
+<span class="arithmatex">\({\small 6} \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small 7} \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{Relax}(u, v, w_{uv}) = {\small \text{ TRUE}}\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{negative-weight cycle reachable from } s)\)</span> <br>
+<span class="arithmatex">\({\small 9} \ \ \ \ \ \text{return}{\small \text{ TRUE}}\)</span> <br></p>
 <p>Loop at line <span class="arithmatex">\(2\)</span> can be optimized further. Check if loop <span class="arithmatex">\(3-4\)</span> ended up relaxing no edges. If so, then we have already relaxed all edges and calculated all shortest distances, and can exit early.</p>
 <h2 id="in-english-please">In English Please</h2>
 <p>Loop over all edges in the graph and try and <em>relax</em> them. After <span class="arithmatex">\(V-1\)</span> such loops, all the edges should be relaxed, and we should've ended up with shortest distance calculated for all vertices.</p>

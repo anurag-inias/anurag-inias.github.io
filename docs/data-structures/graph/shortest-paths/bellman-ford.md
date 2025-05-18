@@ -17,15 +17,15 @@ Bellman-Ford algorithm solves the single-source shortest paths problem for direc
 ## Pseudocode
 
 $\ \ \ \ \ \ \ \ \underline{\text{BellmanFord}(G, s)}$ <br>
-${\small \ \ 1} \ \ \ \ \ \text{InitializeSingleSource}(s)$ <br>
-${\small \ \ 2} \ \ \ \ \ \textbf{for }1 \dots (V - 1)\textbf{ do}$ <br>
-${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}$ <br>
-${\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Relax}(u, v, w_{uv})$ <br>
-${\small \ \ 5}$ <br>
-${\small \ \ 6} \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}$ <br>
-${\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{Relax}(u, v, w_{uv}) = {\small \text{ TRUE}}\textbf{ do}$ <br>
-${\small \ \ 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{negative-weight cycle reachable from } s)$ <br>
-${\small \ \ 9} \ \ \ \ \ \text{return}{\small \text{ TRUE}}$ <br>
+${\small 1} \ \ \ \ \ \text{InitializeSingleSource}(s)$ <br>
+${\small 2} \ \ \ \ \ \textbf{for }1 \dots (V - 1)\textbf{ do}$ <br>
+${\small 3} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}$ <br>
+${\small 4} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Relax}(u, v, w_{uv})$ <br>
+${\small 5}$ <br>
+${\small 6} \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}$ <br>
+${\small 7} \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{Relax}(u, v, w_{uv}) = {\small \text{ TRUE}}\textbf{ do}$ <br>
+${\small 8} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{throw}(\text{negative-weight cycle reachable from } s)$ <br>
+${\small 9} \ \ \ \ \ \text{return}{\small \text{ TRUE}}$ <br>
 
 Loop at line $2$ can be optimized further. Check if loop $3-4$ ended up relaxing no edges. If so, then we have already relaxed all edges and calculated all shortest distances, and can exit early.
 
