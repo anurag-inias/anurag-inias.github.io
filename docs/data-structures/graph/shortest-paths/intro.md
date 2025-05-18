@@ -103,12 +103,7 @@ At the time `SingleSourceShortestPaths`'s initialization we will not know the sh
       val predecessors = HashMap<Int, Int>()
 
       for (v in graph.vertices) {
-        if (v == source) {
-          weights[source] = 0f
-          predecessors[source] = source
-        } else {
-          weights[v] = Float.POSITIVE_INFINITY
-        }
+        weights[source] = if (v == source) 0f else Float.POSITIVE_INFINITY
       }
 
       return SingleSourceShortestPaths(source, weights, predecessors)

@@ -117,12 +117,7 @@ If we can still relax any edge after this, then there is a negative-weight cycle
           val predecessors = HashMap<Int, Int>()
 
           for (v in graph.vertices) {
-            if (v == source) {
-              weights[source] = 0f
-              predecessors[source] = source
-            } else {
-              weights[v] = Float.POSITIVE_INFINITY
-            }
+            weights[source] = if (v == source) 0f else Float.POSITIVE_INFINITY
           }
 
           return SingleSourceShortestPaths(source, weights, predecessors)
@@ -179,7 +174,7 @@ fun sample() {
   assertThat(graph.bellmanFord(1).toString()).isEqualTo("""
     SingleSourceShortestPaths(1) {
       weights: {1=0.0, 2=2.0, 3=4.0, 4=7.0, 5=-2.0}
-      predecessors: {1=1, 2=3, 3=4, 4=1, 5=2}
+      predecessors: {2=3, 3=4, 4=1, 5=2}
     }
   """.trimIndent())
 }
