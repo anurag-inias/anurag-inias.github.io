@@ -10,6 +10,8 @@
 }
 </style>
 
+We start with the most general purpose algorithm for single-source shortest paths problem with the fewest restrictions placed on it.
+
 ## About
 
 Bellman-Ford algorithm solves the single-source shortest paths problem for directed weighted graph, as long as **no negative-weight cycle is reachable from the $\textbf{source}$**.
@@ -34,6 +36,10 @@ Loop at line $2$ can be optimized further. Check if loop $3-4$ ended up relaxing
 Loop over all edges in the graph and try and _relax_ them. After $V-1$ such loops, all the edges should be relaxed, and we should've ended up with shortest distance calculated for all vertices.
 
 If we can still relax any edge after this, then there is a negative-weight cycle is reachable from the specified $source$.
+
+## Runtime
+
+$O(V^2+VE)$
 
 ## Implementation
 

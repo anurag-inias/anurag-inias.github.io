@@ -10,6 +10,8 @@
 }
 </style>
 
+Moving on from Bellman-Ford algorithm, we add a restriction on the graph weights as described below.
+
 ## About
 
 Dijkstra's algorithm solves the single-source shortest paths problem for directed weighted graph, but requires **all edge weights to be non-negative**.
@@ -27,6 +29,10 @@ ${\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \ u = H.\text{poll}()$ <br>
 ${\small \ \ 8} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}$ <br>
 ${\small \ \ 9} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{Relax}(u, v, w_{uv}) = {\small \text{ TRUE }} \textbf{ do}$ <br>
 ${\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ H.\text{update}(v, u.d + w_{uv})$ <br>
+
+## Runtime
+
+$O(V^2+E) = O(V^2)$
 
 ## Implementation
 
@@ -233,6 +239,10 @@ ${\small 10} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ H.\text{update}(v, u.
       return estimates
     }
     ```
+
+## Example
+
+![](dijkstra-example.png)
 
 ## Unit tests
 
