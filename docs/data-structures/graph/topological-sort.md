@@ -15,6 +15,10 @@
   width: 100%;
 }
 
+:root [data-md-color-scheme=slate] .added {
+  background-color: #264d3b;
+}
+
 .box {
   display: inline-block;
   width: 12px;

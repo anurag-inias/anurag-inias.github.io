@@ -8,14 +8,13 @@
 :root [data-md-color-scheme=slate] .md-logo img  {
   content: url('/data-structures/graph/network-dark.svg');
 }
-
-.opaque {
-  opacity: 0.7;
-}
 .deleted {
   background-color: #faafa8;
   display: inline-block;
   width: 100%;
+}
+:root [data-md-color-scheme=slate] .deleted {
+  background-color: #77172e;
 }
 .elevated {
   background-color: #d4e4ed;
@@ -27,12 +26,19 @@
   border-bottom: 1px #d4e4ed solid;
   width: 100%;
 }
+:root [data-md-color-scheme=slate] .elevated {
+  background-color: #256377;
+}
+:root [data-md-color-scheme=slate] .elevation-target {
+  border-bottom: 1px #256377 solid;
+}
 .box {
   display: inline-block;
   width: 12px;
   height: 12px;
   margin-bottom: -2px;
 }
+
 </style>
 
 ## Intro
@@ -92,7 +98,7 @@ ${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)$ <b
 
 <span/>
 
-<div markdown class="opaque">
+<div markdown>
 $\ \ \ \ \ \ \ \underline{\text{bfs}(s)}$ <br>
 <span class="deleted">${\small 1} \ \ \ \ \ \text{mark }s\text{ as explored}$</span> <br>
 ${\small 2} \ \ \ \ \ Q := \{s\}$ <br>
