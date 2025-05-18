@@ -30,7 +30,11 @@ plugins:
       placeholder_file: placeholder-plugin.yaml
 
 markdown_extensions:
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.arithmatex:
@@ -147,7 +151,9 @@ nav:
               - DFS: "data-structures/graph/traversal/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
           - Shortest Paths:
-              - Single-Source Shortest Paths: "data-structures/graph/shortest-paths/single-source.md"
+              - Introduction: "data-structures/graph/shortest-paths/intro.md"
+              - Bellman-Form Algorithm: "data-structures/graph/shortest-paths/bellman-ford.md"
+              - Dijkstra's Algorithm: "data-structures/graph/shortest-paths/dijkstra.md"
   - Practice:
       - Learnings: "practice/index.md"
       - Greedy:
