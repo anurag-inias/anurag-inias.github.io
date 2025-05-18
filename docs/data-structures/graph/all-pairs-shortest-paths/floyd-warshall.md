@@ -126,19 +126,19 @@ Unlike SSSP problems, APSP work better on adjacency matrix data structure. For t
 
 $\ \ \ \ \ \ \ \ \underline{\text{FloydWarshall}(G)}$ <br>
 ${\small \ \ 1} \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}$ <br>
-${\small \ \ 2} \ \ \ \ \ \ \ \ \ \ \ \text{dist}[u][v] = w_{uv}$ <br>
-${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \text{prev}[u][v] = u$ <br>
+${\small \ \ 2} \ \ \ \ \ \ \ \ \ \ \ \text{ dist[u, v]} = w_{uv}$ <br>
+${\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \text{pred[u, v]} = u$ <br>
 ${\small \ \ 4}$ <br>
 ${\small \ \ 5} \ \ \ \ \ \textbf{for }\text{each vertex }u \in V\textbf{ do}$ <br>
-${\small \ \ 6} \ \ \ \ \ \ \ \ \ \ \ \text{dist}[u][u] = 0$ <br>
-${\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \ \text{prev}[u][u] = u$ <br>
+${\small \ \ 6} \ \ \ \ \ \ \ \ \ \ \ \text{ dist[u, u]} = 0$ <br>
+${\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \ \text{pred[u, u]} = u$ <br>
 ${\small \ \ 8}$ <br>
 ${\small \ \ 9} \ \ \ \ \ \textbf{for }k := 1 \dots V\textbf{ do}$ <br>
 ${\small 10} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }i := 1 \dots V\textbf{ do}$ <br>
 ${\small 11} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }j := 1 \dots V\textbf{ do}$ <br>
-${\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{dist}[i][j] > \text{dist}[i][k] + \text{dist}[k][j]\textbf{ do}$ <br>
-${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{dist}[i][j] = \text{dist}[i][k] + \text{dist}[k][j]\textbf{ do}$ <br>
-${\small 14} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{prev}[i][j] = prev[k][j]\textbf{ do}$ <br>
+${\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{dist[i, j]} > \text{dist[i, k]} + \text{dist[k, j]}\textbf{ do}$ <br>
+${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ dist[i, j]} = \text{dist[i, k]} + \text{dist[k, j]}$ <br>
+${\small 14} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{pred[i, j]} = \text{pred[k, j]}$ <br>
 
 ## Implementation
 
@@ -204,6 +204,8 @@ ${\small 14} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{pre
     ```
 
 ## Unit tests
+
+![](sample.png)
 
 ```kotlin linenums="1"
 @Test
