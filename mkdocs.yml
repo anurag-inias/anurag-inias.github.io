@@ -157,6 +157,10 @@ nav:
               - SSSP in DAG: "data-structures/graph/single-source-shortest-paths/dag.md"
           - All-Pairs Shortest Paths:
               - Floyd-Warshall Algorithm: "data-structures/graph/all-pairs-shortest-paths/floyd-warshall.md"
+          - Minimum Spanning Tree:
+              - Introduction: "data-structures/graph/minimum-spanning-tree/intro.md"
+              - Kruskal's Algorithm: "data-structures/graph/minimum-spanning-tree/kruskal.md"
+              - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
   - Practice:
       - Learnings: "practice/index.md"
       - Greedy:
