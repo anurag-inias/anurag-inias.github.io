@@ -29,10 +29,6 @@ This works even if graph has negative edges.
 
 $O(V+E)$
 
-## Example
-
-![](dag-example.png)
-
 ## Implementation
 
 === "Graph"
@@ -170,6 +166,10 @@ $O(V+E)$
       return estimates
     }
     ```
+
+## Example
+
+![](dag-example.png)
 
 ## Unit tests
 
