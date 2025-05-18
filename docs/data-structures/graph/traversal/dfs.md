@@ -92,7 +92,7 @@ ${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S.\text{offer}(w)$ <b
 
 ### Difference from BFS
 
-<span class="box" style="background-color: #faafa8;"></span> are deleted lines. <span class="box" style="background-color: #d4e4ed;"></span> are shifted lines.
+<span class="box deleted"></span> are deleted lines. <span class="box elevated"></span> are shifted lines.
 
 </div>
 

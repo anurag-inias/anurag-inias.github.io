@@ -151,10 +151,10 @@ nav:
               - DFS: "data-structures/graph/traversal/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
           - Shortest Paths:
-              - Introduction: "data-structures/graph/shortest-paths/intro.md"
-              - Bellman-Ford Algorithm: "data-structures/graph/shortest-paths/bellman-ford.md"
-              - Dijkstra's Algorithm: "data-structures/graph/shortest-paths/dijkstra.md"
-              - SSSP in DAG: "data-structures/graph/shortest-paths/dag.md"
+              - Introduction: "data-structures/graph/single-source-shortest-paths/intro.md"
+              - Bellman-Ford Algorithm: "data-structures/graph/single-source-shortest-paths/bellman-ford.md"
+              - Dijkstra's Algorithm: "data-structures/graph/single-source-shortest-paths/dijkstra.md"
+              - SSSP in DAG: "data-structures/graph/single-source-shortest-paths/dag.md"
   - Practice:
       - Learnings: "practice/index.md"
       - Greedy:
