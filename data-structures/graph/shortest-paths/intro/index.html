@@ -12,7 +12,7 @@
         <link rel="prev" href="../../topological-sort/">
       
       
-        <link rel="next" href="../../../../practice/">
+        <link rel="next" href="../bellman-ford/">
       
       
       <link rel="icon" href="../../../../assets/fatigue-dark.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Single-Source Shortest Paths - listless 💤</title>
+        <title>Introduction - listless 💤</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#single-source-shortest-paths" class="md-skip">
+        <a href="#dijkstras-algorithm" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Single-Source Shortest Paths
+              Introduction
             
           </span>
         </div>
@@ -2353,16 +2353,157 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Single-Source Shortest Paths
+    Introduction
   </span>
   
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    <span class="md-ellipsis">
+      About
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimal-substructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal Substructure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representing-shortest-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representing Shortest Paths
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Representing Shortest Paths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#textinitializesinglesource" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{InitializeSingleSource}\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textrelax" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{Relax}\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bellman-ford/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bellman-Form Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dijkstra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dijkstra's Algorithm
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5341,6 +5482,83 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    <span class="md-ellipsis">
+      About
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimal-substructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal Substructure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representing-shortest-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representing Shortest Paths
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Representing Shortest Paths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#textinitializesinglesource" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{InitializeSingleSource}\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textrelax" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{Relax}\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5354,7 +5572,7 @@
                   
 
 
-<h1 id="single-source-shortest-paths">Single-Source Shortest Paths</h1>
+<h1 id="dijkstras-algorithm">Dijkstra's Algorithm</h1>
 <style>
 .md-logo img {
   content: url('/data-structures/graph/network-light.svg');
@@ -5364,6 +5582,175 @@
   content: url('/data-structures/graph/network-dark.svg');
 }
 </style>
+
+<h2 id="about">About</h2>
+<p>In this section we will talk about the single-source shortest paths (SSSP) problem and its many variants.</p>
+<h2 id="problem">Problem</h2>
+<p>Given a <em>weighted</em>, <em>directed</em> graph <span class="arithmatex">\(G = (V, E)\)</span>, and a vertex <span class="arithmatex">\(s \in V\)</span>, find the shortest path from <span class="arithmatex">\(s\)</span> to all other vertices <span class="arithmatex">\(v \in V\)</span>.</p>
+<h2 id="variants">Variants</h2>
+<ul>
+<li><strong>Single-pair shortest-path:</strong> find shortest path from vertex <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(t\)</span>. All known algorithms for this problem have the same worst-case asymptotic running time as best SSSP algorithms.</li>
+<li><strong>Single-desitnation shortest-paths:</strong> find shortest path from every vertex <span class="arithmatex">\(v \in V\)</span> to a given destination vertex <span class="arithmatex">\(t \in V\)</span>. It reduces to SSSP by reversing the direction of all edges <span class="arithmatex">\(e \in E\)</span>.</li>
+<li><strong>All-pairs shortest-paths:</strong>. We can run SSSP for all vertices, but it can be solved faster. We'll cover them in a separate section.</li>
+</ul>
+<h2 id="optimal-substructure">Optimal Substructure</h2>
+<div class="grid">
+<p>An unsubtle greedy approach will not work.</p>
+<pre class="mermaid"><code>graph LR
+  A((a)) --&gt;|1| B((b));
+  B --&gt;|4| C((c));
+  A --&gt;|2| C;</code></pre>
+<p>It has the <em>optimal substructure</em> property to it, i.e. shortest path between two vertices contains other shortest paths within it.</p>
+<pre class="mermaid"><code>graph LR
+  A((a)) --&gt;|2| B((b));
+  A --&gt;|4| C((c));
+  B --&gt;|5| D;
+  B --&gt;|1| C;
+  C --&gt;|1| D((d));</code></pre>
+</div>
+<p>This hints towards greedy (Dijkstra) and dynamic programming (Floyd-Warshall) approaches, which we will soon cover.</p>
+<h2 id="representing-shortest-paths">Representing Shortest Paths</h2>
+<p>We need a way to represent the output generated by the algorithms to be discussed ahead. This output will include two key details for each vertex <span class="arithmatex">\(v \in V, v \ne s\)</span>:</p>
+<ol>
+<li>shortest distance of <span class="arithmatex">\(v\)</span> from <span class="arithmatex">\(s\)</span>, denoted as <span class="arithmatex">\(v.d\)</span>.</li>
+<li>predecessor of <span class="arithmatex">\(v\)</span> in the shortest path from <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(v\)</span>, denoted as <span class="arithmatex">\(v.\pi\)</span>.</li>
+</ol>
+<p>We will create a new class <code>SingleSourceShortestPaths</code> to encapsulate this information.</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">SingleSourceShortestPaths</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">source</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">weights</span><span class="p">:</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">predecessors</span><span class="p">:</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Int</span><span class="o">&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">toString</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="s">      SingleSourceShortestPaths(</span><span class="si">$</span><span class="n">source</span><span class="s">) {</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="s">        weights: </span><span class="si">$</span><span class="n">weights</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="s">        predecessors: </span><span class="si">$</span><span class="n">predecessors</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="s">      }</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="s">    &quot;&quot;&quot;</span><span class="p">.</span><span class="na">trimIndent</span><span class="p">()</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>This class will have two key methods that will be used by all algorithms being discussed, namely:</p>
+<ol>
+<li><span class="arithmatex">\(\text{InitializeSingleSource}\)</span></li>
+<li><span class="arithmatex">\(\text{Relax}\)</span></li>
+</ol>
+<h3 id="textinitializesinglesource"><span class="arithmatex">\(\text{InitializeSingleSource}\)</span></h3>
+<p>At the time <code>SingleSourceShortestPaths</code>'s initialization we will not know the shortest distance of any vertex. That's where <span class="arithmatex">\(\text{InitializeSingleSource}\)</span> comes in.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Pseudocode</label><label for="__tabbed_1_2">Kotlin</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span class="arithmatex">\(\ \ \ \ \ \ \ \ \underline{\text{InitializeSingleSource}(s)}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 1} \ \ \ \ \ \textbf{for }\text{each vertex }v \in V\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \ \ \ \ \ \ v.d = \infty\)</span> <br>
+<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ v.\pi = {\small\text{ NIL}}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 4} \ \ \ \ \ v.d = 0\)</span> <br></p>
+</div>
+<div class="tabbed-block">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">source</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">graph</span><span class="p">:</span><span class="w"> </span><span class="n">Graph</span><span class="p">):</span><span class="w"> </span><span class="n">SingleSourceShortestPaths</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">predecessors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="na">vertices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">source</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">      </span><span class="n">weights</span><span class="o">[</span><span class="n">source</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0f</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">      </span><span class="n">predecessors</span><span class="o">[</span><span class="n">source</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">      </span><span class="n">weights</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Float</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">SingleSourceShortestPaths</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">weights</span><span class="p">,</span><span class="w"> </span><span class="n">predecessors</span><span class="p">)</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p><code>Float</code> allows us to represent <span class="arithmatex">\(\infty\)</span> in a safe manner. Addition to <code>Int.MAX_VALUE</code> will result in underflow which can slip through inequality checks. Whereas <code>Float.POSITIVE_INFINITY</code> will poison all expressions, which is what we want.</p>
+</div>
+</div>
+</div>
+<h3 id="textrelax"><span class="arithmatex">\(\text{Relax}\)</span></h3>
+<p>The process of <em>relaxing</em> an edge <span class="arithmatex">\((u, v)\)</span> is to check whether the initially estimated distance <span class="arithmatex">\(v.d\)</span> can be shortened by reaching <span class="arithmatex">\(v\)</span> through <span class="arithmatex">\(u\)</span>.</p>
+<pre class="mermaid"><code>graph LR
+  A((a)) --&gt;|2| B((b));
+  B --&gt;|-3| C((c));
+  A --&gt;|3| C;</code></pre>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Pseudocode</label><label for="__tabbed_2_2">Kotlin</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span class="arithmatex">\(\ \ \ \ \ \ \ \ \underline{\text{Relax}(u, v, w_{uv})}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 1} \ \ \ \ \ \textbf{if }v.d &gt; u.d + w_{uv}\ \textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \ \ \ \ \ \ v.d = u.d + w_{uv}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ v.\pi = u\)</span> <br>
+<span class="arithmatex">\({\small \ \ 4} \ \ \ \ \ \ \ \ \ \ \ \text{return}{\small \text{ TRUE}}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 5} \ \ \ \ \text{return}{\small \text{ FALSE}}\)</span> <br></p>
+</div>
+<div class="tabbed-block">
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">// Method of `SingleSourceShortestPaths`</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="cm">/**</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="cm">  * Try to relax edge (u, v). That is, shortest distance estimate of v, v.d is more than the estimate through u.</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="cm">  *</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="cm">  * @param u source of edge (u, v).</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="cm">  * @param v destination of edge (u, v).</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="cm">  * @return true if edge was related.</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="cm">  */</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">relax</span><span class="p">(</span><span class="n">u</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">alt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weights</span><span class="o">[</span><span class="n">u</span><span class="o">]!!</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">alt</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">weights</span><span class="o">[</span><span class="n">v</span><span class="o">]!!</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="n">weights</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alt</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="n">predecessors</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
 
 
 
