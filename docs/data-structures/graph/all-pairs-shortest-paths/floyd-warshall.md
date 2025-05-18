@@ -140,6 +140,10 @@ ${\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{dis
 ${\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ dist[i, j]} = \text{dist[i, k]} + \text{dist[k, j]}$ <br>
 ${\small 14} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{pred[i, j]} = \text{pred[k, j]}$ <br>
 
+## Runtime
+
+$O(V^3)$
+
 ## Implementation
 
 === "AllPairsShortestPaths"
