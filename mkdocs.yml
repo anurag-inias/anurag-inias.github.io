@@ -150,11 +150,13 @@ nav:
               - BFS: "data-structures/graph/traversal/bfs.md"
               - DFS: "data-structures/graph/traversal/dfs.md"
           - Topological Sort: "data-structures/graph/topological-sort.md"
-          - Shortest Paths:
+          - Single-Source Shortest Paths:
               - Introduction: "data-structures/graph/single-source-shortest-paths/intro.md"
               - Bellman-Ford Algorithm: "data-structures/graph/single-source-shortest-paths/bellman-ford.md"
               - Dijkstra's Algorithm: "data-structures/graph/single-source-shortest-paths/dijkstra.md"
               - SSSP in DAG: "data-structures/graph/single-source-shortest-paths/dag.md"
+          - All-Pairs Shortest Paths:
+              - Floyd-Warshall Algorithm: "data-structures/graph/all-pairs-shortest-paths/floyd-warshall.md"
   - Practice:
       - Learnings: "practice/index.md"
       - Greedy:
