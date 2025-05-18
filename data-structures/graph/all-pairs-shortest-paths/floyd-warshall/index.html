@@ -5820,19 +5820,19 @@
 <h2 id="pseudocode">Pseudocode</h2>
 <p><span class="arithmatex">\(\ \ \ \ \ \ \ \ \underline{\text{FloydWarshall}(G)}\)</span> <br>
 <span class="arithmatex">\({\small \ \ 1} \ \ \ \ \ \textbf{for }\text{each edge }(u, v) \in E\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \ \ \ \ \ \ \text{dist}[u][v] = w_{uv}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \text{prev}[u][v] = u\)</span> <br>
+<span class="arithmatex">\({\small \ \ 2} \ \ \ \ \ \ \ \ \ \ \ \text{ dist[u, v]} = w_{uv}\)</span> <br>
+<span class="arithmatex">\({\small \ \ 3} \ \ \ \ \ \ \ \ \ \ \ \text{pred[u, v]} = u\)</span> <br>
 <span class="arithmatex">\({\small \ \ 4}\)</span> <br>
 <span class="arithmatex">\({\small \ \ 5} \ \ \ \ \ \textbf{for }\text{each vertex }u \in V\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small \ \ 6} \ \ \ \ \ \ \ \ \ \ \ \text{dist}[u][u] = 0\)</span> <br>
-<span class="arithmatex">\({\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \ \text{prev}[u][u] = u\)</span> <br>
+<span class="arithmatex">\({\small \ \ 6} \ \ \ \ \ \ \ \ \ \ \ \text{ dist[u, u]} = 0\)</span> <br>
+<span class="arithmatex">\({\small \ \ 7} \ \ \ \ \ \ \ \ \ \ \ \text{pred[u, u]} = u\)</span> <br>
 <span class="arithmatex">\({\small \ \ 8}\)</span> <br>
 <span class="arithmatex">\({\small \ \ 9} \ \ \ \ \ \textbf{for }k := 1 \dots V\textbf{ do}\)</span> <br>
 <span class="arithmatex">\({\small 10} \ \ \ \ \ \ \ \ \ \ \ \textbf{for }i := 1 \dots V\textbf{ do}\)</span> <br>
 <span class="arithmatex">\({\small 11} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{for }j := 1 \dots V\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{dist}[i][j] &gt; \text{dist}[i][k] + \text{dist}[k][j]\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{dist}[i][j] = \text{dist}[i][k] + \text{dist}[k][j]\textbf{ do}\)</span> <br>
-<span class="arithmatex">\({\small 14} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{prev}[i][j] = prev[k][j]\textbf{ do}\)</span> <br></p>
+<span class="arithmatex">\({\small 12} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{if }\text{dist[i, j]} &gt; \text{dist[i, k]} + \text{dist[k, j]}\textbf{ do}\)</span> <br>
+<span class="arithmatex">\({\small 13} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ dist[i, j]} = \text{dist[i, k]} + \text{dist[k, j]}\)</span> <br>
+<span class="arithmatex">\({\small 14} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{pred[i, j]} = \text{pred[k, j]}\)</span> <br></p>
 <h2 id="implementation">Implementation</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">AllPairsShortestPaths</label><label for="__tabbed_2_2">Floyd-Warshall Algorithm</label></div>
 <div class="tabbed-content">
@@ -5945,6 +5945,7 @@
 </div>
 </div>
 <h2 id="unit-tests">Unit tests</h2>
+<p><a class="glightbox" href="../sample.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../sample.png" /></a></p>
 <div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
