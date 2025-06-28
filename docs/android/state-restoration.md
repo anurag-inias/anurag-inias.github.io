@@ -300,3 +300,325 @@ Table below outlines the operations that can cause fragment to lose state and wh
 - Variables: fields of fragment class.
 - View state: any data owned by the views in the fragment.
 - `savedInstanceState`: data saved in `onSaveInstanceState`.
+
+Before we go into details, see working example of a fragment retaining its state through configuration changes.
+
+<div markdown class="grid">
+
+<video controls width="300" style="box-shadow: 2px 2px 2px 2px #ddd">
+  <source src="../fragment-state-restoration-1.mp4" type="video/mp4"/>
+</video>
+
+<div markdown>
+Similar to the demos before, we once again have a `EditText` that can be incremented/decremented from the two accompanying buttons. This time though, we have two pairs of these `EditText`. One in the activity, and one in a fragment hosted by the same activity.
+
+```
+Activity:
+  EditText
+  Fragment
+    EditText
+```
+
+</div>
+
+</div>
+
+=== "MainActivity.kt"
+
+    Note that we have not overriden `onSaveInstanceState`. This is to illustrate the point that the default implementation of `onSaveInstanceState` will automatically look through the view hierarchy of the activity (included the fragments it hosts) and save state of all views with `id`.
+
+    ```kotlin linenums="1" hl_lines="32-44"
+    package dev.listless.staterestoration
+
+    import android.os.Bundle
+    import android.widget.Button
+    import android.widget.EditText
+    import androidx.activity.enableEdgeToEdge
+    import androidx.fragment.app.FragmentActivity
+    import androidx.fragment.app.commit
+
+    class MainActivity : FragmentActivity() {
+
+      private lateinit var content: EditText
+      private lateinit var minusButton: Button
+      private lateinit var plusButton: Button
+
+      override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.main_activity)
+
+        content = findViewById(R.id.content)
+        minusButton = findViewById(R.id.minus_button)
+        plusButton = findViewById(R.id.plus_button)
+
+        minusButton.setOnClickListener {
+          content.setText("${currentValue - 1}")
+        }
+        plusButton.setOnClickListener {
+          content.setText("${currentValue + 1}")
+        }
+
+        // (1)
+        // If left to it's own devices the Fragment's state will be restored automatically.
+        // But if you add the fragment in code (as opposed to adding it in the xml layout)
+        // then it is up to you to add it only when needed.
+        // Usually, in the case of onCreate it is enough to check that the activity is not being
+        // restarted, that is, check that savedInstanceState == null and only then add the fragment.
+        if (savedInstanceState == null) {
+          supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            // It's also safe to use [replace].
+            add(R.id.fragment_container_in_activity, FirstFragment.newInstance())
+          }
+        }
+      }
+
+      private val currentValue: Int
+        get() = if (content.text.isEmpty()) 0 else content.text.toString().toInt()
+    }
+    ```
+
+    1. [StackOverFlow: Fragment recreation on configuration change](https://stackoverflow.com/questions/34855464/fragment-recreation-on-configuration-change)
+
+=== "main_activity.xml"
+
+    ```xml linenums="1" hl_lines="42-46"
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.StateRestoration">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="In Activity"/>
+                <EditText
+                    android:id="@+id/content"
+                    android:textSize="30sp"
+                    android:text="123"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button
+                    android:id="@+id/minus_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"/>
+                <Button
+                    android:id="@+id/plus_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"/>
+            </LinearLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_container_in_activity"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </FrameLayout>
+    ```
+
+=== "FirstFragment.kt"
+
+    1:1 copy of what we did in `MainActivity`. i.e. no additional setup to restore this fragment's state on configuration changes.
+
+    ```kotlin linenums="1"
+    package dev.listless.staterestoration
+
+    import android.os.Bundle
+    import androidx.fragment.app.Fragment
+    import android.view.LayoutInflater
+    import android.view.View
+    import android.view.ViewGroup
+    import android.widget.Button
+    import android.widget.EditText
+
+    class FirstFragment : Fragment() {
+
+      override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+      }
+
+      private lateinit var content: EditText
+      private lateinit var minusButton: Button
+      private lateinit var plusButton: Button
+
+      override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+      ): View? {
+        val root = inflater.inflate(R.layout.fragment_first, container, false)
+
+        content = root.findViewById(R.id.first_fragment_content)
+        minusButton = root.findViewById(R.id.first_fragment_minus_button)
+        plusButton = root.findViewById(R.id.first_fragment_plus_button)
+
+        minusButton.setOnClickListener {
+          content.setText("${currentValue - 1}")
+        }
+        plusButton.setOnClickListener {
+          content.setText("${currentValue + 1}")
+        }
+
+        return root
+      }
+
+
+      private val currentValue: Int
+        get() = if (content.text.isEmpty()) 0 else content.text.toString().toInt()
+
+      companion object {
+        @JvmStatic
+        fun newInstance() =
+          FirstFragment().apply {
+            arguments = Bundle()
+          }
+      }
+    }
+    ```
+
+=== "fragment_first.xml"
+
+    ```xml linenums="1"
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.StateRestoration">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="In First Fragment"/>
+                <EditText
+                    android:id="@+id/first_fragment_content"
+                    android:textSize="30sp"
+                    android:text="123"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button
+                    android:id="@+id/first_fragment_minus_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"/>
+                <Button
+                    android:id="@+id/first_fragment_plus_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+    ```
+
+### 3. Saving fragment state on `remove`
+
+`onSaveInstanceState` of a fragment is called only when the host activity calls its `onSaveInstanceState`. But if you are adding and removing fragments dynamically on custom events (e.g. button clicks), then you need to manually save and restore its state.
+
+<video controls width="300" style="box-shadow: 2px 2px 2px 2px #ddd">
+  <source src="../fragment-state-restoration-2.mp4" type="video/mp4"/>
+</video>
+
+```kotlin linenums="1" hl_lines="7 26 42 46 56-58"
+class MainActivity : FragmentActivity() {
+
+  private lateinit var content: EditText
+  private lateinit var minusButton: Button
+  private lateinit var plusButton: Button
+  private lateinit var toggleFragmentButton: Button
+  private var fragmentState: Fragment.SavedState? = null // 1. (1)
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    enableEdgeToEdge()
+    setContentView(R.layout.main_activity)
+
+    content = findViewById(R.id.content)
+    minusButton = findViewById(R.id.minus_button)
+    plusButton = findViewById(R.id.plus_button)
+    toggleFragmentButton = findViewById(R.id.toggle_fragment)
+
+    minusButton.setOnClickListener {
+      content.setText("${currentValue - 1}")
+    }
+    plusButton.setOnClickListener {
+      content.setText("${currentValue + 1}")
+    }
+
+    fragmentState = savedInstanceState?.getParcelable("fragmentState", Fragment.SavedState::class.java) // 5. (5)
+
+    if (savedInstanceState == null) {
+      supportFragmentManager.commit {
+        setReorderingAllowed(true)
+        addToBackStack("foo")
+        add(R.id.fragment_container_in_activity, FirstFragment.newInstance())
+      }
+    }
+
+    toggleFragmentButton.setOnClickListener {
+      val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container_in_activity)
+      if (fragment == null || !fragment.isAdded) {
+        supportFragmentManager.commit {
+          setReorderingAllowed(true)
+          val fragment = FirstFragment.newInstance()
+          fragment.setInitialSavedState(fragmentState) // 3. (3)
+          add(R.id.fragment_container_in_activity, fragment)
+        }
+      } else {
+        fragmentState = supportFragmentManager.saveFragmentInstanceState(fragment) // 2. (2)
+        supportFragmentManager.commit {
+          setReorderingAllowed(true)
+          remove(fragment)
+        }
+      }
+    }
+  }
+
+  override fun onSaveInstanceState(outState: Bundle) {
+    fragmentState?.let { // 4. (4)
+      outState.putParcelable("fragmentState", fragmentState)
+    }
+    super.onSaveInstanceState(outState)
+  }
+
+  private val currentValue: Int
+    get() = if (content.text.isEmpty()) 0 else content.text.toString().toInt()
+}
+```
+
+1. First introduce a field to save the state of the fragment before it's removed.
+2. Right before removing the fragment, save its state in our newly added field.
+3. Before adding back the fragment, restore its state.
+4. Since `fragmentState` is merely a variable, it can get lost during config changes. i.e. `remove fragment -> config change -> add back fragment`
+5. Restore `fragmentState` from config changes.
