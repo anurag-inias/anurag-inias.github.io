@@ -111,8 +111,8 @@ This is a mixed bag. **System does its best to keep your app process in memory**
         setContentView(R.layout.main_activity)
 
         content = findViewById(R.id.content)
-        minusButton = findViewById(R.id.minusButton)
-        plusButton = findViewById(R.id.plusButton)
+        minusButton = findViewById(R.id.minus_button)
+        plusButton = findViewById(R.id.plus_button)
 
         // (2)
         currentValue = savedInstanceState?.getInt(CURRENT_VALUE_KEY, currentValue) ?: currentValue
@@ -164,12 +164,12 @@ This is a mixed bag. **System does its best to keep your app process in memory**
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:orientation="horizontal">
                 <Button
-                    android:id="@+id/minusButton"
+                    android:id="@+id/minus_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="—"/>
                 <Button
-                    android:id="@+id/plusButton"
+                    android:id="@+id/plus_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"/>
@@ -218,8 +218,8 @@ We can see this in action by replacing the `TextView` in the example above with 
         setContentView(R.layout.main_activity)
 
         content = findViewById(R.id.content)
-        minusButton = findViewById(R.id.minusButton)
-        plusButton = findViewById(R.id.plusButton)
+        minusButton = findViewById(R.id.minus_button)
+        plusButton = findViewById(R.id.plus_button)
 
         minusButton.setOnClickListener {
           content.setText("${currentValue - 1}")
@@ -260,12 +260,12 @@ We can see this in action by replacing the `TextView` in the example above with 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:orientation="horizontal">
                 <Button
-                    android:id="@+id/minusButton"
+                    android:id="@+id/minus_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="—"/>
                 <Button
-                    android:id="@+id/plusButton"
+                    android:id="@+id/plus_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"/>
@@ -282,3 +282,21 @@ Notice how we don't need to override `onSaveInstanceState` anymore.
 !!! warning
 
     `onSaveInstanceState` requires serialization/deserialization and happens on main thread. So don't use it to store large amounts of data, such as bitmaps, nor complex data structures.
+
+### 2. `onSaveInstanceState` in Fragment
+
+[source](https://developer.android.com/guide/fragments/saving-state)
+
+Table below outlines the operations that can cause fragment to lose state and whether the various types of state persit.
+
+| Operation                       | variables        | view state       | `savedInstanceState` |
+| ------------------------------- | ---------------- | ---------------- | -------------------- |
+| Added to back stack             | :material-check: | :material-check: | :material-close:     |
+| Removed not added to back stack | :material-close: | :material-close: | :material-close:     |
+| Config change                   | :material-close: | :material-check: | :material-check:     |
+| Process death                   | :material-close: | :material-check: | :material-check:     |
+| Host finished                   | :material-close: | :material-close: | :material-close:     |
+
+- Variables: fields of fragment class.
+- View state: any data owned by the views in the fragment.
+- `savedInstanceState`: data saved in `onSaveInstanceState`.
