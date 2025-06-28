@@ -91,4 +91,194 @@ This is a mixed bag. **System does its best to keep your app process in memory**
 
 ## Solutions over the years
 
-### 1. Before fragments were a thing
+### 1. `onSaveInstanceState` in Activity
+
+=== "MainActivity.kt"
+
+    ```kotlin linenums="1" hl_lines="20 33-36"
+    class MainActivity : ComponentActivity() {
+
+      // Starting value of our UI state.
+      private var currentValue = 123
+
+      private lateinit var content: TextView
+      private lateinit var minusButton: Button
+      private lateinit var plusButton: Button
+
+      override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.main_activity)
+
+        content = findViewById(R.id.content)
+        minusButton = findViewById(R.id.minusButton)
+        plusButton = findViewById(R.id.plusButton)
+
+        // (2)
+        currentValue = savedInstanceState?.getInt(CURRENT_VALUE_KEY, currentValue) ?: currentValue
+        content.text = "$currentValue"
+
+
+        minusButton.setOnClickListener {
+          content.text = "${--currentValue}"
+        }
+        plusButton.setOnClickListener {
+          content.text = "${++currentValue}"
+        }
+      }
+
+      // (1)
+      override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(CURRENT_VALUE_KEY, currentValue)
+        super.onSaveInstanceState(outState) // (3)
+      }
+
+      companion object {
+        private const val CURRENT_VALUE_KEY = "current_value"
+      }
+    }
+    ```
+
+=== "main_activity.xml"
+
+    ```xml linenums="1"
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.StateRestoration">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/content"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button
+                    android:id="@+id/minusButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"/>
+                <Button
+                    android:id="@+id/plusButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+    ```
+
+1. Save additional information not captured by each individual view.
+2. Restore captured information.
+3. Content is saved in `outState` **before** calling the default implementation.
+
+About `onSaveInstanceState`
+
+: Called to retrieve per-instance state from an activity before being killed so that the state can be restored in `onCreate(Bundle)` or `onRestoreInstanceState(Bundle)` (the Bundle populated by this method will be passed to both).
+
+- $\lt$ Android 9: called before `onStop`. May or may not be called before `onPause`.
+- $\ge$ Android 9: called after `onStop`.
+
+About `onRestoreInstanceState`
+
+: Called between `onStart` and `onPostCreate`. This method is called only when recreating an activity; the method isn't invoked if `onStart` is called for any other reason. Most of the times you'd restore state in `onCreate`. Use this when it's convenient to restore state after all the initialization has been done.
+
+**Interestingly, the default implementation `super.onSaveInstanceState` ==already takes care of most the UI state==. It :**
+
+1. calls `View.onSaveInstanceState` on each view in the hierarchy that has an id.
+2. saves the id of the currently focused view.
+
+We can see this in action by replacing the `TextView` in the example above with `EditText` and removing the state restoration code.
+
+=== "MainActivity.kt"
+
+    ```kotlin linenums="1" hl_lines="3"
+    class MainActivity : ComponentActivity() {
+
+      private lateinit var content: EditText
+      private lateinit var minusButton: Button
+      private lateinit var plusButton: Button
+
+      override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.main_activity)
+
+        content = findViewById(R.id.content)
+        minusButton = findViewById(R.id.minusButton)
+        plusButton = findViewById(R.id.plusButton)
+
+        minusButton.setOnClickListener {
+          content.setText("${currentValue - 1}")
+        }
+        plusButton.setOnClickListener {
+          content.setText("${currentValue + 1}")
+        }
+      }
+
+      private val currentValue: Int
+        get() = if (content.text.isEmpty()) 0 else content.text.toString().toInt()
+    }
+    ```
+
+=== "main_activity.xml"
+
+    ```xml linenums="1" hl_lines="13-18"
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.StateRestoration">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/content"
+                android:textSize="30sp"
+                android:text="123"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button
+                    android:id="@+id/minusButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"/>
+                <Button
+                    android:id="@+id/plusButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+    ```
+
+Notice how we don't need to override `onSaveInstanceState` anymore.
+
+!!! warning
+
+    `onSaveInstanceState` requires serialization/deserialization and happens on main thread. So don't use it to store large amounts of data, such as bitmaps, nor complex data structures.
