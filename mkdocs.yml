@@ -245,6 +245,8 @@ nav:
       - Activities: "android/activities.md"
       - Tasks: "android/tasks.md"
       - Fragments: "android/fragments.md"
+      - State Restoration: "android/state-restoration.md"
+      - ViewModel: "android/viewmodel.md"
       - Animations: "android/animation-transition.md"
   - Javascript:
       - Objects:

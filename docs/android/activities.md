@@ -124,14 +124,16 @@
 
 Examples of activity state changes:
 
-1. **Configuration change:** `onPause -> onStop -> onDestroy -> onCreate -> onStart -> onResume`
-2. **Enter multi-window mode / resize:** same as previously mentioned.
-3. **Activity / disalog appears in foreground:** `onPause <-> onResume` if partially covered. A further `onStop <-> onRestart -> onStart` is fully covered.
-4. **Home / Recents button button:** same as if activity has been covered.
-5. **Back button:** `onPause -> onStop -> onDestroy`. However, if it's the [root launcher activity](https://developer.android.com/guide/components/activities/tasks-and-back-stack#back-press-behavior):
-   - on \\(\le\\) Android 11: system finishes the activity, so same as above.
-   - on \\(\ge\\) Android 12: moves activity to background, so same as _home / recents_ button.
-6. **Killed by system:** there is no guarantee that `onDestory` will be called.
+1.  **Configuration change:** `onPause -> onStop -> onDestroy -> onCreate -> onStart -> onResume`
+2.  **Enter multi-window mode / resize:** same as previously mentioned.
+3.  **Activity / dialog appears in foreground:** `onPause <-> onResume` if partially covered. A further `onStop <-> onRestart -> onStart` is fully covered.
+4.  **Home / Recents button button:** same as if activity has been covered.
+5.  **Back button:** `onPause -> onStop -> onDestroy`. However, if it's the [root launcher activity](https://developer.android.com/guide/components/activities/tasks-and-back-stack#back-press-behavior):
+
+    - on \\(\le\\) Android 11: system finishes the activity, so same as above.
+    - on \\(\ge\\) Android 12: moves activity to background, so same as _home / recents_ button.
+
+6.  **Killed by system:** there is no guarantee that `onDestory` will be called.
 
 {==
 
