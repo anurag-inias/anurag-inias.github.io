@@ -4829,6 +4829,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../state-restoration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Restoration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viewmodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViewModel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../animation-transition/" class="md-nav__link">
         
   
@@ -5798,12 +5840,18 @@
 <ol>
 <li><strong>Configuration change:</strong> <code>onPause -&gt; onStop -&gt; onDestroy -&gt; onCreate -&gt; onStart -&gt; onResume</code></li>
 <li><strong>Enter multi-window mode / resize:</strong> same as previously mentioned.</li>
-<li><strong>Activity / disalog appears in foreground:</strong> <code>onPause &lt;-&gt; onResume</code> if partially covered. A further <code>onStop &lt;-&gt; onRestart -&gt; onStart</code> is fully covered.</li>
+<li><strong>Activity / dialog appears in foreground:</strong> <code>onPause &lt;-&gt; onResume</code> if partially covered. A further <code>onStop &lt;-&gt; onRestart -&gt; onStart</code> is fully covered.</li>
 <li><strong>Home / Recents button button:</strong> same as if activity has been covered.</li>
-<li><strong>Back button:</strong> <code>onPause -&gt; onStop -&gt; onDestroy</code>. However, if it's the <a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack#back-press-behavior">root launcher activity</a>:</li>
+<li>
+<p><strong>Back button:</strong> <code>onPause -&gt; onStop -&gt; onDestroy</code>. However, if it's the <a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack#back-press-behavior">root launcher activity</a>:</p>
+<ul>
 <li>on \(\le\) Android 11: system finishes the activity, so same as above.</li>
 <li>on \(\ge\) Android 12: moves activity to background, so same as <em>home / recents</em> button.</li>
-<li><strong>Killed by system:</strong> there is no guarantee that <code>onDestory</code> will be called.</li>
+</ul>
+</li>
+<li>
+<p><strong>Killed by system:</strong> there is no guarantee that <code>onDestory</code> will be called.</p>
+</li>
 </ol>
 <mark class="critic block">
 <p>The system never kills an activity to free up memory, but instead the whole process.</p>
