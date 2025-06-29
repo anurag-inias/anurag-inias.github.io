@@ -626,3 +626,90 @@ fun main() {
 ```
 
 `StateFlow` only emit last known value, so no `relay`. They also come with a start value in the constructor that's emitted immediately. In general, it's a simpler API.
+
+## Coroutines + Android
+
+([Source: Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines))
+
+So now that we know what coroutines and flows are, how do we use them in Android? Lifecycle-aware components (Activity, Fragment, ViewModel) provide the following built-in scopes:
+
+<div markdown class="grid">
+
+#### 1. `ViewModelScope`
+
+#### 2. `LifecycleScope`
+
+```kotlin linenums="1"
+class MyViewModel: ViewModel() {
+  init {
+    viewModelScope.launch {
+      // code that will be canceled when the ViewModel is cleared.
+    }
+  }
+}
+```
+
+```kotlin linenums="1" hl_lines="6-10"
+class MyFragment: Fragment() {
+
+  override fun onViewCreate(...) {
+    super.onViewCreated(view, savedInstanceState)
+
+    viewLifecycleOwner.lifecycleScope.launch {
+      val someResult = withContext(Dispatchers.Default) {
+      }
+      // Some UI work
+    }
+  }
+}
+```
+
+</div>
+
+### Restartable coroutines
+
+There might be cases where we want to start some work when in one `Lifecyle` and stop in another.
+
+```kotlin linenums="1" hl_lines="6-18"
+class MyFragment: Fragment() {
+
+  override fun onViewCreate(...) {
+    super.onViewCreated(view, savedInstanceState)
+
+    viewLifecycleOwner.lifecycleScope.launch {
+      // Option 1
+      viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        vm.someFlow.collect {
+          // This will start listening for values in STARTED and stop when in STOPPED.
+        }
+      }
+
+      // Option 2
+      vm.someFlow.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED).collect {
+        // This too will start listening for values in STARTED and stop when in STOPPED.
+      }
+    }
+  }
+}
+```
+
+If you just need a one-time delay:
+
+```kotlin linenums="1" hl_lines="3-8"
+class MyFragment: Fragment() {
+
+  init {
+    lifecycleScope.launch {
+      withStarted {
+        // Code that will at any time be suspended if the fragment is not STARTED.
+      }
+    }
+  }
+
+}
+```
+
+so clarify:
+
+1. `whenX` pauses the coroutine code when you fall below the `X` state.
+1. `repeatOnLifecycle` every time you reach `X`, the block is ran. When below `X`, the block is completely cancelled.

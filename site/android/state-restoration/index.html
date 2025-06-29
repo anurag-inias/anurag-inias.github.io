@@ -4886,8 +4886,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#4-viewmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ViewModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-savedstatehandle-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. SavedStateHandle API
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
   
 </li>
       
@@ -5811,8 +5838,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#4-viewmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ViewModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-savedstatehandle-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. SavedStateHandle API
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
   
 </li>
       
@@ -6765,8 +6819,7 @@
 <span class="normal"><a href="#__codelineno-9-60">60</a></span>
 <span class="normal"><a href="#__codelineno-9-61">61</a></span>
 <span class="normal"><a href="#__codelineno-9-62">62</a></span>
-<span class="normal"><a href="#__codelineno-9-63">63</a></span>
-<span class="normal"><a href="#__codelineno-9-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">FragmentActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-9-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">FragmentActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">lateinit</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">content</span><span class="p">:</span><span class="w"> </span><span class="n">EditText</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">lateinit</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">minusButton</span><span class="p">:</span><span class="w"> </span><span class="n">Button</span>
@@ -6796,40 +6849,39 @@
 </span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">savedInstanceState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29"></a><span class="w">      </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">commit</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30"></a><span class="w">        </span><span class="n">setReorderingAllowed</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31"></a><span class="w">        </span><span class="n">addToBackStack</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">)</span>
-</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32"></a><span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container_in_activity</span><span class="p">,</span><span class="w"> </span><span class="n">FirstFragment</span><span class="p">.</span><span class="na">newInstance</span><span class="p">())</span>
-</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35"></a>
-</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36"></a><span class="w">    </span><span class="n">toggleFragmentButton</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37"></a><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="nv">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">findFragmentById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container_in_activity</span><span class="p">)</span>
-</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fragment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">fragment</span><span class="p">.</span><span class="na">isAdded</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39"></a><span class="w">        </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">commit</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40"></a><span class="w">          </span><span class="n">setReorderingAllowed</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41"></a><span class="w">          </span><span class="kd">val</span><span class="w"> </span><span class="nv">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirstFragment</span><span class="p">.</span><span class="na">newInstance</span><span class="p">()</span>
-</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42"></a><span class="hll"><span class="w">          </span><span class="n">fragment</span><span class="p">.</span><span class="na">setInitialSavedState</span><span class="p">(</span><span class="n">fragmentState</span><span class="p">)</span><span class="w"> </span><span class="c1">// 3. (3)</span>
-</span></span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43"></a><span class="w">          </span><span class="n">add</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container_in_activity</span><span class="p">,</span><span class="w"> </span><span class="n">fragment</span><span class="p">)</span>
-</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45"></a><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-46"><a id="__codelineno-9-46" name="__codelineno-9-46"></a><span class="hll"><span class="w">        </span><span class="n">fragmentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">saveFragmentInstanceState</span><span class="p">(</span><span class="n">fragment</span><span class="p">)</span><span class="w"> </span><span class="c1">// 2. (2)</span>
-</span></span><span id="__span-9-47"><a id="__codelineno-9-47" name="__codelineno-9-47"></a><span class="w">        </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">commit</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-48"><a id="__codelineno-9-48" name="__codelineno-9-48"></a><span class="w">          </span><span class="n">setReorderingAllowed</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</span><span id="__span-9-49"><a id="__codelineno-9-49" name="__codelineno-9-49"></a><span class="w">          </span><span class="n">remove</span><span class="p">(</span><span class="n">fragment</span><span class="p">)</span>
-</span><span id="__span-9-50"><a id="__codelineno-9-50" name="__codelineno-9-50"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-9-51"><a id="__codelineno-9-51" name="__codelineno-9-51"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-9-52"><a id="__codelineno-9-52" name="__codelineno-9-52"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-9-53"><a id="__codelineno-9-53" name="__codelineno-9-53"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-9-54"><a id="__codelineno-9-54" name="__codelineno-9-54"></a>
-</span><span id="__span-9-55"><a id="__codelineno-9-55" name="__codelineno-9-55"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-56"><a id="__codelineno-9-56" name="__codelineno-9-56"></a><span class="hll"><span class="w">    </span><span class="n">fragmentState</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 4. (4)</span>
-</span></span><span id="__span-9-57"><a id="__codelineno-9-57" name="__codelineno-9-57"></a><span class="hll"><span class="w">      </span><span class="n">outState</span><span class="p">.</span><span class="na">putParcelable</span><span class="p">(</span><span class="s">&quot;fragmentState&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fragmentState</span><span class="p">)</span>
-</span></span><span id="__span-9-58"><a id="__codelineno-9-58" name="__codelineno-9-58"></a><span class="hll"><span class="w">    </span><span class="p">}</span>
-</span></span><span id="__span-9-59"><a id="__codelineno-9-59" name="__codelineno-9-59"></a><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">)</span>
-</span><span id="__span-9-60"><a id="__codelineno-9-60" name="__codelineno-9-60"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-9-61"><a id="__codelineno-9-61" name="__codelineno-9-61"></a>
-</span><span id="__span-9-62"><a id="__codelineno-9-62" name="__codelineno-9-62"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">currentValue</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
-</span><span id="__span-9-63"><a id="__codelineno-9-63" name="__codelineno-9-63"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">content</span><span class="p">.</span><span class="na">text</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">content</span><span class="p">.</span><span class="na">text</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">toInt</span><span class="p">()</span>
-</span><span id="__span-9-64"><a id="__codelineno-9-64" name="__codelineno-9-64"></a><span class="p">}</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31"></a><span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container_in_activity</span><span class="p">,</span><span class="w"> </span><span class="n">FirstFragment</span><span class="p">.</span><span class="na">newInstance</span><span class="p">())</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34"></a>
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35"></a><span class="w">    </span><span class="n">toggleFragmentButton</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36"></a><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="nv">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">findFragmentById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container_in_activity</span><span class="p">)</span>
+</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fragment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">fragment</span><span class="p">.</span><span class="na">isAdded</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38"></a><span class="w">        </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">commit</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39"></a><span class="w">          </span><span class="n">setReorderingAllowed</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40"></a><span class="w">          </span><span class="kd">val</span><span class="w"> </span><span class="nv">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirstFragment</span><span class="p">.</span><span class="na">newInstance</span><span class="p">()</span>
+</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41"></a><span class="w">          </span><span class="n">fragment</span><span class="p">.</span><span class="na">setInitialSavedState</span><span class="p">(</span><span class="n">fragmentState</span><span class="p">)</span><span class="w"> </span><span class="c1">// 3. (3)</span>
+</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42"></a><span class="hll"><span class="w">          </span><span class="n">add</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container_in_activity</span><span class="p">,</span><span class="w"> </span><span class="n">fragment</span><span class="p">)</span>
+</span></span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44"></a><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45"></a><span class="w">        </span><span class="n">fragmentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">saveFragmentInstanceState</span><span class="p">(</span><span class="n">fragment</span><span class="p">)</span><span class="w"> </span><span class="c1">// 2. (2)</span>
+</span><span id="__span-9-46"><a id="__codelineno-9-46" name="__codelineno-9-46"></a><span class="hll"><span class="w">        </span><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">commit</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="__span-9-47"><a id="__codelineno-9-47" name="__codelineno-9-47"></a><span class="w">          </span><span class="n">setReorderingAllowed</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-9-48"><a id="__codelineno-9-48" name="__codelineno-9-48"></a><span class="w">          </span><span class="n">remove</span><span class="p">(</span><span class="n">fragment</span><span class="p">)</span>
+</span><span id="__span-9-49"><a id="__codelineno-9-49" name="__codelineno-9-49"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-50"><a id="__codelineno-9-50" name="__codelineno-9-50"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-9-51"><a id="__codelineno-9-51" name="__codelineno-9-51"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-52"><a id="__codelineno-9-52" name="__codelineno-9-52"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-53"><a id="__codelineno-9-53" name="__codelineno-9-53"></a>
+</span><span id="__span-9-54"><a id="__codelineno-9-54" name="__codelineno-9-54"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-55"><a id="__codelineno-9-55" name="__codelineno-9-55"></a><span class="w">    </span><span class="n">fragmentState</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 4. (4)</span>
+</span><span id="__span-9-56"><a id="__codelineno-9-56" name="__codelineno-9-56"></a><span class="hll"><span class="w">      </span><span class="n">outState</span><span class="p">.</span><span class="na">putParcelable</span><span class="p">(</span><span class="s">&quot;fragmentState&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fragmentState</span><span class="p">)</span>
+</span></span><span id="__span-9-57"><a id="__codelineno-9-57" name="__codelineno-9-57"></a><span class="hll"><span class="w">    </span><span class="p">}</span>
+</span></span><span id="__span-9-58"><a id="__codelineno-9-58" name="__codelineno-9-58"></a><span class="hll"><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">)</span>
+</span></span><span id="__span-9-59"><a id="__codelineno-9-59" name="__codelineno-9-59"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-60"><a id="__codelineno-9-60" name="__codelineno-9-60"></a>
+</span><span id="__span-9-61"><a id="__codelineno-9-61" name="__codelineno-9-61"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">currentValue</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
+</span><span id="__span-9-62"><a id="__codelineno-9-62" name="__codelineno-9-62"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">content</span><span class="p">.</span><span class="na">text</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">content</span><span class="p">.</span><span class="na">text</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">toInt</span><span class="p">()</span>
+</span><span id="__span-9-63"><a id="__codelineno-9-63" name="__codelineno-9-63"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <ol>
 <li>First introduce a field to save the state of the fragment before it's removed.</li>
@@ -6838,6 +6890,90 @@
 <li>Since <code>fragmentState</code> is merely a variable, it can get lost during config changes. i.e. <code>remove fragment -&gt; config change -&gt; add back fragment</code></li>
 <li>Restore <code>fragmentState</code> from config changes.</li>
 </ol>
+<h3 id="4-viewmodel">4. ViewModel</h3>
+<p><code>ViewModel</code> objects can handle configuration changes, so you don't need to worry about state in rotations or other cases.</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">UserActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ComponentActivity</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">viewModel</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">viewModels</span><span class="o">&lt;</span><span class="n">UserViewModel</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">}</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">...</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">UserViewModel</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ViewModel</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="5-savedstatehandle-api">5. <code>SavedStateHandle</code> API</h3>
+<p><code>ViewModel</code> do not handle system-initiated process death, you might want to use the <code>SavedStateHandle</code> API as backup.</p>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">SavedStateViewModel</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">state</span><span class="p">:</span><span class="w"> </span><span class="n">SavedStateHandle</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ViewModel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>The <code>SavedStateHandle</code> class is a key-value map that allows you to write and retrieve data to and from the saved state through:</p>
+<ul>
+<li><code>get(String key)</code></li>
+<li><code>set(String key, T value</code>) - where <code>T</code> is any type supported by <code>Bundle</code>.</li>
+<li><code>contains(String key)</code> - Checks if there is a value for the given key.</li>
+<li><code>remove(String key)</code> - Removes the value for the given key.</li>
+<li><code>keys()</code> - Returns all keys contained within the SavedStateHandle.</li>
+<li><code>LiveData</code> and <code>StateFlow</code> apis.</li>
+</ul>
+<hr/>
+
+<h2 id="recap">Recap</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>savedInstanceState</code></th>
+<th><code>ViewModel</code></th>
+<th>Persistent Storage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage location</td>
+<td>memory</td>
+<td>memory</td>
+<td>disk</td>
+</tr>
+<tr>
+<td>Survives dismissal by the user</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td>Survives configuration changes</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td>Survives process death by OS</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td>I/O time</td>
+<td>slow <br> (serialization/deserialization)</td>
+<td>fast <br> (memory access)</td>
+<td>slower <br> (disk access)</td>
+</tr>
+<tr>
+<td>Suited data types</td>
+<td>primitives <br> int, string etc</td>
+<td>objects are fine</td>
+<td>whatever is not too slow to read from disk</td>
+</tr>
+</tbody>
+</table>
 
 
 
