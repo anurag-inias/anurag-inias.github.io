@@ -581,7 +581,6 @@ class MainActivity : FragmentActivity() {
     if (savedInstanceState == null) {
       supportFragmentManager.commit {
         setReorderingAllowed(true)
-        addToBackStack("foo")
         add(R.id.fragment_container_in_activity, FirstFragment.newInstance())
       }
     }
@@ -622,3 +621,49 @@ class MainActivity : FragmentActivity() {
 3. Before adding back the fragment, restore its state.
 4. Since `fragmentState` is merely a variable, it can get lost during config changes. i.e. `remove fragment -> config change -> add back fragment`
 5. Restore `fragmentState` from config changes.
+
+### 4. ViewModel
+
+`ViewModel` objects can handle configuration changes, so you don't need to worry about state in rotations or other cases.
+
+```kotlin linenums="1"
+class UserActivity : ComponentActivity {
+  private val viewModel by viewModels<UserViewModel>()
+}
+
+...
+
+class UserViewModel : ViewModel {
+}
+```
+
+### 5. `SavedStateHandle` API
+
+`ViewModel` do not handle system-initiated process death, you might want to use the `SavedStateHandle` API as backup.
+
+```kotlin linenums="1"
+class SavedStateViewModel(private val state: SavedStateHandle) : ViewModel() {
+}
+```
+
+The `SavedStateHandle` class is a key-value map that allows you to write and retrieve data to and from the saved state through:
+
+- `get(String key)`
+- `set(String key, T value`) - where `T` is any type supported by `Bundle`.
+- `contains(String key)` - Checks if there is a value for the given key.
+- `remove(String key)` - Removes the value for the given key.
+- `keys()` - Returns all keys contained within the SavedStateHandle.
+- `LiveData` and `StateFlow` apis.
+
+<hr/>
+
+## Recap
+
+|                                | `savedInstanceState`                      | `ViewModel`               | Persistent Storage                         |
+| ------------------------------ | ----------------------------------------- | ------------------------- | ------------------------------------------ |
+| Storage location               | memory                                    | memory                    | disk                                       |
+| Survives dismissal by the user | :material-close:                          | :material-close:          | :material-check:                           |
+| Survives configuration changes | :material-check:                          | :material-check:          | :material-check:                           |
+| Survives process death by OS   | :material-check:                          | :material-close:          | :material-check:                           |
+| I/O time                       | slow <br> (serialization/deserialization) | fast <br> (memory access) | slower <br> (disk access)                  |
+| Suited data types              | primitives <br> int, string etc           | objects are fine          | whatever is not too slow to read from disk |
