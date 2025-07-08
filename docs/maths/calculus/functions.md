@@ -1,7 +1,8 @@
 # Functions
 
 <!-- https://mauriciopoppe.github.io/function-plot/ -->
-<script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+<!-- <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+<script src="/assets/function-plot.js"></script>
 
 If value of one variable $y$ depends on the value of another variable $x$ then we say that "$y$ is a function of $x$", or symbolically:
 
