@@ -94,6 +94,8 @@ nav:
           - Permutation and Combination: "maths/combinatorics/p-and-c.md"
           - Probability: "maths/combinatorics/probability.md"
       - Series: "maths/series.md"
+      - Calculus:
+          - Functions: "maths/calculus/functions.md"
   - Algorithms:
       - Binary Search: "algorithms/search/binary.md"
       - Partitioning: "algorithms/partition/partition.md"
