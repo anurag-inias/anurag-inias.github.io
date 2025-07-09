@@ -5,7 +5,8 @@ theme:
   favicon: assets/fatigue-dark.svg
   font:
     text: "Briskpace"
-    code: "Roboto Mono Medium"
+    code: "Mullet"
+    # code: "Roboto Mono Medium"
   features:
     - content.code.copy
     - content.code.annotate

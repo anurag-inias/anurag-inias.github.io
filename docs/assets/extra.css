@@ -25,6 +25,16 @@
 }
 
 @font-face {
+  font-family: "Mullet";
+  src: url("/assets/fonts/mullet/normal.ttf");
+}
+@font-face {
+  font-family: "Mullet";
+  src: url("/assets/fonts/mullet/italic.ttf");
+  font-style: italic;
+}
+
+@font-face {
   font-family: "Briskpace";
   src: url("/assets/fonts/Briskpace.ttf");
   font-weight: normal;
