@@ -1,4 +1,4 @@
-# List all binary strings generated from wildcard pattern
+# 1. List all binary strings generated from wildcard pattern
 
 ## Problem
 
@@ -46,6 +46,31 @@ Given a binary string with random wildcard placements, generate all unique binar
     $$
 
 ## Solution
+
+??? "Simple"
+
+    ```kotlin linenums="1"
+    fun wildcardBinary(str: String) {
+      val array = str.toCharArray()
+      helper(array, 0)
+    }
+
+    fun helper(array: CharArray, index: Int) {
+      if (index >= array.size) {
+        println(String(array))
+        return
+      }
+      if (array[index] != '?') {
+        helper(array, index + 1)
+        return
+      }
+      array[index] = '0'
+      helper(array, index + 1)
+      array[index] = '1'
+      helper(array, index + 1)
+      array[index] = '?' // remember! clean up after yourself.
+    }
+    ```
 
 ??? "Recursion"
 

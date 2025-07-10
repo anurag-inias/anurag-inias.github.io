@@ -167,8 +167,10 @@ nav:
   - Practice:
       - Learnings: "practice/index.md"
       - Backtracking (16):
-          - Print all possible solutions to N–Queens problem: "practice/backtracking/print-possible-solutions-n-queens-problem.md"
-          - List all binary strings generated from wildcard pattern: "practice/backtracking/list-all-binary-strings-generated-from-wildcard-pattern.md"
+          - About: "practice/backtracking/about.md"
+          - 1. List all binary strings generated from wildcard pattern: "practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern.md"
+          - 2. Print all possible solutions to N-Queens problem: "practice/backtracking/02-print-possible-solutions-n-queens-problem.md"
+          - 3. Print all possible Knight's tours: "practice/backtracking/03-print-possible-knights-tours-chessboard.md"
       - Greedy:
           - Activity selection: "practice/greedy/activity-selection.md"
           - Job sequencing: "practice/greedy/job-sequencing.md"

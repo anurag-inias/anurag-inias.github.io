@@ -1,4 +1,4 @@
-# 1. Print all possible solutions to N-Queens problem
+# 2. Print all possible solutions to N-Queens problem
 
 ## Description
 
