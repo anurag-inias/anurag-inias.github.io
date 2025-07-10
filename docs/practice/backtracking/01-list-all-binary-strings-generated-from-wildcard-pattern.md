@@ -1,4 +1,4 @@
-# 1. List all binary strings generated from wildcard pattern
+# List all binary strings generated from wildcard pattern
 
 ## Problem
 

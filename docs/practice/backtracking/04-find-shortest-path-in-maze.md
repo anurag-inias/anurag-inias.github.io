@@ -75,8 +75,10 @@ fun shortestPath(board: Array<IntArray>, src: Cell, dest: Cell): List<Cell> {
     }
 
     fun helper(board: Array<IntArray>, node: Cell, dest: Cell, path: MutableList<Cell>): List<Cell>? {
+      path.add(node)
       if (node == dest) {
-        return path.toList()
+        path.removeLast()
+        return path.toList() + node
       }
       path.add(node)
 

@@ -1,4 +1,4 @@
-# 3. Print all possible Knight's tours on a chessboard
+# Print all possible Knight's tours on a chessboard
 
 ## Description
 
