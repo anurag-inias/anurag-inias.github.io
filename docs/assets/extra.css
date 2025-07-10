@@ -85,3 +85,17 @@
 .md-typeset .emojione, .md-typeset .gemoji, .md-typeset .twemoji {
   vertical-align: sub;
 }
+
+.md-nav__item.md-nav__item--active.md-nav__item--nested {
+  counter-reset: problem;
+}
+
+.problem-index {
+  display: inline-flex;
+}
+
+.problem-index::before{
+  counter-increment: problem;
+  content: counter(problem) ".";
+  padding-right: 4px;
+}
