@@ -175,6 +175,7 @@ nav:
           - <span class="problem-index"><span>5. </span>Find the shortest path in a maze</span>: "practice/backtracking/05-find-longest-path-in-maze.md"
           - <span class="problem-index"><span>6. </span>Find number of unique paths in a maze</span>: "practice/backtracking/06-find-number-of-unique-paths-in-a-maze.md"
           - <span class="problem-index"><span>7. </span>List all Hamiltonian paths</span>: "practice/backtracking/07-list-all-hamiltonian-paths.md"
+          - <span class="problem-index"><span>8. </span>List all k-Colorings</span>: "practice/backtracking/08-list-all-k-colorings.md"
       - Greedy:
           - Activity selection: "practice/greedy/activity-selection.md"
           - Job sequencing: "practice/greedy/job-sequencing.md"
