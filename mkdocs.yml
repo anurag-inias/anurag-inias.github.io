@@ -166,6 +166,11 @@ nav:
               - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
   - Practice:
       - Learnings: "practice/index.md"
+      - Greedy (4):
+          - <span class="problem-index"><span>1. </span>Activity selection</span>: "practice/greedy/01-activity-selection.md"
+          - <span class="problem-index"><span>2. </span>Job sequencing</span>: "practice/greedy/02-job-sequencing.md"
+          - <span class="problem-index"><span>3. </span>Shortest superstring</span>: "practice/greedy/03-shortest-superstring.md"
+          - <span class="problem-index"><span>4. </span>Graph coloring</span>: "practice/greedy/04-graph-coloring.md"
       - Backtracking (10):
           - About: "practice/backtracking/about.md"
           - <span class="problem-index"><span>1. </span>List all binary strings generated from wildcard pattern</span>: "practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern.md"
@@ -178,10 +183,6 @@ nav:
           - <span class="problem-index"><span>8. </span>List all k-Colorings</span>: "practice/backtracking/08-list-all-k-colorings.md"
           - <span class="problem-index"><span>9. </span>Split list into k-partitions of equal sum</span>: "practice/backtracking/09-split-list-into-k-partitions-of-equal-sum.md"
           - <span class="problem-index"><span>10. </span>Find ways to calculate a target from elements of the specified array</span>: "practice/backtracking/10-find-ways-calculate-target-elements-array.md"
-      - Greedy:
-          - Activity selection: "practice/greedy/activity-selection.md"
-          - Job sequencing: "practice/greedy/job-sequencing.md"
-          - Shortest Superstring: "practice/greedy/shortest-superstring.md"
       - Stack:
           - Check if a given expression is balanced or not: "practice/stack/check-if-a-given-expression-is-balanced-or-not.md"
           - Convert infix expression to postfix: "practice/stack/convert-infix-expression-to-postfix.md"

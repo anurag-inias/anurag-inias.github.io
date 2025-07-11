@@ -22,6 +22,10 @@ The most activities that a person can do is $(1, 4) (5, 7) (8, 11) (12, 14)$.
 
 ??? "Implementation"
 
+    - Sort activities in ascending finish time.
+    - Pick the first activity.
+    - Keep adding activities which don't conflict with the last activity.
+
     ```kotlin linenums="1"
     fun activitySelection(list: List<Pair<Int, Int>>): List<Pair<Int, Int>> {
       val sorted = list.sortedWith{ a, b -> a.second - b.second } // sort in ascending finish time
