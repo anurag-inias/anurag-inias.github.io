@@ -173,6 +173,7 @@ nav:
           - <span class="problem-index"><span>3.</span>Print all possible Knight's tours</span>: "practice/backtracking/03-print-possible-knights-tours-chessboard.md"
           - <span class="problem-index"><span>4.</span>Find the shortest path in a maze</span>: "practice/backtracking/04-find-shortest-path-in-maze.md"
           - <span class="problem-index"><span>5.</span>Find the shortest path in a maze</span>: "practice/backtracking/05-find-longest-path-in-maze.md"
+          - <span class="problem-index"><span>6.</span>Find number of unique paths in a maze</span>: "practice/backtracking/06-find-number-of-unique-paths-in-a-maze.md"
       - Greedy:
           - Activity selection: "practice/greedy/activity-selection.md"
           - Job sequencing: "practice/greedy/job-sequencing.md"
