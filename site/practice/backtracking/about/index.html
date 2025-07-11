@@ -2753,7 +2753,7 @@
             
   
   <span class="md-ellipsis">
-    Backtracking (16)
+    Backtracking (10)
   </span>
   
 
@@ -2763,7 +2763,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
-            Backtracking (16)
+            Backtracking (10)
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2841,6 +2841,15 @@
   <a href="#high-level-structure" class="md-nav__link">
     <span class="md-ellipsis">
       High level structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-duplicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling duplicates
     </span>
   </a>
   
@@ -3035,6 +3044,27 @@
   
   <span class="md-ellipsis">
     <span class="problem-index"><span>9. </span>Split list into k-partitions of equal sum</span>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-find-ways-calculate-target-elements-array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <span class="problem-index"><span>10. </span>Find ways to calculate a target from elements of the specified array</span>
   </span>
   
 
@@ -5957,6 +5987,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#handling-duplicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling duplicates
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6041,6 +6080,9 @@
 <p class="admonition-title">Tip</p>
 <p><strong>Always cleanup after yourself</strong>. <br> That is, if some value <span class="arithmatex">\(X\)</span> is added to the partial solution during the recursive call, then it must be removed before that recursive call returns.</p>
 </div>
+<h2 id="handling-duplicates">Handling duplicates</h2>
+<p>Consider the problem <a href="../10-find-ways-calculate-target-elements-array/"><strong>Find ways to calculate a target from elements of the specified array</strong></a>. Or even something as simple as listing all the permutations of a string.</p>
+<p>Here we run into the issue of coming up with duplicate outputs over and over. We can handle this by using <code>index</code> of the element instead of <code>element</code> itself.</p>
 
 
 

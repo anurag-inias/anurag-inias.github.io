@@ -89,3 +89,9 @@ Noticed something?
 !!! tip
 
     **Always cleanup after yourself**. <br> That is, if some value $X$ is added to the partial solution during the recursive call, then it must be removed before that recursive call returns.
+
+## Handling duplicates
+
+Consider the problem [**Find ways to calculate a target from elements of the specified array**](10-find-ways-calculate-target-elements-array.md). Or even something as simple as listing all the permutations of a string.
+
+Here we run into the issue of coming up with duplicate outputs over and over. We can handle this by using `index` of the element instead of `element` itself.

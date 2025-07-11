@@ -166,7 +166,7 @@ nav:
               - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
   - Practice:
       - Learnings: "practice/index.md"
-      - Backtracking (16):
+      - Backtracking (10):
           - About: "practice/backtracking/about.md"
           - <span class="problem-index"><span>1. </span>List all binary strings generated from wildcard pattern</span>: "practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern.md"
           - <span class="problem-index"><span>2. </span>Print all possible solutions to N-Queens problem</span>: "practice/backtracking/02-print-possible-solutions-n-queens-problem.md"
@@ -177,6 +177,7 @@ nav:
           - <span class="problem-index"><span>7. </span>List all Hamiltonian paths</span>: "practice/backtracking/07-list-all-hamiltonian-paths.md"
           - <span class="problem-index"><span>8. </span>List all k-Colorings</span>: "practice/backtracking/08-list-all-k-colorings.md"
           - <span class="problem-index"><span>9. </span>Split list into k-partitions of equal sum</span>: "practice/backtracking/09-split-list-into-k-partitions-of-equal-sum.md"
+          - <span class="problem-index"><span>10. </span>Find ways to calculate a target from elements of the specified array</span>: "practice/backtracking/10-find-ways-calculate-target-elements-array.md"
       - Greedy:
           - Activity selection: "practice/greedy/activity-selection.md"
           - Job sequencing: "practice/greedy/job-sequencing.md"
