@@ -171,6 +171,8 @@ nav:
           - <span class="problem-index"><span>2. </span>Job sequencing</span>: "practice/greedy/02-job-sequencing.md"
           - <span class="problem-index"><span>3. </span>Shortest superstring</span>: "practice/greedy/03-shortest-superstring.md"
           - <span class="problem-index"><span>4. </span>Graph coloring</span>: "practice/greedy/04-graph-coloring.md"
+      - Trie (1):
+          - <span class="problem-index"><span>1. </span>Longest Common Prefix</span>: "practice/trie/01-longest-common-prefix.md"
       - Backtracking (10):
           - About: "practice/backtracking/about.md"
           - <span class="problem-index"><span>1. </span>List all binary strings generated from wildcard pattern</span>: "practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern.md"

@@ -84,6 +84,8 @@ l(planet)         l(plant)
 
 The examples we consider here do not allow any _prefixes_. For that, see the follow-up page on compressed trie.
 
+It is possible to workaround this limitation even in non-compressed Tries. We introduce a special character, say `#`, which is not seen in any of the input keys. Next, replace insertion of key `key` with `key#`.
+
 ## Example
 
 ### Search

@@ -14,13 +14,11 @@ S_3 &= \fbox{fl}\ \text{ight} \\
 \end{alignat}
 $$
 
-## First Solution Hint
+## First Solution
 
-??? "Expand"
+??? "Hint"
 
     The solution is straighforward, no tricks. But there is an optimization to cut down the problem at hand significantly.
-
-## First Solution
 
 ??? "Pseudocode"
 
@@ -61,21 +59,75 @@ $$
 
     In worst case, we can assume all strings to be $d$ character long, only deviating at the very last character. That means each comparison is $c\cdot d$ work. For all $n$ strings, that's $c\cdot d \cdot n$ work, which is $O(n)$.
 
-## Second Solution Hint
+## Second Solution
 
-??? "Expand"
+??? "Hint"
+
+    Use a Trie.
+
+??? "Pseudocode"
+
+    Insert all words into a Trie. Now traverse the trie from the root downwards. The first branch we hit is where the longest common prefix ends.
+
+??? "Implementation"
+
+    ```kotlin linenums="1"
+    fun longestCommonPrefix(words: Array<String>): String {
+      val root = TrieNode()
+      for (word in words) {
+        root.insert("$word#")
+      }
+
+      var cursor = root
+      val path = StringBuilder()
+      while (true) {
+        if (cursor.isLeaf) return cursor.key!!
+        if (cursor.branches.size != 1) break
+        path.append(cursor.branches.keys.first())
+        cursor = cursor.branches.values.first()
+      }
+      return path.toString()
+    }
+
+    data class TrieNode(
+      var key: String? = null,
+    ) {
+      val isLeaf: Boolean
+        get() = key != null
+
+      val branches = mutableMapOf<Char, TrieNode>()
+
+      fun insert(word: String, index: Int = 0) {
+        val node = branches[word[index]]
+        if (node == null) {
+          branches[word[index]] = TrieNode(key = word)
+          return
+        }
+        if (node.isLeaf) { // -> leaf => -> branch -> leaf1, leaf2
+          branches[word[index]] = TrieNode()
+          branches[word[index]]!!.insert(word, index + 1)
+          branches[word[index]]!!.insert(node.key!!, index + 1)
+          node.key = null
+          return
+        }
+        node.insert(word, index + 1)
+      }
+    }
+    ```
+
+## Third Solution
+
+??? "Hint 1"
 
     Do you actually need to check all strings?
 
-??? "Expand some more"
+??? "Hint 2"
 
     Would sorting help?
 
-??? "Expand even more"
+??? "Hint 3"
 
     What do we get out of sorting? is that needed?
-
-## Second Solution
 
 ??? "Pseudocode"
 

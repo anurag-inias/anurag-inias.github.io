@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../kruskal/">
+        <link rel="prev" href="../../greedy/04-graph-coloring/">
       
       
-        <link rel="next" href="../../../../practice/">
+        <link rel="next" href="../../backtracking/about/">
       
       
-      <link rel="icon" href="../../../../assets/fatigue-dark.svg">
+      <link rel="icon" href="../../../assets/fatigue-dark.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>Prim's Algorithm - listless 💤</title>
+        <title>1. Longest Common Prefix - listless 💤</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,18 +46,18 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../assets/javascripts/placeholder-plugin.css">
+      <link rel="stylesheet" href="../../../assets/javascripts/placeholder-plugin.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -66,7 +66,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#prims-algorithm" class="md-skip">
+        <a href="#longest-common-prefix" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +101,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Prim's Algorithm
+              <span class="problem-index"><span>1. </span>Longest Common Prefix</span>
             
           </span>
         </div>
@@ -184,9 +184,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     listless 💤
@@ -201,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -291,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/books/ghost-radio/" class="md-nav__link">
+      <a href="../../../blog/books/ghost-radio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/books/the-institute/" class="md-nav__link">
+      <a href="../../../blog/books/the-institute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/books/the-reaping/" class="md-nav__link">
+      <a href="../../../blog/books/the-reaping/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/books/the-hobbit/" class="md-nav__link">
+      <a href="../../../blog/books/the-hobbit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/numbers/" class="md-nav__link">
+      <a href="../../../maths/algebra/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -481,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
+      <a href="../../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/arithmetic-laws/" class="md-nav__link">
+      <a href="../../../maths/algebra/arithmetic-laws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
+      <a href="../../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -544,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/base-change/" class="md-nav__link">
+      <a href="../../../maths/algebra/base-change/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -565,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/expressions/" class="md-nav__link">
+      <a href="../../../maths/algebra/expressions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/modulo/" class="md-nav__link">
+      <a href="../../../maths/algebra/modulo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/algebra/complex/" class="md-nav__link">
+      <a href="../../../maths/algebra/complex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/combinatorics/sets/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/sets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -692,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/combinatorics/p-and-c/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/p-and-c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -713,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/combinatorics/probability/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/probability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -742,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/series/" class="md-nav__link">
+      <a href="../../../maths/series/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../maths/calculus/functions/" class="md-nav__link">
+      <a href="../../../maths/calculus/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/search/binary/" class="md-nav__link">
+      <a href="../../../algorithms/search/binary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/partition/partition/" class="md-nav__link">
+      <a href="../../../algorithms/partition/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/comparison/" class="md-nav__link">
+      <a href="../../../algorithms/sort/comparison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -967,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/bubble-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/bubble-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/insertion-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/insertion-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1009,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/selection-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/selection-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1030,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/heapsort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/heapsort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1051,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/quicksort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/quicksort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1072,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/mergesort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/mergesort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1093,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/sort/counting-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/counting-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
+      <a href="../../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1221,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/dynamic-programming/intro/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1263,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1284,7 +1284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1305,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../algorithms/greedy/huffman-coding/" class="md-nav__link">
+      <a href="../../../algorithms/greedy/huffman-coding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1402,19 +1402,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1428,7 +1426,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Data Structures
@@ -1477,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../numbers/representation/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/representation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1498,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../numbers/bit-tricks/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/bit-tricks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1519,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../numbers/addition/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/addition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1583,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linked-list/singly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1604,7 +1602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linked-list/doubly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1625,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linked-list/patterns/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/patterns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1724,7 +1722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../array/problems/dutch-national-flag/" class="md-nav__link">
+      <a href="../../../data-structures/array/problems/dutch-national-flag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1796,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stack/basics/" class="md-nav__link">
+      <a href="../../../data-structures/stack/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1825,7 +1823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../heap/" class="md-nav__link">
+      <a href="../../../data-structures/heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1846,7 +1844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../disjoint-set/" class="md-nav__link">
+      <a href="../../../data-structures/disjoint-set/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1867,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../circular-list/" class="md-nav__link">
+      <a href="../../../data-structures/circular-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1993,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tree/traversal/inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2014,7 +2012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tree/traversal/preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2035,7 +2033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tree/traversal/postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2064,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tree/traversal/level-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2136,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../trie/intro/" class="md-nav__link">
+      <a href="../../../data-structures/trie/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2157,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../trie/compressed-trie/" class="md-nav__link">
+      <a href="../../../data-structures/trie/compressed-trie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2183,19 +2181,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" >
         
           
           <label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="0">
@@ -2209,7 +2205,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_10">
             <span class="md-nav__icon md-icon"></span>
             Graph
@@ -2223,7 +2219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2279,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../traversal/generic-search/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2300,7 +2296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../traversal/bfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/bfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2321,7 +2317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../traversal/dfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/dfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2350,7 +2346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topological-sort/" class="md-nav__link">
+      <a href="../../../data-structures/graph/topological-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2406,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../single-source-shortest-paths/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2427,7 +2423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../single-source-shortest-paths/bellman-ford/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2448,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../single-source-shortest-paths/dijkstra/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2469,7 +2465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../single-source-shortest-paths/dag/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2533,7 +2529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
+      <a href="../../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2559,19 +2555,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10_6" >
         
           
           <label class="md-nav__link" for="__nav_5_10_6" id="__nav_5_10_6_label" tabindex="0">
@@ -2585,7 +2579,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_10_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_10_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_10_6">
             <span class="md-nav__icon md-icon"></span>
             Minimum Spanning Tree
@@ -2599,7 +2593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2620,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kruskal/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2638,19 +2632,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2659,7 +2644,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2692,17 +2676,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2716,7 +2702,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Practice
@@ -2730,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2786,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/greedy/01-activity-selection/" class="md-nav__link">
+      <a href="../../greedy/01-activity-selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2807,7 +2793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/greedy/02-job-sequencing/" class="md-nav__link">
+      <a href="../../greedy/02-job-sequencing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2828,7 +2814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/greedy/03-shortest-superstring/" class="md-nav__link">
+      <a href="../../greedy/03-shortest-superstring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2849,7 +2835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/greedy/04-graph-coloring/" class="md-nav__link">
+      <a href="../../greedy/04-graph-coloring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2875,17 +2861,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -2899,7 +2887,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             Trie (1)
@@ -2910,10 +2898,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../practice/trie/01-longest-common-prefix/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    <span class="problem-index"><span>1. </span>Longest Common Prefix</span>
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2922,6 +2930,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#symlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symlink
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2977,7 +3032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/about/" class="md-nav__link">
+      <a href="../../backtracking/about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2998,7 +3053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
+      <a href="../../backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3019,7 +3074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
+      <a href="../../backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3040,7 +3095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
+      <a href="../../backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3061,7 +3116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3082,7 +3137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3103,7 +3158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
+      <a href="../../backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3124,7 +3179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
+      <a href="../../backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3145,7 +3200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/08-list-all-k-colorings/" class="md-nav__link">
+      <a href="../../backtracking/08-list-all-k-colorings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3166,7 +3221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
+      <a href="../../backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3187,7 +3242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
+      <a href="../../backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3251,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
+      <a href="../../stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3272,7 +3327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
+      <a href="../../stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3293,7 +3348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
+      <a href="../../stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3314,7 +3369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
+      <a href="../../stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3335,7 +3390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/05-evaluate-postfix-expression/" class="md-nav__link">
+      <a href="../../stack/05-evaluate-postfix-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3356,7 +3411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
+      <a href="../../stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3377,7 +3432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/07-inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/07-inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3398,7 +3453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/08-postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/08-postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3419,7 +3474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/stack/09-preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/09-preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3483,7 +3538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/01-find-the-only-non-duplicate/" class="md-nav__link">
+      <a href="../../bits/01-find-the-only-non-duplicate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3504,7 +3559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/02-count-the-number-of-set-bits/" class="md-nav__link">
+      <a href="../../bits/02-count-the-number-of-set-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3525,7 +3580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/03-compute-parity/" class="md-nav__link">
+      <a href="../../bits/03-compute-parity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3546,7 +3601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/04-swap-bits/" class="md-nav__link">
+      <a href="../../bits/04-swap-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3567,7 +3622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
+      <a href="../../bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3588,7 +3643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3609,7 +3664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3630,7 +3685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3651,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
+      <a href="../../bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3672,7 +3727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/10-rotate-an-integer/" class="md-nav__link">
+      <a href="../../bits/10-rotate-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3693,7 +3748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/bits/11-random-number-generation/" class="md-nav__link">
+      <a href="../../bits/11-random-number-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3757,7 +3812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
+      <a href="../../linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3778,7 +3833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
+      <a href="../../linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3799,7 +3854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3820,7 +3875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3841,7 +3896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3862,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3883,7 +3938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
+      <a href="../../linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3904,7 +3959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3925,7 +3980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3946,7 +4001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3967,7 +4022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3988,7 +4043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4009,7 +4064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
+      <a href="../../linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4030,7 +4085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4051,7 +4106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
+      <a href="../../linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4072,7 +4127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
+      <a href="../../linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4093,7 +4148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
+      <a href="../../linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4114,7 +4169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
+      <a href="../../linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4178,7 +4233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/sorting/01-merge-overlapping-intervals/" class="md-nav__link">
+      <a href="../../sorting/01-merge-overlapping-intervals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4242,7 +4297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/string/01-longest-common-prefix/" class="md-nav__link">
+      <a href="../../string/01-longest-common-prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4306,7 +4361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../practice/misc/01-generate-pascals-triangle-row/" class="md-nav__link">
+      <a href="../../misc/01-generate-pascals-triangle-row/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4377,7 +4432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../labs/tree-printer/" class="md-nav__link">
+      <a href="../../../labs/tree-printer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4398,7 +4453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../labs/tree-printer-2/" class="md-nav__link">
+      <a href="../../../labs/tree-printer-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4419,7 +4474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../labs/huffman-encoding/" class="md-nav__link">
+      <a href="../../../labs/huffman-encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4517,7 +4572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design-patterns/singleton/" class="md-nav__link">
+      <a href="../../../design-patterns/singleton/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4538,7 +4593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design-patterns/builder/" class="md-nav__link">
+      <a href="../../../design-patterns/builder/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4609,7 +4664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../concurrency/intro/" class="md-nav__link">
+      <a href="../../../concurrency/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4672,7 +4727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/collections-framework/" class="md-nav__link">
+      <a href="../../../java/collections-framework/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4693,7 +4748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/iterators/" class="md-nav__link">
+      <a href="../../../java/iterators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4756,7 +4811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kt/concurrency/" class="md-nav__link">
+      <a href="../../../kt/concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4819,7 +4874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/structure/" class="md-nav__link">
+      <a href="../../../go/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4840,7 +4895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/constants/" class="md-nav__link">
+      <a href="../../../go/constants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4861,7 +4916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/basic-types/" class="md-nav__link">
+      <a href="../../../go/basic-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4882,7 +4937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/aggregate-types/" class="md-nav__link">
+      <a href="../../../go/aggregate-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4938,7 +4993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/reference-types/" class="md-nav__link">
+      <a href="../../../go/reference-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4959,7 +5014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/interfaces/" class="md-nav__link">
+      <a href="../../../go/interfaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4980,7 +5035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/functions/" class="md-nav__link">
+      <a href="../../../go/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5009,7 +5064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../go/generics/" class="md-nav__link">
+      <a href="../../../go/generics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5072,7 +5127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../android/activities/" class="md-nav__link">
+      <a href="../../../android/activities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5093,7 +5148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../android/tasks/" class="md-nav__link">
+      <a href="../../../android/tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5114,7 +5169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../android/fragments/" class="md-nav__link">
+      <a href="../../../android/fragments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5135,7 +5190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../android/state-restoration/" class="md-nav__link">
+      <a href="../../../android/state-restoration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5156,7 +5211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../android/viewmodel/" class="md-nav__link">
+      <a href="../../../android/viewmodel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5177,7 +5232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../android/animation-transition/" class="md-nav__link">
+      <a href="../../../android/animation-transition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5275,7 +5330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../js/objects/basics/" class="md-nav__link">
+      <a href="../../../js/objects/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5296,7 +5351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../js/objects/prototype/" class="md-nav__link">
+      <a href="../../../js/objects/prototype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5317,7 +5372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../js/objects/this/" class="md-nav__link">
+      <a href="../../../js/objects/this/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5388,7 +5443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../css/box-model/" class="md-nav__link">
+      <a href="../../../css/box-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5409,7 +5464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../css/relative-units/" class="md-nav__link">
+      <a href="../../../css/relative-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5472,7 +5527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/basics/" class="md-nav__link">
+      <a href="../../../python/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5493,7 +5548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/operators/" class="md-nav__link">
+      <a href="../../../python/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5514,7 +5569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/structure/" class="md-nav__link">
+      <a href="../../../python/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5535,7 +5590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/objects/" class="md-nav__link">
+      <a href="../../../python/objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5556,7 +5611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/functions/" class="md-nav__link">
+      <a href="../../../python/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5577,7 +5632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/generators/" class="md-nav__link">
+      <a href="../../../python/generators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5598,7 +5653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/oop/" class="md-nav__link">
+      <a href="../../../python/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5661,7 +5716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ubuntu/static-ip/" class="md-nav__link">
+      <a href="../../../ubuntu/static-ip/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5682,7 +5737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ubuntu/ntfs-mount/" class="md-nav__link">
+      <a href="../../../ubuntu/ntfs-mount/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5703,7 +5758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ubuntu/transmission/" class="md-nav__link">
+      <a href="../../../ubuntu/transmission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5724,7 +5779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ubuntu/samba/" class="md-nav__link">
+      <a href="../../../ubuntu/samba/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5787,7 +5842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../snippets/gradle/" class="md-nav__link">
+      <a href="../../../snippets/gradle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5850,7 +5905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/printer-3p-ink/" class="md-nav__link">
+      <a href="../../../howto/printer-3p-ink/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5913,7 +5968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../misc/display/" class="md-nav__link">
+      <a href="../../../misc/display/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5934,7 +5989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../misc/yt-dlp/" class="md-nav__link">
+      <a href="../../../misc/yt-dlp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5975,6 +6030,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#symlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symlink
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5988,16 +6078,19 @@
                   
 
 
-<h1 id="prims-algorithm">Prim's algorithm</h1>
-<style>
-.md-logo img {
-  content: url('/data-structures/graph/network-light.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/data-structures/graph/network-dark.svg');
-}
-</style>
+<h1 id="longest-common-prefix">Longest Common Prefix</h1>
+<h2 id="problem">Problem</h2>
+<p>Given a list of strings, find the longest string that's prefix to them all.</p>
+<h2 id="example">Example</h2>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+S_1 &amp;= \fbox{fl}\ \text{ower} \\
+S_2 &amp;= \fbox{fl}\ \text{ow} \\
+S_3 &amp;= \fbox{fl}\ \text{ight} \\
+\end{alignat}
+\]</div>
+<h2 id="symlink">Symlink</h2>
+<p>See the <strong>second solution</strong> in <a href="../../string/01-longest-common-prefix/">String / 1. Longest Common Prefix</a>.</p>
 
 
 
@@ -6044,14 +6137,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../../../assets/javascripts/placeholder-combined.js"></script>
+        <script src="../../../assets/javascripts/placeholder-combined.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
