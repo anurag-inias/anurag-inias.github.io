@@ -166,12 +166,14 @@ nav:
               - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
   - Practice:
       - Learnings: "practice/index.md"
-      - Greedy (4):
+      - Greedy (7):
           - <span class="problem-index"><span>1. </span>Activity selection</span>: "practice/greedy/01-activity-selection.md"
           - <span class="problem-index"><span>2. </span>Huffman Coding</span>: "practice/greedy/02-huffman-coding.md"
           - <span class="problem-index"><span>3. </span>Shortest superstring</span>: "practice/greedy/03-shortest-superstring.md"
           - <span class="problem-index"><span>4. </span>Job sequencing</span>: "practice/greedy/04-job-sequencing.md"
           - <span class="problem-index"><span>5. </span>Graph coloring</span>: "practice/greedy/05-graph-coloring.md"
+          - <span class="problem-index"><span>6. </span>Kruskal's algorithm</span>: "practice/greedy/06-kruskal-algorithm.md"
+          - <span class="problem-index"><span>7. </span>Prim's algorithm</span>: "practice/greedy/07-prim-algorithm.md"
       - Trie (1):
           - <span class="problem-index"><span>1. </span>Longest Common Prefix</span>: "practice/trie/01-longest-common-prefix.md"
       - Backtracking (10):
