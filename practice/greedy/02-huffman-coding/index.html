@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../viewmodel/">
+        <link rel="prev" href="../01-activity-selection/">
       
       
-        <link rel="next" href="../../js/objects/basics/">
+        <link rel="next" href="../03-shortest-superstring/">
       
       
-      <link rel="icon" href="../../assets/fatigue-dark.svg">
+      <link rel="icon" href="../../../assets/fatigue-dark.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>Animations - listless 💤</title>
+        <title>2. Huffman Coding - listless 💤</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,18 +46,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../assets/javascripts/placeholder-plugin.css">
+      <link rel="stylesheet" href="../../../assets/javascripts/placeholder-plugin.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -66,7 +66,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#navigation-animations" class="md-skip">
+        <a href="#huffman-coding" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +101,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Animations
+              <span class="problem-index"><span>2. </span>Huffman Coding</span>
             
           </span>
         </div>
@@ -184,9 +184,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     listless 💤
@@ -201,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -291,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/ghost-radio/" class="md-nav__link">
+      <a href="../../../blog/books/ghost-radio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-institute/" class="md-nav__link">
+      <a href="../../../blog/books/the-institute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-reaping/" class="md-nav__link">
+      <a href="../../../blog/books/the-reaping/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-hobbit/" class="md-nav__link">
+      <a href="../../../blog/books/the-hobbit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/numbers/" class="md-nav__link">
+      <a href="../../../maths/algebra/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -481,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
+      <a href="../../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/arithmetic-laws/" class="md-nav__link">
+      <a href="../../../maths/algebra/arithmetic-laws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
+      <a href="../../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -544,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/base-change/" class="md-nav__link">
+      <a href="../../../maths/algebra/base-change/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -565,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/expressions/" class="md-nav__link">
+      <a href="../../../maths/algebra/expressions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/modulo/" class="md-nav__link">
+      <a href="../../../maths/algebra/modulo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/complex/" class="md-nav__link">
+      <a href="../../../maths/algebra/complex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/sets/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/sets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -692,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/p-and-c/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/p-and-c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -713,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/probability/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/probability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -742,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/series/" class="md-nav__link">
+      <a href="../../../maths/series/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/calculus/functions/" class="md-nav__link">
+      <a href="../../../maths/calculus/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/search/binary/" class="md-nav__link">
+      <a href="../../../algorithms/search/binary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/partition/partition/" class="md-nav__link">
+      <a href="../../../algorithms/partition/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/comparison/" class="md-nav__link">
+      <a href="../../../algorithms/sort/comparison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -967,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/bubble-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/bubble-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/insertion-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/insertion-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1009,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/selection-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/selection-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1030,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/heapsort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/heapsort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1051,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/quicksort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/quicksort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1072,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/mergesort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/mergesort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1093,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/counting-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/counting-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
+      <a href="../../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1221,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/intro/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1263,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1284,7 +1284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1305,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/greedy/huffman-coding/" class="md-nav__link">
+      <a href="../../../algorithms/greedy/huffman-coding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1475,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/representation/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/representation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1496,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/bit-tricks/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/bit-tricks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1517,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/addition/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/addition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1581,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1602,7 +1602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1623,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/patterns/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/patterns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1722,7 +1722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/array/problems/dutch-national-flag/" class="md-nav__link">
+      <a href="../../../data-structures/array/problems/dutch-national-flag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1794,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/stack/basics/" class="md-nav__link">
+      <a href="../../../data-structures/stack/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1823,7 +1823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/heap/" class="md-nav__link">
+      <a href="../../../data-structures/heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1844,7 +1844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/disjoint-set/" class="md-nav__link">
+      <a href="../../../data-structures/disjoint-set/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1865,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/circular-list/" class="md-nav__link">
+      <a href="../../../data-structures/circular-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1991,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2012,7 +2012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2033,7 +2033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2062,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2134,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/intro/" class="md-nav__link">
+      <a href="../../../data-structures/trie/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2155,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/compressed-trie/" class="md-nav__link">
+      <a href="../../../data-structures/trie/compressed-trie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2219,7 +2219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2275,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2296,7 +2296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/bfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/bfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2317,7 +2317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/dfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/dfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2346,7 +2346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/topological-sort/" class="md-nav__link">
+      <a href="../../../data-structures/graph/topological-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2402,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2423,7 +2423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2444,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2465,7 +2465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2529,7 +2529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
+      <a href="../../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2593,7 +2593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2614,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2635,7 +2635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2676,17 +2676,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2700,7 +2702,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Practice
@@ -2714,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2732,17 +2734,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
@@ -2756,7 +2760,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             Greedy (4)
@@ -2770,7 +2774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/01-activity-selection/" class="md-nav__link">
+      <a href="../01-activity-selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2788,10 +2792,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../practice/greedy/02-huffman-coding/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    <span class="problem-index"><span>2. </span>Huffman Coding</span>
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2800,6 +2824,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#symlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symlink
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2812,7 +2865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/03-shortest-superstring/" class="md-nav__link">
+      <a href="../03-shortest-superstring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2833,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/04-job-sequencing/" class="md-nav__link">
+      <a href="../04-job-sequencing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2854,7 +2907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/05-graph-coloring/" class="md-nav__link">
+      <a href="../05-graph-coloring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2918,7 +2971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/trie/01-longest-common-prefix/" class="md-nav__link">
+      <a href="../../trie/01-longest-common-prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2982,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/about/" class="md-nav__link">
+      <a href="../../backtracking/about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3003,7 +3056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
+      <a href="../../backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3024,7 +3077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
+      <a href="../../backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3045,7 +3098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
+      <a href="../../backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3066,7 +3119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3087,7 +3140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3108,7 +3161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
+      <a href="../../backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3129,7 +3182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
+      <a href="../../backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3150,7 +3203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/08-list-all-k-colorings/" class="md-nav__link">
+      <a href="../../backtracking/08-list-all-k-colorings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3171,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
+      <a href="../../backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3192,7 +3245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
+      <a href="../../backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3256,7 +3309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
+      <a href="../../stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3277,7 +3330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
+      <a href="../../stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3298,7 +3351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
+      <a href="../../stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3319,7 +3372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
+      <a href="../../stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3340,7 +3393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/05-evaluate-postfix-expression/" class="md-nav__link">
+      <a href="../../stack/05-evaluate-postfix-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3361,7 +3414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
+      <a href="../../stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3382,7 +3435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/07-inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/07-inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3403,7 +3456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/08-postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/08-postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3424,7 +3477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/09-preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/09-preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3488,7 +3541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/01-find-the-only-non-duplicate/" class="md-nav__link">
+      <a href="../../bits/01-find-the-only-non-duplicate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3509,7 +3562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/02-count-the-number-of-set-bits/" class="md-nav__link">
+      <a href="../../bits/02-count-the-number-of-set-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3530,7 +3583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/03-compute-parity/" class="md-nav__link">
+      <a href="../../bits/03-compute-parity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3551,7 +3604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/04-swap-bits/" class="md-nav__link">
+      <a href="../../bits/04-swap-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3572,7 +3625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
+      <a href="../../bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3593,7 +3646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3614,7 +3667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3635,7 +3688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3656,7 +3709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
+      <a href="../../bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3677,7 +3730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/10-rotate-an-integer/" class="md-nav__link">
+      <a href="../../bits/10-rotate-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3698,7 +3751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/11-random-number-generation/" class="md-nav__link">
+      <a href="../../bits/11-random-number-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3762,7 +3815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
+      <a href="../../linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3783,7 +3836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
+      <a href="../../linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3804,7 +3857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3825,7 +3878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3846,7 +3899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3867,7 +3920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3888,7 +3941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
+      <a href="../../linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3909,7 +3962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3930,7 +3983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3951,7 +4004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3972,7 +4025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3993,7 +4046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4014,7 +4067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
+      <a href="../../linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4035,7 +4088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4056,7 +4109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
+      <a href="../../linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4077,7 +4130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
+      <a href="../../linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4098,7 +4151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
+      <a href="../../linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4119,7 +4172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
+      <a href="../../linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4183,7 +4236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/sorting/01-merge-overlapping-intervals/" class="md-nav__link">
+      <a href="../../sorting/01-merge-overlapping-intervals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4247,7 +4300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/string/01-longest-common-prefix/" class="md-nav__link">
+      <a href="../../string/01-longest-common-prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4311,7 +4364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/misc/01-generate-pascals-triangle-row/" class="md-nav__link">
+      <a href="../../misc/01-generate-pascals-triangle-row/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4382,7 +4435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer/" class="md-nav__link">
+      <a href="../../../labs/tree-printer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4403,7 +4456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer-2/" class="md-nav__link">
+      <a href="../../../labs/tree-printer-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4424,7 +4477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/huffman-encoding/" class="md-nav__link">
+      <a href="../../../labs/huffman-encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4522,7 +4575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/singleton/" class="md-nav__link">
+      <a href="../../../design-patterns/singleton/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4543,7 +4596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/builder/" class="md-nav__link">
+      <a href="../../../design-patterns/builder/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4614,7 +4667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/intro/" class="md-nav__link">
+      <a href="../../../concurrency/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4677,7 +4730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections-framework/" class="md-nav__link">
+      <a href="../../../java/collections-framework/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4698,7 +4751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/iterators/" class="md-nav__link">
+      <a href="../../../java/iterators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4761,7 +4814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kt/concurrency/" class="md-nav__link">
+      <a href="../../../kt/concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4824,7 +4877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/structure/" class="md-nav__link">
+      <a href="../../../go/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4845,7 +4898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/constants/" class="md-nav__link">
+      <a href="../../../go/constants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4866,7 +4919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/basic-types/" class="md-nav__link">
+      <a href="../../../go/basic-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4887,7 +4940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/aggregate-types/" class="md-nav__link">
+      <a href="../../../go/aggregate-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4943,7 +4996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/reference-types/" class="md-nav__link">
+      <a href="../../../go/reference-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4964,7 +5017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/interfaces/" class="md-nav__link">
+      <a href="../../../go/interfaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4985,7 +5038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/functions/" class="md-nav__link">
+      <a href="../../../go/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5014,7 +5067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/generics/" class="md-nav__link">
+      <a href="../../../go/generics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5039,19 +5092,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
           <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
@@ -5065,7 +5116,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             Android
@@ -5079,7 +5130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../activities/" class="md-nav__link">
+      <a href="../../../android/activities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5100,7 +5151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tasks/" class="md-nav__link">
+      <a href="../../../android/tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5121,7 +5172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fragments/" class="md-nav__link">
+      <a href="../../../android/fragments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5142,7 +5193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../state-restoration/" class="md-nav__link">
+      <a href="../../../android/state-restoration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5163,7 +5214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../viewmodel/" class="md-nav__link">
+      <a href="../../../android/viewmodel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5181,30 +5232,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Animations
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../android/animation-transition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5213,53 +5244,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#animation-animator" class="md-nav__link">
-    <span class="md-ellipsis">
-      Animation + Animator
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transition-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transition framework
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extras" class="md-nav__link">
-    <span class="md-ellipsis">
-      Extras:
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5349,7 +5333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/basics/" class="md-nav__link">
+      <a href="../../../js/objects/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5370,7 +5354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/prototype/" class="md-nav__link">
+      <a href="../../../js/objects/prototype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5391,7 +5375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/this/" class="md-nav__link">
+      <a href="../../../js/objects/this/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5462,7 +5446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/box-model/" class="md-nav__link">
+      <a href="../../../css/box-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5483,7 +5467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/relative-units/" class="md-nav__link">
+      <a href="../../../css/relative-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5546,7 +5530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/basics/" class="md-nav__link">
+      <a href="../../../python/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5567,7 +5551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/operators/" class="md-nav__link">
+      <a href="../../../python/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5588,7 +5572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/structure/" class="md-nav__link">
+      <a href="../../../python/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5609,7 +5593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/objects/" class="md-nav__link">
+      <a href="../../../python/objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5630,7 +5614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/functions/" class="md-nav__link">
+      <a href="../../../python/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5651,7 +5635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/generators/" class="md-nav__link">
+      <a href="../../../python/generators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5672,7 +5656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/oop/" class="md-nav__link">
+      <a href="../../../python/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5735,7 +5719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/static-ip/" class="md-nav__link">
+      <a href="../../../ubuntu/static-ip/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5756,7 +5740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/ntfs-mount/" class="md-nav__link">
+      <a href="../../../ubuntu/ntfs-mount/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5777,7 +5761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/transmission/" class="md-nav__link">
+      <a href="../../../ubuntu/transmission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5798,7 +5782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/samba/" class="md-nav__link">
+      <a href="../../../ubuntu/samba/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5861,7 +5845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../snippets/gradle/" class="md-nav__link">
+      <a href="../../../snippets/gradle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5924,7 +5908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../howto/printer-3p-ink/" class="md-nav__link">
+      <a href="../../../howto/printer-3p-ink/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5987,7 +5971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/display/" class="md-nav__link">
+      <a href="../../../misc/display/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6008,7 +5992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/yt-dlp/" class="md-nav__link">
+      <a href="../../../misc/yt-dlp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6056,27 +6040,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#animation-animator" class="md-nav__link">
+  <a href="#symlink" class="md-nav__link">
     <span class="md-ellipsis">
-      Animation + Animator
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transition-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transition framework
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extras" class="md-nav__link">
-    <span class="md-ellipsis">
-      Extras:
+      Symlink
     </span>
   </a>
   
@@ -6097,140 +6063,9 @@
                   
 
 
-<h1 id="navigation-animations">Navigation animations</h1>
-<style>
-.md-logo img {
-  content: url('/android/logo.svg');
-}
-</style>
-
-<p><a href="https://developer.android.com/guide/fragments/animate">source</a></p>
-<p>There are two mains ways to animation navigations:</p>
-<ol>
-<li><code>Animation</code> + <code>Animator</code></li>
-<li>Transitions framework</li>
-</ol>
-<h2 id="animation-animator">Animation + Animator</h2>
-<p><a class="glightbox" href="https://developer.android.com/static/images/training/basics/fragments/enter-exit-animation.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://developer.android.com/static/images/training/basics/fragments/enter-exit-animation.gif" width="200" /></a></p>
-<p>In above example, the previous fragment <code>fades out</code> while the new fragment <code>slides in</code>.</p>
-<div class="grid">
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/fade_out.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">&lt;alpha</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="na">android:fromAlpha=</span><span class="s">&quot;1&quot;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="na">android:toAlpha=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div></td></tr></table></div>
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/slide_in.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">&lt;translate</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="na">android:fromXDelta=</span><span class="s">&quot;100%&quot;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span><span class="na">android:toXDelta=</span><span class="s">&quot;0%&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div></td></tr></table></div>
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/fade_in.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span>
-<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">&lt;alpha</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="na">android:fromAlpha=</span><span class="s">&quot;0&quot;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="na">android:toAlpha=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div></td></tr></table></div>
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/anim/slide_out.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nt">&lt;translate</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="na">android:interpolator=</span><span class="s">&quot;@android:anim/decelerate_interpolator&quot;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">  </span><span class="na">android:fromXDelta=</span><span class="s">&quot;0%&quot;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="na">android:toXDelta=</span><span class="s">&quot;100%&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div></td></tr></table></div>
-</div>
-<p>include these animations the part of transaction.</p>
-<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">supportFragmentManager</span><span class="p">.</span><span class="na">commit</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="n">setReorderingAllowed</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="n">setCustomAnimations</span><span class="p">(</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="cm">/* enter=    */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">slide_in</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="cm">/* exit=     */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">fade_out</span><span class="p">,</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="cm">/* popEnter= */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">fade_in</span><span class="p">,</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="cm">/* popExit   */</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">anim</span><span class="p">.</span><span class="na">slide_out</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">  </span><span class="p">)</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">  </span><span class="n">replace</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">fragment_container</span><span class="p">,</span><span class="w"> </span><span class="n">fragment</span><span class="p">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">  </span><span class="n">addToBackStak</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-<p><mark>Animations must be set before <code>replace</code>. Order matters.</mark></p>
-<h2 id="transition-framework">Transition framework</h2>
-<p>The alternative approach is to define within each fragment, their enter/exit transition.</p>
-<div class="grid">
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/transition/fade.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">&lt;fade</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span><span class="nt">/&gt;</span>
-</span></code></pre></div></td></tr></table></div>
-<div class="language-xml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">res/transition/slide_right.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nt">&lt;slide</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="na">android:duration=</span><span class="s">&quot;@android:integer/config_shortAnimTime&quot;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="na">android:slideEdge=</span><span class="s">&quot;right&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span></code></pre></div></td></tr></table></div>
-<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">outgoing fragment</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span>
-<span class="normal"><a href="#__codelineno-7-5">5</a></span>
-<span class="normal"><a href="#__codelineno-7-6">6</a></span>
-<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">FragmentA</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Fragment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="hll"><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">inflater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransitionInflater</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">requireContext</span><span class="p">())</span>
-</span></span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="hll"><span class="w">    </span><span class="n">exitTransition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inflater</span><span class="p">.</span><span class="na">inflateTransition</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">transition</span><span class="p">.</span><span class="na">fade</span><span class="p">)</span>
-</span></span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-<div class="language-kotlin highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">incoming fragment</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span>
-<span class="normal"><a href="#__codelineno-8-4">4</a></span>
-<span class="normal"><a href="#__codelineno-8-5">5</a></span>
-<span class="normal"><a href="#__codelineno-8-6">6</a></span>
-<span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">FragmentB</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Fragment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="hll"><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">inflater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransitionInflater</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">requireContext</span><span class="p">())</span>
-</span></span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="hll"><span class="w">    </span><span class="n">enterTransition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inflater</span><span class="p">.</span><span class="na">inflateTransition</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">transition</span><span class="p">.</span><span class="na">slide_right</span><span class="p">)</span>
-</span></span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-</div>
-<h2 id="extras">Extras:</h2>
-<p>Read more about <strong>postponing transitions</strong> and sharing views between enter-exiting fragments on source page.</p>
+<h1 id="huffman-coding">Huffman Coding</h1>
+<h2 id="symlink">Symlink</h2>
+<p>See <a href="../../../algorithms/greedy/huffman-coding/">Algorithms / Greedy / Huffman Coding</a>.</p>
 
 
 
@@ -6277,14 +6112,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../assets/javascripts/placeholder-combined.js"></script>
+        <script src="../../../assets/javascripts/placeholder-combined.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
