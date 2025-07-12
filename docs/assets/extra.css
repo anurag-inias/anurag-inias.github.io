@@ -92,4 +92,6 @@
 
 .problem-index span {
   padding-right: 4px;
+  min-width: 25px;
+  text-align: right;
 }
