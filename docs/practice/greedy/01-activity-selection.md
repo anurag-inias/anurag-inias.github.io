@@ -12,6 +12,36 @@ Given the set of all possible activities $(1, 4) (3, 5) (0, 6) (5, 7) (3, 8) (5,
 
 The most activities that a person can do is $(1, 4) (5, 7) (8, 11) (12, 14)$.
 
+## Stub
+
+```kotlin linenums="1" hl_lines="24"
+fun main() {
+  println(activitySelection(
+    Activity(1, 4),
+    Activity(3, 5),
+    Activity(0, 6),
+    Activity(5, 7),
+    Activity(3, 8),
+    Activity(5, 9),
+    Activity(6, 10),
+    Activity(8, 11),
+    Activity(8, 12),
+    Activity(2, 13),
+    Activity(12, 14),
+  ))
+}
+
+data class Activity(val start: Int, val finish: Int) {
+  override fun toString(): String {
+    return "($start, $finish)"
+  }
+}
+
+fun activitySelection(vararg activities: Activity): List<Activity> {
+  /* Fill here */
+}
+```
+
 ## Hint
 
 ??? "First"
@@ -27,43 +57,20 @@ The most activities that a person can do is $(1, 4) (5, 7) (8, 11) (12, 14)$.
     - Keep adding activities which don't conflict with the last activity.
 
     ```kotlin linenums="1"
-    fun activitySelection(list: List<Pair<Int, Int>>): List<Pair<Int, Int>> {
-      val sorted = list.sortedWith{ a, b -> a.second - b.second } // sort in ascending finish time
+    fun activitySelection(vararg activities: Activity): List<Activity> {
+      val sorted = activities.sortedBy { it.finish }
 
-      var lastActivityFinishTime = Int.MIN_VALUE
-      val selection = mutableListOf<Pair<Int, Int>>()
-      for (activity in sorted) {
-        if (lastActivityFinishTime <= activity.first) {
-          selection.add(activity)
-          lastActivityFinishTime = activity.second
+      // When the last picked activity was finished.
+      var lastActivityFinishedAt = Int.MIN_VALUE
+      val solution = mutableListOf<Activity>()
+
+      for (activity in activities) {
+        if (activity.start > lastActivityFinishedAt) {
+          solution.add(activity)
+          lastActivityFinishedAt = activity.finish
         }
       }
 
-      return selection
+      return solution
     }
     ```
-
-## Unit tests
-
-```kotlin linenums="1"
-@Test
-fun sample_1() {
-  assertThat(
-    activitySelection(
-      listOf(
-        1 to 4,
-        3 to 5,
-        0 to 6,
-        5 to 7,
-        3 to 8,
-        5 to 9,
-        6 to 10, 8 to 11, 8 to 12, 2 to 13, 12 to 14
-      )
-    )
-  ).isEqualTo(
-    listOf(
-      1 to 4, 5 to 7, 8 to 11, 12 to 14
-    )
-  )
-}
-```
