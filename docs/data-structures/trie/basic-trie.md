@@ -72,6 +72,8 @@ In this section, we introduce a basic implementation of a trie, useful for algor
     private fun insert(node: TrieNode, key: String, index: Int) : TrieNode {
       // Ended up on a leaf node. Turn this into a branch node.
       if (node.type == NodeType.LEAF) {
+        if (node.key == key) return node // already inserted
+
         var split = TrieNode()
         split = insert(split, key, index)
         split = insert(split, node.key!!, index)
