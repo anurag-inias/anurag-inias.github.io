@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../../howto/printer-3p-ink/">
+        <link rel="prev" href="../01-trie-implementation/">
       
       
-        <link rel="next" href="../yt-dlp/">
+        <link rel="next" href="../../backtracking/about/">
       
       
-      <link rel="icon" href="../../assets/fatigue-dark.svg">
+      <link rel="icon" href="../../../assets/fatigue-dark.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>Display Upgrade - listless 💤</title>
+        <title>2. Longest Common Prefix - listless 💤</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,18 +46,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../assets/javascripts/placeholder-plugin.css">
+      <link rel="stylesheet" href="../../../assets/javascripts/placeholder-plugin.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -66,7 +66,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#display-upgrade" class="md-skip">
+        <a href="#longest-common-prefix" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +101,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Display Upgrade
+              <span class="problem-index"><span>2. </span>Longest Common Prefix</span>
             
           </span>
         </div>
@@ -184,9 +184,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     listless 💤
@@ -201,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -291,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/ghost-radio/" class="md-nav__link">
+      <a href="../../../blog/books/ghost-radio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-institute/" class="md-nav__link">
+      <a href="../../../blog/books/the-institute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-reaping/" class="md-nav__link">
+      <a href="../../../blog/books/the-reaping/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-hobbit/" class="md-nav__link">
+      <a href="../../../blog/books/the-hobbit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/numbers/" class="md-nav__link">
+      <a href="../../../maths/algebra/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -481,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
+      <a href="../../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/arithmetic-laws/" class="md-nav__link">
+      <a href="../../../maths/algebra/arithmetic-laws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
+      <a href="../../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -544,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/base-change/" class="md-nav__link">
+      <a href="../../../maths/algebra/base-change/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -565,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/expressions/" class="md-nav__link">
+      <a href="../../../maths/algebra/expressions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/modulo/" class="md-nav__link">
+      <a href="../../../maths/algebra/modulo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/complex/" class="md-nav__link">
+      <a href="../../../maths/algebra/complex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/sets/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/sets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -692,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/p-and-c/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/p-and-c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -713,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/probability/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/probability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -742,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/series/" class="md-nav__link">
+      <a href="../../../maths/series/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/calculus/functions/" class="md-nav__link">
+      <a href="../../../maths/calculus/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/search/binary/" class="md-nav__link">
+      <a href="../../../algorithms/search/binary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/partition/partition/" class="md-nav__link">
+      <a href="../../../algorithms/partition/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/comparison/" class="md-nav__link">
+      <a href="../../../algorithms/sort/comparison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -967,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/bubble-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/bubble-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/insertion-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/insertion-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1009,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/selection-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/selection-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1030,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/heapsort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/heapsort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1051,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/quicksort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/quicksort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1072,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/mergesort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/mergesort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1093,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/counting-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/counting-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
+      <a href="../../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1221,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/intro/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1263,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1284,7 +1284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1305,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/greedy/huffman-coding/" class="md-nav__link">
+      <a href="../../../algorithms/greedy/huffman-coding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1475,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/representation/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/representation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1496,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/bit-tricks/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/bit-tricks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1517,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/addition/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/addition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1581,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1602,7 +1602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1623,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/patterns/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/patterns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1722,7 +1722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/array/problems/dutch-national-flag/" class="md-nav__link">
+      <a href="../../../data-structures/array/problems/dutch-national-flag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1794,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/stack/basics/" class="md-nav__link">
+      <a href="../../../data-structures/stack/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1823,7 +1823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/heap/" class="md-nav__link">
+      <a href="../../../data-structures/heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1844,7 +1844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/disjoint-set/" class="md-nav__link">
+      <a href="../../../data-structures/disjoint-set/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1865,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/circular-list/" class="md-nav__link">
+      <a href="../../../data-structures/circular-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1991,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2012,7 +2012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2033,7 +2033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2062,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2134,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/intro/" class="md-nav__link">
+      <a href="../../../data-structures/trie/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2155,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/basic-trie/" class="md-nav__link">
+      <a href="../../../data-structures/trie/basic-trie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2176,7 +2176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/compressed-trie/" class="md-nav__link">
+      <a href="../../../data-structures/trie/compressed-trie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2240,7 +2240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2296,7 +2296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2317,7 +2317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/bfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/bfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2338,7 +2338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/dfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/dfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2367,7 +2367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/topological-sort/" class="md-nav__link">
+      <a href="../../../data-structures/graph/topological-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2423,7 +2423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2444,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2465,7 +2465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2486,7 +2486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2550,7 +2550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
+      <a href="../../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2614,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2635,7 +2635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2656,7 +2656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2697,17 +2697,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2721,7 +2723,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Practice
@@ -2735,7 +2737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2791,7 +2793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/01-activity-selection/" class="md-nav__link">
+      <a href="../../greedy/01-activity-selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2812,7 +2814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/02-huffman-coding/" class="md-nav__link">
+      <a href="../../greedy/02-huffman-coding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2833,7 +2835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/03-shortest-superstring/" class="md-nav__link">
+      <a href="../../greedy/03-shortest-superstring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2854,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/04-job-sequencing/" class="md-nav__link">
+      <a href="../../greedy/04-job-sequencing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2875,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/05-graph-coloring/" class="md-nav__link">
+      <a href="../../greedy/05-graph-coloring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2896,7 +2898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/06-kruskal-algorithm/" class="md-nav__link">
+      <a href="../../greedy/06-kruskal-algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2917,7 +2919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/07-prim-algorithm/" class="md-nav__link">
+      <a href="../../greedy/07-prim-algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2943,17 +2945,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -2967,7 +2971,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             Trie (2)
@@ -2981,7 +2985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/trie/01-trie-implementation/" class="md-nav__link">
+      <a href="../01-trie-implementation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2999,10 +3003,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../practice/trie/02-longest-common-prefix/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    <span class="problem-index"><span>2. </span>Longest Common Prefix</span>
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3011,6 +3035,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      First Solution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second Solution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#third-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Third Solution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit tests
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3066,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/about/" class="md-nav__link">
+      <a href="../../backtracking/about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3087,7 +3185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
+      <a href="../../backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3108,7 +3206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
+      <a href="../../backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3129,7 +3227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
+      <a href="../../backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3150,7 +3248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3171,7 +3269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3192,7 +3290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
+      <a href="../../backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3213,7 +3311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
+      <a href="../../backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3234,7 +3332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/08-list-all-k-colorings/" class="md-nav__link">
+      <a href="../../backtracking/08-list-all-k-colorings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3255,7 +3353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
+      <a href="../../backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3276,7 +3374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
+      <a href="../../backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3340,7 +3438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
+      <a href="../../stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3361,7 +3459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
+      <a href="../../stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3382,7 +3480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
+      <a href="../../stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3403,7 +3501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
+      <a href="../../stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3424,7 +3522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/05-evaluate-postfix-expression/" class="md-nav__link">
+      <a href="../../stack/05-evaluate-postfix-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3445,7 +3543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
+      <a href="../../stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3466,7 +3564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/07-inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/07-inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3487,7 +3585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/08-postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/08-postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3508,7 +3606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/09-preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/09-preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3572,7 +3670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/01-find-the-only-non-duplicate/" class="md-nav__link">
+      <a href="../../bits/01-find-the-only-non-duplicate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3593,7 +3691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/02-count-the-number-of-set-bits/" class="md-nav__link">
+      <a href="../../bits/02-count-the-number-of-set-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3614,7 +3712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/03-compute-parity/" class="md-nav__link">
+      <a href="../../bits/03-compute-parity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3635,7 +3733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/04-swap-bits/" class="md-nav__link">
+      <a href="../../bits/04-swap-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3656,7 +3754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
+      <a href="../../bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3677,7 +3775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3698,7 +3796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3719,7 +3817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3740,7 +3838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
+      <a href="../../bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3761,7 +3859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/10-rotate-an-integer/" class="md-nav__link">
+      <a href="../../bits/10-rotate-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3782,7 +3880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/11-random-number-generation/" class="md-nav__link">
+      <a href="../../bits/11-random-number-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3846,7 +3944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
+      <a href="../../linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3867,7 +3965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
+      <a href="../../linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3888,7 +3986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3909,7 +4007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3930,7 +4028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3951,7 +4049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3972,7 +4070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
+      <a href="../../linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3993,7 +4091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4014,7 +4112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4035,7 +4133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4056,7 +4154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4077,7 +4175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4098,7 +4196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
+      <a href="../../linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4119,7 +4217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4140,7 +4238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
+      <a href="../../linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4161,7 +4259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
+      <a href="../../linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4182,7 +4280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
+      <a href="../../linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4203,7 +4301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
+      <a href="../../linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4267,7 +4365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/sorting/01-merge-overlapping-intervals/" class="md-nav__link">
+      <a href="../../sorting/01-merge-overlapping-intervals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4331,7 +4429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/string/01-longest-common-prefix/" class="md-nav__link">
+      <a href="../../string/01-longest-common-prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4395,7 +4493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/misc/01-generate-pascals-triangle-row/" class="md-nav__link">
+      <a href="../../misc/01-generate-pascals-triangle-row/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4466,7 +4564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer/" class="md-nav__link">
+      <a href="../../../labs/tree-printer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4487,7 +4585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer-2/" class="md-nav__link">
+      <a href="../../../labs/tree-printer-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4508,7 +4606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/huffman-encoding/" class="md-nav__link">
+      <a href="../../../labs/huffman-encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4606,7 +4704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/singleton/" class="md-nav__link">
+      <a href="../../../design-patterns/singleton/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4627,7 +4725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/builder/" class="md-nav__link">
+      <a href="../../../design-patterns/builder/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4698,7 +4796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/intro/" class="md-nav__link">
+      <a href="../../../concurrency/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4761,7 +4859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections-framework/" class="md-nav__link">
+      <a href="../../../java/collections-framework/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4782,7 +4880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/iterators/" class="md-nav__link">
+      <a href="../../../java/iterators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4845,7 +4943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kt/concurrency/" class="md-nav__link">
+      <a href="../../../kt/concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4908,7 +5006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/structure/" class="md-nav__link">
+      <a href="../../../go/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4929,7 +5027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/constants/" class="md-nav__link">
+      <a href="../../../go/constants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4950,7 +5048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/basic-types/" class="md-nav__link">
+      <a href="../../../go/basic-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4971,7 +5069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/aggregate-types/" class="md-nav__link">
+      <a href="../../../go/aggregate-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5027,7 +5125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/reference-types/" class="md-nav__link">
+      <a href="../../../go/reference-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5048,7 +5146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/interfaces/" class="md-nav__link">
+      <a href="../../../go/interfaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5069,7 +5167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/functions/" class="md-nav__link">
+      <a href="../../../go/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5098,7 +5196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/generics/" class="md-nav__link">
+      <a href="../../../go/generics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5161,7 +5259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/activities/" class="md-nav__link">
+      <a href="../../../android/activities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5182,7 +5280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/tasks/" class="md-nav__link">
+      <a href="../../../android/tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5203,7 +5301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fragments/" class="md-nav__link">
+      <a href="../../../android/fragments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5224,7 +5322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/state-restoration/" class="md-nav__link">
+      <a href="../../../android/state-restoration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5245,7 +5343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/viewmodel/" class="md-nav__link">
+      <a href="../../../android/viewmodel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5266,7 +5364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/animation-transition/" class="md-nav__link">
+      <a href="../../../android/animation-transition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5364,7 +5462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/basics/" class="md-nav__link">
+      <a href="../../../js/objects/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5385,7 +5483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/prototype/" class="md-nav__link">
+      <a href="../../../js/objects/prototype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5406,7 +5504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/this/" class="md-nav__link">
+      <a href="../../../js/objects/this/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5477,7 +5575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/box-model/" class="md-nav__link">
+      <a href="../../../css/box-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5498,7 +5596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/relative-units/" class="md-nav__link">
+      <a href="../../../css/relative-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5561,7 +5659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/basics/" class="md-nav__link">
+      <a href="../../../python/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5582,7 +5680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/operators/" class="md-nav__link">
+      <a href="../../../python/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5603,7 +5701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/structure/" class="md-nav__link">
+      <a href="../../../python/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5624,7 +5722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/objects/" class="md-nav__link">
+      <a href="../../../python/objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5645,7 +5743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/functions/" class="md-nav__link">
+      <a href="../../../python/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5666,7 +5764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/generators/" class="md-nav__link">
+      <a href="../../../python/generators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5687,7 +5785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/oop/" class="md-nav__link">
+      <a href="../../../python/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5750,7 +5848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/static-ip/" class="md-nav__link">
+      <a href="../../../ubuntu/static-ip/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5771,7 +5869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/ntfs-mount/" class="md-nav__link">
+      <a href="../../../ubuntu/ntfs-mount/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5792,7 +5890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/transmission/" class="md-nav__link">
+      <a href="../../../ubuntu/transmission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5813,7 +5911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/samba/" class="md-nav__link">
+      <a href="../../../ubuntu/samba/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5876,7 +5974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../snippets/gradle/" class="md-nav__link">
+      <a href="../../../snippets/gradle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5939,7 +6037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../howto/printer-3p-ink/" class="md-nav__link">
+      <a href="../../../howto/printer-3p-ink/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5964,19 +6062,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
         
           
           <label class="md-nav__link" for="__nav_20" id="__nav_20_label" tabindex="0">
@@ -5990,7 +6086,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_20">
             <span class="md-nav__icon md-icon"></span>
             Miscellaneous
@@ -6001,30 +6097,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Display Upgrade
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../misc/display/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6033,113 +6109,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#lore" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lore
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-downgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Downgrade
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Upgrade
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Upgrade">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metrics-display-quality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Metrics: display quality
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metrics-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Metrics: interface
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#result" class="md-nav__link">
-    <span class="md-ellipsis">
-      Result
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools-needed" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools needed
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#panel-purchase" class="md-nav__link">
-    <span class="md-ellipsis">
-      Panel purchase
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extras" class="md-nav__link">
-    <span class="md-ellipsis">
-      Extras
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6152,7 +6121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yt-dlp/" class="md-nav__link">
+      <a href="../../../misc/yt-dlp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6200,87 +6169,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lore" class="md-nav__link">
+  <a href="#problem" class="md-nav__link">
     <span class="md-ellipsis">
-      Lore
+      Problem
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-downgrade" class="md-nav__link">
+  <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
-      The Downgrade
+      Example
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-upgrade" class="md-nav__link">
+  <a href="#first-solution" class="md-nav__link">
     <span class="md-ellipsis">
-      The Upgrade
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Upgrade">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metrics-display-quality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Metrics: display quality
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metrics-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Metrics: interface
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#result" class="md-nav__link">
-    <span class="md-ellipsis">
-      Result
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools-needed" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools needed
+      First Solution
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#panel-purchase" class="md-nav__link">
+  <a href="#second-solution" class="md-nav__link">
     <span class="md-ellipsis">
-      Panel purchase
+      Second Solution
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extras" class="md-nav__link">
+  <a href="#third-solution" class="md-nav__link">
     <span class="md-ellipsis">
-      Extras
+      Third Solution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit tests
     </span>
   </a>
   
@@ -6301,97 +6237,380 @@
                   
 
 
-<h1 id="display-upgrade">Display Upgrade</h1>
-<style>
-.md-logo img {
-  content: url('/misc/hd-light.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/misc/hd-dark.svg');
-}
-</style>
-
-<h2 id="lore">Lore</h2>
-<p>I used to daily drive Asus Vivobook Pro 14X OLED (<a href="https://in.store.asus.com/creator-laptop-asus-vivobook-pro-14x-oled-m7400qc.html">M7400QC</a>) as my personal laptop. This is a great laptop, but in just two years of owning it, I started to feel a number of pain points:</p>
-<ol>
-<li>14 inch display was just too small. Especially if you are multi-windowing like me.</li>
-<li>No thunderbolt port. So connecting to my external display is a chore.</li>
-<li>I can't use Macbook chargers that are laying around. It's own 120W brick is indeed a brick (weight-wise).</li>
-<li>No expansion option. It has 16GB RAM soldered.</li>
-</ol>
-<p>At the time of writing this, the best option was another Asus machine, <a href="https://in.store.asus.com/creator-laptop-asus-vivobook-16x-k3605zv-mb741ws.html">Asus Vivobook 16X</a>. It ticked all the boxes of what I needed, and more:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Thunberbolt port.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> 16 inch display.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Expandable memory.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> RTX 4060</li>
-</ul>
-<p>In my haste to move on with my life, I didn't look too much into it and ordered one online. Only to discover later that the display is 1960x1200 (WUXGA?). </p>
-<h2 id="the-downgrade">The Downgrade</h2>
-<p>My previous laptop had an OLED display, 2880x1800 display size with <a href="https://www.panelook.com/modeldetail.php?id=52193">242PPI</a>. For comparison, the new laptop is just <a href="https://www.panelook.com/modeldetail.php?id=61970">141PPI</a>. That's a substantial downgrade, and you feel it. Within 15 mins of booting the laptop up, I knew something was up. </p>
-<p>It turns out, Asus has bunch of SKUs with similar name. There are Vivobook, Vivobook S, Vivobook Pro. I had bought one without OLED screen (which I don't care for much), but more crucially, a very low res screen.</p>
-<h2 id="the-upgrade">The Upgrade</h2>
-<p>Luckly, I stumbled on this video from <a href="https://www.youtube.com/watch?v=FAa2jQ40FhA&amp;t">NL Tech</a>. Don't remember what I was searching for, but thanks Google!</p>
-<p>I followed the guide, and found that new laptop is using this panel <a href="https://www.panelook.com/modeldetail.php?id=61970">NE160WUM-NX1</a> from <a href="https://www.hwinfo.com/">HWiNFO</a>.</p>
-<h3 id="metrics-display-quality">Metrics: display quality</h3>
-<p>The specs we are concerned are these:</p>
+<h1 id="longest-common-prefix">Longest Common Prefix</h1>
+<h2 id="problem">Problem</h2>
+<p>Given a list of strings, find the longest string that's prefix to them all.</p>
+<h2 id="example">Example</h2>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+S_1 &amp;= \fbox{fl}\ \text{ower} \\
+S_2 &amp;= \fbox{fl}\ \text{ow} \\
+S_3 &amp;= \fbox{fl}\ \text{ight} \\
+\end{alignat}
+\]</div>
+<h2 id="first-solution">First Solution</h2>
+<details>
+<summary>Hint</summary>
+<p>The solution is straighforward, no tricks. But there is an optimization to cut down the problem at hand significantly.</p>
+</details>
+<details>
+<summary>Pseudocode</summary>
+<p>Vertical scanning, that is:</p>
 <ul>
-<li>Panel Type: Oxide TFT-LCD</li>
-<li>Resolution: 1920x1200, 141 PPI</li>
-<li>Viewing angle: 89/89/89/89</li>
-<li>Contrast Ratio: 1200:1</li>
-<li>Adobe Coverage: 74%</li>
-<li>DCI-P3 Overage: 74%</li>
-<li>Brightness: 300 \(cd/m^2\)</li>
+<li>Check the first character of all strings.</li>
+<li>then, check the second character of all strings.</li>
+<li><span class="arithmatex">\(\dots\)</span></li>
+<li>then, check the <span class="arithmatex">\(i^{th}\)</span> character of all strings.</li>
 </ul>
-<p>Write these down somewhere. The idea is to make sure <strong>we don't end up getting a worse panel</strong>. Higher screen resolution is great, but that shouldn't come at the expense of these other metrics. What do they all mean?</p>
-<ul>
-<li>Panel Type: that's LCD, OLED etc. I had past experience with IPS panels, so I knew to keep a watch out for this. In short, go for OLED if possible and LCD if not.</li>
-<li>Viewing angle: the IPS panel I mentioned had a viewing angle of ~45 deg. You'd know when you see one. Just slightly tilting the panel will make reading the screen impossible, with the background lights bleeding through.</li>
-<li>Contrat: that should be obvious. Poor contrast means washed out colors.</li>
-<li>Coverage %: this is not that obvious, but think of this as panel adding a bias/tint to everything you see.</li>
-<li>Brightness: higher the better, otherwise you'll struggle using it in a lit room.</li>
-</ul>
-<p>The current panel was pretty good when it comes to all these metrics (other than resolution). So I knew the baseline number to look for.</p>
-<h3 id="metrics-interface">Metrics: interface</h3>
-<p>Now we want to find out about the compatible panels we replace our current display with. Panelook shows this under <code>Signal Type</code> on the <a href="https://www.panelook.com/NE160WUM-NX1_BOE_16.0_LCM_parameter_61970.html">Specs tab</a>. For me, this was:</p>
-<ul>
-<li>Signal type: eDP, 4 lane, eDP 1.4</li>
-<li>Pins: 40</li>
-<li>Interface model: <code>MSAK24025P40G</code> (optional)</li>
-<li>Interface position: Panelook showed this for my current panel <a class="glightbox" href="https://www.panelook.com/images/datagifen/sip/WDR.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.panelook.com/images/datagifen/sip/WDR.gif" /></a>.</li>
-</ul>
-<p>We want to search for panels with same number of pins (40) and same interface type (eDP 1.4). To be sure without a shred of doubt, you can also limit yourself to panels using the same interface model. Though, this turned out not to be necessary in my case.</p>
-<h3 id="result">Result</h3>
-<p>In fact, I order two different panels:</p>
-<ul>
-<li><a href="https://www.panelook.com/modeldetail.php?id=63485">NE160QDM-NYD</a>: a 2560x1660 panel which used the exact same <code>MSAK24025P40G</code> connector and had it placed in the exact same spot.</li>
-<li><a href="https://www.panelook.com/modeldetail.php?id=55904">NE160QAM-NZ1</a>: a 3840x2400 panel which was best option all around, but didn't have the same connector and had slighly different placement.</li>
-</ul>
-<p>You can actually see the comparison between the three panels (stock, NE160QDM-NYD, NE160QAM-NZ1) <a href="https://www.panelook.com/modelcompare.php?ids=61970,63485,55904">here</a>.</p>
-<p>I'm now using <code>NE160QAM-NZ1</code>, and <strong>it's great!</strong>. Display quality-wise, this is what the upgrade looks like:</p>
-<ul>
-<li>Panel Type: Oxide TFT-LCD <em>(unchanged)</em></li>
-<li>Resolution: 3840x2400, 282PPI <em>(double the pixels)</em></li>
-<li>Viewing angle: 89/89/89/89 <em>(unchanged)</em></li>
-<li>Contrast Ratio: 1200:1 <em>(unchanged)</em></li>
-<li>Adobe Coverage: 88% <em>(+14%)</em></li>
-<li>DCI-P3 Overage: 100% <em>(+26)</em></li>
-<li>Brightness: 500 \(cd/m^2\) <em>(+200)</em></li>
-</ul>
-<p>Even up close, my eyes can't discern any two pixels apart. It's more vibrant, more bright. There is enough room now on screen to tile 4 different windows on each corner.</p>
-<h2 id="tools-needed">Tools needed</h2>
-<p><a href="https://www.ifixit.com/products/pro-tech-toolkit">iFixit Pro toolkit</a> had all that I needed, which was just the screendriver bits, plastic opening picks (for laptop case), jimmy (for display panel) and tweezer (for adhesive rubber). I used the OSFT 2mm double sided tape to glue the new panel.</p>
-<h2 id="panel-purchase">Panel purchase</h2>
-<p>Just search the panel model online and you'd stumble onto a number of websites.</p>
-<ul>
-<li>Ubuy: I bought the 2560 panel from here. Don't use it. I ended up paying ~50% surchage on customs, and they sent the wrong panel.</li>
-<li>Bliss computers: very slow processing. </li>
-<li>eBay: that's where I bought the 3840 panel from <a href="https://www.ebay.it/str/win0win">win0win</a>, really helpful folks. Delivered within 15 days, no customs and actually cheaper than 2560 model. </li>
-</ul>
-<h2 id="extras">Extras</h2>
-<p>During laptop disassembly, take pictures at each steps. Really useful when putting it back together. Also check for videos on YT where people are opening your laptop model (or same brand at least), this is helpful in watching out for OEM quirks.</p>
+<p>if the check fails at <span class="arithmatex">\(i^{th}\)</span> character for any string, then our longest common substring is the substring before that. That is, <code>any_of_the_strings[0:i]</code>.</p>
+</details>
+<details>
+<summary>Implementation</summary>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">longestCommonPrefix</span><span class="p">(</span><span class="n">strs</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strs</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strs</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">strs</span><span class="p">.</span><span class="na">first</span><span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="c1">// There are 2 or more strings to consider now.</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">strs</span><span class="p">.</span><span class="na">first</span><span class="p">().</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">char</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strs</span><span class="p">.</span><span class="na">first</span><span class="p">()</span><span class="o">[</span><span class="n">cursor</span><span class="o">]</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">strs</span><span class="p">.</span><span class="na">indices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">strs</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">strs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">cursor</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">char</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">strs</span><span class="p">.</span><span class="na">first</span><span class="p">().</span><span class="na">substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">cursor</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="n">cursor</span><span class="o">++</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">strs</span><span class="p">.</span><span class="na">first</span><span class="p">()</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<details>
+<summary>Runtime</summary>
+<p>In worst case, we can assume all strings to be <span class="arithmatex">\(d\)</span> character long, only deviating at the very last character. That means each comparison is <span class="arithmatex">\(c\cdot d\)</span> work. For all <span class="arithmatex">\(n\)</span> strings, that's <span class="arithmatex">\(c\cdot d \cdot n\)</span> work, which is <span class="arithmatex">\(O(n)\)</span>.</p>
+</details>
+<h2 id="second-solution">Second Solution</h2>
+<details>
+<summary>Hint</summary>
+<p>Use a Trie.</p>
+</details>
+<details>
+<summary>Pseudocode</summary>
+<p>Insert all words into a Trie. Now traverse the trie from the root downwards. The first branch we hit is where the longest common prefix ends.</p>
+</details>
+<details>
+<summary>Implementation</summary>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">longestCommonPrefix</span><span class="p">(</span><span class="n">words</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TrieNode</span><span class="p">()</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">word</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">words</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">root</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="n">word</span><span class="s">#&quot;</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">()</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">isLeaf</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">key</span><span class="o">!!</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">branches</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="n">path</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">branches</span><span class="p">.</span><span class="na">keys</span><span class="p">.</span><span class="na">first</span><span class="p">())</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="na">branches</span><span class="p">.</span><span class="na">values</span><span class="p">.</span><span class="na">first</span><span class="p">()</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">}</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">TrieNode</span><span class="p">(</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">key</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">isLeaf</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableMapOf</span><span class="o">&lt;</span><span class="kt">Char</span><span class="p">,</span><span class="w"> </span><span class="n">TrieNode</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">  </span><span class="kd">fun</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">word</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">branches</span><span class="o">[</span><span class="n">word</span><span class="o">[</span><span class="n">index</span><span class="o">]]</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">      </span><span class="n">branches</span><span class="o">[</span><span class="n">word</span><span class="o">[</span><span class="n">index</span><span class="o">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TrieNode</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="p">)</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">      </span><span class="k">return</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">isLeaf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// -&gt; leaf =&gt; -&gt; branch -&gt; leaf1, leaf2</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">      </span><span class="n">branches</span><span class="o">[</span><span class="n">word</span><span class="o">[</span><span class="n">index</span><span class="o">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TrieNode</span><span class="p">()</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">      </span><span class="n">branches</span><span class="o">[</span><span class="n">word</span><span class="o">[</span><span class="n">index</span><span class="o">]]!!</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">      </span><span class="n">branches</span><span class="o">[</span><span class="n">word</span><span class="o">[</span><span class="n">index</span><span class="o">]]!!</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">key</span><span class="o">!!</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">      </span><span class="n">node</span><span class="p">.</span><span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">      </span><span class="k">return</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<h2 id="third-solution">Third Solution</h2>
+<details>
+<summary>Hint 1</summary>
+<p>Do you actually need to check all strings?</p>
+</details>
+<details>
+<summary>Hint 2</summary>
+<p>Would sorting help?</p>
+</details>
+<details>
+<summary>Hint 3</summary>
+<p>What do we get out of sorting? is that needed?</p>
+</details>
+<details>
+<summary>Pseudocode</summary>
+<p>Checking two strings which share a large prefix is wasteful work if some string down the line will have mismatches right away at index <span class="arithmatex">\(1\)</span>. If we can find this worst match right away, we find longest common prefix without actually having to scan all strings.</p>
+<p>In the example below, we'd like to compare <span class="arithmatex">\(S_1\)</span> against <span class="arithmatex">\(S_3\)</span>, and not <span class="arithmatex">\(S_2\)</span>. That's because <span class="arithmatex">\(S_3\)</span> deviates from <span class="arithmatex">\(S_1\)</span> at the earliest.</p>
+<div class="arithmatex">\[
+\begin{alignat}{1}
+S_1 &amp;= aab \\
+S_2 &amp;= aac \\
+S_3 &amp;= ab \\
+\end{alignat}
+\]</div>
+<p>That is, we need to consider the lexical (dictionary) ordering of given strings and compare the very <code>first</code> string against the very <code>last</code> string. All strings prior to <code>last</code> will share longer and longer prefixes with <code>first</code>, with <code>second</code> string sharing the longest prefix with <code>first</code>.</p>
+<p>Note that this doesn't require sorting all the strings, only finding the <code>first</code> and <code>last</code>, i.e. <code>min</code> and <code>max</code> of given strings.</p>
+</details>
+<details>
+<summary>Implementation Kotlin</summary>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">longestCommonPrefix</span><span class="p">(</span><span class="n">strs</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strs</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strs</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">strs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">first</span><span class="p">)</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="na">length</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">.</span><span class="na">length</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="o">[</span><span class="n">c</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">last</span><span class="o">[</span><span class="n">c</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="n">c</span><span class="o">++</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<details>
+<summary>Implementation C</summary>
+<div class="language-C highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span>
+<span class="normal"><a href="#__codelineno-3-50">50</a></span>
+<span class="normal"><a href="#__codelineno-3-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">// Sorts strings by &quot;natural&quot; order.</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="p">[</span><span class="n">cursor</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">second</span><span class="p">[</span><span class="n">cursor</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="p">[</span><span class="n">cursor</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">second</span><span class="p">[</span><span class="n">cursor</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">      </span><span class="n">cursor</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">      </span><span class="k">continue</span><span class="p">;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="p">[</span><span class="n">cursor</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">second</span><span class="p">[</span><span class="n">cursor</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="p">[</span><span class="n">cursor</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">second</span><span class="p">[</span><span class="n">cursor</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="p">[</span><span class="n">cursor</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="p">}</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="c1">// Finds the indices of min and max strings.</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="kt">void</span><span class="w"> </span><span class="nf">firstAndLast</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">strs</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">strsSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">strsSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">strs</span><span class="p">[</span><span class="o">*</span><span class="n">min</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">      </span><span class="o">*</span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">strs</span><span class="p">[</span><span class="o">*</span><span class="n">max</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">      </span><span class="o">*</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="p">}</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="c1">// Finds the shared prefix between the first and last strings</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="c1">// as per lexical ordering.</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">longestCommonPrefix</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">strs</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">strsSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">  </span><span class="n">firstAndLast</span><span class="p">(</span><span class="n">strs</span><span class="p">,</span><span class="w"> </span><span class="n">strsSize</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">max</span><span class="p">);</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41"></a>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">strs</span><span class="p">[</span><span class="n">min</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">strs</span><span class="p">[</span><span class="n">max</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strs</span><span class="p">[</span><span class="n">min</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">strs</span><span class="p">[</span><span class="n">max</span><span class="p">][</span><span class="n">c</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">      </span><span class="n">strs</span><span class="p">[</span><span class="n">min</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">      </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">    </span><span class="n">c</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">strs</span><span class="p">[</span><span class="n">min</span><span class="p">];</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<details>
+<summary>Runtime</summary>
+<p>Same runtime as before, but this time we are cutting down significant time in the constant factors.</p>
+</details>
+<h2 id="unit-tests">Unit tests</h2>
+<div class="language-kotlin highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nd">@Test</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">example_1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="n">assertThat</span><span class="p">(</span><span class="n">longestCommonPrefix</span><span class="p">(</span><span class="n">arrayOf</span><span class="p">(</span><span class="s">&quot;flower&quot;</span><span class="p">,</span><span class="s">&quot;flow&quot;</span><span class="p">,</span><span class="s">&quot;flight&quot;</span><span class="p">))).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;fl&quot;</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nd">@Test</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">example_2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">  </span><span class="n">assertThat</span><span class="p">(</span><span class="n">longestCommonPrefix</span><span class="p">(</span><span class="n">arrayOf</span><span class="p">(</span><span class="s">&quot;dog&quot;</span><span class="p">,</span><span class="s">&quot;racecar&quot;</span><span class="p">,</span><span class="s">&quot;car&quot;</span><span class="p">))).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="p">}</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="nd">@Test</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">example_3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">  </span><span class="n">assertThat</span><span class="p">(</span><span class="n">longestCommonPrefix</span><span class="p">(</span><span class="n">arrayOf</span><span class="p">(</span><span class="s">&quot;aa&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">))).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="p">}</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="nd">@Test</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">example_4</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">  </span><span class="n">assertThat</span><span class="p">(</span><span class="n">longestCommonPrefix</span><span class="p">(</span><span class="n">arrayOf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">))).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 
 
 
@@ -6438,14 +6657,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../assets/javascripts/placeholder-combined.js"></script>
+        <script src="../../../assets/javascripts/placeholder-combined.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
