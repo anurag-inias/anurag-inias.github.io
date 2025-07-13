@@ -145,6 +145,7 @@ nav:
               - BFS / level-order: "data-structures/tree/traversal/level-traversal.md"
       - Trie:
           - Introduction: "data-structures/trie/intro.md"
+          - Basic Trie: "data-structures/trie/basic-trie.md"
           - Compressed Trie: "data-structures/trie/compressed-trie.md"
       - Graph:
           - Intro: "data-structures/graph/intro.md"
@@ -174,8 +175,9 @@ nav:
           - <span class="problem-index"><span>5. </span>Graph coloring</span>: "practice/greedy/05-graph-coloring.md"
           - <span class="problem-index"><span>6. </span>Kruskal's algorithm</span>: "practice/greedy/06-kruskal-algorithm.md"
           - <span class="problem-index"><span>7. </span>Prim's algorithm</span>: "practice/greedy/07-prim-algorithm.md"
-      - Trie (1):
-          - <span class="problem-index"><span>1. </span>Longest Common Prefix</span>: "practice/trie/01-longest-common-prefix.md"
+      - Trie (2):
+          - <span class="problem-index"><span>1. </span>Trie implementation</span>: "practice/trie/01-trie-implementation.md"
+          - <span class="problem-index"><span>2. </span>Longest Common Prefix</span>: "practice/trie/02-longest-common-prefix.md"
       - Backtracking (10):
           - About: "practice/backtracking/about.md"
           - <span class="problem-index"><span>1. </span>List all binary strings generated from wildcard pattern</span>: "practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern.md"
