@@ -72,45 +72,19 @@ $$
 ??? "Implementation"
 
     ```kotlin linenums="1"
-    fun longestCommonPrefix(words: Array<String>): String {
-      val root = TrieNode()
-      for (word in words) {
-        root.insert("$word#")
+    fun longestCommonPrefix(strs: Array<String>): String {
+      val trie = Trie()
+      for (word in strs) {
+        trie.insert(word)
       }
 
-      var cursor = root
-      val path = StringBuilder()
+      val prefix = StringBuilder()
+      var cursor = trie.root
       while (true) {
-        if (cursor.isLeaf) return cursor.key!!
-        if (cursor.branches.size != 1) break
-        path.append(cursor.branches.keys.first())
+        if (cursor.branches.size > 1) return prefix.toString()
+        if (cursor.key != null) return cursor.key
+        prefix.append(cursor.branches.keys.first())
         cursor = cursor.branches.values.first()
-      }
-      return path.toString()
-    }
-
-    data class TrieNode(
-      var key: String? = null,
-    ) {
-      val isLeaf: Boolean
-        get() = key != null
-
-      val branches = mutableMapOf<Char, TrieNode>()
-
-      fun insert(word: String, index: Int = 0) {
-        val node = branches[word[index]]
-        if (node == null) {
-          branches[word[index]] = TrieNode(key = word)
-          return
-        }
-        if (node.isLeaf) { // -> leaf => -> branch -> leaf1, leaf2
-          branches[word[index]] = TrieNode()
-          branches[word[index]]!!.insert(word, index + 1)
-          branches[word[index]]!!.insert(node.key!!, index + 1)
-          node.key = null
-          return
-        }
-        node.insert(word, index + 1)
       }
     }
     ```
