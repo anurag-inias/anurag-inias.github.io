@@ -93,6 +93,25 @@ In this section, we introduce a basic implementation of a trie, useful for algor
     }
     ```
 
+    For this work, we need to update our basic trie implementation
+
+    ```kotlin linenums="1"
+    class TrieNode(val key: String? = null, var count: Int = 1) {
+      // snippet
+    }
+
+    // snippet
+
+    private fun insert(node: TrieNode, key: String, index: Int) : TrieNode {
+      if (node.type == NodeType.LEAF) {
+        if (node.key == key) {
+          node.count++
+          return node
+        }
+      // snippet
+    }
+    ```
+
 === "`search`"
 
     ```kotlin linenums="1"

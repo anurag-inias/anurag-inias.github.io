@@ -175,10 +175,11 @@ nav:
           - <span class="problem-index"><span>5. </span>Graph coloring</span>: "practice/greedy/05-graph-coloring.md"
           - <span class="problem-index"><span>6. </span>Kruskal's algorithm</span>: "practice/greedy/06-kruskal-algorithm.md"
           - <span class="problem-index"><span>7. </span>Prim's algorithm</span>: "practice/greedy/07-prim-algorithm.md"
-      - Trie (3):
+      - Trie (4):
           - <span class="problem-index"><span>1. </span>Trie implementation</span>: "practice/trie/01-trie-implementation.md"
           - <span class="problem-index"><span>2. </span>Longest Common Prefix</span>: "practice/trie/02-longest-common-prefix.md"
           - <span class="problem-index"><span>3. </span>Lexicographic sorting of a given set of keys</span>: "practice/trie/03-lexicographic-sorting-given-set-of-keys.md"
+          - <span class="problem-index"><span>4. </span>Find the maximum occurring word in a given set of strings</span>: "practice/trie/04-find-maximum-occurring-word-given-set-strings"
       - Backtracking (10):
           - About: "practice/backtracking/about.md"
           - <span class="problem-index"><span>1. </span>List all binary strings generated from wildcard pattern</span>: "practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern.md"
