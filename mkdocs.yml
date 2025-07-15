@@ -179,7 +179,7 @@ nav:
           - <span class="problem-index"><span>1. </span>Trie implementation</span>: "practice/trie/01-trie-implementation.md"
           - <span class="problem-index"><span>2. </span>Longest Common Prefix</span>: "practice/trie/02-longest-common-prefix.md"
           - <span class="problem-index"><span>3. </span>Lexicographic sorting of a given set of keys</span>: "practice/trie/03-lexicographic-sorting-given-set-of-keys.md"
-          - <span class="problem-index"><span>4. </span>Find the maximum occurring word in a given set of strings</span>: "practice/trie/04-find-maximum-occurring-word-given-set-strings"
+          - <span class="problem-index"><span>4. </span>Find the maximum occurring word in a given set of strings</span>: "practice/trie/04-find-maximum-occurring-word-given-set-strings.md"
       - Backtracking (10):
           - About: "practice/backtracking/about.md"
           - <span class="problem-index"><span>1. </span>List all binary strings generated from wildcard pattern</span>: "practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern.md"

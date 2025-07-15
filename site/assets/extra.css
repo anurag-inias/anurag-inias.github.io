@@ -80,6 +80,7 @@
 
 .md-typeset code, .md-typeset pre {
   font-size: 0.6rem;
+  font-variant-ligatures: common-ligatures;
 }
 
 .md-typeset .emojione, .md-typeset .gemoji, .md-typeset .twemoji {
