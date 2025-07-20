@@ -83,6 +83,10 @@
   font-variant-ligatures: common-ligatures;
 }
 
+.highlight .c, .highlight .c1, .highlight .ch, .highlight .cm, .highlight .cs, .highlight .sd {
+  font-style: italic;
+}
+
 .md-typeset .emojione, .md-typeset .gemoji, .md-typeset .twemoji {
   vertical-align: sub;
 }

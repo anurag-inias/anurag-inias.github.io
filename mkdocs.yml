@@ -293,7 +293,9 @@ nav:
       - Transmission: "ubuntu/transmission.md"
       - Samba: "ubuntu/samba.md"
   - Snippets:
-      - gradle: "snippets/gradle.md"
+      - Android:
+          - gradle: "snippets/android/gradle.md"
+          - Calculate height of composables: "snippets/android/calculate-height-of-composables.md"
   - How To:
       - Use 3p ink with Brother printer: "howto/printer-3p-ink.md"
   - Miscellaneous:

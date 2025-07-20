@@ -1,5 +1,7 @@
 # Gradle configuration
 
+## Overall
+
 === "build.gradle.kts"
 
     ```kotlin
@@ -201,3 +203,105 @@
     hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
     protobuf = { id = "com.google.protobuf", version.ref = "protobufGradlePlugin" }
     ```
+
+## Protobuf
+
+=== "build.gradle.kts"
+
+    ```kotlin
+    // Protobuf support.
+    alias(libs.plugins.protobuf) apply false
+    ```
+
+=== "app/build.gradle.kts"
+
+    ```kotlin
+    plugins {
+      ...
+      // Protobuf support.
+      alias(libs.plugins.protobuf)
+    }
+
+    ...
+
+    protobuf {
+      protoc {
+        artifact = "com.google.protobuf:protoc:4.31.1"
+      }
+      generateProtoTasks {
+        all().forEach { task ->
+          task.builtins {
+            create("java") {
+              option("lite")
+            }
+            create("kotlin") {
+              option("lite")
+            }
+          }
+        }
+      }
+    }
+
+    dependencies {
+      ...
+      // Protobuf support.
+      implementation(libs.protobuf.javalite)
+      implementation(libs.protobuf.kotlin.lite)
+    }
+    ```
+
+=== "libs.versions.toml"
+
+    ```toml
+    [versions]
+    ...
+    # Protobuf support.
+    protobufJavalite = "4.31.1" # (1)
+    protobufKotlinLite = "4.31.1" # (2)
+    protobufGradlePlugin = "0.9.5" # (3)
+
+    [libraries]
+    ...
+    # Protobuf support.
+    protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobufJavalite" }
+    protobuf-kotlin-lite = { module = "com.google.protobuf:protobuf-kotlin-lite", version.ref = "protobufKotlinLite" }
+
+    [plugins]
+    ...
+    # Protobuf support.
+    protobuf = { id = "com.google.protobuf", version.ref = "protobufGradlePlugin" }
+    ```
+
+    1.  [protobuf-javalite](https://mvnrepository.com/artifact/com.google.protobuf/protobuf-javalite)
+    2.  [protobuf-kotlin-lite](https://mvnrepository.com/artifact/com.google.protobuf/protobuf-kotlin-lite)
+    3.  [protobuf-gradle-plugin](https://mvnrepository.com/artifact/com.google.protobuf/protobuf-gradle-plugin)
+
+## Google fonts
+
+=== "app/build.gradle.kts"
+
+    ```kotlin
+    dependencies {
+      ...
+      // Google fonts support.
+      implementation(libs.androidx.ui.text.google.fonts)
+    }
+    ```
+
+=== "libs.versions.toml"
+
+    ```toml
+        [versions]
+        ...
+        # Google fonts support.
+        uiTextGoogleFonts = "1.8.3" # (1)
+
+        [libraries]
+        ...
+        # Google fonts support.
+        androidx-ui-text-google-fonts = { module = "androidx.compose.ui:ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+
+        ...
+    ```
+
+    1.  [ui-text-google-fonts](https://mvnrepository.com/artifact/androidx.compose.ui/ui-text-google-fonts)
