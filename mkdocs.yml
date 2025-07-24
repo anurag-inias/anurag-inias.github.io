@@ -1,4 +1,5 @@
 site_name: listless 💤
+site_url: "https://listless.dev"
 theme:
   name: material
   logo: assets/fatigue-light.svg
@@ -29,6 +30,8 @@ plugins:
   - glightbox
   - placeholder:
       placeholder_file: placeholder-plugin.yaml
+  - rss:
+      match_path: .*
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -89,7 +92,6 @@ nav:
           - Changing base: "maths/algebra/base-change.md"
           - Algebraic expressions: "maths/algebra/expressions.md"
           - Modular arithmetic: "maths/algebra/modulo.md"
-          - Complex numbers: "maths/algebra/complex.md"
       - Combinatorics:
           - Sets: "maths/combinatorics/sets.md"
           - Permutation and Combination: "maths/combinatorics/p-and-c.md"
