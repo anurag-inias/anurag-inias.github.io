@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://listless.dev/python/generators/">
+        <link rel="canonical" href="https://listless.dev/practice/project-euler/002-even-fibonacci-numbers/">
       
       
-        <link rel="prev" href="../functions/">
+        <link rel="prev" href="../001-multiples-of-3-or-5/">
       
       
-        <link rel="next" href="../oop/">
+        <link rel="next" href="../../greedy/01-activity-selection/">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
       
-      <link rel="icon" href="../../assets/fatigue-dark.svg">
+      <link rel="icon" href="../../../assets/fatigue-dark.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.31">
     
     
       
-        <title>Generators - listless 💤</title>
+        <title>2. Even Fibonacci Numbers - listless 💤</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -51,18 +51,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../assets/javascripts/placeholder-plugin.css">
+      <link rel="stylesheet" href="../../../assets/javascripts/placeholder-plugin.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -71,7 +71,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-generators" class="md-skip">
+        <a href="#even-fibonacci-numbers" class="md-skip">
           Skip to content
         </a>
       
@@ -106,9 +106,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generators
+              <span class="problem-index"><span> 2. </span>Even Fibonacci Numbers</span>
             
           </span>
         </div>
@@ -189,9 +189,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     listless 💤
@@ -206,7 +206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -296,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/ghost-radio/" class="md-nav__link">
+      <a href="../../../blog/books/ghost-radio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -317,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-institute/" class="md-nav__link">
+      <a href="../../../blog/books/the-institute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -338,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-reaping/" class="md-nav__link">
+      <a href="../../../blog/books/the-reaping/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -359,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-hobbit/" class="md-nav__link">
+      <a href="../../../blog/books/the-hobbit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -465,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/numbers/" class="md-nav__link">
+      <a href="../../../maths/algebra/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -486,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
+      <a href="../../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -507,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/arithmetic-laws/" class="md-nav__link">
+      <a href="../../../maths/algebra/arithmetic-laws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -528,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
+      <a href="../../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/base-change/" class="md-nav__link">
+      <a href="../../../maths/algebra/base-change/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/expressions/" class="md-nav__link">
+      <a href="../../../maths/algebra/expressions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -591,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/modulo/" class="md-nav__link">
+      <a href="../../../maths/algebra/modulo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -655,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/sets/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/sets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -676,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/p-and-c/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/p-and-c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/probability/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/probability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -726,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/series/" class="md-nav__link">
+      <a href="../../../maths/series/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -782,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/calculus/functions/" class="md-nav__link">
+      <a href="../../../maths/calculus/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -853,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/search/binary/" class="md-nav__link">
+      <a href="../../../algorithms/search/binary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -874,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/partition/partition/" class="md-nav__link">
+      <a href="../../../algorithms/partition/partition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -930,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/comparison/" class="md-nav__link">
+      <a href="../../../algorithms/sort/comparison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -951,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/bubble-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/bubble-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -972,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/insertion-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/insertion-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -993,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/selection-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/selection-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1014,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/heapsort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/heapsort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1035,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/quicksort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/quicksort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1056,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/mergesort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/mergesort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1077,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/counting-sort/" class="md-nav__link">
+      <a href="../../../algorithms/sort/counting-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1141,7 +1141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
+      <a href="../../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1205,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/intro/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1226,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1247,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1268,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1289,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
+      <a href="../../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1353,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/greedy/huffman-coding/" class="md-nav__link">
+      <a href="../../../algorithms/greedy/huffman-coding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1459,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/representation/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/representation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1480,7 +1480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/bit-tricks/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/bit-tricks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1501,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/addition/" class="md-nav__link">
+      <a href="../../../data-structures/numbers/addition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1565,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1586,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1607,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/patterns/" class="md-nav__link">
+      <a href="../../../data-structures/linked-list/patterns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1706,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/array/problems/dutch-national-flag/" class="md-nav__link">
+      <a href="../../../data-structures/array/problems/dutch-national-flag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1778,7 +1778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/stack/basics/" class="md-nav__link">
+      <a href="../../../data-structures/stack/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1807,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/heap/" class="md-nav__link">
+      <a href="../../../data-structures/heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1828,7 +1828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/disjoint-set/" class="md-nav__link">
+      <a href="../../../data-structures/disjoint-set/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1849,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/circular-list/" class="md-nav__link">
+      <a href="../../../data-structures/circular-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1975,7 +1975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1996,7 +1996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2017,7 +2017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2046,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
+      <a href="../../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2118,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/intro/" class="md-nav__link">
+      <a href="../../../data-structures/trie/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2139,7 +2139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/basic-trie/" class="md-nav__link">
+      <a href="../../../data-structures/trie/basic-trie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2160,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/compressed-trie/" class="md-nav__link">
+      <a href="../../../data-structures/trie/compressed-trie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2224,7 +2224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2280,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2301,7 +2301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/bfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/bfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2322,7 +2322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/dfs/" class="md-nav__link">
+      <a href="../../../data-structures/graph/traversal/dfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2351,7 +2351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/topological-sort/" class="md-nav__link">
+      <a href="../../../data-structures/graph/topological-sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2407,7 +2407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2428,7 +2428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2449,7 +2449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2470,7 +2470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
+      <a href="../../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2534,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
+      <a href="../../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2598,7 +2598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2619,7 +2619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2640,7 +2640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
+      <a href="../../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2681,17 +2681,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2705,7 +2707,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Practice
@@ -2719,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2737,17 +2739,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
@@ -2761,7 +2765,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             Project Euler (947)
@@ -2775,7 +2779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/project-euler/001-multiples-of-3-or-5/" class="md-nav__link">
+      <a href="../001-multiples-of-3-or-5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2793,10 +2797,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../practice/project-euler/002-even-fibonacci-numbers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2805,6 +2818,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -2860,7 +2874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/01-activity-selection/" class="md-nav__link">
+      <a href="../../greedy/01-activity-selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2881,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/02-huffman-coding/" class="md-nav__link">
+      <a href="../../greedy/02-huffman-coding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2902,7 +2916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/03-shortest-superstring/" class="md-nav__link">
+      <a href="../../greedy/03-shortest-superstring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2923,7 +2937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/04-job-sequencing/" class="md-nav__link">
+      <a href="../../greedy/04-job-sequencing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2944,7 +2958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/05-graph-coloring/" class="md-nav__link">
+      <a href="../../greedy/05-graph-coloring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2965,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/06-kruskal-algorithm/" class="md-nav__link">
+      <a href="../../greedy/06-kruskal-algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2986,7 +3000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/greedy/07-prim-algorithm/" class="md-nav__link">
+      <a href="../../greedy/07-prim-algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3050,7 +3064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/trie/01-trie-implementation/" class="md-nav__link">
+      <a href="../../trie/01-trie-implementation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3071,7 +3085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/trie/02-longest-common-prefix/" class="md-nav__link">
+      <a href="../../trie/02-longest-common-prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3092,7 +3106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/trie/03-lexicographic-sorting-given-set-of-keys/" class="md-nav__link">
+      <a href="../../trie/03-lexicographic-sorting-given-set-of-keys/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3113,7 +3127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/trie/04-find-maximum-occurring-word-given-set-strings/" class="md-nav__link">
+      <a href="../../trie/04-find-maximum-occurring-word-given-set-strings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3177,7 +3191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/about/" class="md-nav__link">
+      <a href="../../backtracking/about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3198,7 +3212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
+      <a href="../../backtracking/01-list-all-binary-strings-generated-from-wildcard-pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3219,7 +3233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
+      <a href="../../backtracking/02-print-possible-solutions-n-queens-problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3240,7 +3254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
+      <a href="../../backtracking/03-print-possible-knights-tours-chessboard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3261,7 +3275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/04-find-shortest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3282,7 +3296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
+      <a href="../../backtracking/05-find-longest-path-in-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3303,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
+      <a href="../../backtracking/06-find-number-of-unique-paths-in-a-maze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3324,7 +3338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
+      <a href="../../backtracking/07-list-all-hamiltonian-paths/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3345,7 +3359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/08-list-all-k-colorings/" class="md-nav__link">
+      <a href="../../backtracking/08-list-all-k-colorings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3366,7 +3380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
+      <a href="../../backtracking/09-split-list-into-k-partitions-of-equal-sum/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3387,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
+      <a href="../../backtracking/10-find-ways-calculate-target-elements-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3451,7 +3465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
+      <a href="../../stack/01-check-if-a-given-expression-is-balanced-or-not/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3472,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
+      <a href="../../stack/02-convert-infix-expression-to-postfix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3493,7 +3507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
+      <a href="../../stack/03-decode-increment-decrement-sequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3514,7 +3528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
+      <a href="../../stack/04-design-a-stack-that-supports-peeking-minimum-element/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3535,7 +3549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/05-evaluate-postfix-expression/" class="md-nav__link">
+      <a href="../../stack/05-evaluate-postfix-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3556,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
+      <a href="../../stack/06-find-duplicate-parenthesis-in-an-expression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3577,7 +3591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/07-inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/07-inorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3598,7 +3612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/08-postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/08-postorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3619,7 +3633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/stack/09-preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../stack/09-preorder-tree-traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3683,7 +3697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/01-find-the-only-non-duplicate/" class="md-nav__link">
+      <a href="../../bits/01-find-the-only-non-duplicate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3704,7 +3718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/02-count-the-number-of-set-bits/" class="md-nav__link">
+      <a href="../../bits/02-count-the-number-of-set-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3725,7 +3739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/03-compute-parity/" class="md-nav__link">
+      <a href="../../bits/03-compute-parity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3746,7 +3760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/04-swap-bits/" class="md-nav__link">
+      <a href="../../bits/04-swap-bits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3767,7 +3781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
+      <a href="../../bits/05-closest-integer-with-same-bit-count/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3788,7 +3802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/06-add-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3809,7 +3823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/07-multiply-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3830,7 +3844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
+      <a href="../../bits/08-divide-two-integers-without-arithmetic-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3851,7 +3865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
+      <a href="../../bits/09-calculate-exponent-of-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3872,7 +3886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/10-rotate-an-integer/" class="md-nav__link">
+      <a href="../../bits/10-rotate-an-integer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3893,7 +3907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/bits/11-random-number-generation/" class="md-nav__link">
+      <a href="../../bits/11-random-number-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3957,7 +3971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
+      <a href="../../linked-list/01-check-if-the-content-of-a-linked-list-is-a-palindrome/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3978,7 +3992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
+      <a href="../../linked-list/02-check-if-two-given-linked-lists-are-identical/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3999,7 +4013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/03-create-a-queue-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4020,7 +4034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/04-create-a-stack-from-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4041,7 +4055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/05-deep-copy-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4062,7 +4076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/06-detect-cycle-in-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4083,7 +4097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
+      <a href="../../linked-list/07-get-kth-node-from-either-end/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4104,7 +4118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/08-in-place-merge-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4125,7 +4139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/09-in-place-merge-arbitrary-number-of-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4146,7 +4160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/10-in-place-sort-a-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4167,7 +4181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/11-insert-a-node-in-its-correct-place-in-a-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4188,7 +4202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/12-intersection-of-two-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4209,7 +4223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
+      <a href="../../linked-list/13-intersection-of-linked-lists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4230,7 +4244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/14-remove-duplicates-from-sorted-linked-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4251,7 +4265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
+      <a href="../../linked-list/15-reverse-a-linked-list-in-place/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4272,7 +4286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
+      <a href="../../linked-list/16-reverse-every-group-of-k-nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4293,7 +4307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
+      <a href="../../linked-list/17-split-linked-list-in-first-and-second-halves/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4314,7 +4328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
+      <a href="../../linked-list/18-turn-a-linked-list-iterable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4378,7 +4392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/sorting/01-merge-overlapping-intervals/" class="md-nav__link">
+      <a href="../../sorting/01-merge-overlapping-intervals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4442,7 +4456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/string/01-longest-common-prefix/" class="md-nav__link">
+      <a href="../../string/01-longest-common-prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4506,7 +4520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practice/misc/01-generate-pascals-triangle-row/" class="md-nav__link">
+      <a href="../../misc/01-generate-pascals-triangle-row/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4577,7 +4591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer/" class="md-nav__link">
+      <a href="../../../labs/tree-printer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4598,7 +4612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer-2/" class="md-nav__link">
+      <a href="../../../labs/tree-printer-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4619,7 +4633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/huffman-encoding/" class="md-nav__link">
+      <a href="../../../labs/huffman-encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4717,7 +4731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/singleton/" class="md-nav__link">
+      <a href="../../../design-patterns/singleton/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4738,7 +4752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/builder/" class="md-nav__link">
+      <a href="../../../design-patterns/builder/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4809,7 +4823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/intro/" class="md-nav__link">
+      <a href="../../../concurrency/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4872,7 +4886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections-framework/" class="md-nav__link">
+      <a href="../../../java/collections-framework/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4893,7 +4907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/iterators/" class="md-nav__link">
+      <a href="../../../java/iterators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4956,7 +4970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kt/concurrency/" class="md-nav__link">
+      <a href="../../../kt/concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5019,7 +5033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/structure/" class="md-nav__link">
+      <a href="../../../go/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5040,7 +5054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/constants/" class="md-nav__link">
+      <a href="../../../go/constants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5061,7 +5075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/basic-types/" class="md-nav__link">
+      <a href="../../../go/basic-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5082,7 +5096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/aggregate-types/" class="md-nav__link">
+      <a href="../../../go/aggregate-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5138,7 +5152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/reference-types/" class="md-nav__link">
+      <a href="../../../go/reference-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5159,7 +5173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/interfaces/" class="md-nav__link">
+      <a href="../../../go/interfaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5180,7 +5194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/functions/" class="md-nav__link">
+      <a href="../../../go/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5209,7 +5223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/generics/" class="md-nav__link">
+      <a href="../../../go/generics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5272,7 +5286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/activities/" class="md-nav__link">
+      <a href="../../../android/activities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5293,7 +5307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/tasks/" class="md-nav__link">
+      <a href="../../../android/tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5314,7 +5328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fragments/" class="md-nav__link">
+      <a href="../../../android/fragments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5335,7 +5349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/state-restoration/" class="md-nav__link">
+      <a href="../../../android/state-restoration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5356,7 +5370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/viewmodel/" class="md-nav__link">
+      <a href="../../../android/viewmodel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5377,7 +5391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/animation-transition/" class="md-nav__link">
+      <a href="../../../android/animation-transition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5475,7 +5489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/basics/" class="md-nav__link">
+      <a href="../../../js/objects/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5496,7 +5510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/prototype/" class="md-nav__link">
+      <a href="../../../js/objects/prototype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5517,7 +5531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/this/" class="md-nav__link">
+      <a href="../../../js/objects/this/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5588,7 +5602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/box-model/" class="md-nav__link">
+      <a href="../../../css/box-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5609,7 +5623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/relative-units/" class="md-nav__link">
+      <a href="../../../css/relative-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5634,19 +5648,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
         
           
           <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
@@ -5660,7 +5672,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
             Python
@@ -5674,7 +5686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basics/" class="md-nav__link">
+      <a href="../../../python/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5695,7 +5707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
+      <a href="../../../python/operators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5716,7 +5728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structure/" class="md-nav__link">
+      <a href="../../../python/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5737,7 +5749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../objects/" class="md-nav__link">
+      <a href="../../../python/objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5758,7 +5770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
+      <a href="../../../python/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5776,30 +5788,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Generators
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../python/generators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5808,62 +5800,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cleanup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cleanup
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restarting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restarting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generator-intake" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generator Intake
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yield-from" class="md-nav__link">
-    <span class="md-ellipsis">
-      yield from
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5876,7 +5812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/" class="md-nav__link">
+      <a href="../../../python/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5939,7 +5875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/static-ip/" class="md-nav__link">
+      <a href="../../../ubuntu/static-ip/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5960,7 +5896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/ntfs-mount/" class="md-nav__link">
+      <a href="../../../ubuntu/ntfs-mount/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5981,7 +5917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/transmission/" class="md-nav__link">
+      <a href="../../../ubuntu/transmission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6002,7 +5938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/samba/" class="md-nav__link">
+      <a href="../../../ubuntu/samba/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6100,7 +6036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../snippets/android/gradle/" class="md-nav__link">
+      <a href="../../../snippets/android/gradle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6121,7 +6057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../snippets/android/calculate-height-of-composables/" class="md-nav__link">
+      <a href="../../../snippets/android/calculate-height-of-composables/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6192,7 +6128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../howto/printer-3p-ink/" class="md-nav__link">
+      <a href="../../../howto/printer-3p-ink/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6255,7 +6191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/display/" class="md-nav__link">
+      <a href="../../../misc/display/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6276,7 +6212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/yt-dlp/" class="md-nav__link">
+      <a href="../../../misc/yt-dlp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6317,50 +6253,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cleanup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cleanup
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restarting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restarting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generator-intake" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generator Intake
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yield-from" class="md-nav__link">
-    <span class="md-ellipsis">
-      yield from
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -6374,99 +6266,68 @@
                   
 
 
-<h1 id="python-generators">Python – Generators</h1>
-<style>
-.md-logo img {
-  content: url('/python/python.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/python/python.svg');
-}
-</style>
-
-<p>If a function uses <code>yield</code> that's a generator.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">yield</span> <span class="n">n</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+<h1 id="even-fibonacci-numbers">Even Fibonacci Numbers</h1>
+<p><a href="https://projecteuler.net/problem=2">projecteuler.net/problem=2</a></p>
+<p>Find the sum of all even terms in the Fibonacci sequence, upto and until <span class="arithmatex">\(N\)</span>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Level 1</label><label for="__tabbed_1_2">Level 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<details>
+<summary>Expand</summary>
+<p>We only need to generate the number of the sequence and sum them if they are even.</p>
+<p>```kotlin
+private fun sumEvenFibonacci(max: Int) : Int {
+  if (max &lt; 1) return 0
+  if (max &lt; 2) return 0</p>
+<p>var sum = 0</p>
+<p>var first = 1
+  var second = 2
+  while (second &lt;= max) {
+    if (second % 2 == 0) sum += second
+    val t = second
+    second = first + second
+    first = t
+  }</p>
+<p>return sum
+}</p>
+<p>assertThat(sumEvenFibonacci(4_000_000)).isEqualTo(4613732)</p>
+</details>
+<p>```</p>
+</div>
+<div class="tabbed-block">
+<details>
+<summary>Expand</summary>
+<p>Write down the actual sequence</p>
+<div class="arithmatex">\[
+1, 1, \fbox{2}, 3, 5, \fbox{8}, 13, 21, \fbox{34}, 55, 89, \fbox{144}, \dots
+\]</div>
+<p>notice how every third number is even. We can use this to simply skip the check for even numbers.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">sumEvenFibonacci</span><span class="p">(</span><span class="n">max</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">third</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="c1">// print 1, 1, 2</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">next</span><span class="p">(</span><span class="n">countdown</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 4</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">next</span><span class="p">(</span><span class="n">countdown</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 4</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">next</span><span class="p">(</span><span class="n">countdown</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 4</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">next</span><span class="p">(</span><span class="n">countdown</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 4</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">c</span> <span class="o">=</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="c1"># 4</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="c1"># 3</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="c1"># 2</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="c1"># 1</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="c1"># StopIteration</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">third</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">third</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">third</span><span class="w"> </span><span class="c1">// slide window by 3 steps instead of just 1.</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">third</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">first</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">third</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">second</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="c1">// print 3, 5, 8</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="c1">// print 13, 21, 34</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="c1">// print 55, 89, 144</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">assertThat</span><span class="p">(</span><span class="n">sumEvenFibonacci</span><span class="p">(</span><span class="m">4</span><span class="n">_000_000</span><span class="p">)).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="m">4613732</span><span class="p">)</span>
 </span></code></pre></div>
-<p><code>next</code> is generally not called directly, but through a <code>for</code> loop.</p>
-<h2 id="cleanup">Cleanup</h2>
-<p>a generator may get abandoned before being fully consumed. we can schedule any cleanup on it being garbage collected through a <code>finally</code> block.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      <span class="k">yield</span> <span class="n">n</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  <span class="k">finally</span><span class="p">:</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># release any resources</span>
-</span></code></pre></div>
-<h2 id="restarting">Restarting</h2>
-<p>a generator can only be executed to completion once.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">c</span> <span class="o">=</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 3 2 1</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># does nothing</span>
-</span></code></pre></div>
-<p>if you want to be able to restart, convert it to a class and make <code>__iter__</code> return a generator:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">countdown</span><span class="p">:</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>  
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      <span class="k">yield</span> <span class="n">n</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>      <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">c</span> <span class="o">=</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 3 2 1</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 3 2 1</span>
-</span></code></pre></div>
-<p>as an object, when <code>for</code> loop is called on <code>c</code>, it implicitly calls <code>__iter__</code>, thus creating a fresh new generator.</p>
-<h2 id="generator-intake">Generator Intake</h2>
-<p><code>yield</code> can be used in right-hand-side to pass value to a generator.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">receiver</span><span class="p">():</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">n</span> <span class="o">=</span> <span class="k">yield</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got&#39;</span> <span class="n">n</span><span class="p">)</span>
-</span></code></pre></div>
-<p>we can call it like this:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">r</span> <span class="o">=</span> <span class="n">receiver</span><span class="p">()</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">r</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># ready</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">r</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># Got 1</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">r</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># Got 2</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">r</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">r</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1"># StopIteration</span>
-</span></code></pre></div>
-<p>the first <code>send</code> is necessary so the generator executes the statements leading to the first <code>yield</code>.</p>
-<p>There isn't much practical use of this feature these days.</p>
-<h2 id="yield-from"><code>yield from</code></h2>
-<p><a href="https://stackoverflow.com/questions/9708902/in-practice-what-are-the-main-uses-for-the-yield-from-syntax-in-python-3-3">Read this</a></p>
+</details>
+</div>
+</div>
+</div>
 
 
 
@@ -6513,14 +6374,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../assets/javascripts/placeholder-combined.js"></script>
+        <script src="../../../assets/javascripts/placeholder-combined.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

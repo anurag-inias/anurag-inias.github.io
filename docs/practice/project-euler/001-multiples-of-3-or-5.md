@@ -4,7 +4,7 @@
 
 Given a number $N$, find the sum of all the numbers $n$ divisible by either $3$ or $5$ such that $n \le N$.
 
-=== "Naive solution"
+=== "Level 1"
 
     ??? "Expand"
 
@@ -19,7 +19,7 @@ Given a number $N$, find the sum of all the numbers $n$ divisible by either $3$ 
 
         Solution above works fine. However, we end up iterative over all the numbers in $[1, N]$. Why even process $2, 4, 6, \dots$?
 
-=== "Next level"
+=== "Leve 2"
 
     ??? "Expand"
 
@@ -39,7 +39,7 @@ Given a number $N$, find the sum of all the numbers $n$ divisible by either $3$ 
 
         This too is $O(N)$, but we saved some constant factor time.
 
-=== "Final"
+=== "Level 3"
 
     ??? "Expand"
 
@@ -75,4 +75,7 @@ Given a number $N$, find the sum of all the numbers $n$ divisible by either $3$ 
           val sum15 = (range / 15).sequenceSum() * 15
           return sum3 + sum5 - sum15
         }
+
+        assertThat(multipleOf3Or5(10)).isEqualTo(23)
+        assertThat(multipleOf3Or5(999)).isEqualTo(233168)
         ```

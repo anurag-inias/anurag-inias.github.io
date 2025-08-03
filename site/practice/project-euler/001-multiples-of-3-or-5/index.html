@@ -14,7 +14,7 @@
         <link rel="prev" href="../../">
       
       
-        <link rel="next" href="../../greedy/01-activity-selection/">
+        <link rel="next" href="../002-even-fibonacci-numbers/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
@@ -2798,6 +2798,27 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002-even-fibonacci-numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <span class="problem-index"><span> 2. </span>Even Fibonacci Numbers</span>
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6248,7 +6269,7 @@
 <h1 id="multiples-of-3-or-5">Multiples of 3 or 5</h1>
 <p><a href="https://projecteuler.net/problem=1">projecteuler.net/problem=1</a></p>
 <p>Given a number <span class="arithmatex">\(N\)</span>, find the sum of all the numbers <span class="arithmatex">\(n\)</span> divisible by either <span class="arithmatex">\(3\)</span> or <span class="arithmatex">\(5\)</span> such that <span class="arithmatex">\(n \le N\)</span>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Naive solution</label><label for="__tabbed_1_2">Next level</label><label for="__tabbed_1_3">Final</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Level 1</label><label for="__tabbed_1_2">Leve 2</label><label for="__tabbed_1_3">Level 3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <details>
@@ -6304,6 +6325,9 @@
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">sum15</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">range</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">15</span><span class="p">).</span><span class="na">sequenceSum</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">15</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sum15</span>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">assertThat</span><span class="p">(</span><span class="n">multipleOf3Or5</span><span class="p">(</span><span class="m">10</span><span class="p">)).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="m">23</span><span class="p">)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">assertThat</span><span class="p">(</span><span class="n">multipleOf3Or5</span><span class="p">(</span><span class="m">999</span><span class="p">)).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="m">233168</span><span class="p">)</span>
 </span></code></pre></div>
 </details>
 </div>
