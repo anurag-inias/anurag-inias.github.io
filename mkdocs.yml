@@ -100,6 +100,8 @@ nav:
       - Calculus:
           - Functions: "maths/calculus/functions.md"
   - Algorithms:
+      - Maths:
+          - Sieve of Eratosthenes: "algorithms/maths/sieve-of-eratosthenes.md"
       - Binary Search: "algorithms/search/binary.md"
       - Partitioning: "algorithms/partition/partition.md"
       - Sorting:
@@ -172,6 +174,7 @@ nav:
       - Project Euler (947):
           - <span class="problem-index"><span> 1. </span>Multiples of 3 or 5</span>: "practice/project-euler/001-multiples-of-3-or-5.md"
           - <span class="problem-index"><span> 2. </span>Even Fibonacci Numbers</span>: "practice/project-euler/002-even-fibonacci-numbers.md"
+          - <span class="problem-index"><span> 3. </span>Largest Prime Factor</span>: "practice/project-euler/003-largest-prime-factor.md"
       - Greedy (7):
           - <span class="problem-index"><span>1. </span>Activity selection</span>: "practice/greedy/01-activity-selection.md"
           - <span class="problem-index"><span>2. </span>Huffman Coding</span>: "practice/greedy/02-huffman-coding.md"

@@ -30,7 +30,7 @@ Find the sum of all even terms in the Fibonacci sequence, upto and until $N$.
         }
 
         assertThat(sumEvenFibonacci(4_000_000)).isEqualTo(4613732)
-    ```
+        ```
 
 === "Level 2"
 
