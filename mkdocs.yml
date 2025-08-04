@@ -175,6 +175,11 @@ nav:
           - <span class="problem-index"><span> 1. </span>Multiples of 3 or 5</span>: "practice/project-euler/001-multiples-of-3-or-5.md"
           - <span class="problem-index"><span> 2. </span>Even Fibonacci Numbers</span>: "practice/project-euler/002-even-fibonacci-numbers.md"
           - <span class="problem-index"><span> 3. </span>Largest Prime Factor</span>: "practice/project-euler/003-largest-prime-factor.md"
+      - Array (156):
+          - <span class="problem-index"><span>1. </span>Check if a subarray with 0 sum exists or not</span>: "practice/array/001-check-subarray-with-0-sum-exists-not.md"
+          - <span class="problem-index"><span>2. </span>Sort binary array</span>: "practice/array/002-sort-binary-array.md"
+          - <span class="problem-index"><span>3. </span>Find the duplicate element in a limited range array</span>: "practice/array/003-find-duplicate-element-limited-range-array.md"
+          - <span class="problem-index"><span>4. </span>Find the largest subarray formed by consecutive integers</span>: "practice/array/004-find-largest-sub-array-formed-by-consecutive-integers.md"
       - Greedy (7):
           - <span class="problem-index"><span>1. </span>Activity selection</span>: "practice/greedy/01-activity-selection.md"
           - <span class="problem-index"><span>2. </span>Huffman Coding</span>: "practice/greedy/02-huffman-coding.md"
