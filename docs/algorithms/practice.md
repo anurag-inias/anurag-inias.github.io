@@ -2,8 +2,6 @@
 
 [:material-notification-clear-all: Clear all](#){ .md-button }
 
-<button onclick="clearCheckboxStates();">Clear all</button>
-
 |Done |Index   | Title  |Acceptance rate   |Difficulty   |Link  |
 |---|---|---|---|---|---|
 | <input type="checkbox"/> |1|Two Sum|56.30%|Easy|[link](https://leetcode.com/problems/two-sum?envType=problem-list-v2&envId=nethpi8g)|
