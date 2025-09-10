@@ -2,11 +2,11 @@
 
 <style>
 .md-logo img {
-  content: url('/howto/icon-light.png');
+  content: url('/misc/hd-light.svg');
 }
 
 :root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/howto/icon-dark.png');
+  content: url('/misc/hd-dark.svg');
 }
 </style>
 
