@@ -192,9 +192,9 @@ $O(E \log V)$
 
 <div markdown class="grid">
 
-![](/data-structures/graph/minimum-spanning-tree/example-graph.png){width=250}
+![](example-graph.png){width=250}
 
-![](/data-structures/graph/minimum-spanning-tree/example-mst.png){width=250}
+![](example-mst.png){width=250}
 
 $\text{Graph }G$
 

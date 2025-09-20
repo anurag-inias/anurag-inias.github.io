@@ -76,7 +76,7 @@ val root = minHeap.poll()
 
 At this point, we'll end up with a tree like this. Notice that the actual token from the input are our leaf nodes.
 
-![](/algorithms/greedy/huffman-coding-tree.png)
+![](huffman-coding-tree.png)
 
 <div markdown class="grid">
 
