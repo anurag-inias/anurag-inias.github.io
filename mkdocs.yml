@@ -102,6 +102,7 @@ nav:
   - Algorithms:
       - Practice: "algorithms/practice.md"
       - Maths:
+          - gcd: "algorithms/maths/gcd.md"
           - Sieve of Eratosthenes: "algorithms/maths/sieve-of-eratosthenes.md"
       - Binary Search: "algorithms/search/binary.md"
       - Partitioning: "algorithms/partition/partition.md"
