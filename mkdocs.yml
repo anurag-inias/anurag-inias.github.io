@@ -100,7 +100,8 @@ nav:
       - Calculus:
           - Functions: "maths/calculus/functions.md"
   - Algorithms:
-      - Practice: "algorithms/practice.md"
+      - Problems: "problems"
+      - EPI: "epi"
       - Maths:
           - gcd: "algorithms/maths/gcd.md"
           - Sieve of Eratosthenes: "algorithms/maths/sieve-of-eratosthenes.md"
