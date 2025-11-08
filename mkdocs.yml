@@ -5,9 +5,8 @@ theme:
   logo: assets/fatigue-light.svg
   favicon: assets/fatigue-dark.svg
   font:
-    text: "Briskpace"
+    text: "Besley Medium"
     code: "Mullet"
-    # code: "Roboto Mono Medium"
   features:
     - content.code.copy
     - content.code.annotate
