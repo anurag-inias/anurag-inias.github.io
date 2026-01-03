@@ -172,6 +172,7 @@ nav:
               - Kruskal's Algorithm: "data-structures/graph/minimum-spanning-tree/kruskal.md"
               - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
   - <a href="/problems" target="_blank">Problems ↗</a>: "problems"
+  - <a href="/problems" target="_blank">EPI ↗</a>: "epi"
   - Techniques:
       - Pack two integers in one: "techniques/001-pack-two-integers-in-one.md"
       - Prefix/Suffix arrays: "techniques/002-prefix-suffix-arrays.md"
