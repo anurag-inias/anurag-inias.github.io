@@ -99,8 +99,6 @@ nav:
       - Calculus:
           - Functions: "maths/calculus/functions.md"
   - Algorithms:
-      - Problems: "problems"
-      - EPI: "epi"
       - Maths:
           - gcd: "algorithms/maths/gcd.md"
           - Sieve of Eratosthenes: "algorithms/maths/sieve-of-eratosthenes.md"
@@ -173,6 +171,15 @@ nav:
               - Introduction: "data-structures/graph/minimum-spanning-tree/intro.md"
               - Kruskal's Algorithm: "data-structures/graph/minimum-spanning-tree/kruskal.md"
               - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
+  - <a href="/problems" target="_blank">Problems ↗</a>: "problems"
+  - Techniques:
+      - Pack two integers in one: "techniques/001-pack-two-integers-in-one.md"
+      - Prefix/Suffix arrays: "techniques/002-prefix-suffix-arrays.md"
+      - Converging pointers: "techniques/003-converging-pointers.md"
+      - Seen map: "techniques/004-seen-map.md"
+      - Sliding window: "techniques/005-sliding-window.md"
+      - Fixed size heap: "techniques/006-fixed-size-heap.md"
+      - Powerset generation: "techniques/007-powerset.md"
   - Labs:
       - Tree Printer: "labs/tree-printer.md"
       - Tree Printer v2: "labs/tree-printer-2.md"
