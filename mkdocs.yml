@@ -123,8 +123,8 @@ nav:
           - Longest palindromic subsequence: "algorithms/dynamic-programming/longest-palindromic-subsequence.md"
       - Greedy:
           - Huffman coding: "algorithms/greedy/huffman-coding.md"
-      - Misc:
-          - Fisher-Yates Shuffle: "algorithms/misc/fisher-yates-shuffle.md"
+      - Random:
+          - Fisher-Yates Shuffle: "algorithms/random/fisher-yates-shuffle.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
@@ -135,8 +135,7 @@ nav:
           - Doubly Linked List: "data-structures/linked-list/doubly-linked-list.md"
           - Common Patterns: "data-structures/linked-list/patterns.md"
       - Array:
-          - Problems:
-              - "The Dutch National Flag Problem": "data-structures/array/problems/dutch-national-flag.md"
+          - Fisher-Yates Shuffle: "data-structures/array/fisher-yates-shuffle.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
       - Heap: "data-structures/heap/index.md"
