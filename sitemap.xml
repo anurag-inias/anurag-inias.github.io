@@ -53,6 +53,10 @@
          <lastmod>2026-01-04</lastmod>
     </url>
     <url>
+         <loc>https://listless.dev/algorithms/random/reservoir-sampling/</loc>
+         <lastmod>2026-01-04</lastmod>
+    </url>
+    <url>
          <loc>https://listless.dev/algorithms/search/binary/</loc>
          <lastmod>2026-01-04</lastmod>
     </url>
@@ -146,6 +150,10 @@
     </url>
     <url>
          <loc>https://listless.dev/data-structures/array/fisher-yates-shuffle/</loc>
+         <lastmod>2026-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://listless.dev/data-structures/array/reservoir-sampling/</loc>
          <lastmod>2026-01-04</lastmod>
     </url>
     <url>

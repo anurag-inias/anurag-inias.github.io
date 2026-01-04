@@ -11,7 +11,7 @@
         <link rel="prev" href="../../greedy/huffman-coding/">
       
       
-        <link rel="next" href="../../../data-structures/numbers/representation/">
+        <link rel="next" href="../reservoir-sampling/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
@@ -1682,10 +1682,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#partial-fisher-yates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partial Fisher-Yates
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reservoir-sampling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reservoir Sampling
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2025,6 +2057,29 @@
   
   <span class="md-ellipsis">
     Fisher-Yates Shuffle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structures/array/reservoir-sampling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reservoir Sampling
     
   </span>
   
@@ -5159,6 +5214,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#partial-fisher-yates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partial Fisher-Yates
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5189,6 +5253,27 @@
 <li>Then, in each iteration, pick a random number from the first part and insert it into the second part.</li>
 <li>As the algorithm runs, the first part shrinks and the second part grows.</li>
 </ol>
+<h2 id="partial-fisher-yates">Partial Fisher-Yates</h2>
+<p>Let's say we are given <span class="arithmatex">\(n\)</span> numbers and are asked to come up with a random subset of size <span class="arithmatex">\(k\)</span>. </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Shuffles `A` such that the first `k` elements are a random subset of the original input `A`</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">randomSampling</span><span class="p">(</span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">A</span><span class="p">.</span><span class="na">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>For index <span class="arithmatex">\(i \in [0, k)\)</span>, replace it with a random pick from <span class="arithmatex">\([i, n)\)</span>.</p>
+<ul>
+<li>for index <span class="arithmatex">\(0\)</span>, replace it with a random pick from <span class="arithmatex">\([0, n)\)</span></li>
+<li>for index <span class="arithmatex">\(1\)</span>, replace it with a random pick from <span class="arithmatex">\([1, n)\)</span></li>
+<li>for index <span class="arithmatex">\(2\)</span>, replace it with a random pick from <span class="arithmatex">\([2, n)\)</span></li>
+<li>for index <span class="arithmatex">\(3\)</span>, replace it with a random pick from <span class="arithmatex">\([3, n)\)</span></li>
+<li>and so on.</li>
+</ul>
+<p>i.e. once an element of the <span class="arithmatex">\(k\)</span> sized subset is fixed, we leave it be and don't consider for future draws.</p>
 
 
 
