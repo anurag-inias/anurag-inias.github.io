@@ -171,6 +171,7 @@ nav:
               - Introduction: "data-structures/graph/minimum-spanning-tree/intro.md"
               - Kruskal's Algorithm: "data-structures/graph/minimum-spanning-tree/kruskal.md"
               - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
+  - <a href="/cip" target="_blank">CIP ↗</a>: "cip"
   - <a href="/problems" target="_blank">Problems ↗</a>: "problems"
   - <a href="/epi" target="_blank">EPI ↗</a>: "epi"
   - Techniques:
