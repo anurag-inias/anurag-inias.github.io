@@ -125,6 +125,7 @@ nav:
           - Huffman coding: "algorithms/greedy/huffman-coding.md"
       - Random:
           - Fisher-Yates Shuffle: "algorithms/random/fisher-yates-shuffle.md"
+          - Reservoir Sampling: "algorithms/random/reservoir-sampling.md"
   - Data Structures:
       - Numbers:
           - Representation: "data-structures/numbers/representation.md"
@@ -136,6 +137,7 @@ nav:
           - Common Patterns: "data-structures/linked-list/patterns.md"
       - Array:
           - Fisher-Yates Shuffle: "data-structures/array/fisher-yates-shuffle.md"
+          - Reservoir Sampling: "data-structures/array/reservoir-sampling.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
       - Heap: "data-structures/heap/index.md"
