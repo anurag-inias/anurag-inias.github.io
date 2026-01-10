@@ -138,6 +138,7 @@ nav:
       - Array:
           - Fisher-Yates Shuffle: "data-structures/array/fisher-yates-shuffle.md"
           - Reservoir Sampling: "data-structures/array/reservoir-sampling.md"
+          - Rotation: "data-structures/array/rotation.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
       - Heap: "data-structures/heap/index.md"
