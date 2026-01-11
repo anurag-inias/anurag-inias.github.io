@@ -5413,29 +5413,49 @@ a,\fbox{b, c, d, e, f}
 <p>First backup <span class="arithmatex">\(x_0 = a\)</span>.</p>
 <div class="arithmatex">\[
 \begin{align}
-&amp; \textbf{a}, b, c, d \\
-&amp; a \leftarrow b, c, d \\
-&amp; b, b \leftarrow c, d \\
-&amp; b, c, c \leftarrow d \\
-&amp; b, c, d, \textbf{d} \\
-&amp; b, c, d, a
+&amp; \underline a \ \ \ \ \ \ b \ \ \ \ \ \ c \ \ \ \ \ \ d \\
+\end{align}
+\]</div>
+<p>Then starting from the backed up element, traverse left to right, overwriting the element by its right neighbour.</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; a \leftarrow b \ \ \ \ \ \ c \ \ \ \ \ \ d \\
+&amp; b \ \ \ \ \ \ b \leftarrow c \ \ \ \ \ \ d \\
+&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ c \leftarrow d \\
+&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ d \\
 \end{align}
 \]</div>
 <p>Then restored the backed up element <span class="arithmatex">\(x_{n-1} = \text{backup} = a\)</span>.</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ \underline d \\
+&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ a
+\end{align}
+\]</div>
 </div>
 <div>
 <p>First backup <span class="arithmatex">\(x_{n-1} = d\)</span>.</p>
 <div class="arithmatex">\[
 \begin{align}
-&amp; a, b, c, \textbf{d} \\
-&amp; a, b, c \rightarrow d \\
-&amp; a, b \rightarrow c, c \\
-&amp; a \rightarrow b, b, c \\
-&amp; \textbf{a}, a, b, c \\
-&amp; d, a, b, c
+&amp; a \ \ \ \ \ \ b \ \ \ \ \ \ c \ \ \ \ \ \ \underline d \\
+\end{align}
+\]</div>
+<p>Then starting from the backed up element, traverse right to left, overwriting the element by its left neighbour.</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; a \ \ \ \ \ \ b \ \ \ \ \ \ c \rightarrow d \\
+&amp; a \ \ \ \ \ \ b \rightarrow c \ \ \ \ \ \ c \\
+&amp; a \rightarrow b \ \ \ \ \ \ b \ \ \ \ \ \ c \\
+&amp; a  \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c \\
 \end{align}
 \]</div>
 <p>Then restored the backed up element <span class="arithmatex">\(x_0 = \text{backup} = d\)</span>.</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; \underline a  \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c \\
+&amp; d \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c
+\end{align}
+\]</div>
 </div>
 </div>
 
