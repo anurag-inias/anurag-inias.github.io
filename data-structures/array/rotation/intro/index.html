@@ -5,31 +5,31 @@
       
       
       
-        <link rel="canonical" href="https://listless.dev/python/operators/">
+        <link rel="canonical" href="https://listless.dev/data-structures/array/rotation/intro/">
       
       
-        <link rel="prev" href="../basics/">
+        <link rel="prev" href="../../reservoir-sampling/">
       
       
-        <link rel="next" href="../structure/">
+        <link rel="next" href="../">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../feed_rss_updated.xml">
       
-      <link rel="icon" href="../../assets/fatigue-dark.svg">
+      <link rel="icon" href="../../../../assets/fatigue-dark.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>Operators - listless 💤</title>
+        <title>Introduction - listless 💤</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,18 +48,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../assets/javascripts/placeholder-plugin.css">
+      <link rel="stylesheet" href="../../../../assets/javascripts/placeholder-plugin.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-operators" class="md-skip">
+        <a href="#rotation" class="md-skip">
           Skip to content
         </a>
       
@@ -104,9 +104,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../../.." title="listless 💤" class="md-header__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Operators
+              Introduction
             
           </span>
         </div>
@@ -187,9 +187,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
+    <a href="../../../.." title="listless 💤" class="md-nav__button md-logo" aria-label="listless 💤" data-md-component="logo">
       
-  <img src="../../assets/fatigue-light.svg" alt="logo">
+  <img src="../../../../assets/fatigue-light.svg" alt="logo">
 
     </a>
     listless 💤
@@ -204,7 +204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -302,7 +302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/ghost-radio/" class="md-nav__link">
+      <a href="../../../../blog/books/ghost-radio/" class="md-nav__link">
         
   
   
@@ -325,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-institute/" class="md-nav__link">
+      <a href="../../../../blog/books/the-institute/" class="md-nav__link">
         
   
   
@@ -348,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-reaping/" class="md-nav__link">
+      <a href="../../../../blog/books/the-reaping/" class="md-nav__link">
         
   
   
@@ -371,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/books/the-hobbit/" class="md-nav__link">
+      <a href="../../../../blog/books/the-hobbit/" class="md-nav__link">
         
   
   
@@ -485,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/numbers/" class="md-nav__link">
+      <a href="../../../../maths/algebra/numbers/" class="md-nav__link">
         
   
   
@@ -508,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
+      <a href="../../../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
         
   
   
@@ -531,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/arithmetic-laws/" class="md-nav__link">
+      <a href="../../../../maths/algebra/arithmetic-laws/" class="md-nav__link">
         
   
   
@@ -554,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
+      <a href="../../../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
         
   
   
@@ -577,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/base-change/" class="md-nav__link">
+      <a href="../../../../maths/algebra/base-change/" class="md-nav__link">
         
   
   
@@ -600,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/expressions/" class="md-nav__link">
+      <a href="../../../../maths/algebra/expressions/" class="md-nav__link">
         
   
   
@@ -623,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/algebra/modulo/" class="md-nav__link">
+      <a href="../../../../maths/algebra/modulo/" class="md-nav__link">
         
   
   
@@ -692,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/sets/" class="md-nav__link">
+      <a href="../../../../maths/combinatorics/sets/" class="md-nav__link">
         
   
   
@@ -715,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/p-and-c/" class="md-nav__link">
+      <a href="../../../../maths/combinatorics/p-and-c/" class="md-nav__link">
         
   
   
@@ -738,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/combinatorics/probability/" class="md-nav__link">
+      <a href="../../../../maths/combinatorics/probability/" class="md-nav__link">
         
   
   
@@ -769,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/series/" class="md-nav__link">
+      <a href="../../../../maths/series/" class="md-nav__link">
         
   
   
@@ -830,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maths/calculus/functions/" class="md-nav__link">
+      <a href="../../../../maths/calculus/functions/" class="md-nav__link">
         
   
   
@@ -944,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/maths/gcd/" class="md-nav__link">
+      <a href="../../../../algorithms/maths/gcd/" class="md-nav__link">
         
   
   
@@ -967,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/maths/sieve-of-eratosthenes/" class="md-nav__link">
+      <a href="../../../../algorithms/maths/sieve-of-eratosthenes/" class="md-nav__link">
         
   
   
@@ -998,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/search/binary/" class="md-nav__link">
+      <a href="../../../../algorithms/search/binary/" class="md-nav__link">
         
   
   
@@ -1021,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/partition/partition/" class="md-nav__link">
+      <a href="../../../../algorithms/partition/partition/" class="md-nav__link">
         
   
   
@@ -1082,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/comparison/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/comparison/" class="md-nav__link">
         
   
   
@@ -1105,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/bubble-sort/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/bubble-sort/" class="md-nav__link">
         
   
   
@@ -1128,7 +1128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/insertion-sort/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/insertion-sort/" class="md-nav__link">
         
   
   
@@ -1151,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/selection-sort/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/selection-sort/" class="md-nav__link">
         
   
   
@@ -1174,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/heapsort/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/heapsort/" class="md-nav__link">
         
   
   
@@ -1197,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/quicksort/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/quicksort/" class="md-nav__link">
         
   
   
@@ -1220,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/mergesort/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/mergesort/" class="md-nav__link">
         
   
   
@@ -1243,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/sort/counting-sort/" class="md-nav__link">
+      <a href="../../../../algorithms/sort/counting-sort/" class="md-nav__link">
         
   
   
@@ -1312,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
+      <a href="../../../../algorithms/divide-and-conquer/master-method/" class="md-nav__link">
         
   
   
@@ -1381,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/intro/" class="md-nav__link">
+      <a href="../../../../algorithms/dynamic-programming/intro/" class="md-nav__link">
         
   
   
@@ -1404,7 +1404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
+      <a href="../../../../algorithms/dynamic-programming/rod-cutting/" class="md-nav__link">
         
   
   
@@ -1427,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
+      <a href="../../../../algorithms/dynamic-programming/longest-common-subsequence/" class="md-nav__link">
         
   
   
@@ -1450,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
+      <a href="../../../../algorithms/dynamic-programming/longest-common-substring/" class="md-nav__link">
         
   
   
@@ -1473,7 +1473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
+      <a href="../../../../algorithms/dynamic-programming/longest-palindromic-subsequence/" class="md-nav__link">
         
   
   
@@ -1542,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/greedy/huffman-coding/" class="md-nav__link">
+      <a href="../../../../algorithms/greedy/huffman-coding/" class="md-nav__link">
         
   
   
@@ -1611,7 +1611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/random/fisher-yates-shuffle/" class="md-nav__link">
+      <a href="../../../../algorithms/random/fisher-yates-shuffle/" class="md-nav__link">
         
   
   
@@ -1634,7 +1634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithms/random/reservoir-sampling/" class="md-nav__link">
+      <a href="../../../../algorithms/random/reservoir-sampling/" class="md-nav__link">
         
   
   
@@ -1669,18 +1669,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1696,7 +1698,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Data Structures
@@ -1748,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/representation/" class="md-nav__link">
+      <a href="../../../numbers/representation/" class="md-nav__link">
         
   
   
@@ -1771,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/bit-tricks/" class="md-nav__link">
+      <a href="../../../numbers/bit-tricks/" class="md-nav__link">
         
   
   
@@ -1794,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/numbers/addition/" class="md-nav__link">
+      <a href="../../../numbers/addition/" class="md-nav__link">
         
   
   
@@ -1863,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
+      <a href="../../../linked-list/singly-linked-list/" class="md-nav__link">
         
   
   
@@ -1886,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
+      <a href="../../../linked-list/doubly-linked-list/" class="md-nav__link">
         
   
   
@@ -1909,7 +1911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/linked-list/patterns/" class="md-nav__link">
+      <a href="../../../linked-list/patterns/" class="md-nav__link">
         
   
   
@@ -1937,18 +1939,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -1964,7 +1968,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Array
@@ -1978,7 +1982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/array/fisher-yates-shuffle/" class="md-nav__link">
+      <a href="../../fisher-yates-shuffle/" class="md-nav__link">
         
   
   
@@ -2001,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/array/reservoir-sampling/" class="md-nav__link">
+      <a href="../../reservoir-sampling/" class="md-nav__link">
         
   
   
@@ -2021,18 +2025,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
@@ -2048,7 +2054,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3_3">
             <span class="md-nav__icon md-icon"></span>
             Rotation
@@ -2059,10 +2065,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../data-structures/array/rotation/intro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2073,6 +2101,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rotation-by-pm1-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotation by \(\pm1\) steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-wrong-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      The wrong approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-correct-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      The correct approach
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2093,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/array/rotation/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -2162,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/stack/basics/" class="md-nav__link">
+      <a href="../../../stack/basics/" class="md-nav__link">
         
   
   
@@ -2193,7 +2268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/heap/" class="md-nav__link">
+      <a href="../../../heap/" class="md-nav__link">
         
   
   
@@ -2216,7 +2291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/disjoint-set/" class="md-nav__link">
+      <a href="../../../disjoint-set/" class="md-nav__link">
         
   
   
@@ -2239,7 +2314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/circular-list/" class="md-nav__link">
+      <a href="../../../circular-list/" class="md-nav__link">
         
   
   
@@ -2376,7 +2451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../tree/traversal/inorder-tree-traversal/" class="md-nav__link">
         
   
   
@@ -2399,7 +2474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../tree/traversal/preorder-tree-traversal/" class="md-nav__link">
         
   
   
@@ -2422,7 +2497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../../tree/traversal/postorder-tree-traversal/" class="md-nav__link">
         
   
   
@@ -2453,7 +2528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
+      <a href="../../../tree/traversal/level-traversal/" class="md-nav__link">
         
   
   
@@ -2530,7 +2605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/intro/" class="md-nav__link">
+      <a href="../../../trie/intro/" class="md-nav__link">
         
   
   
@@ -2553,7 +2628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/basic-trie/" class="md-nav__link">
+      <a href="../../../trie/basic-trie/" class="md-nav__link">
         
   
   
@@ -2576,7 +2651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/trie/compressed-trie/" class="md-nav__link">
+      <a href="../../../trie/compressed-trie/" class="md-nav__link">
         
   
   
@@ -2645,7 +2720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/intro/" class="md-nav__link">
+      <a href="../../../graph/intro/" class="md-nav__link">
         
   
   
@@ -2706,7 +2781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
+      <a href="../../../graph/traversal/generic-search/" class="md-nav__link">
         
   
   
@@ -2729,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/bfs/" class="md-nav__link">
+      <a href="../../../graph/traversal/bfs/" class="md-nav__link">
         
   
   
@@ -2752,7 +2827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/traversal/dfs/" class="md-nav__link">
+      <a href="../../../graph/traversal/dfs/" class="md-nav__link">
         
   
   
@@ -2783,7 +2858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/topological-sort/" class="md-nav__link">
+      <a href="../../../graph/topological-sort/" class="md-nav__link">
         
   
   
@@ -2844,7 +2919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
+      <a href="../../../graph/single-source-shortest-paths/intro/" class="md-nav__link">
         
   
   
@@ -2867,7 +2942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
+      <a href="../../../graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
         
   
   
@@ -2890,7 +2965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
+      <a href="../../../graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
         
   
   
@@ -2913,7 +2988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
+      <a href="../../../graph/single-source-shortest-paths/dag/" class="md-nav__link">
         
   
   
@@ -2982,7 +3057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
+      <a href="../../../graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
         
   
   
@@ -3051,7 +3126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
+      <a href="../../../graph/minimum-spanning-tree/intro/" class="md-nav__link">
         
   
   
@@ -3074,7 +3149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
+      <a href="../../../graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
         
   
   
@@ -3097,7 +3172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
+      <a href="../../../graph/minimum-spanning-tree/prim/" class="md-nav__link">
         
   
   
@@ -3143,7 +3218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cip" class="md-nav__link">
+      <a href="../../../../cip" class="md-nav__link">
         
   
   
@@ -3165,7 +3240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../problems" class="md-nav__link">
+      <a href="../../../../problems" class="md-nav__link">
         
   
   
@@ -3187,7 +3262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../epi" class="md-nav__link">
+      <a href="../../../../epi" class="md-nav__link">
         
   
   
@@ -3247,7 +3322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../techniques/001-pack-two-integers-in-one/" class="md-nav__link">
+      <a href="../../../../techniques/001-pack-two-integers-in-one/" class="md-nav__link">
         
   
   
@@ -3270,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../techniques/002-prefix-suffix-arrays/" class="md-nav__link">
+      <a href="../../../../techniques/002-prefix-suffix-arrays/" class="md-nav__link">
         
   
   
@@ -3293,7 +3368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../techniques/003-converging-pointers/" class="md-nav__link">
+      <a href="../../../../techniques/003-converging-pointers/" class="md-nav__link">
         
   
   
@@ -3316,7 +3391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../techniques/004-seen-map/" class="md-nav__link">
+      <a href="../../../../techniques/004-seen-map/" class="md-nav__link">
         
   
   
@@ -3339,7 +3414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../techniques/005-sliding-window/" class="md-nav__link">
+      <a href="../../../../techniques/005-sliding-window/" class="md-nav__link">
         
   
   
@@ -3362,7 +3437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../techniques/006-fixed-size-heap/" class="md-nav__link">
+      <a href="../../../../techniques/006-fixed-size-heap/" class="md-nav__link">
         
   
   
@@ -3385,7 +3460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../techniques/007-powerset/" class="md-nav__link">
+      <a href="../../../../techniques/007-powerset/" class="md-nav__link">
         
   
   
@@ -3453,7 +3528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer/" class="md-nav__link">
+      <a href="../../../../labs/tree-printer/" class="md-nav__link">
         
   
   
@@ -3476,7 +3551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/tree-printer-2/" class="md-nav__link">
+      <a href="../../../../labs/tree-printer-2/" class="md-nav__link">
         
   
   
@@ -3499,7 +3574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/huffman-encoding/" class="md-nav__link">
+      <a href="../../../../labs/huffman-encoding/" class="md-nav__link">
         
   
   
@@ -3605,7 +3680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/singleton/" class="md-nav__link">
+      <a href="../../../../design-patterns/singleton/" class="md-nav__link">
         
   
   
@@ -3628,7 +3703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-patterns/builder/" class="md-nav__link">
+      <a href="../../../../design-patterns/builder/" class="md-nav__link">
         
   
   
@@ -3704,7 +3779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/intro/" class="md-nav__link">
+      <a href="../../../../concurrency/intro/" class="md-nav__link">
         
   
   
@@ -3772,7 +3847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections-framework/" class="md-nav__link">
+      <a href="../../../../java/collections-framework/" class="md-nav__link">
         
   
   
@@ -3795,7 +3870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/iterators/" class="md-nav__link">
+      <a href="../../../../java/iterators/" class="md-nav__link">
         
   
   
@@ -3863,7 +3938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kt/concurrency/" class="md-nav__link">
+      <a href="../../../../kt/concurrency/" class="md-nav__link">
         
   
   
@@ -3931,7 +4006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/structure/" class="md-nav__link">
+      <a href="../../../../go/structure/" class="md-nav__link">
         
   
   
@@ -3954,7 +4029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/constants/" class="md-nav__link">
+      <a href="../../../../go/constants/" class="md-nav__link">
         
   
   
@@ -3977,7 +4052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/basic-types/" class="md-nav__link">
+      <a href="../../../../go/basic-types/" class="md-nav__link">
         
   
   
@@ -4000,7 +4075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/aggregate-types/" class="md-nav__link">
+      <a href="../../../../go/aggregate-types/" class="md-nav__link">
         
   
   
@@ -4061,7 +4136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/reference-types/" class="md-nav__link">
+      <a href="../../../../go/reference-types/" class="md-nav__link">
         
   
   
@@ -4084,7 +4159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/interfaces/" class="md-nav__link">
+      <a href="../../../../go/interfaces/" class="md-nav__link">
         
   
   
@@ -4107,7 +4182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/functions/" class="md-nav__link">
+      <a href="../../../../go/functions/" class="md-nav__link">
         
   
   
@@ -4138,7 +4213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../go/generics/" class="md-nav__link">
+      <a href="../../../../go/generics/" class="md-nav__link">
         
   
   
@@ -4206,7 +4281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/activities/" class="md-nav__link">
+      <a href="../../../../android/activities/" class="md-nav__link">
         
   
   
@@ -4229,7 +4304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/tasks/" class="md-nav__link">
+      <a href="../../../../android/tasks/" class="md-nav__link">
         
   
   
@@ -4252,7 +4327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fragments/" class="md-nav__link">
+      <a href="../../../../android/fragments/" class="md-nav__link">
         
   
   
@@ -4275,7 +4350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/state-restoration/" class="md-nav__link">
+      <a href="../../../../android/state-restoration/" class="md-nav__link">
         
   
   
@@ -4298,7 +4373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/viewmodel/" class="md-nav__link">
+      <a href="../../../../android/viewmodel/" class="md-nav__link">
         
   
   
@@ -4321,7 +4396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/animation-transition/" class="md-nav__link">
+      <a href="../../../../android/animation-transition/" class="md-nav__link">
         
   
   
@@ -4427,7 +4502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/basics/" class="md-nav__link">
+      <a href="../../../../js/objects/basics/" class="md-nav__link">
         
   
   
@@ -4450,7 +4525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/prototype/" class="md-nav__link">
+      <a href="../../../../js/objects/prototype/" class="md-nav__link">
         
   
   
@@ -4473,7 +4548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../js/objects/this/" class="md-nav__link">
+      <a href="../../../../js/objects/this/" class="md-nav__link">
         
   
   
@@ -4549,7 +4624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/box-model/" class="md-nav__link">
+      <a href="../../../../css/box-model/" class="md-nav__link">
         
   
   
@@ -4572,7 +4647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../css/relative-units/" class="md-nav__link">
+      <a href="../../../../css/relative-units/" class="md-nav__link">
         
   
   
@@ -4599,20 +4674,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19">
         
           
           <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="0">
@@ -4628,7 +4701,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
             Python
@@ -4642,7 +4715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basics/" class="md-nav__link">
+      <a href="../../../../python/basics/" class="md-nav__link">
         
   
   
@@ -4662,32 +4735,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Operators
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../python/operators/" class="md-nav__link">
         
   
   
@@ -4698,125 +4749,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#literals" class="md-nav__link">
-    <span class="md-ellipsis">
-      Literals
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#expressions-vs-statement" class="md-nav__link">
-    <span class="md-ellipsis">
-      Expressions vs Statement
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#standard-operators" class="md-nav__link">
-    <span class="md-ellipsis">
-      Standard Operators
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#object-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      Object Comparison
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iterable-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Iterable Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sequence-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sequence Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mutable-sequence-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mutable Sequence Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Set Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#map-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Map Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprehensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comprehensions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generator-expression" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generator Expression
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4829,7 +4761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structure/" class="md-nav__link">
+      <a href="../../../../python/structure/" class="md-nav__link">
         
   
   
@@ -4852,7 +4784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../objects/" class="md-nav__link">
+      <a href="../../../../python/objects/" class="md-nav__link">
         
   
   
@@ -4875,7 +4807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
+      <a href="../../../../python/functions/" class="md-nav__link">
         
   
   
@@ -4898,7 +4830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../generators/" class="md-nav__link">
+      <a href="../../../../python/generators/" class="md-nav__link">
         
   
   
@@ -4921,7 +4853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/" class="md-nav__link">
+      <a href="../../../../python/oop/" class="md-nav__link">
         
   
   
@@ -4989,7 +4921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/static-ip/" class="md-nav__link">
+      <a href="../../../../ubuntu/static-ip/" class="md-nav__link">
         
   
   
@@ -5012,7 +4944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/ntfs-mount/" class="md-nav__link">
+      <a href="../../../../ubuntu/ntfs-mount/" class="md-nav__link">
         
   
   
@@ -5035,7 +4967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/transmission/" class="md-nav__link">
+      <a href="../../../../ubuntu/transmission/" class="md-nav__link">
         
   
   
@@ -5058,7 +4990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu/samba/" class="md-nav__link">
+      <a href="../../../../ubuntu/samba/" class="md-nav__link">
         
   
   
@@ -5164,7 +5096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../snippets/android/gradle/" class="md-nav__link">
+      <a href="../../../../snippets/android/gradle/" class="md-nav__link">
         
   
   
@@ -5187,7 +5119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../snippets/android/calculate-height-of-composables/" class="md-nav__link">
+      <a href="../../../../snippets/android/calculate-height-of-composables/" class="md-nav__link">
         
   
   
@@ -5263,7 +5195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/display/" class="md-nav__link">
+      <a href="../../../../misc/display/" class="md-nav__link">
         
   
   
@@ -5286,7 +5218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/yt-dlp/" class="md-nav__link">
+      <a href="../../../../misc/yt-dlp/" class="md-nav__link">
         
   
   
@@ -5309,7 +5241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/printer-3p-ink/" class="md-nav__link">
+      <a href="../../../../misc/printer-3p-ink/" class="md-nav__link">
         
   
   
@@ -5359,99 +5291,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#literals" class="md-nav__link">
+  <a href="#rotation-by-pm1-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Literals
+      Rotation by \(\pm1\) steps
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#expressions-vs-statement" class="md-nav__link">
+  <a href="#the-wrong-approach" class="md-nav__link">
     <span class="md-ellipsis">
-      Expressions vs Statement
+      The wrong approach
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#standard-operators" class="md-nav__link">
+  <a href="#the-correct-approach" class="md-nav__link">
     <span class="md-ellipsis">
-      Standard Operators
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#object-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      Object Comparison
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iterable-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Iterable Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sequence-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sequence Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mutable-sequence-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mutable Sequence Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Set Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#map-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Map Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprehensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comprehensions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generator-expression" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generator Expression
+      The correct approach
     </span>
   </a>
   
@@ -5473,113 +5333,111 @@
 
 
 
-<h1 id="python-operators">Python – Operators</h1>
-<style>
-.md-logo img {
-  content: url('/python/python.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/python/python.svg');
-}
-</style>
-
-<h2 id="literals">Literals</h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="mi">42</span> <span class="c1"># decimal int</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="mb">0b1010</span> <span class="c1"># bin(42)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="mo">0o52</span> <span class="c1"># oct(42)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="mh">0x2a</span> <span class="c1"># hex(42)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="mf">42.0</span> <span class="c1"># IEEE 754 64-bit value</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="mf">42.</span> <span class="c1"># same as 42.0</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="mf">4.2e+1</span> <span class="c1"># same</span>
+<h1 id="rotation">Rotation</h1>
+<p>Rotating an array in either direction sounds like a simple problem, but the challenges show up soon after you start to try and implement it. It's easy to miss out on crucial details if you jump to the solution and don't spend time understanding why we do what we do.</p>
+<h2 id="rotation-by-pm1-steps">Rotation by <span class="arithmatex">\(\pm1\)</span> steps</h2>
+<div class="arithmatex">\[
+\fbox{a, b, c, d, e, f}
+\]</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">To left</label><label for="__tabbed_1_2">To right</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="arithmatex">\[
+a,\fbox{b, c, d, e, f}
+\]</div>
+<p>with <span class="arithmatex">\(a\)</span> going to the back.</p>
+</div>
+<div class="tabbed-block">
+<div class="arithmatex">\[
+\fbox{a, b, c, d, e,}f
+\]</div>
+<p>with <span class="arithmatex">\(f\)</span> going to the front.</p>
+</div>
+</div>
+</div>
+<h2 id="the-wrong-approach">The wrong approach</h2>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateRight</span><span class="p">(</span><span class="n">list</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">list</span><span class="o">[</span><span class="n">next</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">curr</span><span class="o">]</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="n">list</span><span class="o">[</span><span class="n">curr</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backup</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="expressions-vs-statement">Expressions vs Statement</h2>
-<p>Expressions produce at least one value. Statement do something and are composed of expressions / other statements.</p>
-<p><code>if</code> is usually as statement</p>
-<p>naming a result is only allowed within a statement, not in an expression. <code>:=</code> is an assignment expression which lets you do that.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span> <span class="c1"># SyntaxError</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">if</span> <span class="n">x</span> <span class="o">:=</span> <span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span> <span class="c1"># this works</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">x</span> <span class="o">:=</span> <span class="mi">4</span> <span class="c1"># SyntaxError. not allowed as normal assignment operator</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">(</span><span class="n">x</span> <span class="o">:=</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># allowed now</span>
-</span></code></pre></div>
-<h2 id="standard-operators">Standard Operators</h2>
-<p><code>+</code>, <code>-</code>, <code>*</code> etc are the common number operators like other languages. But other objects in Python tend to work with these too with some common sense:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1"># [1, 2, 3]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>   <span class="c1"># [1, 2, 1, 2, 1, 2, 1, 2] if + is add, then * must be repeated add</span>
-</span></code></pre></div>
-<h2 id="object-comparison">Object Comparison</h2>
-<p><code>==</code> checks for equality.</p>
+<p>Running this on <span class="arithmatex">\(1, 2, 3, 4\)</span> gives us <span class="arithmatex">\(1, 1, 1, 1\)</span> instead of <span class="arithmatex">\(4, 1, 2, 3\)</span>. </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1.svg" data-desc-position="bottom"><img alt="" src="../1.svg" width="300px"></a></p>
+<dl>
+<dt>There are two key mistakes here:</dt>
+<dd>
 <ul>
-<li>in case of lists and tuples, size must be same and with equal elements in same order.</li>
-<li>in case of dictionaries, same set of keys and corresponding mapped values.</li>
-<li>in case of sets, elements must be same.</li>
-<li>different types of objects will return <code>False</code> on comparison.</li>
-<li>implicit casting is possible when comparing int and floats.</li>
+<li><strong>Backing up the element which is anyway going to overwrite its neighbour.</strong></li>
+<li><strong>Propagating the element which itself was overwritten.</strong></li>
 </ul>
-<p>if you want Java like comparison (i.e. same object in memory), use <code>x is y</code>, <code>id(x) == id(y)</code>. Here <code>id()</code> is like <code>hashCode</code>. </p>
-<h2 id="iterable-operations">Iterable Operations</h2>
-<p>iteration is supported by all containers (list, tuple, dict etc), files and generator functions.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  <span class="c1"># iteration</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'oink'</span><span class="p">,</span> <span class="s1">'piggy'</span><span class="p">]</span> <span class="c1"># unpacking</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s1">'oink'</span> <span class="ow">in</span> <span class="n">names</span> <span class="c1"># membership check</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">[</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span><span class="p">,</span> <span class="n">last</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'oink'</span><span class="p">,</span> <span class="s1">'piggy'</span><span class="p">,</span> <span class="s1">'peppa'</span><span class="p">,</span> <span class="s1">'snort'</span><span class="p">]</span> <span class="c1"># expansion, same as JS destructuring</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">first</span> <span class="c1"># 'oink'</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">last</span> <span class="c1"># 'snort'</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">rest</span> <span class="c1"># ['piggy', 'peppa']</span>
+</dd>
+</dl>
+<h2 id="the-correct-approach">The correct approach</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../2.svg" data-desc-position="bottom"><img alt="" src="../2.svg" width="500px"></a></p>
+<div class="grid">
+<p><strong>to left</strong></p>
+<p><strong>to right</strong></p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateLeft</span><span class="p">(</span><span class="n">list</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="m">1</span><span class="o">]</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">list</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backup</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">any</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span> <span class="c1"># True, checks if any item is true</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">all</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span> <span class="c1"># False, checks if all items are true</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">sorted</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># [3, 4] gives a sorted copy</span>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateRightq</span><span class="p">(</span><span class="n">list</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="m">1</span><span class="o">]</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="n">downTo</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="o">]</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="n">list</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backup</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="sequence-operations">Sequence Operations</h2>
-<p>sequence are iterable containers with size and indices. i.e. strings, lists and tuples.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="c1"># [1, 2, 3, 4] concaternation</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s1">'hello'</span> <span class="o">*</span> <span class="mi">2</span> <span class="c1"># 'hellohello' makes 2 copies</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># indexing</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="c1"># slicing</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">:</span><span class="n">k</span><span class="p">]</span> <span class="c1"># slicing with steps</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="c1"># length</span>
-</span></code></pre></div>
-<h2 id="mutable-sequence-operations">Mutable Sequence Operations</h2>
-<p>So only lists, as strings and tuples are immutable.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'peter'</span> <span class="c1"># assignment at index</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="c1"># assign a whole slice</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">del</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># delete an element</span>
-</span></code></pre></div>
-<h2 id="set-operations">Set Operations</h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">a</span> <span class="o">|</span> <span class="n">b</span> <span class="c1"># union</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="c1"># intersection</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="c1"># difference</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="c1"># symmetric diff (items in a or b, but not in both)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nb">set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nb">set</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="c1"># remove if exists, else an error</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">set</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="c1"># remove if exists</span>
-</span></code></pre></div>
-<h2 id="map-operations">Map Operations</h2>
-<p><code>del m[key]</code>, <code>m.keys()</code>, <code>m.values()</code>. use <code>m.items()</code> for entries (i.e. key-value tuples).</p>
-<hr>
-<h2 id="comprehensions">Comprehensions</h2>
-<p>Basically <code>map</code> from Java streams.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">odd_squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># [1, 9]</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">odd_squares_set</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="n">same</span> <span class="n">stuff</span><span class="o">...</span><span class="p">}</span> <span class="c1"># {1, 9} can also do this with sets and dictionary</span>
-</span></code></pre></div>
-<h2 id="generator-expression">Generator Expression</h2>
-<p>Same as comprehensions, but lazy.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">odd_squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># &lt;generator object &lt;genexpr&gt; at 0x100b09ff0&gt;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">next</span><span class="p">(</span><span class="n">odd_squares</span><span class="p">)</span> <span class="c1"># 1</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">next</span><span class="p">(</span><span class="n">odd_squares</span><span class="p">)</span> <span class="c1"># 9</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">next</span><span class="p">(</span><span class="n">odd_squares</span><span class="p">)</span> <span class="c1"># StopIteration error</span>
-</span></code></pre></div>
+<div>
+<p>First backup <span class="arithmatex">\(x_0 = a\)</span>.</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; \textbf{a}, b, c, d \\
+&amp; a \leftarrow b, c, d \\
+&amp; b, b \leftarrow c, d \\
+&amp; b, c, c \leftarrow d \\
+&amp; b, c, d, \textbf{d} \\
+&amp; b, c, d, a
+\end{align}
+\]</div>
+<p>Then restored the backed up element <span class="arithmatex">\(x_{n-1} = \text{backup} = a\)</span>.</p>
+</div>
+<div>
+<p>First backup <span class="arithmatex">\(x_{n-1} = d\)</span>.</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; a, b, c, \textbf{d} \\
+&amp; a, b, c \rightarrow d \\
+&amp; a, b \rightarrow c, c \\
+&amp; a \rightarrow b, b, c \\
+&amp; \textbf{a}, a, b, c \\
+&amp; d, a, b, c
+\end{align}
+\]</div>
+<p>Then restored the backed up element <span class="arithmatex">\(x_0 = \text{backup} = d\)</span>.</p>
+</div>
+</div>
 
 
 
@@ -5628,14 +5486,14 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../assets/javascripts/placeholder-combined.js"></script>
+        <script src="../../../../assets/javascripts/placeholder-combined.js"></script>
       
     
   
