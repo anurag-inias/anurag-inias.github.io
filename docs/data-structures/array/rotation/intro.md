@@ -94,16 +94,29 @@ First backup $x_0 = a$.
 
 $$
 \begin{align}
-& \textbf{a}, b, c, d \\
-& a \leftarrow b, c, d \\
-& b, b \leftarrow c, d \\
-& b, c, c \leftarrow d \\
-& b, c, d, \textbf{d} \\
-& b, c, d, a
+& \underline a \ \ \ \ \ \ b \ \ \ \ \ \ c \ \ \ \ \ \ d \\
+\end{align}
+$$
+
+Then starting from the backed up element, traverse left to right, overwriting the element by its right neighbour.
+
+$$
+\begin{align}
+& a \leftarrow b \ \ \ \ \ \ c \ \ \ \ \ \ d \\
+& b \ \ \ \ \ \ b \leftarrow c \ \ \ \ \ \ d \\
+& b \ \ \ \ \ \ c \ \ \ \ \ \ c \leftarrow d \\
+& b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ d \\
 \end{align}
 $$
 
 Then restored the backed up element $x_{n-1} = \text{backup} = a$.
+
+$$
+\begin{align}
+& b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ \underline d \\
+& b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ a
+\end{align}
+$$
 
 </div>
 
@@ -113,16 +126,29 @@ First backup $x_{n-1} = d$.
 
 $$
 \begin{align}
-& a, b, c, \textbf{d} \\
-& a, b, c \rightarrow d \\
-& a, b \rightarrow c, c \\
-& a \rightarrow b, b, c \\
-& \textbf{a}, a, b, c \\
-& d, a, b, c
+& a \ \ \ \ \ \ b \ \ \ \ \ \ c \ \ \ \ \ \ \underline d \\
+\end{align}
+$$
+
+Then starting from the backed up element, traverse right to left, overwriting the element by its left neighbour.
+
+$$
+\begin{align}
+& a \ \ \ \ \ \ b \ \ \ \ \ \ c \rightarrow d \\
+& a \ \ \ \ \ \ b \rightarrow c \ \ \ \ \ \ c \\
+& a \rightarrow b \ \ \ \ \ \ b \ \ \ \ \ \ c \\
+& a  \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c \\
 \end{align}
 $$
 
 Then restored the backed up element $x_0 = \text{backup} = d$.
+
+$$
+\begin{align}
+& \underline a  \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c \\
+& d \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c
+\end{align}
+$$
 
 </div>
 
