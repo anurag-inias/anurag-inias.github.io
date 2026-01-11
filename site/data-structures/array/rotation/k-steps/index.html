@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://listless.dev/data-structures/array/rotation/intro/">
+        <link rel="canonical" href="https://listless.dev/data-structures/array/rotation/k-steps/">
       
       
-        <link rel="prev" href="../../reservoir-sampling/">
+        <link rel="prev" href="../1-step/">
       
       
-        <link rel="next" href="../">
+        <link rel="next" href="../../../stack/basics/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../feed_rss_created.xml">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Introduction - listless 💤</title>
+        <title>by ±k step - listless 💤</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rotation" class="md-skip">
+        <a href="#rotation-by-pm-k-steps" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              by ±k step
             
           </span>
         </div>
@@ -2065,6 +2065,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-step/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    by ±1 step
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2082,7 +2105,7 @@
   
   
   <span class="md-ellipsis">
-    Introduction
+    by ±k step
     
   </span>
   
@@ -2095,7 +2118,7 @@
   
   
   <span class="md-ellipsis">
-    Introduction
+    by ±k step
     
   </span>
   
@@ -2118,27 +2141,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rotation-by-pm1-steps" class="md-nav__link">
+  <a href="#via-juggling" class="md-nav__link">
     <span class="md-ellipsis">
-      Rotation by \(\pm1\) steps
+      Via juggling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Via juggling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the-wrong-approach" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#pseudocode" class="md-nav__link">
     <span class="md-ellipsis">
-      The wrong approach
+      Pseudocode
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#the-correct-approach" class="md-nav__link">
+  <a href="#via-reversal" class="md-nav__link">
     <span class="md-ellipsis">
-      The correct approach
+      Via reversal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Via reversal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison
     </span>
   </a>
   
@@ -2168,7 +2248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../rotation.md" class="md-nav__link">
         
   
   
@@ -5291,27 +5371,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rotation-by-pm1-steps" class="md-nav__link">
+  <a href="#via-juggling" class="md-nav__link">
     <span class="md-ellipsis">
-      Rotation by \(\pm1\) steps
+      Via juggling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Via juggling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the-wrong-approach" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#pseudocode" class="md-nav__link">
     <span class="md-ellipsis">
-      The wrong approach
+      Pseudocode
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#the-correct-approach" class="md-nav__link">
+  <a href="#via-reversal" class="md-nav__link">
     <span class="md-ellipsis">
-      The correct approach
+      Via reversal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Via reversal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison
     </span>
   </a>
   
@@ -5333,131 +5470,220 @@
 
 
 
-<h1 id="rotation">Rotation</h1>
-<p>Rotating an array in either direction sounds like a simple problem, but the challenges show up soon after you start to try and implement it. It's easy to miss out on crucial details if you jump to the solution and don't spend time understanding why we do what we do.</p>
-<h2 id="rotation-by-pm1-steps">Rotation by <span class="arithmatex">\(\pm1\)</span> steps</h2>
-<div class="arithmatex">\[
-\fbox{a, b, c, d, e, f}
-\]</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">To left</label><label for="__tabbed_1_2">To right</label></div>
+<h1 id="rotation-by-pm-k-steps">Rotation by <span class="arithmatex">\(\pm k\)</span> steps</h1>
+<h2 id="via-juggling">Via juggling</h2>
+<h3 id="explanation">Explanation</h3>
+<p>With the Juggling algorithm, the core idea is to divide the array into <code>gcd(n, k)</code> sets. Each set's elements are rotated among themselves.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="arithmatex">\(n = 18, k = 12, \ \text{gcd}(12, 18) = 6\)</span></label><label for="__tabbed_1_2"><span class="arithmatex">\(n = 7, k = 3, \ \text{gcd}(7, 3) = 1\)</span></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>The algorithm divides the input array in <span class="arithmatex">\(6\)</span> sequences, each of which is rotated within itself.</p>
 <div class="arithmatex">\[
-a,\fbox{b, c, d, e, f}
+\begin{align}
+&amp; \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{12} \ \boxed{13} \ \boxed{14} \  \boxed{15} \ \boxed{16} \ \boxed{17} \\
+\phantom{\text{group = 0 }} &amp;
+\end{align}
 \]</div>
-<p>with <span class="arithmatex">\(a\)</span> going to the back.</p>
+<div class="arithmatex">\[
+\begin{align}
+\text{group = 0 } &amp; \boxed{\phantom 1 \textbf{0}} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{\phantom 1 \textbf{6}} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{\textbf{12}} \ \boxed{13} \ \boxed{14} \  \boxed{15} \ \boxed{16} \ \boxed{17} \\
+&amp; \boxed{\phantom 1 \textbf{6}} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{\textbf{12}} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{\phantom 1 \textbf{0}} \ \boxed{13} \ \boxed{14} \  \boxed{15} \ \boxed{16} \ \boxed{17} \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+\text{group = 1 } &amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 \textbf 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{\phantom 1 \textbf 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\textbf{13}} \ \boxed{14} \  \boxed{15} \ \boxed{16} \ \boxed{17} \\
+&amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 \textbf 7} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{\textbf{13}} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 \textbf 1} \ \boxed{14} \  \boxed{15} \ \boxed{16} \ \boxed{17} \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+\text{group = 2 } &amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 \textbf 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{13} \ \boxed{\phantom 1 \textbf 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\textbf{14}} \  \boxed{15} \ \boxed{16} \ \boxed{17} \\
+&amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 \textbf 8} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{13} \ \boxed{\textbf{14}} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 \textbf 2} \  \boxed{15} \ \boxed{16} \ \boxed{17} \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+\text{group = 3 } &amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 \textbf 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{13} \ \boxed{14} \ \boxed{\phantom 1 \textbf 9} \ \boxed{10} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \  \boxed{\textbf{15}} \ \boxed{16} \ \boxed{17} \\
+&amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 \textbf 9} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{13} \ \boxed{14} \ \boxed{\textbf{15}} \ \boxed{10} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \  \boxed{\phantom 1 \textbf 3} \ \boxed{16} \ \boxed{17} \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+\text{group = 4 } &amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{\phantom 1 \textbf 4} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{13} \ \boxed{14} \ \boxed{15} \ \boxed{\textbf{10}} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \  \boxed{\phantom 1 3} \ \boxed{\textbf{16}} \ \boxed{17} \\
+&amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{\textbf{10}} \ \boxed{\phantom 1 5} \ \boxed{12} \ \boxed{13} \ \boxed{14} \ \boxed{15} \ \boxed{\textbf{16}} \ \boxed{11} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \  \boxed{\phantom 1 3} \ \boxed{\phantom 4 \textbf 4} \ \boxed{17} \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+\text{group = 5 } &amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{\phantom 1 \textbf 5} \ \boxed{12} \ \boxed{13} \ \boxed{14} \ \boxed{15} \ \boxed{16} \ \boxed{\textbf{11}} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \  \boxed{\phantom 1 3} \ \boxed{\phantom 4 4} \ \boxed{\textbf{17}} \\
+&amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{\textbf{11}} \ \boxed{12} \ \boxed{13} \ \boxed{14} \ \boxed{15} \ \boxed{16} \ \boxed{\textbf{17}} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \  \boxed{\phantom 1 3} \ \boxed{\phantom 4 4} \ \boxed{\phantom 1 \textbf{5}} \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+&amp; \boxed{\phantom 1 6} \ \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 9} \ \boxed{10} \ \boxed{11} \ \boxed{12} \ \boxed{13} \ \boxed{14} \ \boxed{15} \ \boxed{16} \ \boxed{17} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \  \boxed{\phantom 1 3} \ \boxed{\phantom 4 4} \ \boxed{\phantom 1 5} \\
+\phantom{\text{group = 0 }} &amp;
+\end{align}
+\]</div>
 </div>
 <div class="tabbed-block">
+<p>The algorithm divides the input array in just <span class="arithmatex">\(1\)</span> sequence. This sequence ends up wrapping around the array, covering all indices.</p>
 <div class="arithmatex">\[
-\fbox{a, b, c, d, e,}f
+\begin{align}
+&amp; \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{\phantom 1 6} \\
+\phantom{\text{group = 0 }} &amp;
+\end{align}
 \]</div>
-<p>with <span class="arithmatex">\(f\)</span> going to the front.</p>
+<div class="arithmatex">\[
+\begin{align}
+\text{group = 0 } &amp; \boxed{\phantom 1 \textbf 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 \textbf 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{\phantom 1 \textbf 6} \\
+&amp; \boxed{\phantom 1 7} \ \boxed{\phantom 1 8} \ \boxed{\phantom 1 \textbf 9} \ \boxed{10} \ \boxed{11} \ \boxed{\textbf{12}} \ \boxed{13} = \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 \textbf 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 \textbf 5} \ \boxed{\phantom 1 6} \\
+&amp; \boxed{14} \ \boxed{\textbf {15}} \ \boxed{16} \ \boxed{17} \ \boxed{\textbf{18}} \ \boxed{19} \ \boxed{20} = \boxed{\phantom 1 0} \ \boxed{\phantom 1 \textbf 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 \textbf 4} \ \boxed{\phantom 1 5} \ \boxed{\phantom 1 6} \\
+&amp; \boxed{\textbf{21}} \ \boxed{22} \ \boxed{23}  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ = \boxed{\phantom 1 \textbf 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \\
+\phantom{\text{group = 0 }} &amp;
+\end{align}
+\]</div>
+<p>This means that <span class="arithmatex">\(0\)</span> is overwritten with <span class="arithmatex">\(3\)</span>, which is overwritten with <span class="arithmatex">\(6\)</span> and so on:</p>
+<div class="arithmatex">\[
+\begin{align}
+\phantom 1 0 \leftarrow \phantom 1 3 \leftarrow \phantom 1 6 &amp; \leftarrow \phantom 1 9 (2) \leftarrow 12 (5) \leftarrow 15 (1) \leftarrow 18 (4) \leftarrow 21 (0) \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+&amp; \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \ \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{\phantom 1 6} \\
+&amp; \boxed{\phantom 1 3} \ \boxed{\phantom 1 4} \ \boxed{\phantom 1 5} \ \boxed{\phantom 1 6} \ \boxed{\phantom 1 0} \ \boxed{\phantom 1 1} \ \boxed{\phantom 1 2} \\
+\phantom{\text{group = 0 }} &amp;
+\end{align}
+\]</div>
 </div>
 </div>
 </div>
-<h2 id="the-wrong-approach">The wrong approach</h2>
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateRight</span><span class="p">(</span><span class="n">list</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">list</span><span class="o">[</span><span class="n">next</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">curr</span><span class="o">]</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="n">list</span><span class="o">[</span><span class="n">curr</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backup</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Running this on <span class="arithmatex">\(1, 2, 3, 4\)</span> gives us <span class="arithmatex">\(1, 1, 1, 1\)</span> instead of <span class="arithmatex">\(4, 1, 2, 3\)</span>. </p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1.svg" data-desc-position="bottom"><img alt="" src="../1.svg" width="300px"></a></p>
-<dl>
-<dt>There are two key mistakes here:</dt>
-<dd>
+<h3 id="pseudocode">Pseudocode</h3>
+<p>First sanitize the input. <span class="arithmatex">\(k\)</span> can be greater than <code>nums.length</code> or even negative. </p>
+<div class="arithmatex">\[
+k = (n + k \ \% \ n) \ \% \ n
+\]</div>
+<p>Next we need divide the array in <span class="arithmatex">\(g = gcd(n, k)\)</span> groups:</p>
+<ol>
+<li>First group starts from index <span class="arithmatex">\(0\)</span>.</li>
+<li>Second ground starts from index <span class="arithmatex">\(1\)</span>.</li>
+<li>...</li>
+<li>Last group starts from <span class="arithmatex">\(g - 1\)</span>.</li>
+</ol>
+<p>For each group <code>i</code> we do the following:</p>
+<ol>
+<li>
+<p>Backup the first element of the group <code>temp = a[i]</code>.</p>
+</li>
+<li>
+<p>set <code>curr = i</code> and <code>next = (curr + k) % n</code>.</p>
+</li>
+<li>
+<p>until we circle back to the beginning of the group (<code>next != start</code>), do:</p>
 <ul>
-<li><strong>Backing up the element which is anyway going to overwrite its neighbour.</strong></li>
-<li><strong>Propagating the element which itself was overwritten.</strong></li>
+<li>
+<p>shuffle elements forward <code>a[curr] = a[next]</code> and <code>curr = next</code>.</p>
+</li>
+<li>
+<p>update <code>next = (curr + k) % n</code>.</p>
+</li>
 </ul>
+</li>
+<li>
+<p>now that we are back to the beginning, restored the backed up element <code>a[curr] = temp</code>.</p>
+</li>
+</ol>
+<h3 id="implementation">Implementation</h3>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateLeft</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">start</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">]</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="n">nums</span><span class="o">[</span><span class="n">curr</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">next</span><span class="o">]</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">curr</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backup</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">b</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="c1">// swap</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="na">also</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="via-reversal">Via reversal</h2>
+<p>There is a much more straightforward way to achieve rotatation through reversing segments of the array. While previous approach takes just a single pass of the array, this one does two passes. Yet surprisingly, it ends up being way faster.</p>
+<h3 id="explanation_1">Explanation</h3>
+<p>Rotation to the right by <span class="arithmatex">\(k\)</span> steps is same as:</p>
+<ol>
+<li>reversing the whole array <span class="arithmatex">\(a\)</span>.</li>
+<li>reversing the elements <span class="arithmatex">\(a_0, a_1, \dots, a_{k-1}\)</span>.</li>
+<li>reversing the elements <span class="arithmatex">\(a_{k+1}, a_{k+2}, \dots, a_{n-1}\)</span>.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../rotation-1.png" data-desc-position="bottom"><img alt="" src="../rotation-1.png"></a></p>
+<p>Rotation to the left by <span class="arithmatex">\(k\)</span> steps is same as:</p>
+<ol>
+<li>reversing the elements <span class="arithmatex">\(a_0, a_1, \dots, a_{k-1}\)</span>.</li>
+<li>reversing the elements <span class="arithmatex">\(a_{k+1}, a_{k+2}, \dots, a_{n-1}\)</span>.</li>
+<li>reversing the whole array <span class="arithmatex">\(a\)</span>.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../rotation-2.png" data-desc-position="bottom"><img alt="" src="../rotation-2.png"></a></p>
+<h3 id="implementation_1">Implementation</h3>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateRight</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="c1">// (1)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="n">nums</span><span class="p">.</span><span class="na">reverse</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">nums</span><span class="p">.</span><span class="na">reverse</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">nums</span><span class="p">.</span><span class="na">reverse</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="n">IntArray</span><span class="p">.</span><span class="nf">reverse</span><span class="p">(</span><span class="n">start</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">[</span><span class="n">l</span><span class="o">]</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">this</span><span class="o">[</span><span class="n">l</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">[</span><span class="n">r</span><span class="o">]</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="k">this</span><span class="o">[</span><span class="n">r</span><span class="o">--]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Handling negative modulo. Since <code>-7 % 5 = -2</code>, i.e., modulo operation carries the sign, we need to pacify <code>k % n</code> by <code>k % n + n</code>. And to account for positive <code>k</code>, we do another <code>% n</code> just in case.</li>
+</ol>
+<h2 id="comparison">Comparison</h2>
+<p>By all accounts, juggling algorithm should be faster than the double reversal algorithm. After all, juggling algorithm is doing a single pass on the input whereas double reversal algorithm is doing 2x passes. However, double reversal has several points in its favour:</p>
+<dl>
+<dt><strong>Spatial Locality (The Cache Line Factor)</strong></dt>
+<dd>
+<p>Modern CPUs do not read memory one byte at a time; they read chunks called Cache Lines (typically 64 bytes). Since addresses <code>i</code>, <code>i+1</code>, <code>i+2</code>, ... are next to each other, the CPU loads a cache line once and uses every single byte in that chunk before needing to fetch from main RAM again. This is excellent Spatial Locality.</p>
+<p>Compare this to Juggling algorithm that is <strong>striding</strong> across indices, going from <code>i</code> to <code>i+k</code>. If <code>k</code> is large, CPU ends up fetching a whole cache line just to read a single integer and this causes frequent Cache Misses.</p>
+</dd>
+<dt><strong>Hardware prefetching</strong></dt>
+<dd>
+<p>With reversal algorithm, the pattern is incredibly simple (linear walk). The hardware prefetcher easily detects this and pulls data into the cache before your code even asks for it.</p>
+<p>Juggling algorithm's "jump by <code>k</code>" is much harder to predict.</p>
+</dd>
+<dt><strong>Translation Lookaside Buffer (TLB) Thrashing</strong></dt>
+<dd>
+<p>For very large arrays, the reversal algorithm stays within a specific page of memory for a long time. </p>
+<p>The Juggling algorithm, by jumping large distances may constantly jump between different memory pages.</p>
 </dd>
 </dl>
-<h2 id="the-correct-approach">The correct approach</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../2.svg" data-desc-position="bottom"><img alt="" src="../2.svg" width="500px"></a></p>
-<div class="grid">
-<p><strong>to left</strong></p>
-<p><strong>to right</strong></p>
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateLeft</span><span class="p">(</span><span class="n">list</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="m">1</span><span class="o">]</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">list</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backup</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
-</span></code></pre></div>
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">rotateRightq</span><span class="p">(</span><span class="n">list</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">backup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="m">1</span><span class="o">]</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="n">downTo</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="o">]</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="n">list</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backup</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
-</span></code></pre></div>
-<div>
-<p>First backup <span class="arithmatex">\(x_0 = a\)</span>.</p>
-<div class="arithmatex">\[
-\begin{align}
-&amp; \underline a \ \ \ \ \ \ b \ \ \ \ \ \ c \ \ \ \ \ \ d \\
-\end{align}
-\]</div>
-<p>Then starting from the backed up element, traverse left to right, overwriting the element by its right neighbour.</p>
-<div class="arithmatex">\[
-\begin{align}
-&amp; a \leftarrow b \ \ \ \ \ \ c \ \ \ \ \ \ d \\
-&amp; b \ \ \ \ \ \ b \leftarrow c \ \ \ \ \ \ d \\
-&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ c \leftarrow d \\
-&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ d \\
-\end{align}
-\]</div>
-<p>Then restored the backed up element <span class="arithmatex">\(x_{n-1} = \text{backup} = a\)</span>.</p>
-<div class="arithmatex">\[
-\begin{align}
-&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ \underline d \\
-&amp; b \ \ \ \ \ \ c \ \ \ \ \ \ d \ \ \ \ \ \ a
-\end{align}
-\]</div>
-</div>
-<div>
-<p>First backup <span class="arithmatex">\(x_{n-1} = d\)</span>.</p>
-<div class="arithmatex">\[
-\begin{align}
-&amp; a \ \ \ \ \ \ b \ \ \ \ \ \ c \ \ \ \ \ \ \underline d \\
-\end{align}
-\]</div>
-<p>Then starting from the backed up element, traverse right to left, overwriting the element by its left neighbour.</p>
-<div class="arithmatex">\[
-\begin{align}
-&amp; a \ \ \ \ \ \ b \ \ \ \ \ \ c \rightarrow d \\
-&amp; a \ \ \ \ \ \ b \rightarrow c \ \ \ \ \ \ c \\
-&amp; a \rightarrow b \ \ \ \ \ \ b \ \ \ \ \ \ c \\
-&amp; a  \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c \\
-\end{align}
-\]</div>
-<p>Then restored the backed up element <span class="arithmatex">\(x_0 = \text{backup} = d\)</span>.</p>
-<div class="arithmatex">\[
-\begin{align}
-&amp; \underline a  \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c \\
-&amp; d \ \ \ \ \ \ a \ \ \ \ \ \ b \ \ \ \ \ \ c
-\end{align}
-\]</div>
-</div>
-</div>
 
 
 

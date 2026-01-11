@@ -1,28 +1,6 @@
-# Rotation
+# Rotation by $\pm 1$ step
 
 Rotating an array in either direction sounds like a simple problem, but the challenges show up soon after you start to try and implement it. It's easy to miss out on crucial details if you jump to the solution and don't spend time understanding why we do what we do.
-
-## Rotation by $\pm1$ steps
-
-$$
-\fbox{a, b, c, d, e, f}
-$$
-
-=== "To left"
-
-	$$
-	a,\fbox{b, c, d, e, f}
-	$$
-
-	with $a$ going to the back.
-
-=== "To right"
-
-	$$
-	\fbox{a, b, c, d, e,}f
-	$$
-
-	with $f$ going to the front.
 
 ## The wrong approach
 
@@ -53,8 +31,6 @@ There are two key mistakes here:
   - **Propagating the element which itself was overwritten.**
 
 ## The correct approach
-
-![](2.svg){width=500px}
 
 <div markdown class="grid">
 

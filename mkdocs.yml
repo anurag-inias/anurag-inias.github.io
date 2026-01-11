@@ -139,8 +139,8 @@ nav:
           - Fisher-Yates Shuffle: "data-structures/array/fisher-yates-shuffle.md"
           - Reservoir Sampling: "data-structures/array/reservoir-sampling.md"
           - Rotation:
-              - Introduction: "data-structures/array/rotation/intro.md"
-          - Rotation: "data-structures/array/rotation.md"
+              - by ±1 step: "data-structures/array/rotation/1-step.md"
+              - by ±k step: "data-structures/array/rotation/k-steps.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
       - Heap: "data-structures/heap/index.md"

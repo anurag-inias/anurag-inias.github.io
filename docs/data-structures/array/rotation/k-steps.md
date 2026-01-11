@@ -1,11 +1,6 @@
-# Rotation
+# Rotation by $\pm k$ steps
 
-
-## Description
-
-Given an array $a$ of $n$ elements, we are asked to move array elements by $k$ steps to the right.
-
-## Rotation via juggling
+## Via juggling
 
 
 ### Explanation
@@ -141,7 +136,7 @@ For each group `i` we do the following:
 ### Implementation
 
 ```kotlin
-fun rotateRight(nums: IntArray, k: Int): IntArray {
+fun rotateLeft(nums: IntArray, k: Int): IntArray {
 	val n = nums.size
 	val k = (n + k % n) % n
 
@@ -171,7 +166,7 @@ fun gcd(a: Int, b: Int): Int {
 }
 ```
 
-## Rotation via reversal
+## Via reversal
 
 There is a much more straightforward way to achieve rotatation through reversing segments of the array. While previous approach takes just a single pass of the array, this one does two passes. Yet surprisingly, it ends up being way faster.
 
