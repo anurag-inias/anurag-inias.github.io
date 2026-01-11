@@ -141,6 +141,7 @@ nav:
           - Rotation:
               - by ±1 step: "data-structures/array/rotation/1-step.md"
               - by ±k step: "data-structures/array/rotation/k-steps.md"
+              - 2D array rotation: "data-structures/array/rotation/2d-array.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
       - Heap: "data-structures/heap/index.md"

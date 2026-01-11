@@ -28,7 +28,7 @@ Running this on $1, 2, 3, 4$ gives us $1, 1, 1, 1$ instead of $4, 1, 2, 3$.
 There are two key mistakes here:
 
 : - **Backing up the element which is anyway going to overwrite its neighbour.**
-  - **Propagating the element which itself was overwritten.**
+  - **Pushing out instead of pulling in. This propagates element that's already overwritten forward, corrupting all elements with the same value.**
 
 ## The correct approach
 
