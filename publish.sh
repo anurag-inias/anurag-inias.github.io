@@ -1,7 +1,7 @@
 #!/bin/bash
 
-uv run mkdocs build
+mkdocs build
 git add .
 git commit -m "publish"
 git push
-uv run mkdocs gh-deploy
+mkdocs gh-deploy
