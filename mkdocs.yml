@@ -240,6 +240,8 @@ nav:
       - NTFS mount: "ubuntu/ntfs-mount.md"
       - Transmission: "ubuntu/transmission.md"
       - Samba: "ubuntu/samba.md"
+      - NFS: "ubuntu/nfs.md"
+      - zshrc: "ubuntu/zshrc.md"
   - Snippets:
       - Android:
           - gradle: "snippets/android/gradle.md"
