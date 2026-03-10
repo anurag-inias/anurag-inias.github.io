@@ -200,8 +200,6 @@ nav:
   - Java:
       - Collections: "java/collections-framework.md"
       - Iterators: "java/iterators.md"
-  - Kotlin:
-      - Concurrency: "kt/concurrency.md"
   - Go:
       - Tour: "go/structure.md"
       - Constants: "go/constants.md"
@@ -212,13 +210,7 @@ nav:
           - Interfaces: "go/interfaces.md"
           - Functions: "go/functions.md"
       - Generics: "go/generics.md"
-  - Android:
-      - Activities: "android/activities.md"
-      - Tasks: "android/tasks.md"
-      - Fragments: "android/fragments.md"
-      - State Restoration: "android/state-restoration.md"
-      - ViewModel: "android/viewmodel.md"
-      - Animations: "android/animation-transition.md"
+  - <a href="/android" target="_blank">Android ↗</a>: "Android"
   - Javascript:
       - Objects:
           - Basics: "js/objects/basics.md"
