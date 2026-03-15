@@ -176,9 +176,9 @@ nav:
               - Introduction: "data-structures/graph/minimum-spanning-tree/intro.md"
               - Kruskal's Algorithm: "data-structures/graph/minimum-spanning-tree/kruskal.md"
               - Prim's Algorithm: "data-structures/graph/minimum-spanning-tree/prim.md"
-  - <a href="/cip" target="_blank">CIP ↗</a>: "cip"
-  - <a href="/problems" target="_blank">Problems ↗</a>: "problems"
-  - <a href="/epi" target="_blank">EPI ↗</a>: "epi"
+  - <a href="/cip">CIP ↗</a>: "cip"
+  - <a href="/problems">Problems ↗</a>: "problems"
+  - <a href="/epi">EPI ↗</a>: "epi"
   - <a href="/techniques">Techniques ↗</a>: "techniques"
   - Labs:
       - Tree Printer: "labs/tree-printer.md"
@@ -203,7 +203,7 @@ nav:
           - Interfaces: "go/interfaces.md"
           - Functions: "go/functions.md"
       - Generics: "go/generics.md"
-  - <a href="/android" target="_blank">Android ↗</a>: "Android"
+  - <a href="/android">Android ↗</a>: "Android"
   - Javascript:
       - Objects:
           - Basics: "js/objects/basics.md"
