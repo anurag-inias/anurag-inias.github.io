@@ -146,7 +146,8 @@ nav:
           - Basics: "data-structures/stack/basics.md"
           - Problems:
             - Foundations:
-              - Valid Parentheses: "data-structures/stack/01.md"
+              - Valid Parentheses: "data-structures/stack/0001.md"
+              - Implement Queue using Stacks: "data-structures/stack/0002.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
