@@ -6,7 +6,7 @@ theme:
   favicon: assets/fatigue-dark.svg
   font:
     text: "Besley Medium"
-    code: "Mullet"
+    code: "Google Sans Code Medium"
   features:
     - content.code.copy
     - content.code.annotate
@@ -148,6 +148,7 @@ nav:
             - Foundations:
               - Valid Parentheses: "data-structures/stack/0001.md"
               - Implement Queue using Stacks: "data-structures/stack/0002.md"
+              - Implement Stack using Queues: "data-structures/stack/0003.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
