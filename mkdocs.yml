@@ -144,6 +144,9 @@ nav:
               - 2D array rotation: "data-structures/array/rotation/2d-array.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
+          - Problems:
+            - Foundations:
+              - Valid Parentheses: "data-structures/stack/01.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
