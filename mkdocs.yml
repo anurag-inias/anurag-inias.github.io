@@ -150,6 +150,7 @@ nav:
               - Implement Queue using Stacks: "data-structures/stack/0002.md"
               - Implement Stack using Queues: "data-structures/stack/0003.md"
               - Min Stack: "data-structures/stack/0004.md"
+              - Max Stack: "data-structures/stack/0005.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
