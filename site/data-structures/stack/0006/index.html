@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://listless.dev/maths/combinatorics/sets/">
+        <link rel="canonical" href="https://listless.dev/data-structures/stack/0006/">
       
       
-        <link rel="prev" href="../../algebra/modulo/">
+        <link rel="prev" href="../0005/">
       
       
-        <link rel="next" href="../p-and-c/">
+        <link rel="next" href="../../heap/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Sets - listless 💤</title>
+        <title>Remove Outermost Parentheses - listless 💤</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sets" class="md-skip">
+        <a href="#1021-remove-outermost-parentheses" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sets
+              Remove Outermost Parentheses
             
           </span>
         </div>
@@ -451,20 +451,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -485,7 +483,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -550,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algebra/numbers/" class="md-nav__link">
+      <a href="../../../maths/algebra/numbers/" class="md-nav__link">
         
   
   
@@ -578,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algebra/sqrt-2-irrational/" class="md-nav__link">
+      <a href="../../../maths/algebra/sqrt-2-irrational/" class="md-nav__link">
         
   
   
@@ -606,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algebra/arithmetic-laws/" class="md-nav__link">
+      <a href="../../../maths/algebra/arithmetic-laws/" class="md-nav__link">
         
   
   
@@ -634,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
+      <a href="../../../maths/algebra/exponent-and-logarithmic-identities/" class="md-nav__link">
         
   
   
@@ -662,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algebra/base-change/" class="md-nav__link">
+      <a href="../../../maths/algebra/base-change/" class="md-nav__link">
         
   
   
@@ -690,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algebra/expressions/" class="md-nav__link">
+      <a href="../../../maths/algebra/expressions/" class="md-nav__link">
         
   
   
@@ -718,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algebra/modulo/" class="md-nav__link">
+      <a href="../../../maths/algebra/modulo/" class="md-nav__link">
         
   
   
@@ -751,20 +749,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -785,7 +781,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -800,37 +796,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sets
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../maths/combinatorics/sets/" class="md-nav__link">
         
   
   
@@ -846,115 +815,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#union" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Union
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#intersection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Intersection
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#difference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Difference
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Difference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#complement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complement
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#propeties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Propeties
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inclusionexclusion-principle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inclusion–exclusion principle
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -967,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../p-and-c/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/p-and-c/" class="md-nav__link">
         
   
   
@@ -995,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../probability/" class="md-nav__link">
+      <a href="../../../maths/combinatorics/probability/" class="md-nav__link">
         
   
   
@@ -1031,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../series/" class="md-nav__link">
+      <a href="../../../maths/series/" class="md-nav__link">
         
   
   
@@ -1106,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../calculus/functions/" class="md-nav__link">
+      <a href="../../../maths/calculus/functions/" class="md-nav__link">
         
   
   
@@ -2118,18 +1978,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -2150,7 +2012,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2215,7 +2077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/numbers/representation/" class="md-nav__link">
+      <a href="../../numbers/representation/" class="md-nav__link">
         
   
   
@@ -2243,7 +2105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/numbers/bit-tricks/" class="md-nav__link">
+      <a href="../../numbers/bit-tricks/" class="md-nav__link">
         
   
   
@@ -2271,7 +2133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/numbers/addition/" class="md-nav__link">
+      <a href="../../numbers/addition/" class="md-nav__link">
         
   
   
@@ -2354,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/linked-list/singly-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/singly-linked-list/" class="md-nav__link">
         
   
   
@@ -2382,7 +2244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/linked-list/doubly-linked-list/" class="md-nav__link">
+      <a href="../../linked-list/doubly-linked-list/" class="md-nav__link">
         
   
   
@@ -2410,7 +2272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/linked-list/patterns/" class="md-nav__link">
+      <a href="../../linked-list/patterns/" class="md-nav__link">
         
   
   
@@ -2493,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/array/fisher-yates-shuffle/" class="md-nav__link">
+      <a href="../../array/fisher-yates-shuffle/" class="md-nav__link">
         
   
   
@@ -2521,7 +2383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/array/reservoir-sampling/" class="md-nav__link">
+      <a href="../../array/reservoir-sampling/" class="md-nav__link">
         
   
   
@@ -2596,7 +2458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/array/rotation/1-step/" class="md-nav__link">
+      <a href="../../array/rotation/1-step/" class="md-nav__link">
         
   
   
@@ -2624,7 +2486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/array/rotation/k-steps/" class="md-nav__link">
+      <a href="../../array/rotation/k-steps/" class="md-nav__link">
         
   
   
@@ -2652,7 +2514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/array/rotation/2d-array/" class="md-nav__link">
+      <a href="../../array/rotation/2d-array/" class="md-nav__link">
         
   
   
@@ -2693,18 +2555,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -2725,7 +2589,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2743,7 +2607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/stack/basics/" class="md-nav__link">
+      <a href="../basics/" class="md-nav__link">
         
   
   
@@ -2768,18 +2632,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_2" id="__nav_5_4_2_label" tabindex="0">
@@ -2800,7 +2666,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2815,18 +2681,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_2_1" id="__nav_5_4_2_1_label" tabindex="0">
@@ -2847,7 +2715,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2865,7 +2733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/stack/0001/" class="md-nav__link">
+      <a href="../0001/" class="md-nav__link">
         
   
   
@@ -2893,7 +2761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/stack/0002/" class="md-nav__link">
+      <a href="../0002/" class="md-nav__link">
         
   
   
@@ -2921,7 +2789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/stack/0003/" class="md-nav__link">
+      <a href="../0003/" class="md-nav__link">
         
   
   
@@ -2949,7 +2817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/stack/0004/" class="md-nav__link">
+      <a href="../0004/" class="md-nav__link">
         
   
   
@@ -2977,7 +2845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/stack/0005/" class="md-nav__link">
+      <a href="../0005/" class="md-nav__link">
         
   
   
@@ -3002,10 +2870,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../data-structures/stack/0006/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remove Outermost Parentheses
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3021,6 +2916,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3057,7 +3005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/heap/" class="md-nav__link">
+      <a href="../../heap/" class="md-nav__link">
         
   
   
@@ -3085,7 +3033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/disjoint-set/" class="md-nav__link">
+      <a href="../../disjoint-set/" class="md-nav__link">
         
   
   
@@ -3113,7 +3061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/circular-list/" class="md-nav__link">
+      <a href="../../circular-list/" class="md-nav__link">
         
   
   
@@ -3282,7 +3230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/tree/traversal/inorder-tree-traversal/" class="md-nav__link">
+      <a href="../../tree/traversal/inorder-tree-traversal/" class="md-nav__link">
         
   
   
@@ -3310,7 +3258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/tree/traversal/preorder-tree-traversal/" class="md-nav__link">
+      <a href="../../tree/traversal/preorder-tree-traversal/" class="md-nav__link">
         
   
   
@@ -3338,7 +3286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/tree/traversal/postorder-tree-traversal/" class="md-nav__link">
+      <a href="../../tree/traversal/postorder-tree-traversal/" class="md-nav__link">
         
   
   
@@ -3374,7 +3322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/tree/traversal/level-traversal/" class="md-nav__link">
+      <a href="../../tree/traversal/level-traversal/" class="md-nav__link">
         
   
   
@@ -3465,7 +3413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/trie/intro/" class="md-nav__link">
+      <a href="../../trie/intro/" class="md-nav__link">
         
   
   
@@ -3493,7 +3441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/trie/basic-trie/" class="md-nav__link">
+      <a href="../../trie/basic-trie/" class="md-nav__link">
         
   
   
@@ -3521,7 +3469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/trie/compressed-trie/" class="md-nav__link">
+      <a href="../../trie/compressed-trie/" class="md-nav__link">
         
   
   
@@ -3604,7 +3552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/intro/" class="md-nav__link">
+      <a href="../../graph/intro/" class="md-nav__link">
         
   
   
@@ -3679,7 +3627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/traversal/generic-search/" class="md-nav__link">
+      <a href="../../graph/traversal/generic-search/" class="md-nav__link">
         
   
   
@@ -3707,7 +3655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/traversal/bfs/" class="md-nav__link">
+      <a href="../../graph/traversal/bfs/" class="md-nav__link">
         
   
   
@@ -3735,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/traversal/dfs/" class="md-nav__link">
+      <a href="../../graph/traversal/dfs/" class="md-nav__link">
         
   
   
@@ -3771,7 +3719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/topological-sort/" class="md-nav__link">
+      <a href="../../graph/topological-sort/" class="md-nav__link">
         
   
   
@@ -3846,7 +3794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/single-source-shortest-paths/intro/" class="md-nav__link">
+      <a href="../../graph/single-source-shortest-paths/intro/" class="md-nav__link">
         
   
   
@@ -3874,7 +3822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
+      <a href="../../graph/single-source-shortest-paths/bellman-ford/" class="md-nav__link">
         
   
   
@@ -3902,7 +3850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
+      <a href="../../graph/single-source-shortest-paths/dijkstra/" class="md-nav__link">
         
   
   
@@ -3930,7 +3878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/single-source-shortest-paths/dag/" class="md-nav__link">
+      <a href="../../graph/single-source-shortest-paths/dag/" class="md-nav__link">
         
   
   
@@ -4013,7 +3961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
+      <a href="../../graph/all-pairs-shortest-paths/floyd-warshall/" class="md-nav__link">
         
   
   
@@ -4096,7 +4044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/minimum-spanning-tree/intro/" class="md-nav__link">
+      <a href="../../graph/minimum-spanning-tree/intro/" class="md-nav__link">
         
   
   
@@ -4124,7 +4072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
+      <a href="../../graph/minimum-spanning-tree/kruskal/" class="md-nav__link">
         
   
   
@@ -4152,7 +4100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-structures/graph/minimum-spanning-tree/prim/" class="md-nav__link">
+      <a href="../../graph/minimum-spanning-tree/prim/" class="md-nav__link">
         
   
   
@@ -6264,77 +6212,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#operations" class="md-nav__link">
+  <a href="#description" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Operations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#union" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Union
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#intersection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Intersection
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#difference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Difference
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Difference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#complement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complement
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#propeties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Propeties
+        Description
       
     </span>
   </a>
@@ -6342,10 +6223,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inclusionexclusion-principle" class="md-nav__link">
+  <a href="#stub" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inclusion–exclusion principle
+        Stub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
       
     </span>
   </a>
@@ -6369,118 +6261,63 @@
 
 
 
-<h1 id="sets">Sets</h1>
-<style>
-.md-logo img {
-  content: url('/maths/maths-light.svg');
-}
-
-:root [data-md-color-scheme=slate] .md-logo img  {
-  content: url('/maths/maths-night.svg');
-}
-</style>
-
-<h2 id="operations">Operations</h2>
-<h3 id="union">Union</h3>
-<div class="grid">
-<div>
-<p>Given set <span class="arithmatex">\(A\)</span> and set <span class="arithmatex">\(B\)</span>, the union of the two is <span class="arithmatex">\(A \cup B\)</span>.</p>
-<div class="arithmatex">\[
-A \cup B = \lbrace x \in A \text{ or } x \in B\rbrace
-\]</div>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-union.png" data-desc-position="bottom"><img alt="" src="../set-union.png" width="200"></a></p>
-</div>
-<h3 id="intersection">Intersection</h3>
-<div class="grid">
-<div>
-<p>Given set <span class="arithmatex">\(A\)</span> and set <span class="arithmatex">\(B\)</span>, the intersection of the two is <span class="arithmatex">\(A \cap B\)</span>.</p>
-<div class="arithmatex">\[
-A \cap B = \lbrace x \in A \text{ and } x \in B\rbrace
-\]</div>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-intersection.png" data-desc-position="bottom"><img alt="" src="../set-intersection.png" width="200"></a></p>
-</div>
-<h2 id="difference">Difference</h2>
-<div class="grid">
-<div>
-<p>Given set <span class="arithmatex">\(A\)</span> and set <span class="arithmatex">\(B\)</span>, the difference of the two is <span class="arithmatex">\(A - B\)</span>.</p>
-<div class="arithmatex">\[
-A - B = \lbrace x \in A \text{ and } \not \in B\rbrace
-\]</div>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-difference-light.png#only-light" data-desc-position="bottom"><img alt="" src="../set-difference-light.png#only-light" width="200"></a>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-difference-night.png#only-dark" data-desc-position="bottom"><img alt="" src="../set-difference-night.png#only-dark" width="200"></a></p>
-</div>
-<h3 id="complement">Complement</h3>
-<div class="grid">
-<div>
-<p>Given set <span class="arithmatex">\(A\)</span> which is a subset of the universal set <span class="arithmatex">\(U\)</span>, the complement of <span class="arithmatex">\(A\)</span> is <span class="arithmatex">\(\overline A\)</span>.</p>
-<div class="arithmatex">\[
-\begin{alignat}{1}
-\overline A &amp; = \lbrace x \in U \text{ and } x \not \in A\rbrace \\
-&amp; = U - A
-\end{alignat}
-\]</div>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-complement-light.png#only-light" data-desc-position="bottom"><img alt="" src="../set-complement-light.png#only-light" width="200"></a>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-complement-night.png#only-dark" data-desc-position="bottom"><img alt="" src="../set-complement-night.png#only-dark" width="200"></a></p>
-</div>
-<h2 id="propeties">Propeties</h2>
-<div class="arithmatex">\[
-\begin{alignat}{1}
-\text{ commutative }A \cup B &amp;= B \cup A\\
-A \cap B &amp;= B \cap A \\
-\\
-\text{ associative }(A \cup B) \cup C &amp;= A \cup (B \cup C) \\
-(A \cap B) \cap C &amp;= A \cap (B \cap C) \\
-\\
-\text{ identity }A \cup \phi &amp;= A \\
-A \cap \phi &amp;= \phi \\
-\\
-\text{ idempotent }A \cup A &amp;= A \\
-A \cap A &amp;= A \\
-\\
-A \cup U &amp;= U \\
-A \cap U &amp;= A \\
-\\
-\text{ distributive }A \cup (B \cap C) &amp;= (A \cup B) \cap (A \cup C) \\
-A \cap (B \cup C) &amp;= (A \cap B) \cup (A \cap C) \\
-\\
-A \cup \overline A &amp;= U \\
-A \cap \overline A &amp;= \phi \\
-\overline{ (\overline A) } &amp;= A \\
-\\
-\overline \phi &amp;= U \\
-\overline U &amp;= \phi \\
-\\
-\overline{ A \cup B } &amp;= \overline A \cap \overline B \\
-\overline{ A \cap B } &amp;= \overline A \cup \overline B \\
-\\
-|A - B| &amp;= |A| - |A \cap B| \\
-\Rightarrow |A \cap B| &amp;= |A| - |A - B| \\
-\Rightarrow |A| &amp;= |A \cap B| + |A - B|
-\end{alignat}
-\]</div>
-<h2 id="inclusionexclusion-principle">Inclusion–exclusion principle</h2>
-<div class="grid">
-<div>
-<div class="arithmatex">\[
-\begin{alignat}{1}
-|A \cup B| &amp;= |A-B| + |B-A| + |A \cap B| \\
-&amp;= \hspace{1em} |A| - |A \cap B| \\ &amp; \hspace{1em} + |B| - |A \cap B| \\ &amp; \hspace{3.5em} + |A \cap B| \\
-&amp;= |A| + |B| - |A \cap B|
-\end{alignat}
-\]</div>
-</div>
-<div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-size-ab-light.png#only-light" data-desc-position="bottom"><img alt="" src="../set-size-ab-light.png#only-light"></a>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../set-size-ab-night.png#only-dark" data-desc-position="bottom"><img alt="" src="../set-size-ab-night.png#only-dark"></a></p>
-</div>
-</div>
-<div class="arithmatex">\[
-|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |B \cap C| - |C \cap A| + |A \cap B \cap C|
-\]</div>
+<h1 id="1021-remove-outermost-parentheses"><a href="https://leetcode.com/problems/remove-outermost-parentheses/description/">1021. Remove Outermost Parentheses</a></h1>
+<h2 id="description">Description</h2>
+<p>A valid parentheses string is either empty <code>""</code>, <code>"(" + A + ")"</code>, or <code>A + B</code>, where <code>A</code> and <code>B</code> are valid parentheses strings, and <code>+</code> represents string concatenation.</p>
+<p>For example, <code>""</code>, <code>"()"</code>, <code>"(())()"</code>, and <code>"(()(()))"</code> are all valid parentheses strings.
+A valid parentheses string <span class="arithmatex">\(s\)</span> is primitive if it is nonempty, and there does not exist a way to split it into <code>s = A + B</code>, with <code>A</code> and <code>B</code> nonempty valid parentheses strings.</p>
+<p>Given a valid parentheses string <span class="arithmatex">\(s\)</span>, consider its primitive decomposition: <span class="arithmatex">\(s = P_1 + P_2 + \dots + P_k\)</span>, where <span class="arithmatex">\(P_i\)</span> are primitive valid parentheses strings.</p>
+<p>Return s after removing the outermost parentheses of every primitive string in the primitive decomposition of <span class="arithmatex">\(s\)</span>.</p>
+<h2 id="stub">Stub</h2>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">removeOuterParentheses</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="c1">// Fill here</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="solution">Solution</h2>
+<details>
+<summary>Expand</summary>
+<p>Think in terms of <strong>depth</strong>.</p>
+<ul>
+<li>Encountering a <code>(</code> increases our depth.</li>
+<li>Encountering a <code>)</code> decreases our depth.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">removeOuterParentheses</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            <span class="c1"># If stack has items, it's an inner parenthesis</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">')'</span><span class="p">:</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>            <span class="c1"># Pop the matching open parenthesis</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>            <span class="c1"># If stack still has items, it's an inner parenthesis</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Since we don't actually care about the actual depth of the stack, just that <span class="arithmatex">\(depth \ge 1\)</span>, we can replace the whole stack with just the <code>depth</code> counter.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">removeOuterParentheses</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">()</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'('</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">depth</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="n">depth</span><span class="o">++</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ')'</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="n">depth</span><span class="o">--</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">depth</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
 
 
 
