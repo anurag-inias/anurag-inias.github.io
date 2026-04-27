@@ -152,6 +152,8 @@ nav:
               - Min Stack: "data-structures/stack/0004.md"
               - Max Stack: "data-structures/stack/0005.md"
               - Remove Outermost Parentheses: "data-structures/stack/0006.md"
+            - Monotonic Stack:
+              - Next Greater Element: "data-structures/stack/0007.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
