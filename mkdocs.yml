@@ -154,6 +154,7 @@ nav:
               - Remove Outermost Parentheses: "data-structures/stack/0006.md"
             - Monotonic Stack:
               - Next Greater Element: "data-structures/stack/0007.md"
+              - Next Greater Element in circular array: "data-structures/stack/0008.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
