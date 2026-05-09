@@ -147,16 +147,17 @@ nav:
           - Problems:
             - Foundations:
               - Valid Parentheses: "data-structures/stack/0001.md"
-              - Implement Queue using Stacks: "data-structures/stack/0002.md"
+              - Implement Queue using Stacks ✴: "data-structures/stack/0002.md"
               - Implement Stack using Queues: "data-structures/stack/0003.md"
-              - Min Stack: "data-structures/stack/0004.md"
+              - Min Stack ✴: "data-structures/stack/0004.md"
               - Max Stack: "data-structures/stack/0005.md"
               - Remove Outermost Parentheses: "data-structures/stack/0006.md"
             - Monotonic Stack:
               - Next Greater Element: "data-structures/stack/0007.md"
-              - Next Greater Element in circular array: "data-structures/stack/0008.md"
+              - Next Greater Element in circular array ✴: "data-structures/stack/0008.md"
               - Daily Temperatures: "data-structures/stack/0009.md"
               - Final Prices With a Special Discount in a Shop: "data-structures/stack/0010.md"
+              - Online Stock Span ✴: "data-structures/stack/0011.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
