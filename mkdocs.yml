@@ -156,6 +156,7 @@ nav:
               - Next Greater Element: "data-structures/stack/0007.md"
               - Next Greater Element in circular array: "data-structures/stack/0008.md"
               - Daily Temperatures: "data-structures/stack/0009.md"
+              - Final Prices With a Special Discount in a Shop: "data-structures/stack/0010.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
