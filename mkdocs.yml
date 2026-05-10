@@ -144,12 +144,13 @@ nav:
               - 2D array rotation: "data-structures/array/rotation/2d-array.md"
       - Stack:
           - Basics: "data-structures/stack/basics.md"
+          - Min/Max Stack: "data-structures/stack/min-max-stack.md"
           - Problems:
             - Foundations:
               - Valid Parentheses: "data-structures/stack/0001.md"
               - Implement Queue using Stacks ✴: "data-structures/stack/0002.md"
               - Implement Stack using Queues: "data-structures/stack/0003.md"
-              - Min Stack ✴: "data-structures/stack/0004.md"
+              - Min Stack: "data-structures/stack/0004.md"
               - Max Stack: "data-structures/stack/0005.md"
               - Remove Outermost Parentheses: "data-structures/stack/0006.md"
             - Monotonic Stack:
