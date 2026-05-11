@@ -195,7 +195,16 @@ nav:
   - <a href="/cip">CIP ↗</a>: "cip"
   - <a href="/problems">Problems ↗</a>: "problems"
   - <a href="/epi">EPI ↗</a>: "epi"
-  - <a href="/techniques">Techniques ↗</a>: "techniques"
+  - Techniques:
+      - Pack two integers in one: "techniques/001-pack-two-integers-in-one.md"
+      - Prefix/Suffix arrays: "techniques/002-prefix-suffix-arrays.md"
+      - Converging pointers: "techniques/003-converging-pointers.md"
+      - Seen map: "techniques/004-seen-map.md"
+      - Sliding window: "techniques/005-sliding-window.md"
+      - Fixed size heap: "techniques/006-fixed-size-heap.md"
+      - Powerset: "techniques/007-powerset.md"
+      - Skipping cursor: "techniques/008-skipping-cursor.md"
+      - Monotonic stack: "techniques/009-monotonic-stack.md"
   - Labs:
       - Tree Printer: "labs/tree-printer.md"
       - Tree Printer v2: "labs/tree-printer-2.md"
