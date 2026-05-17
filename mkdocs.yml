@@ -160,6 +160,7 @@ nav:
               - Final Prices With a Special Discount in a Shop: "data-structures/stack/0010.md"
               - Online Stock Span ✴: "data-structures/stack/0011.md"
               - Sum of Subarray Minimums ✴: "data-structures/stack/0012.md"
+              - Maximum Width Ramp ✴: "data-structures/stack/0013.md"
       - Heap: "data-structures/heap/index.md"
       - Disjoint Set: "data-structures/disjoint-set/index.md"
       - Circular list: "data-structures/circular-list.md"
